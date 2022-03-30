@@ -1,5 +1,10 @@
-import { Tooltip } from 'antd'
 import Head from 'next/head'
+import Banner from '../components/Home/Banner'
+import Feature from '../components/Home/Feature'
+import HowItWorks from '../components/Home/HowItWorks'
+import Footer from '../components/Shared/Footer'
+import Header from '../components/Shared/Header'
+import Topseller from '../components/Shared/Topseller'
 
 export default function Home() {
   return (
@@ -11,14 +16,19 @@ export default function Home() {
       </Head>
 
       <main>
-        <div className='text-red-500'>
-          <Tooltip title="Hello">
-            <div className='bg-red-800'>hello</div>
-          </Tooltip>
+        <div>
+          <Header />
+        </div>
+        <div>
+          <Banner />
+          <Feature />
+          <Topseller />
+          <HowItWorks />
         </div>
       </main>
 
       <footer>
+        <Footer />
       </footer>
     </div>
   )
