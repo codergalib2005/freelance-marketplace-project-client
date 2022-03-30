@@ -12,7 +12,7 @@ export default function Home() {
 
       <main>
         <div className='text-red-500'>
-          <Tooltip>
+          <Tooltip title="Hello">
             <div className='bg-red-800'>hello</div>
           </Tooltip>
         </div>
