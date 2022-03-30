@@ -21,6 +21,8 @@ export default function Home() {
         </div>
         <div>
           <Banner />
+        </div>
+        <div>
           <Feature />
           <Topseller />
           <HowItWorks />
