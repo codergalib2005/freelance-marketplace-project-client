@@ -9,7 +9,7 @@
 }
 
 .footer_main_container {
-  padding: 200px 0 10px 0;
+  padding: 200px 10px 10px 10px;
   background-color: #54392a9e;
 }
 
@@ -27,7 +27,8 @@
 @media only screen and (max-width: 768px) {
   .footer {
     position: relative;
-    background-image: url(https://i.ibb.co/8Bk37yK/img-05.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+      url(https://i.ibb.co/8Bk37yK/img-05.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
