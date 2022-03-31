@@ -5,6 +5,8 @@ import HowItWorks from "../components/Home/HowItWorks";
 import Footer from "../components/Shared/Footer";
 import Header from "../components/Shared/Header";
 import Topseller from "../components/Shared/Topseller";
+// import "~slick-carousel/slick/slick.css";
+// import "~slick-carousel/slick/slick-theme.css";
 
 export default function Home() {
   return (
