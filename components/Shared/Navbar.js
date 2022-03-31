@@ -44,7 +44,7 @@ const Navbar = () => {
                   <Link href="/"> Explore </Link>
                 </li>
                 <li className=" py-4 px-6 mr-8">
-                  <Link href="/"> Become a Seller </Link>
+                  <Link href="/"> Become asdasdasdasa Seller </Link>
                 </li>
               </ul>
             </div>
