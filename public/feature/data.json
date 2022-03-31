@@ -1,0 +1,16 @@
+[
+  { "id": 1, "img": "https://i.ibb.co/nn8BXgJ/web.png", "title": "web design" },
+  { "id": 2, "img": "https://i.ibb.co/nn8BXgJ/web.png", "title": "web design" },
+  { "id": 3, "img": "https://i.ibb.co/nn8BXgJ/web.png", "title": "app design" },
+  {
+    "id": 4,
+    "img": "https://i.ibb.co/nn8BXgJ/web.png",
+    "title": "web development"
+  },
+  {
+    "id": 5,
+    "img": "https://i.ibb.co/nn8BXgJ/web.png",
+    "title": "digital marketing"
+  },
+  { "id": 6, "img": "https://i.ibb.co/nn8BXgJ/web.png", "title": "seo" }
+]
