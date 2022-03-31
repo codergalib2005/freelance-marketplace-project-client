@@ -1,10 +1,10 @@
-import Head from 'next/head'
-import Banner from '../components/Home/Banner'
-import Feature from '../components/Home/Feature'
-import HowItWorks from '../components/Home/HowItWorks'
-import Footer from '../components/Shared/Footer'
-import Header from '../components/Shared/Header'
-import Topseller from '../components/Shared/Topseller'
+import Head from "next/head";
+import Banner from "../components/Home/Banner";
+import Feature from "../components/Home/Feature";
+import HowItWorks from "../components/Home/HowItWorks";
+import Footer from "../components/Shared/Footer";
+import Header from "../components/Shared/Header";
+import Topseller from "../components/Shared/Topseller";
 
 export default function Home() {
   return (
@@ -33,5 +33,5 @@ export default function Home() {
         <Footer />
       </footer>
     </div>
-  )
+  );
 }

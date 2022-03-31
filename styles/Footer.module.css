@@ -1,0 +1,49 @@
+.footer {
+  position: relative;
+  background-image: url(https://i.ibb.co/8Bk37yK/img-05.jpg);
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  background-repeat: no-repeat;
+  margin-right: 40px;
+}
+
+.footer_main_container {
+  padding: 200px 0 10px 0;
+  background-color: #54392a9e;
+}
+
+.footer_main {
+  position: relative;
+  margin-top: 100px;
+}
+.footer_main .shape {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+@media only screen and (max-width: 768px) {
+  .footer {
+    position: relative;
+    background-image: url(https://i.ibb.co/8Bk37yK/img-05.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100%;
+    margin-right: 0;
+    z-index: -1;
+  }
+  .footer_main {
+    position: relative;
+    margin-top: 60px;
+  }
+  .footer_main .shape {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+}
