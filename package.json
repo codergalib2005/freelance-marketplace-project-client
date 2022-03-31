@@ -9,7 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ionic/core": "^6.0.14",
     "antd": "^4.19.3",
+    "ionicons": "^6.0.1",
     "next": "12.1.2",
     "react": "18.0.0",
     "react-dom": "18.0.0"

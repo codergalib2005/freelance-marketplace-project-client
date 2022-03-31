@@ -4,6 +4,7 @@ import Feature from '../components/Home/Feature'
 import HowItWorks from '../components/Home/HowItWorks'
 import Footer from '../components/Shared/Footer'
 import Header from '../components/Shared/Header'
+import Navbar from '../components/Shared/Navbar'
 import Topseller from '../components/Shared/Topseller'
 
 export default function Home() {
@@ -16,6 +17,7 @@ export default function Home() {
       </Head>
 
       <main>
+        <Navbar/>
         <div>
           <Header />
         </div>
