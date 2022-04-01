@@ -23,7 +23,7 @@ const HowItWorks = () => {
               className="site-collapse-custom-collapse"
             >
               <Panel header="Complete Profile" key="1" className="site-collapse-custom-panel">
-                <p> Lorem20      </p>
+                <p> Lorem20    </p>
               </Panel>
               <Panel header="Search Vacancies" key="2" className="site-collapse-custom-panel">
                 <p>  Lorem20</p>
