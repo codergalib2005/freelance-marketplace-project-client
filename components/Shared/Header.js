@@ -1,7 +1,13 @@
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
 
 const Header = () => {
+  useEffect(() => {
+    window.addEventListener("scroll", OnScrollHeader)
+  }, [])
+  const OnScrollHeader = e => {
+    console.log(e.timeStamp)
+  }
   return (
     <div style={{ zIndex: "1000" }} className="fixed top-0 left-0 w-full">
       <nav

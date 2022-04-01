@@ -1,4 +1,5 @@
 import Head from "next/head";
+import React from 'react';
 import Banner from "../components/Home/Banner";
 import Feature from "../components/Home/Feature";
 import HomeServicesSlider from "../components/Home/HomeServicesSlider";
@@ -36,6 +37,6 @@ export default function Home() {
         </footer>
       </div>
     </AuthProvider>
-   
+
   );
 }
