@@ -1,0 +1,59 @@
+.single_user_profile_section .profile_about .box_list_ul {
+  padding-left: 20px;
+  position: relative;
+}
+.single_user_profile_section .profile_about .box_list_ul::after {
+  content: "";
+  position: absolute;
+  top: 22px;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: #3981c093;
+  /* background: ; */
+}
+.single_user_profile_section .profile_about .box_list_ul .box_list_li {
+  position: relative;
+}
+.single_user_profile_section .profile_about .box_list_ul .box_list_li::after {
+  content: "";
+  position: absolute;
+  left: -30px;
+  top: 16px;
+  width: 20px;
+  height: 20px;
+  background: #3980c0;
+  border: 3px solid #01315b;
+  border-radius: 50%;
+}
+
+.html_parser_in_profile_about h1 {
+  font-size: 1.4rem;
+}
+.html_parser_in_profile_about h2 {
+  font-size: 1.3rem;
+}
+.html_parser_in_profile_about h3 {
+  font-size: 1.2rem;
+}
+.html_parser_in_profile_about h4 {
+  font-size: 1.1rem;
+}
+.html_parser_in_profile_about h5 {
+  font-size: 1rem;
+}
+.html_parser_in_profile_about h6 {
+  font-size: 0.8rem;
+}
+.html_parser_in_profile_about p {
+  font-size: 1rem;
+}
+.html_parser_in_profile_about strong,
+.html_parser_in_profile_about span,
+.html_parser_in_profile_about i {
+  font-size: 0.6rem;
+}
+.html_parser_in_profile_about li,
+.html_parser_in_profile_about ul {
+  list-style: circle;
+}

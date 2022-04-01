@@ -3,8 +3,8 @@ import React from "react";
 
 const Header = () => {
   return (
-    <div>
-      <nav className="fixed top-0 left-0 bg-indigo-400  w-full shadow">
+    <div style={{ zIndex: "1000", }} className="fixed top-0 left-0 w-full">
+      <nav className=" bg-indigo-400  w-full shadow">
         <div className="container mx-auto flex justify-between items-center text-gray-700">
           <div>
             {/* eslint-disable-next-line @next/next/no-img-element */}
