@@ -30,7 +30,7 @@ const HowItWorks = () => {
                   <p>  Lorem if some 20</p>
                 </Panel>
                 <Panel header="Apply Job" key="3" className="site-collapse-custom-panel">
-                  <p> lorem if  30 </p>
+                  <p> lorem if some  30 </p>
                 </Panel>
               </Collapse>
 
