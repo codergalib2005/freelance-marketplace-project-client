@@ -70,7 +70,7 @@ const HomeServicesSlider = () => {
           <div className={styles.img_main_slider}>
             <img style={{ display: "inline-block", margin: "30px 0", width: "95%" }} src="https://i.ibb.co/kJjrpVh/wordpress-2x.png" alt="" />
             <div className={styles.img_slider}>
-              <h2 className="text-2xl text-green-600">WordPress</h2>
+              <h2 className="text-2xl text-green-600">WordPress Theme</h2>
               <p className="text-xl">Customize your site</p>
             </div>
           </div>
