@@ -1,14 +1,6 @@
-// import { Header } from "antd/lib/layout/layout";
 import React from "react";
 import Footer from "../../components/Shared/Footer";
 import Header from "../../components/Shared/Header";
-// import { Fragment } from "react";
-// import { Menu, Transition } from "@headlessui/react";
-// import { ChevronDownIcon } from "@heroicons/react/solid";
-
-// function classNames(...classes) {
-//   return classes.filter(Boolean).join(" ");
-// }
 
 const GigCreation = () => {
   return (
@@ -152,9 +144,9 @@ const GigCreation = () => {
           </div>
           <div className="mt-12">
             {" "}
-            <div className="w-6/12  mb-3">
+            <div className="w-full md:w-6/12 lg:w-6/12   mb-3">
               <h2 className="text-3xl font-bold text-gray-700">
-                Personal Info
+                Professional Info
               </h2>
               <p className="text-gray-500 mt-2">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -162,9 +154,113 @@ const GigCreation = () => {
               </p>
             </div>
             <hr />
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-2 mt-8">
+              <div className="flex items-center">
+                <p className="text-lg  font-bold text-gray-600 ">
+                  Your Occupation
+                </p>
+              </div>
+              <div className="col-span-2 flex gap-6 flex-col md:flex-row lg:flex-row">
+                <input
+                  required
+                  className="border outline-green-400 border-gray-300 px-2 w-full md:w-6/12 lg:w-6/12 py-2"
+                  type="text"
+                  placeholder="Ex-(programming tech)"
+                />
+                <div className="flex gap-4">
+                  <div className="flex gap-2 items-center">
+                    <input
+                      placeholder="From"
+                      className="outline-green-400 border border-gray-300  py-2 px-4 w-10/12 mx-auto"
+                      type="text"
+                    />
+                  </div>
+                  <div className="flex gap-2 items-center ">
+                    <input
+                      placeholder="To"
+                      className="outline-green-400 border border-gray-300 py-2 px-4 w-10/12 mx-auto"
+                      type="text"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-2 mt-24">
+              <div className="flex items-center">
+                <p className="text-lg  font-bold text-gray-600 ">Skills</p>
+              </div>
+              <div className="col-span-2 flex gap-6 flex-col md:flex-row lg:flex-row">
+                <div className="w-full md:w-6/12 lg:w-6/12">
+                  <input
+                    type="text"
+                    className="outline-green-400 w-full md:w-10/12 lg:w-10/12 border py-2 px-2"
+                    placeholder="Add Skill"
+                  />
+                </div>
+                <div className="flex gap-4">
+                  <input
+                    type="text"
+                    className="outline-green-400  border py-2 w-full px-2"
+                    placeholder="Ex-Adobe"
+                  />
+                  <input
+                    type="submit"
+                    value="Add"
+                    className=" py-2 px-8 rounded bg-green-500 text-white"
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-2 mt-24">
+              <div className="flex items-center">
+                <p className="text-lg  font-bold text-gray-600 ">
+                  Certification
+                </p>
+              </div>
+              <div className="col-span-2 flex gap-6 flex-col md:flex-row lg:flex-row">
+                <div className="w-full md:w-6/12 lg:w-6/12">
+                  <input
+                    type="text"
+                    className="outline-green-400 w-full md:w-10/12 lg:w-10/12 border py-2 px-2"
+                    placeholder="Certification or Award"
+                  />
+                </div>
+                <div className="flex gap-4">
+                  <input
+                    type="text"
+                    className="outline-green-400  border py-2 w-full px-2"
+                    placeholder="Certificate From"
+                  />
+                  <input
+                    type="submit"
+                    value="Add"
+                    className=" py-2 px-8 rounded bg-green-500 text-white"
+                  />
+                </div>
+              </div>
+            </div>
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-2 mt-24">
+              <div className="flex items-center">
+                <p className="text-lg  font-bold text-gray-600 ">
+                  Personal Website
+                </p>
+              </div>
+              <div className="col-span-2 flex gap-6 flex-col md:flex-row lg:flex-row">
+                <input
+                  type="text"
+                  className="border outline-green-400  border-gray-300 px-2 w-full py-2"
+                  placeholder="Provide your website url"
+                />
+              </div>
+            </div>
+            <div className="mt-8 flex justify-end">
+              <button className="bg-green-500 text-white px-8 py-2 rounded-sm">
+                Continue
+              </button>
+            </div>
+            {/*  */}
           </div>
         </div>
-        new
       </div>
       <Footer />
     </div>
