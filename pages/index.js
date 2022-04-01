@@ -1,4 +1,5 @@
 import Head from "next/head";
+import React from "react";
 import Banner from "../components/Home/Banner";
 import Feature from "../components/Home/Feature";
 import HomeServicesSlider from "../components/Home/HomeServicesSlider";
@@ -6,6 +7,7 @@ import HowItWorks from "../components/Home/HowItWorks";
 import Footer from "../components/Shared/Footer";
 import Header from "../components/Shared/Header";
 import Topseller from "../components/Shared/Topseller";
+import AuthProvider from "../Context/AuthProvider/AuthProvider";
 
 export default function Home() {
   return (

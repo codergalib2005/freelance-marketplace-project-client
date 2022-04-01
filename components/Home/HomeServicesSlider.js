@@ -57,7 +57,7 @@ const HomeServicesSlider = () => {
   };
   return (
     <section className=" bg-slate-50 py-28">
-      <div className="lg:w-[1424px] md:w-full mx-auto px-8">
+      <div className="container-fluid md:w-full mx-auto px-8">
         <h2 className={`${styles.header_content} text-4xl font-bold`}>Popular professional services</h2>
         <Slider {...settings}>
           <div className={styles.img_main_slider}>
