@@ -31,11 +31,11 @@ export default function Home() {
             <HowItWorks />
           </div>
         </main>
-
         <footer>
           <Footer />
         </footer>
       </div>
     </AuthProvider>
+   
   );
 }
