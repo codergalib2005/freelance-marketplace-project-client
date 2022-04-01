@@ -8,8 +8,9 @@ const { Panel } = Collapse;
 const HowItWorks = () => {
 
   return (
-    <section className={`p-12 ${styles.how_it_work_container}`}  >
-      <div className='grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1  gap-12 '>
+  <section className={`p-12 ${styles.how_it_work_container}`}  >
+  <div className='container-fluid'>
+  <div className='grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1  gap-12 '>
         <div>
           <p className='text-cyan-500 text-xl font-light'>How It's Work</p>
           <h2 className='text-4xl font-semibold font-sans mt-2'>Start Find  a job You Love <br /> With Us Easily </h2>
@@ -37,9 +38,10 @@ const HowItWorks = () => {
 
         </div>
         <div className='mt-10'>
-          <iframe className={`${styles.how_it_work_img}`} width="480" height="380" src="https://www.youtube.com/embed/77g4KA9WQL4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe className={`${styles.how_it_work_img} w-full`}  height="380" src="https://www.youtube.com/embed/77g4KA9WQL4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
+  </div>
     </section>
   );
 };

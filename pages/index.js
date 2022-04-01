@@ -41,6 +41,7 @@ import Topseller from "../components/Shared/Topseller";
 
 export default function Home() {
   return (
+    
     <div>
       <Head>
         <title>Freelance marketplace</title>
@@ -66,6 +67,6 @@ export default function Home() {
           <Footer />
         </footer>
       </div>
-    </AuthProvider>
+   
   );
 }
