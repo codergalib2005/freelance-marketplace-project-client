@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap");
+
+.img_main_slider {
+  position: relative;
+  cursor: pointer;
+}
+.img_slider {
+  position: absolute;
+  top: 20%;
+  left: 15%;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  display: none;
+}
+
+.img_main_slider:hover .img_slider {
+  display: block;
+}
+.header_content {
+  font-family: "Roboto", sans-serif;
+}
+
+.img_main_slider:hover img {
+  opacity: 0.5;
+  transition: 0.5s;
+}
