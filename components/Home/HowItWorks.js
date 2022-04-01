@@ -26,7 +26,7 @@ const HowItWorks = () => {
                   <p> Lorem20      </p>
                 </Panel>
                 <Panel header="Search Vacancies" key="2" className="site-collapse-custom-panel">
-                  <p>  Lorem20</p>
+                  <p>  Lorem if some 20</p>
                 </Panel>
                 <Panel header="Apply Job" key="3" className="site-collapse-custom-panel">
                   <p> lorem 30 </p>
