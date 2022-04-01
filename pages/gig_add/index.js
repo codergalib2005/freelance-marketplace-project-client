@@ -150,7 +150,21 @@ const GigCreation = () => {
             </div>
             {/*  */}
           </div>
+          <div className="mt-12">
+            {" "}
+            <div className="w-6/12  mb-3">
+              <h2 className="text-3xl font-bold text-gray-700">
+                Personal Info
+              </h2>
+              <p className="text-gray-500 mt-2">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Perspiciatis et deserunt eligendi voluptatem eius incidunt!
+              </p>
+            </div>
+            <hr />
+          </div>
         </div>
+        new
       </div>
       <Footer />
     </div>
