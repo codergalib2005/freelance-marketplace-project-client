@@ -6,6 +6,7 @@ import HowItWorks from '../components/Home/HowItWorks'
 import Footer from '../components/Shared/Footer'
 import Header from '../components/Shared/Header'
 import Topseller from '../components/Shared/Topseller'
+import BreakdownFirst from './Breakdown/BreakdownFirst'
 
 export default function Home() {
   return (
@@ -21,6 +22,8 @@ export default function Home() {
         </div>
         <div>
           <Banner />
+
+          <BreakdownFirst/>
         </div>
         <div>
           <Feature />
