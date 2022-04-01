@@ -5,7 +5,7 @@ const Header = () => {
   return (
     <div style={{ zIndex: "1000" }} className="fixed top-0 left-0 w-full">
       <nav
-        className="  fixed top-0 left-0 bg-indigo-400  w-full shadow"
+        className="  fixed top-0 left-0 bg-transparent  w-full shadow"
         style={{ zIndex: "289" }}
       >
         <div className="container m-auto flex justify-between items-center text-gray-700">
