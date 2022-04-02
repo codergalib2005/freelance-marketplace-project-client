@@ -86,7 +86,7 @@ const login = () => {
                       </Link>
                     </div>
                     <div className="w-1/2 text-right">
-                      <Link href="/register">
+                      <Link href="/login/register">
                         <a className="text-blue-500">
                           <small>Create new account?</small>
                         </a>

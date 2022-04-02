@@ -1,11 +1,10 @@
 import React from "react";
 import Footer from "../../components/Shared/Footer";
-import Header from "../../components/Shared/Header";
 
 const GigCreation = () => {
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
       <div className="mt-16 feature-font ">
         <div className="text-green-500 flex gap-4 md:gap-8 flex-col md:flex-row lg:flex-row  border-b border-t border-gray-400 py-2 text-md mt-20  pl-6 justify-start">
           <div className="flex gap-2">
