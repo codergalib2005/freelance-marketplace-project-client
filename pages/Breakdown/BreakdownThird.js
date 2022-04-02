@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
-const BreakdownSecond = () => {
-  return (
-    <div>
-      <div className="container mx-auto ">
+const BreakdownThird = () => {
+    return (
+        <div>
+             <div className="container mx-auto my-8">
         <div className="grid grid-cols-1 md:grid-flow-col lg:grid-flow-col gap-20 ">
           <div className="md:col-span-6 lg:col-span-6">
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -16,11 +16,10 @@ const BreakdownSecond = () => {
           <div className=" ">
             <div>
               <h4 className="text-3xl tracking-tighter ">
-                What makes a successful Freelance profile?
+                Now, let is talk about the things you want to steer clear of. 
               </h4>
               <p className="text-base my-4">
-                Your first impression matters! Create a profile that will stand
-                out from the crowed on Freelance
+                Your success on Freelance is important to us. Avoid the following to keep in line with our community standers:
               </p>
             </div>
 
@@ -29,27 +28,12 @@ const BreakdownSecond = () => {
                 <div>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    className="w-16"
-                    src="/breakdown/icons/profile (1).svg"
+                    className="w-14 mb-2"
+                    src="/breakdown/icons/i-card.svg"
                     alt=""
                   />
                   <p>
-                    Take your time and creating your profile so it is exactly as
-                    you want it to be.
-                  </p>
-                </div>
-              </div>
-              <div>
-                <div>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    className="w-16"
-                    src="/breakdown/icons/link (1).svg"
-                    alt=""
-                  />
-                  <p>
-                    Add credibility by linking out to your relevant professional
-                    networks.
+                   Providing any misleading or inaccurate information about your identify.
                   </p>
                 </div>
               </div>
@@ -58,12 +42,11 @@ const BreakdownSecond = () => {
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     className="w-14 mb-2"
-                    src="/breakdown/icons/writing.svg"
+                    src="/breakdown/icons/duplicate.svg"
                     alt=""
                   />
                   <p>
-                    Accurately describe your professional skill to help you get
-                    more work.
+                    Opening duplicate accounts. Remember, you can always create more Gig.
                   </p>
                 </div>
               </div>
@@ -71,13 +54,12 @@ const BreakdownSecond = () => {
                 <div>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    className="w-16"
-                    src="/breakdown/icons/add-user.svg"
+                    className="w-14 mb-2"
+                    src="/breakdown/icons/bag.svg"
                     alt=""
                   />
                   <p>
-                    Put a face to your name! Upload a profile picture that
-                    clearly shows your face.
+                   Soliciting other community members for work on Freelance.
                   </p>
                 </div>
               </div>
@@ -85,16 +67,16 @@ const BreakdownSecond = () => {
                 <div>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    className="w-16"
-                    src="/breakdown/icons/lock.svg"
+                    className="w-16 mb-2"
+                    src="/breakdown/icons/payment.svg"
                     alt=""
                   />
                   <p>
-                    To keep our community secure for everyone, We may ask you to
-                    verify your ID.
+                   Requesting to take communication and payment outside of Freelance.
                   </p>
                 </div>
               </div>
+              
             </div>
             <div className="my-8 flex gap-10 ">
               <button className="text-white font-semibold text-lg rounded-md transition-all duration-500 bg-green-600 hover:bg-green-700 px-10 py-2">
@@ -107,8 +89,8 @@ const BreakdownSecond = () => {
           </div>
         </div>
       </div>
-    </div>
-  );
+        </div>
+    );
 };
 
-export default BreakdownSecond;
+export default BreakdownThird;

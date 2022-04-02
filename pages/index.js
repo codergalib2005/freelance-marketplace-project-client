@@ -8,6 +8,7 @@ import Header from '../components/Shared/Header'
 import Topseller from '../components/Shared/Topseller'
 import BreakdownFirst from './Breakdown/BreakdownFirst'
 import BreakdownSecond from './Breakdown/BreakdownSecond'
+import BreakdownThird from './Breakdown/BreakdownThird'
 
 export default function Home() {
   return (
@@ -26,6 +27,7 @@ export default function Home() {
 
           <BreakdownFirst/>
           <BreakdownSecond/>
+          <BreakdownThird/>
         </div>
         <div>
           <Feature />
