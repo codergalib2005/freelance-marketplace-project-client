@@ -1,8 +1,11 @@
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
+import useAuth from "../../hooks/useAuth";
 
 const Header = () => {
   const [showBg, setShowBg] = useState(false)
+  const { user, logOut } = useAuth();
+
   useEffect(() => {
     window.addEventListener("scroll", OnScrollHeader)
   }, [])
@@ -43,9 +46,15 @@ const Header = () => {
                 Become a Seller
               </a>
             </Link>
-            <button className="bg-indigo-400 text-lg hover:bg-orange-400 translate-all transition duration-300 rounded-md font-bold py-1 px-4 border-2">
+         { user?.email ? 
+            <button onClick={logOut} className="bg-indigo-400 text-lg hover:bg-orange-400 translate-all transition duration-300 rounded-md font-bold py-1 px-4 border-2">
+            SignOut
+          </button>
+            :
+              <button className="bg-indigo-400 text-lg hover:bg-orange-400 translate-all transition duration-300 rounded-md font-bold py-1 px-4 border-2">
               <Link href="/login">Join</Link>
             </button>
+         }
           </ul>
           <button className="block md:hidden py-3 px-4 mx-2 rounded focus:outline-non group scale-100 hover:scale-105 transition-all duration-200 ease-linear">
             <div className="w-5 h-1 bg-gray-50 mb-1"></div>
