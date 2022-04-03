@@ -16,7 +16,7 @@ const BreakdownThird = () => {
           <div className=" ">
             <div>
               <h4 className="text-3xl tracking-tighter ">
-                Now, let is talk about the things you want to steer clear of. 
+                Now, let is talk about the things you wants to  steer clear of. 
               </h4>
               <p className="text-base my-4">
                 Your success on Freelance is important to us. Avoid the following to keep in line with our community standers:
