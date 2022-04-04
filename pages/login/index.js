@@ -1,10 +1,22 @@
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 
 const login = () => {
-  const handleSubmit = (e) => {
+  const [loginData, setLoginData] = useState({});
+
+  const handleLogInSubmit = e => {
+    alert('hello')
     e.preventDefault();
-  };
+  }
+
+  const handleOnChange = e => {
+    const field = e.target.name;
+    const value = e.target.value;
+    const newLoginData = { ...loginData };
+    newLoginData[field] = value;
+    setLoginData(newLoginData)
+  }
+
   return (
     <section className="absolute w-full h-screen top-0 bg-[url(https://i.ibb.co/ZmNnL4k/x4esim9lgly41.webp)] bg-cover">
       <div className="absolute top-0 w-full h-full "></div>
@@ -40,7 +52,7 @@ const login = () => {
                 <div className="text-gray-500 text-center mb-3 font-bold">
                   <small>Or sign in with credentials</small>
                 </div>
-                <form action="#" onSubmit={handleSubmit}>
+                <form onSubmit={handleLogInSubmit}>
                   <div className="relative w-full mb-3">
                     <label className="block uppercase text-gray-700 text-xs font-bold mb-2" htmlFor="grid-password">
                       Email
@@ -48,6 +60,7 @@ const login = () => {
                     <input
                       name="email"
                       type="email"
+                      onChange={handleOnChange}
                       className="px-3 py-3 w-full text-base focus:border shadow-inner shadow-gray-100 rounded-lg  border-gray-300  focus:outline-none focus:border-green-200"
                       placeholder="Email"
                     />
@@ -59,6 +72,7 @@ const login = () => {
                     <input
                       name="password"
                       type="password"
+                      onChange={handleOnChange}
                       className="px-3 py-3 w-full text-base focus:border shadow-inner shadow-gray-100  border-gray-300  focus:outline-none focus:border-green-200 rounded-lg"
                       placeholder="Password"
                     />
@@ -72,7 +86,7 @@ const login = () => {
                   <div className="text-center mt-6">
                     <button
                       className="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full"
-                      type="button"
+                      type="submit"
                     >
                       Sign In
                     </button>

@@ -1,10 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
+import useAuth from "../../hooks/useAuth";
+
 
 const register = () => {
-  const handleSubmit = (e) => {
+  const [loginData, setLoginData] = useState({});
+ 
+  // const {registerUser} = useAuth();
+
+  const handleSubmit = e => {
+    if(loginData.password1 != loginData.password2){
+      alert('your pass not match')
+      return;
+    }
+    registerUser(loginData.email, loginData.password1);
     e.preventDefault();
-  };
+
+  }
+
+  const handleOnChange = e => {
+    const field = e.target.name;
+    const value = e.target.value;
+    const newLoginData = { ...loginData };
+    newLoginData[field] = value;
+    console.log(newLoginData)
+    setLoginData(newLoginData)
+    
+  }
   return (
     <section className="absolute w-full top-0">
       <div className="absolute top-0 w-full h-full"></div>
@@ -32,6 +54,7 @@ const register = () => {
                     <input
                       name="name"
                       type="text"
+                      onChange={handleOnChange}
                       className="px-3 py-3 w-full text-base focus:border shadow-inner shadow-gray-100 rounded-lg  border-gray-300  focus:outline-none focus:border-green-200"
                       placeholder="Name"
                     />
@@ -43,6 +66,7 @@ const register = () => {
                     <input
                       name="email"
                       type="email"
+                      onChange={handleOnChange}
                       className="px-3 py-3 w-full text-base focus:border shadow-inner shadow-gray-100 rounded-lg  border-gray-300  focus:outline-none focus:border-green-200"
                       placeholder="Email"
                     />
@@ -54,6 +78,7 @@ const register = () => {
                     <input
                       name="password1"
                       type="password"
+                      onChange={handleOnChange}
                       className="px-3 py-3 w-full text-base focus:border shadow-inner shadow-gray-100  border-gray-300  focus:outline-none focus:border-green-200 rounded-lg"
                       placeholder="Password"
                     />
@@ -65,6 +90,7 @@ const register = () => {
                     <input
                       name="password2"
                       type="password"
+                      onChange={handleOnChange}
                       className="px-3 py-3 w-full text-base focus:border shadow-inner shadow-gray-100  border-gray-300  focus:outline-none focus:border-green-200 rounded-lg"
                       placeholder="Re-type password"
                     />
@@ -78,7 +104,7 @@ const register = () => {
                   <div className="text-center mt-6">
                     <button
                       className="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full"
-                      type="button"
+                      type="submit"
                     >
                       Sign Up
                     </button>
