@@ -1,11 +1,15 @@
+import { Alert } from "antd";
 import Link from "next/link";
 import React, { useState } from "react";
+import useAuth from "../../hooks/useAuth";
 
 const login = () => {
   const [loginData, setLoginData] = useState({});
 
+  const { user, logInUser, loading, error } = useAuth();
+
   const handleLogInSubmit = e => {
-    alert('hello')
+    logInUser(loginData.email, loginData.password);
     e.preventDefault();
   }
 
@@ -52,7 +56,7 @@ const login = () => {
                 <div className="text-gray-500 text-center mb-3 font-bold">
                   <small>Or sign in with credentials</small>
                 </div>
-                <form onSubmit={handleLogInSubmit}>
+                {!loading && <form onSubmit={handleLogInSubmit}>
                   <div className="relative w-full mb-3">
                     <label className="block uppercase text-gray-700 text-xs font-bold mb-2" htmlFor="grid-password">
                       Email
@@ -107,7 +111,26 @@ const login = () => {
                       </Link>
                     </div>
                   </div>
-                </form>
+                </form>}
+
+                {loading && <button type="button" class="bg-indigo-500 ..." disabled>
+                  <svg class="animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24">
+                  </svg>
+                  Processing...
+                </button>}
+
+                {user?.email && <Alert
+                  message="Register Successfully"
+                  type="success"
+                  showIcon
+                />}
+
+                {error && <Alert
+                  message={error}
+                  type="error"
+                  showIcon
+                />}
+
               </div>
             </div>
           </div>

@@ -1,19 +1,20 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import useAuth from "../../hooks/useAuth";
+import { Alert } from "antd";
 
 
 const register = () => {
   const [loginData, setLoginData] = useState({});
- 
-  // const {registerUser} = useAuth();
+
+  const { user, registerUser, loading, error } = useAuth();
 
   const handleSubmit = e => {
-    if(loginData.password1 != loginData.password2){
+    if (loginData.password1 != loginData.password2) {
       alert('your pass not match')
       return;
     }
-    registerUser(loginData.email, loginData.password1);
+    registerUser(loginData.email, loginData.password1, loginData.name, loginData.password2);
     e.preventDefault();
 
   }
@@ -25,7 +26,7 @@ const register = () => {
     newLoginData[field] = value;
     console.log(newLoginData)
     setLoginData(newLoginData)
-    
+
   }
   return (
     <section className="absolute w-full top-0">
@@ -43,10 +44,28 @@ const register = () => {
                   <img className="block mx-auto" src="https://i.ibb.co/Ssxh3cj/logo-white.png" alt="" />
                 </div>
 
+                <div className="btn-wrapper text-center mt-2">
+                  {/* sign in with google and github */}
+                  <button
+                    className="bg-transparent active:bg-gray-100 text-gray-800 px-4 py-2 rounded outline-none focus:outline-none mr-2 ring-sky-100 ring-1  inline-flex items-center hover:scale-75  duration-500"
+                    type="button"
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img className="w-8" src="https://i.ibb.co/zF4kkP8/download-1-removebg-preview.png" alt="" />
+                  </button>
+                  <button
+                    className="bg-transparent active:bg-gray-100 text-gray-800 px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 ring-1 ring-sky-100 hover:scale-75  duration-500 inline-flex items-center "
+                    type="button"
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img className="w-8" src="https://i.ibb.co/cCLf41q/download-removebg-preview.png" alt="" />
+                  </button>
+                </div>
+
                 <hr className="mt-6 border-b-1 border-gray-400" />
               </div>
               <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
-                <form action="#" onSubmit={handleSubmit}>
+                {!loading && <form action="#" onSubmit={handleSubmit}>
                   <div className="relative w-full mb-3">
                     <label className="block uppercase text-gray-700 text-xs font-bold mb-2" htmlFor="grid-password">
                       Name
@@ -125,7 +144,25 @@ const register = () => {
                       </Link>
                     </div>
                   </div>
-                </form>
+                </form>}
+                {loading && <button type="button" class="bg-indigo-500 ..." disabled>
+                  <svg class="animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24">
+                  </svg>
+                  Processing...
+                </button>}
+
+                {user?.email && <Alert
+                  message="Register Successfully"
+                  type="success"
+                  showIcon
+                />}
+
+                {error && <Alert
+                  message={error}
+                  type="error"
+                  showIcon
+                />}
+
               </div>
             </div>
           </div>

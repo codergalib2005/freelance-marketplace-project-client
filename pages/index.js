@@ -7,10 +7,9 @@ import HowItWorks from "../components/Home/HowItWorks";
 import Topseller from '../components/Home/Topseller';
 import Footer from "../components/Shared/Footer";
 import Header from "../components/Shared/Header";
-import AuthProvider from "../Context/AuthProvider/AuthProvider";
+
 export default function Home() {
-  return (
-    <AuthProvider>
+  return (  
     <div>
       <Head>
         <title>Freelance marketplace</title>
@@ -36,6 +35,6 @@ export default function Home() {
         <Footer />
       </footer>
     </div>
-    </AuthProvider>
+  
   );
 }
