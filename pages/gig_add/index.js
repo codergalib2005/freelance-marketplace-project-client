@@ -1,10 +1,13 @@
+/* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import Footer from "../../components/Shared/Footer";
+import Header from "../../components/Shared/Header";
 
 const GigCreation = () => {
   return (
     <div>
-      {/* <Header /> */}
+      <Header />
       <div className="mt-16 feature-font ">
         <div className="text-green-500 flex gap-4 md:gap-8 flex-col md:flex-row lg:flex-row  border-b border-t border-gray-400 py-2 text-md mt-20  pl-6 justify-start">
           <div className="flex gap-2">
@@ -34,7 +37,7 @@ const GigCreation = () => {
         </div>
         {/* my info section */}
         <div className="w-10/12 mx-auto mt-6">
-          <div className="w-6/12  mb-3">
+          <div className="w-full md:w-8/12 lg:w-6/12 mb-3">
             <h2 className="text-3xl font-bold text-gray-700">Personal Info</h2>
             <p className="text-gray-500 mt-2">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -141,6 +144,7 @@ const GigCreation = () => {
             </div>
             {/*  */}
           </div>
+          {/* personal info part */}
           <div className="mt-12">
             {" "}
             <div className="w-full md:w-6/12 lg:w-6/12   mb-3">
@@ -258,6 +262,138 @@ const GigCreation = () => {
               </button>
             </div>
             {/*  */}
+          </div>
+          {/* linked account */}
+          <div className="w-full md:w-6/12 lg:w-6/12 mt-12  mb-3">
+            <h2 className="text-3xl font-bold text-gray-700">
+              Linked Accounts
+            </h2>
+            <p className="text-gray-500 mt-2">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Perspiciatis et deserunt eligendi voluptatem eius incidunt!
+            </p>
+          </div>
+          <hr />
+          <div className="mt-8">
+            <h4 className="text-base font-semibold text-gray-600 mb-8">
+              Your Social Presence
+            </h4>
+            <div className="flex justify-between text-gray-600 mt-4">
+              <div className="flex items-center gap-2">
+                <img
+                  className="w-6 h-6"
+                  src="https://img.icons8.com/fluency/48/000000/google-logo.png"
+                />
+                <p className="font-medium">Google</p>
+              </div>
+
+              <button className="py-3 px-8 bg-green-100 rounded shadow-lg border-t-2 border-gray-100">
+                Connected
+              </button>
+            </div>
+            <div className="flex justify-between items-center text-gray-600 mt-4">
+              <div className="flex items-center gap-2">
+                <img
+                  className="w-6 h-6"
+                  src="https://img.icons8.com/color/48/000000/facebook-new.png"
+                />
+                <p className="font-medium">Facebook</p>
+              </div>
+              <button className="py-3 px-8 rounded shadow-lg border-t-2 border-gray-100">
+                Connect
+              </button>
+            </div>
+            <div className="flex justify-between text-gray-600 mt-4">
+              <div className="flex items-center gap-2">
+                <img
+                  className="w-6 h-6"
+                  src="https://img.icons8.com/color/48/000000/twitter--v1.png"
+                />
+                <p className="font-medium">Twitter</p>
+              </div>
+              <button className="py-3 px-8 rounded shadow-lg border-t-2 border-gray-100">
+                Connect
+              </button>
+            </div>
+          </div>
+          <div className="mt-16">
+            <h4 className="text-base font-semibold text-gray-600 mb-8">
+              Your Professional Presence
+            </h4>
+            <div className="flex justify-between text-gray-600 mt-4">
+              <div className="flex items-center gap-2">
+                <img
+                  className="w-6 h-6"
+                  src="https://img.icons8.com/fluency/48/000000/stackoverflow.png"
+                />
+                <p className="font-medium">Stack Overflow</p>
+              </div>
+
+              <button className="py-3 px-8 rounded shadow-lg border-t-2 border-gray-100">
+                Connect
+              </button>
+            </div>
+            <div className="flex justify-between items-center text-gray-600 mt-4">
+              <div className="flex items-center gap-2">
+                <img
+                  className="w-6 h-6"
+                  src="https://img.icons8.com/ios-glyphs/30/000000/github.png"
+                />
+                <p className="font-medium">Github</p>
+              </div>
+              <button className="py-3 px-8 rounded shadow-lg border-t-2 border-gray-100">
+                Connect
+              </button>
+            </div>
+            <div className="mt-12 flex justify-end">
+              <button className="bg-green-500 text-white px-8 py-2 rounded-sm">
+                Continue
+              </button>
+            </div>
+          </div>
+          {/*  */}
+          {/* account security */}
+          <div className="w-full md:w-6/12 lg:w-6/12 mt-12  mb-3">
+            <h2 className="text-3xl font-bold text-gray-700">
+              Account Security
+            </h2>
+            <p className="text-gray-500 mt-2">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Perspiciatis et deserunt eligendi voluptatem eius incidunt!
+            </p>
+          </div>
+          <hr />
+          <div className="flex justify-between text-gray-600 mt-4">
+            <div className="flex items-center gap-2">
+              <img
+                className="w-6 h-6 "
+                src="https://img.icons8.com/ios-glyphs/30/000000/new-post.png"
+              />
+              <p className="font-medium">Email</p>
+            </div>
+            <button className="py-3 px-8 md:px-12 lg:px-12  bg-green-100 rounded shadow-lg border-2 border-gray-200">
+              Verified
+            </button>
+          </div>
+          <div className="flex justify-between text-gray-600 mt-8">
+            <div className="flex items-start gap-2">
+              <img
+                className="w-6 h-6"
+                src="https://img.icons8.com/ios-filled/50/000000/phone.png"
+              />
+              <div className="">
+                <p className="font-medium ">Phone Number</p>
+                <p className="text-gray-500 text-xs">we will never share it</p>
+              </div>
+            </div>
+            <button className="py-3 px-8 md:px-12 lg:px-12  rounded shadow-lg border-2 border-gray-200">
+              Add now
+            </button>
+          </div>
+          <div className="mt-12 flex justify-end">
+            <button className="bg-green-500 text-white px-8 py-3 rounded-sm">
+              Continue & Create Your First Gig
+            </button>
           </div>
         </div>
       </div>
