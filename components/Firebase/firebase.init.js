@@ -1,8 +1,14 @@
-import { initializeApp } from "firebase/app";
+import { initializeApp, getApp, getApps, FirebaseApp } from "firebase/app";
 import firebaseConfig from "./firebase.config";
 
-const initializeFirebase = () =>{
-    initializeApp(firebaseConfig);
+let app = () =>{
+
+if(getApps().length){
+    app = getApp ();
+} else{
+    app = initializeApp(firebaseConfig)
+}
 }
 
-export default initializeFirebase;
+export default app;
+

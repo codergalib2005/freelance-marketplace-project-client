@@ -10,7 +10,7 @@ import Topseller from "../components/Shared/Topseller";
 import AuthProvider from "../Context/AuthProvider/AuthProvider";
 
 export default function Home() {
-  return (
+  return (  
     <div>
       <Head>
         <title>Freelance marketplace</title>
@@ -36,6 +36,6 @@ export default function Home() {
         <Footer />
       </footer>
     </div>
-    // </AuthProvider>
+  
   );
 }
