@@ -1,33 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
-import useAuth from "../../hooks/useAuth";
-import { Alert } from "antd";
-
 
 const register = () => {
-  const [loginData, setLoginData] = useState({});
-
-  const { user, registerUser, signInWithGoogle, loading, error } = useAuth();
-
-  const handleSubmit = e => {
-    if (loginData.password1 != loginData.password2) {
-      alert('your pass not match')
-      return;
-    }
-    registerUser(loginData.email, loginData.password1, loginData.name, loginData.password2);
+  const handleSubmit = (e) => {
     e.preventDefault();
-
-  }
-
-  const handleOnChange = e => {
-    const field = e.target.name;
-    const value = e.target.value;
-    const newLoginData = { ...loginData };
-    newLoginData[field] = value;
-    console.log(newLoginData)
-    setLoginData(newLoginData)
-
-  }
+  };
   return (
     <section className="absolute w-full top-0">
       <div className="absolute top-0 w-full h-full"></div>
@@ -44,29 +21,10 @@ const register = () => {
                   <img className="block mx-auto" src="https://i.ibb.co/Ssxh3cj/logo-white.png" alt="" />
                 </div>
 
-                <div className="btn-wrapper text-center mt-2">
-                  {/* sign in with google and github */}
-                  <button
-                    className="bg-transparent active:bg-gray-100 text-gray-800 px-4 py-2 rounded outline-none focus:outline-none mr-2 ring-sky-100 ring-1  inline-flex items-center hover:scale-75  duration-500"
-                    type="button"
-                  >
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img className="w-8" src="https://i.ibb.co/zF4kkP8/download-1-removebg-preview.png" alt="" />
-                  </button>
-                  <button
-                    className="bg-transparent active:bg-gray-100 text-gray-800 px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 ring-1 ring-sky-100 hover:scale-75  duration-500 inline-flex items-center "
-                    type="button"
-                    onClick={signInWithGoogle}
-                  >
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img className="w-8" src="https://i.ibb.co/cCLf41q/download-removebg-preview.png" alt="" />
-                  </button>
-                </div>
-
                 <hr className="mt-6 border-b-1 border-gray-400" />
               </div>
               <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
-                {!loading && <form action="#" onSubmit={handleSubmit}>
+                <form action="#" onSubmit={handleSubmit}>
                   <div className="relative w-full mb-3">
                     <label className="block uppercase text-gray-700 text-xs font-bold mb-2" htmlFor="grid-password">
                       Name
@@ -74,7 +32,6 @@ const register = () => {
                     <input
                       name="name"
                       type="text"
-                      onChange={handleOnChange}
                       className="px-3 py-3 w-full text-base focus:border shadow-inner shadow-gray-100 rounded-lg  border-gray-300  focus:outline-none focus:border-green-200"
                       placeholder="Name"
                     />
@@ -86,7 +43,6 @@ const register = () => {
                     <input
                       name="email"
                       type="email"
-                      onChange={handleOnChange}
                       className="px-3 py-3 w-full text-base focus:border shadow-inner shadow-gray-100 rounded-lg  border-gray-300  focus:outline-none focus:border-green-200"
                       placeholder="Email"
                     />
@@ -98,7 +54,6 @@ const register = () => {
                     <input
                       name="password1"
                       type="password"
-                      onChange={handleOnChange}
                       className="px-3 py-3 w-full text-base focus:border shadow-inner shadow-gray-100  border-gray-300  focus:outline-none focus:border-green-200 rounded-lg"
                       placeholder="Password"
                     />
@@ -110,7 +65,6 @@ const register = () => {
                     <input
                       name="password2"
                       type="password"
-                      onChange={handleOnChange}
                       className="px-3 py-3 w-full text-base focus:border shadow-inner shadow-gray-100  border-gray-300  focus:outline-none focus:border-green-200 rounded-lg"
                       placeholder="Re-type password"
                     />
@@ -124,7 +78,7 @@ const register = () => {
                   <div className="text-center mt-6">
                     <button
                       className="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full"
-                      type="submit"
+                      type="button"
                     >
                       Sign Up
                     </button>
@@ -145,25 +99,7 @@ const register = () => {
                       </Link>
                     </div>
                   </div>
-                </form>}
-                {loading && <button type="button" class="bg-indigo-500 ..." disabled>
-                  <svg class="animate-spin h-5 w-5 mr-3 ..." viewBox="0 0 24 24">
-                  </svg>
-                  Processing...
-                </button>}
-
-                {user?.email && <Alert
-                  message="Register Successfully"
-                  type="success"
-                  showIcon
-                />}
-
-                {error && <Alert
-                  message={error}
-                  type="error"
-                  showIcon
-                />}
-
+                </form>
               </div>
             </div>
           </div>
