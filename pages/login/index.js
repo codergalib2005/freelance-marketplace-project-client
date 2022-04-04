@@ -6,7 +6,7 @@ import useAuth from "../../hooks/useAuth";
 const login = () => {
   const [loginData, setLoginData] = useState({});
 
-  const { user, logInUser, loading, error } = useAuth();
+  const { user, logInUser, loading, signInWithGoogle, error } = useAuth();
 
   const handleLogInSubmit = e => {
     logInUser(loginData.email, loginData.password);
@@ -44,6 +44,7 @@ const login = () => {
                   <button
                     className="bg-transparent active:bg-gray-100 text-gray-800 px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 ring-1 ring-sky-100 hover:scale-75  duration-500 inline-flex items-center "
                     type="button"
+                    onClick={signInWithGoogle}
                   >
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img className="w-8" src="https://i.ibb.co/cCLf41q/download-removebg-preview.png" alt="" />
