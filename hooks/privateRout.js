@@ -19,7 +19,7 @@ export function  withPublic(Component) {
     }
 }
 
-export function  withPrivate() {
+export function  withPrivate(Component) {
     return function withPrivate(props){
         const auth = useAuth()
         const router = useRouter()

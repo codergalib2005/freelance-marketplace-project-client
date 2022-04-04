@@ -12,8 +12,3 @@ if(getApps().length){
 
 export default app;
 
-// const initializeFirebase = () =>{
-//     initializeApp(firebaseConfig);
-// }
-
-// export default initializeFirebase;
