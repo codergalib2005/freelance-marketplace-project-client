@@ -11,6 +11,7 @@ import BreakdownFirst from "./Breakdown/BreakdownFirst";
 import BreakdownSecond from "./Breakdown/BreakdownSecond";
 import BreakdownThird from "./Breakdown/BreakdownThird";
 import Counter from "./Counter/Counter";
+import Devices from "./Devices/Devices";
 export default function Home() {
   return (
     <div>
@@ -28,6 +29,7 @@ export default function Home() {
           <BreakdownFirst/>
           <BreakdownSecond/>
           <BreakdownThird/>
+          <Devices/>
           <Counter/>
         </div>
         <div>
