@@ -47,6 +47,12 @@ a {
   width: 100%;
   max-width: 1300px;
 }
+.register_bg {
+  background-image: url(https://i.ibb.co/JHYB9SJ/2.webp);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 .text_no_select {
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
