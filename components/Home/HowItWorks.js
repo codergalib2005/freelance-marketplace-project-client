@@ -12,7 +12,7 @@ const HowItWorks = () => {
   <div className='container-fluid'>
   <div className='grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1  gap-12 '>
         <div>
-          <p className='text-cyan-500 text-xl font-light'>How It's Work</p>
+          <p className='text-cyan-500 text-xl font-light'>How Its Work</p>
           <h2 className='text-4xl font-semibold font-sans mt-2'>Start Find  a job You Love <br /> With Us Easily </h2>
           <div className='collaps-container mt-6'>
             <Collapse
