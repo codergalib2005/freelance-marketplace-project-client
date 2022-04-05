@@ -62,7 +62,6 @@ const Header = ({ bg }) => {
                 (
                   <button className="bg-indigo-400 text-lg hover:bg-orange-400 translate-all transition duration-300 rounded-md font-bold py-1 px-4 border-2">
                     <Link href="/login">Join</Link>
-                    Join
                   </button>
                 )
             }

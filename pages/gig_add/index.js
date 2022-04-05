@@ -3,6 +3,7 @@
 import React from "react";
 import Footer from "../../components/Shared/Footer";
 import Header from "../../components/Shared/Header";
+import { withPrivate } from "../../hooks/PrivateRoute";
 
 const GigCreation = () => {
   return (
@@ -402,4 +403,4 @@ const GigCreation = () => {
   );
 };
 
-export default GigCreation;
+export default withPrivate(GigCreation);
