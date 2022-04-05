@@ -172,13 +172,57 @@
 // };
 
 // export default register;
-
-import React from 'react';
+import Link from 'next/link';
+import React, { useEffect, useState } from 'react';
+import { useForm } from "react-hook-form";
 
 const register = () => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const [showError, setShowError] = useState(false);
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const { register, handleSubmit, watch, formState: { errors } } = useForm();
+  const onSubmit = data => console.log(data);
+  const handleSubmitForm = () => {
+    setShowError(true);
+  }
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  useEffect(() => {
+    setTimeout(() => {
+      setShowError(false);
+    }, 1000)
+  }, [])
   return (
-    <div>
-      
+    <div className='w-full bg-[#1a2747]'>
+      <div>
+        <div className="container mx-auto px-2 flex items-center justify-center  min-h-screen">
+          <div style={{ maxHeight: '600px', height: '100vh' }} className="grid grid-cols-1 md:grid-cols-2 w-full">
+            <div className='bg-[#2f9ece] h-full'></div>
+            <div className='bg-white shadow-md h-full'>
+              <div className='flex justify-items-end content-end justify-end'>
+                {/* eslint-disable-next-line @next/next/link-passhref */}
+                <Link href="/login">
+                  <button className='w-28 text-lg text-center flex items-center justify-center  py-2 shadow-md'>Login</button>
+                </Link>
+                <button className='w-28 text-lg text-center flex items-center justify-center py-2 bg-[#2f9ece] text-gray-50'>Register</button>
+              </div>
+              <div className='p-3'>
+                <h1 className='text-4xl font-bold text-gray-900 mb-3'>Register</h1>
+                {/* ----This is the form---- */}
+                <form className='input_form' onSubmit={handleSubmit(onSubmit)}>
+                  <input {...register("email", { required: true })} placeholder="E-mail" />
+                  {errors.email && <span>E-mail is required</span>}
+                  <input {...register("password1", { required: true })} placeholder="Password" />
+                  {errors.password1 && <span>Password is required</span>}
+                  <input {...register("password2", { required: true })} placeholder="Confirm Password" />
+                  {errors.password2 && <span>Confirm Password is required</span>}
+
+                  <input onClick={handleSubmitForm} type="submit" />
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

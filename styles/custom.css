@@ -81,3 +81,8 @@
     max-height: 500px;
   }
 }
+
+/* Register page design */
+.input_form input {
+  @apply border-2 border-gray-300 w-full block text-lg font-bold rounded-md py-1 px-4 mb-3;
+}
