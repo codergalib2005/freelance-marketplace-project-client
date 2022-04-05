@@ -5,6 +5,7 @@ import { FiEdit } from "react-icons/fi";
 import { GrUserManager } from "react-icons/gr";
 import About from "../../components/Profile/About";
 import Review from "../../components/Profile/Review";
+import Task from "../../components/Profile/Task";
 const editorMood = {
   editor: null,
 };
@@ -60,7 +61,7 @@ const Profile = () => {
   return (
     <div className="single_user_profile_section text_no_select px-8 feature-font bg-[#dbc9ff11]">
       <div className="container-fluid px-5 xl:px-0  mx-auto py-12">
-        <div className="mb-16 flex justify-end ">
+        <div className="mb-8 flex justify-end ">
           <div className="flex gap-6 ">
             <input
               type="text"
@@ -81,7 +82,7 @@ const Profile = () => {
           </div>
         </div>
         {/* new section */}
-        <div className="my-8">
+        <div className="mb-8 px-12">
           <div className="">
             <h2 className="text-4xl text-gray-800 font-semibold">Hello Tam</h2>
             <div className="flex gap-4 items-center">
@@ -95,6 +96,29 @@ const Profile = () => {
                   alt=""
                 />
               </div>
+            </div>
+          </div>
+          {/*  */}
+          <div className="bg-white shadow-lg rounded-lg mb-16 mt-6">
+            <div className="flex gap-4 justify-around items-center">
+              <img
+                className="w-48"
+                src="/profile/Online-report-pana.png"
+                alt=""
+              />
+              <div className="">
+                <p className="text-3xl text-gray-700">$3553.6</p>
+                <div className="bg-blue-400 w-12 mx-auto h-2 my-4 rounded-lg"></div>
+                <p className="text-gray-500 font-semibold text-lg">My Funds</p>
+              </div>
+              <div className="">
+                <p className="text-3xl text-gray-700">$5153.60</p>
+                <div className="bg-purple-400 w-12 mx-auto h-2 my-4 rounded-lg"></div>
+                <p className="text-gray-500 font-semibold text-lg">
+                  Total Earnings
+                </p>
+              </div>
+              <img className="w-48" src="/profile/clock.jpg" alt="" />
             </div>
           </div>
         </div>
@@ -173,7 +197,11 @@ const Profile = () => {
                   <About />
                 </div>
               )}
-              {tabs === "task" && <div>Tasks Items</div>}
+              {tabs === "task" && (
+                <div>
+                  <Task />
+                </div>
+              )}
               {tabs === "review" && (
                 <div>
                   <Review />
