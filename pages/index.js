@@ -6,6 +6,11 @@ import HomeServicesSlider from "../components/Home/HomeServicesSlider";
 import HowItWorks from "../components/Home/HowItWorks";
 import Footer from "../components/Shared/Footer";
 import Header from "../components/Shared/Header";
+import BreakdownFirst from "./Breakdown/BreakdownFirst";
+import BreakdownSecond from "./Breakdown/BreakdownSecond";
+import BreakdownThird from "./Breakdown/BreakdownThird";
+import Counter from "./Counter/Counter";
+import Devices from "./Devices/Devices";
 import Topseller from "../components/Shared/Topseller";
 
 export default function Home() {
@@ -22,6 +27,11 @@ export default function Home() {
         </div>
         <div>
           <Banner />
+          <BreakdownFirst/>
+          <BreakdownSecond/>
+          <BreakdownThird/>
+          <Devices/>
+          <Counter/>
         </div>
         <div>
           <HomeServicesSlider />
