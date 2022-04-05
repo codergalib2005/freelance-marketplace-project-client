@@ -172,31 +172,59 @@
 // };
 
 // export default register;
+import { Tooltip } from 'antd';
 import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useForm } from "react-hook-form";
 
 const register = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const [showError, setShowError] = useState(false);
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
-  const onSubmit = data => console.log(data);
-  const handleSubmitForm = () => {
-    setShowError(true);
-  }
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  useEffect(() => {
-    setTimeout(() => {
-      setShowError(false);
-    }, 1000)
-  }, [])
+  const onSubmit = data => {
+    // CREATE BLACK OBJECT KAY_
+    data.skills = "",
+      data.profession = "",
+      data.bio = "",
+      data.about = "",
+      data.education = "",
+      data.thumbnail = ""
+    // ___Image upload in imgBB ____
+    const rf = new FileReader();
+    rf.readAsDataURL(data.image[0])
+    rf.onloadend = function (event) {
+      const body = new FormData();
+      body.append("image", event.target.result.split(",").pop()); //To delete 'data:image/png;base64,' otherwise imgbb won't process it.
+      body.append("name", data.image[0].name);
+      console.log(body);
+      fetch("https://api.imgbb.com/1/upload?expiration=600&key=aace97b9a0d4e6d8a83442b26ddb021e", {
+        method: "POST",
+        body: body
+      })
+        .then(res => res.json())
+        .then(result => {
+          data.avatar = result.data.url;
+          data.image = "";
+          console.log(data);
+          // USER SEND TO DATABASE__
+          // axios.post("http://localhost:8000/auth/users/", data)
+          //   .then(res => {
+          //     console.log(res)
+          //   })
+          //   .catch(err => console.log(err))
+
+        })
+    }
+  };
+
   return (
     <div className='w-full bg-[#1a2747]'>
       <div>
         <div className="container mx-auto px-2 flex items-center justify-center  min-h-screen">
           <div style={{ maxHeight: '600px', height: '100vh' }} className="grid grid-cols-1 md:grid-cols-2 w-full">
-            <div className='bg-[#2f9ece] h-full'></div>
+            <div className='bg-[#2f9ece] h-full flex items-stretch justify-center'>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/login/register.png" alt="" />
+            </div>
             <div className='bg-white shadow-md h-full'>
               <div className='flex justify-items-end content-end justify-end'>
                 {/* eslint-disable-next-line @next/next/link-passhref */}
@@ -209,14 +237,29 @@ const register = () => {
                 <h1 className='text-4xl font-bold text-gray-900 mb-3'>Register</h1>
                 {/* ----This is the form---- */}
                 <form className='input_form' onSubmit={handleSubmit(onSubmit)}>
-                  <input {...register("email", { required: true })} placeholder="E-mail" />
-                  {errors.email && <span>E-mail is required</span>}
-                  <input {...register("password1", { required: true })} placeholder="Password" />
-                  {errors.password1 && <span>Password is required</span>}
-                  <input {...register("password2", { required: true })} placeholder="Confirm Password" />
-                  {errors.password2 && <span>Confirm Password is required</span>}
-
-                  <input onClick={handleSubmitForm} type="submit" />
+                  <Tooltip title="Select a image">
+                    <input className='w-32 h-16 cursor-pointer rounded-full' type="file" {...register("image", { required: true })} accept=".jpg, .jpeg, .png" placeholder='Select Your profile pic' />
+                  </Tooltip>
+                  {errors.image && <span className='text-red-600 font-bold'>Profile Image is required</span>}
+                  <input className='style' {...register("name", { required: true })} placeholder="Name" />
+                  {errors.name && <span className='text-red-600 font-bold'>Name is required</span>}
+                  <div className="div grid grid-cols-2">
+                    <select className='w-full border-2 mb-3 text-lg font-bold h-10 rounded-sm' {...register("gender", { required: true })}>
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                    </select>
+                    <select className='w-full border-2 mb-3 text-lg font-bold h-10 rounded-sm' {...register("status", { required: true })}>
+                      <option value="male">Seller</option>
+                      <option value="female">Buyer</option>
+                    </select>
+                  </div>
+                  <input className='style' {...register("email", { required: true })} placeholder="E-mail" />
+                  {errors.email && <span className='text-red-600 font-bold'>E-mail is required</span>}
+                  <input className='style' {...register("password1", { required: true })} placeholder="Password" />
+                  {errors.password1 && <span className='text-red-600 font-bold'>Password is required</span>}
+                  <input className='style' {...register("password2", { required: true })} placeholder="Confirm Password" />
+                  {errors.password2 && <span className='text-red-600 font-bold'>Confirm Password is required</span>}
+                  <input className='style' type="submit" />
                 </form>
               </div>
             </div>

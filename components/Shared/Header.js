@@ -43,18 +43,6 @@ const Header = ({ bg }) => {
             <Link href="/gig_add">
               <a className="hover:text-green-400 text-lg py-4 px-6">Create a Gig</a>
             </Link>
-            {user?.email ? (
-              <button
-                onClick={logOut}
-                className="bg-indigo-400 text-lg hover:bg-orange-400 translate-all transition duration-300 rounded-md font-bold py-1 px-4 border-2"
-              >
-                SignOut
-              </button>
-            ) : (
-              <button className="bg-indigo-400 text-lg hover:bg-orange-400 translate-all transition duration-300 rounded-md font-bold py-1 px-4 border-2">
-                <Link href="/login">Join</Link>
-              </button>
-            )}
             {
               user?.email ?
                 (
