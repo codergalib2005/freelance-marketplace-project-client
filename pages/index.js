@@ -10,6 +10,7 @@ import Header from "../components/Shared/Header";
 import BreakdownFirst from "./Breakdown/BreakdownFirst";
 import BreakdownSecond from "./Breakdown/BreakdownSecond";
 import BreakdownThird from "./Breakdown/BreakdownThird";
+import CountUp from "./CountUp/CountUp";
 export default function Home() {
   return (
     <div>
@@ -27,6 +28,7 @@ export default function Home() {
           <BreakdownFirst/>
           <BreakdownSecond/>
           <BreakdownThird/>
+          <CountUp/>
         </div>
         <div>
           <HomeServicesSlider />
