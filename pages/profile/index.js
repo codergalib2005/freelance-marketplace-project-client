@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { Input } from "antd";
 import React, { useReducer, useState } from "react";
 import { FiEdit } from "react-icons/fi";
@@ -57,7 +58,7 @@ const Profile = () => {
   };
   console.log(professionText);
   return (
-    <div className="single_user_profile_section text_no_select px-8 feature-font">
+    <div className="single_user_profile_section text_no_select px-8 feature-font bg-[#dbc9ff11]">
       <div className="container-fluid px-5 xl:px-0  mx-auto py-12">
         <div className="mb-16 flex justify-end ">
           <div className="flex gap-6 ">
@@ -79,6 +80,26 @@ const Profile = () => {
             </div>
           </div>
         </div>
+        {/* new section */}
+        <div className="my-8">
+          <div className="">
+            <h2 className="text-4xl text-gray-800 font-semibold">Hello Tam</h2>
+            <div className="flex gap-4 items-center">
+              <p className="text-xl text-gray-500 font-medium">
+                Have a nice day at work
+              </p>
+              <div className="p-1 w-12 h-12  rounded-full bg-yellow-100 flex justify-center items-center">
+                <img
+                  className="rounded-full"
+                  src="https://i.ibb.co/BtdZT51/clapping.png"
+                  alt=""
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* new section */}
+
         <div className="profile_wrapper grid grid-cols-12 gap-5">
           {/* -------------Left Side Box------------- */}
           <div className="col-span-12 xl:col-span-8">
