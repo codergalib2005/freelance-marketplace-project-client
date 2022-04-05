@@ -1,7 +1,6 @@
 import { Alert } from "antd";
 import Link from "next/link";
 import React, { useState } from "react";
-import { withPublic } from "../../hooks/privateRout";
 import useAuth from "../../hooks/useAuth";
 
 const login = () => {
