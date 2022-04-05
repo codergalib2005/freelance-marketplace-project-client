@@ -18,6 +18,7 @@ import useAuth from './useAuth';
 //         return <Component auth={auth} {...props} />
 //     }
 // }
+//
 
 export function  withPrivate(Component) {
     return function withPrivate(props){

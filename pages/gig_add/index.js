@@ -5,6 +5,7 @@ import Footer from "../../components/Shared/Footer";
 import Header from "../../components/Shared/Header";
 import { withPrivate } from "../../hooks/PrivateRoute";
 
+
 const GigCreation = () => {
   return (
     <div>
