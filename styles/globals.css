@@ -1,9 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* # local env files */
-/* # .env*.local */
-/* .vercel */
 /* @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Hurricane&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Red+Hat+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400;1,500;1,600&family=Yellowtail&display=swap"); */
 @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=PT+Sans:wght@400;700&family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;1,500&family=Red+Hat+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Yellowtail&display=swap");
 *,
@@ -50,6 +47,12 @@ a {
   width: 100%;
   max-width: 1300px;
 }
+.register_bg {
+  background-image: url(https://i.ibb.co/JHYB9SJ/2.webp);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 .text_no_select {
   -webkit-touch-callout: none; /* iOS Safari */
   -webkit-user-select: none; /* Safari */
@@ -58,4 +61,10 @@ a {
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
+}
+button {
+  cursor: pointer;
+}
+input[type="submit"] {
+  cursor: pointer;
 }

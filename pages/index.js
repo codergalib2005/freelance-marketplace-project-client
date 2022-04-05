@@ -4,9 +4,15 @@ import Banner from "../components/Home/Banner";
 import Feature from "../components/Home/Feature";
 import HomeServicesSlider from "../components/Home/HomeServicesSlider";
 import HowItWorks from "../components/Home/HowItWorks";
-import Topseller from '../components/Home/Topseller';
 import Footer from "../components/Shared/Footer";
 import Header from "../components/Shared/Header";
+import BreakdownFirst from "./Breakdown/BreakdownFirst";
+import BreakdownSecond from "./Breakdown/BreakdownSecond";
+import BreakdownThird from "./Breakdown/BreakdownThird";
+import Counter from "./Counter/Counter";
+import Devices from "./Devices/Devices";
+import Topseller from "../components/Shared/Topseller";
+
 export default function Home() {
   return (
     <div>
@@ -17,10 +23,15 @@ export default function Home() {
       </Head>
       <main>
         <div>
-          <Header />
+          <Header bg="bg-transparent" />
         </div>
         <div>
           <Banner />
+          <BreakdownFirst/>
+          <BreakdownSecond/>
+          <BreakdownThird/>
+          <Devices/>
+          <Counter/>
         </div>
         <div>
           <HomeServicesSlider />
@@ -34,6 +45,6 @@ export default function Home() {
         <Footer />
       </footer>
     </div>
-    // </AuthProvider>
+
   );
 }

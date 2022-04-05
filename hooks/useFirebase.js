@@ -1,29 +1,38 @@
 import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import { useEffect, useState } from 'react';
-import initializeFirebase from '../components/Firebase/firebase.init';
+import app from "../components/Firebase/firebase.init";
+import { useRouter } from 'next/router';
+
 
 
 
 //initialize firebase app
-initializeFirebase();
+app();
 
 const useFirebase = () => {
     const [user, setUser] = useState({});
+    const [loading, setIsLoadind] = useState(true);
+    const [error, setError] = useState('');
+    const router = useRouter()
 
     const auth = getAuth();
 
-    //log in with email and pass
+    //rgister user with email and pass
     const registerUser = (email, password) => {
+        setIsLoadind(true);
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 // Signed in 
                 const user = userCredential.user;
+                router.replace("/")
+                setError('');
             })
             .catch((error) => {
                 const errorCode = error.code;
-                const errorMessage = error.message;
+                setError(error.message);
 
-            });
+            })
+            .finally(() => setIsLoadind(false));
     }
 
     //user observe user 
@@ -35,27 +44,33 @@ const useFirebase = () => {
             } else {
                 setUser({});
             }
+            setIsLoadind(false);
         });
         return () => unSubscribe;
     }, [])
 
-    //signIn user
+    //signIn user email and pass
     const logInUser = (email, password) => {
+        setIsLoadind(true);
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 // Signed in 
                 const user = userCredential.user;
                 // ...
+                router.replace("/")
+                setError('');
             })
             .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-            });
+                setError(error.message)
+            })
+            .finally(() => setIsLoadind(false));
     }
 
     // google signIN
     const signInWithGoogle = () => {
-        signInWithPopup(auth, provider)
+        setIsLoadind(true);
+        const googleProvider = new GoogleAuthProvider();
+        signInWithPopup(auth, googleProvider)
             .then((result) => {
                 // This gives you a Google Access Token. You can use it to access the Google API.
                 const credential = GoogleAuthProvider.credentialFromResult(result);
@@ -63,39 +78,44 @@ const useFirebase = () => {
                 // The signed-in user info.
                 const user = result.user;
                 // ...
+                router.replace("/")
+                setError('');
             }).catch((error) => {
                 // Handle Errors here.
                 const errorCode = error.code;
-                const errorMessage = error.message;
+                setError(error.message)
                 // The email of the user's account used.
                 const email = error.email;
                 // The AuthCredential type that was used.
                 const credential = GoogleAuthProvider.credentialFromError(error);
                 // ...
-            });
+            })
+            .finally(() => setIsLoadind(false));
     }
 
-    //google sing out
-    const logout = () => {
-        signOut(auth)
-            .then(() => { })
-    }
+
 
     //logout email and pass
     const logOut = () => {
+        setIsLoadind(true);
         signOut(auth)
             .then(() => {
                 // Sign-out successful.
             }).catch((error) => {
                 // An error happened.
-            });
+            })
+            .finally(() => setIsLoadind(false));
     }
 
     return {
         user,
         registerUser,
         logInUser,
+        signInWithGoogle,
+        loading,
+        setIsLoadind,
         logOut,
+        error
     }
 };
 
