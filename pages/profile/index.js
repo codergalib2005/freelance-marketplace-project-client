@@ -59,18 +59,19 @@ const Profile = () => {
   };
   console.log(professionText);
   return (
-    <div className="single_user_profile_section text_no_select px-8 feature-font bg-[#dbc9ff11]">
+    <div className="single_user_profile_section text_no_select px-8 feature-font bg-[#F5F7FB]">
       <div className="container-fluid px-5 xl:px-0  mx-auto py-12">
-        <div className="mb-8 flex justify-end ">
-          <div className="flex gap-6 ">
+        <div className="mb-8 flex justify-end">
+          <div className="flex gap-4 md:gap-8 lg:gap-16  items-center">
             <input
               type="text"
               placeholder="search here!"
-              className="border border-blue-400 px-4 py-1 rounded-lg outline-none"
+              className="border border-blue-300 pl-2 py-2 rounded-lg outline-none"
             />
-            <button className="px-8 py-2 rounded-lg bg-[#fa7962]">
+            <button className="px-4 py-2 rounded-lg bg-[#EFDCE7]">
               Hire Me
             </button>
+            <img className="w-6 h-6" src="/profile/select.png" alt="" />
             <div className="w-8 h-8 rounded-full border-4 border-white ">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
@@ -82,10 +83,10 @@ const Profile = () => {
           </div>
         </div>
         {/* new section */}
-        <div className="mb-8 px-12">
+        <div className="mb-8 px-0 md:px-6 lg:px-12">
           <div className="">
             <h2 className="text-4xl text-gray-800 font-semibold">Hello Tam</h2>
-            <div className="flex gap-4 items-center">
+            <div className="flex  gap-4 items-center">
               <p className="text-xl text-gray-500 font-medium">
                 Have a nice day at work
               </p>
@@ -100,18 +101,18 @@ const Profile = () => {
           </div>
           {/*  */}
           <div className="bg-white shadow-lg rounded-lg mb-16 mt-6">
-            <div className="flex gap-4 justify-around items-center">
+            <div className="flex gap-4 flex-col md:flex-row lg:flex-row justify-around items-center">
               <img
                 className="w-48"
                 src="/profile/Online-report-pana.png"
                 alt=""
               />
-              <div className="">
+              <div className="shadow-lg md:shadow-none p-6 md:p-0">
                 <p className="text-3xl text-gray-700">$3553.6</p>
                 <div className="bg-blue-400 w-12 mx-auto h-2 my-4 rounded-lg"></div>
                 <p className="text-gray-500 font-semibold text-lg">My Funds</p>
               </div>
-              <div className="">
+              <div className="shadow-lg  md:shadow-none p-6 md:p-0">
                 <p className="text-3xl text-gray-700">$5153.60</p>
                 <div className="bg-purple-400 w-12 mx-auto h-2 my-4 rounded-lg"></div>
                 <p className="text-gray-500 font-semibold text-lg">
