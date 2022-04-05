@@ -2,7 +2,6 @@
 import { Alert } from "antd";
 import Link from "next/link";
 import React, { useState } from "react";
-import { withPublic } from "../../hooks/privateRout";
 import useAuth from "../../hooks/useAuth";
 
 const login = () => {
@@ -84,6 +83,12 @@ const login = () => {
                         className="px-3 py-3 w-full text-base focus:border shadow-inner shadow-gray-100  border-gray-300  focus:outline-none focus:border-green-200 rounded-lg"
                         placeholder="Password"
                       />
+                    <div className="w-1/2 text-right">
+                      <Link href="/login/register">
+                        <a className="text-blue-500">
+                          <small>Create new account?</small>
+                        </a>
+                      </Link>
                     </div>
                     <div>
                       <label className="inline-flex items-center cursor-pointer">

@@ -1,6 +1,7 @@
 import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
 import { useEffect, useState } from 'react';
 import app from "../components/Firebase/firebase.init";
+import { useRouter } from 'next/router';
 
 
 
@@ -12,6 +13,7 @@ const useFirebase = () => {
     const [user, setUser] = useState({});
     const [loading, setIsLoadind] = useState(true);
     const [error, setError] = useState('');
+    const router = useRouter()
 
     const auth = getAuth();
 
@@ -22,6 +24,7 @@ const useFirebase = () => {
             .then((userCredential) => {
                 // Signed in 
                 const user = userCredential.user;
+                router.replace("/")
                 setError('');
             })
             .catch((error) => {
@@ -54,6 +57,7 @@ const useFirebase = () => {
                 // Signed in 
                 const user = userCredential.user;
                 // ...
+                router.replace("/")
                 setError('');
             })
             .catch((error) => {
@@ -74,6 +78,7 @@ const useFirebase = () => {
                 // The signed-in user info.
                 const user = result.user;
                 // ...
+                router.replace("/")
                 setError('');
             }).catch((error) => {
                 // Handle Errors here.
@@ -88,11 +93,7 @@ const useFirebase = () => {
             .finally(() => setIsLoadind(false));
     }
 
-    //google sing out
-    // const logout = () => {
-    //     signOut(auth)
-    //         .then(() => { })
-    // }
+
 
     //logout email and pass
     const logOut = () => {

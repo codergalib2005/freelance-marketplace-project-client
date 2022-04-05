@@ -55,6 +55,20 @@ const Header = ({ bg }) => {
                 <Link href="/login">Join</Link>
               </button>
             )}
+            {
+              user?.email ?
+                (
+                  <button onClick={logOut} className="bg-indigo-400 text-lg hover:bg-orange-400 translate-all transition duration-300 rounded-md font-bold py-1 px-4 border-2">
+                    SignOut
+                  </button>
+                )
+                :
+                (
+                  <button className="bg-indigo-400 text-lg hover:bg-orange-400 translate-all transition duration-300 rounded-md font-bold py-1 px-4 border-2">
+                    <Link href="/login">Join</Link>
+                  </button>
+                )
+            }
           </ul>
           <button className="block md:hidden py-3 px-4 mx-2 rounded focus:outline-none hover:bg-gray-200 group">
             <div className="w-5 h-1 bg-gray-600 mb-1"></div>
