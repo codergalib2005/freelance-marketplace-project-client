@@ -93,11 +93,7 @@ const useFirebase = () => {
             .finally(() => setIsLoadind(false));
     }
 
-    //google sing out
-    // const logout = () => {
-    //     signOut(auth)
-    //         .then(() => { })
-    // }
+
 
     //logout email and pass
     const logOut = () => {
