@@ -29,7 +29,6 @@ const Task = () => {
   return (
     <div className="my-12">
       <p>Here is all of the task items</p>
-      {/* adding details */}
       <div className="grid grid-cols-1 md:grid-cols-5 lg:grid-cols-5 mt-6 gap-4">
         <div className=" col-span-3 shadow-md rounded-xl p-1 bg-white">
           <div className="flex justify-between p-4 bg-[#F9FBFC]">
