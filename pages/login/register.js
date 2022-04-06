@@ -1,4 +1,4 @@
-import { message, Tooltip } from 'antd';
+import { message } from 'antd';
 import Link from 'next/link';
 import React from 'react';
 import { useForm } from "react-hook-form";
@@ -19,32 +19,12 @@ const register = () => {
         data.about = "",
         data.education = "",
         data.thumbnail = ""
-      // ___Image upload in imgBB ____
-      const rf = new FileReader();
-      rf.readAsDataURL(data.image[0])
-      rf.onloadend = function (event) {
-        const body = new FormData();
-        body.append("image", event.target.result.split(",").pop()); //To delete 'data:image/png;base64,' otherwise imgbb won't process it.
-        body.append("name", data.image[0].name);
-        console.log(body);
-        fetch("https://api.imgbb.com/1/upload?expiration=600&key=aace97b9a0d4e6d8a83442b26ddb021e", {
-          method: "POST",
-          body: body
-        })
-          .then(res => res.json())
-          .then(result => {
-            data.avatar = result.data.url;
-            data.image = "";
-            registerUser(data);
-            console.log(data);
-          })
-      }
+      data.avatar = "",
+        data.image = ""
+      registerUser(data)
     }
   };
-
-  console.log(userStatus)
-
-
+  console.log(userStatus);
   return (
     <div className='w-full bg-[#1a2747]'>
       {!loading && (
@@ -70,9 +50,7 @@ const register = () => {
                   <h1 className='text-4xl font-bold text-gray-900 mb-3'>Register</h1>
                   {/* ----This is the form---- */}
                   <form className='input_form' onSubmit={handleSubmit(onSubmit)}>
-                    <Tooltip title="Select a image">
-                      <input className='w-32 h-16 cursor-pointer rounded-full' type="file" {...register("image", { required: true })} accept=".jpg, .jpeg, .png" placeholder='Select Your profile pic' />
-                    </Tooltip>
+                    <input className='w-32 h-16 cursor-pointer rounded-full' type="file" {...register("image")} accept=".jpg, .jpeg, .png" placeholder='Select Your profile pic' />
                     {errors.image && <span className='text-red-600 font-bold'>Profile Image is required</span>}
                     <input className='style' {...register("name", { required: true })} placeholder="Name" />
                     {errors.name && <span className='text-red-600 font-bold'>Name is required</span>}

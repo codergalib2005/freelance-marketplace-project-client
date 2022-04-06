@@ -12,7 +12,7 @@ app();
 
 const useFirebase = () => {
     const [user, setUser] = useState({});
-    const [userStatus, setUserStatus] = useState("");
+    const [userStatus, setUserStatus] = useState(null);
     const [loading, setIsLoadind] = useState(true);
     const [error, setError] = useState('');
     const router = useRouter()
@@ -38,7 +38,8 @@ const useFirebase = () => {
                     about,
                     avatar,
                     education,
-                    bio
+                    bio,
+                    avatar
                 }
                 axios.post("https://dry-plains-53771.herokuapp.com/auth/users", body)
                     .then(res => {
@@ -120,9 +121,9 @@ const useFirebase = () => {
 
     // Load Login personal data loader 
     useEffect(() => {
-        fetch(`https://dry-plains-53771.herokuapp.com/auth/users/email/${user.email}`)
+        fetch(`https://dry-plains-53771.herokuapp.com/auth/users/status/${user?.email}`)
             .then((res) => res.json())
-            .then((data) => setUserStatus(data.result[0].status))
+            .then((data) => setUserStatus(data?.status))
             .catch((err) => console.log(err));
     }, [user]);
 

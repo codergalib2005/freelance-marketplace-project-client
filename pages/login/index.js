@@ -11,9 +11,6 @@ const Login = () => {
     logInUser(data.email, data.password)
   };
 
-  console.log(userStatus)
-
-
   return (
     <div className='w-full bg-[#1a2747] overflow-visible md:overflow-hidden'>
       {!loading && (
@@ -36,7 +33,7 @@ const Login = () => {
                   </Link>
                 </div>
                 <div className='p-3 flex items-stretch justify-center flex-col h-full'>
-                  <h1 className='text-4xl font-bold text-gray-900 mb-3'>Register</h1>
+                  <h1 className='text-4xl font-bold text-gray-900 mb-3'>Login</h1>
                   {/* ----This is the form---- */}
                   <form className='input_form' onSubmit={handleSubmit(onSubmit)}>
                     <input className='style' {...register("email", { required: true })} placeholder="E-mail" />
