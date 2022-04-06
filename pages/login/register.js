@@ -24,7 +24,6 @@ const register = () => {
       registerUser(data)
     }
   };
-  console.log(userStatus);
   return (
     <div className='w-full bg-[#1a2747]'>
       {!loading && (
@@ -50,8 +49,8 @@ const register = () => {
                   <h1 className='text-4xl font-bold text-gray-900 mb-3'>Register</h1>
                   {/* ----This is the form---- */}
                   <form className='input_form' onSubmit={handleSubmit(onSubmit)}>
-                    <input className='w-32 h-16 cursor-pointer rounded-full' type="file" {...register("image")} accept=".jpg, .jpeg, .png" placeholder='Select Your profile pic' />
-                    {errors.image && <span className='text-red-600 font-bold'>Profile Image is required</span>}
+                    {/* <input className='w-32 h-16 cursor-pointer rounded-full' type="file" {...register("image")} accept=".jpg, .jpeg, .png" placeholder='Select Your profile pic' />
+                    {errors.image && <span className='text-red-600 font-bold'>Profile Image is required</span>} */}
                     <input className='style' {...register("name", { required: true })} placeholder="Name" />
                     {errors.name && <span className='text-red-600 font-bold'>Name is required</span>}
                     <div className="div grid grid-cols-2 gap-2">
