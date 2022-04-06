@@ -1,0 +1,14 @@
+.how_it_work_img{
+    border-radius: 25px;
+    margin-left: 20px;
+}
+@media only screen and (max-width: 600px) {
+    .how_it_work_container{
+        padding: 0;
+    }
+    .how_it_work_img{
+        padding: 0;
+        margin-left: 0px;
+
+    }
+  }

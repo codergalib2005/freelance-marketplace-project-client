@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
 const BreakdownSecond = () => {
-  return (
-    <div>
-      <div className="container mx-auto ">
+    return (
+        <div>
+            <div className="container mx-auto ">
         <div className="grid grid-cols-1 md:grid-flow-col lg:grid-flow-col gap-20 ">
           <div className="md:col-span-6 lg:col-span-6">
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -107,8 +107,8 @@ const BreakdownSecond = () => {
           </div>
         </div>
       </div>
-    </div>
-  );
+        </div>
+    );
 };
 
 export default BreakdownSecond;

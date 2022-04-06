@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
 const BreakdownFirst = () => {
-  return (
-    <div>
-      <div className="container mx-auto my-16">
+    return (
+        <div>
+             <div className="container mx-auto my-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-16 justify-center">
           <div>
             <div>
@@ -94,8 +94,8 @@ const BreakdownFirst = () => {
           </div>
         </div>
       </div>
-    </div>
-  );
+        </div>
+    );
 };
 
 export default BreakdownFirst;

@@ -3,7 +3,7 @@ import React from 'react';
 const BreakdownThird = () => {
     return (
         <div>
-             <div className="container mx-auto my-8">
+               <div className="container mx-auto my-8">
         <div className="grid grid-cols-1 md:grid-flow-col lg:grid-flow-col gap-20 ">
           <div className="md:col-span-6 lg:col-span-6">
             {/* eslint-disable-next-line @next/next/no-img-element */}
