@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React from 'react';
 
 const Menu = () => {
@@ -5,11 +6,11 @@ const Menu = () => {
         <>
                 <nav className='grid place-items-stretch'>
                     <ul>
-                        <li>Account</li>
-                        <li>Security</li>
-                        <li>Notification</li>
-                        <li>Payment methods</li>
-                        <li>Form W-9</li>
+                        <Link><li>Account</li></Link>
+                        <Link><li>Security</li></Link>
+                        <Link><li>Notification</li></Link>
+                        <Link><li>Payment methods</li></Link>
+                        <Link><li>Form W-9</li></Link>
                     </ul>
                 </nav>
             </> 
