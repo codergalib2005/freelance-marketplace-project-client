@@ -1,5 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import DeactiveAccount from './DeactiveAccount';
 
 const UpdateProfile = () => {
     const { register, handleSubmit } = useForm();
@@ -7,23 +8,23 @@ const UpdateProfile = () => {
         console.log(data)
      };
     return (
-        <div>
+        <>
             <label >Need to update your public profile? Go to My Profile</label>
                 <hr />
-                <div className="container">
+                <div>
                     <form onSubmit={handleSubmit(updateStatus)}>
-                          <div className='d-flex'>
-                          <p className='me-5 w-50'>Full Name</p> <input type="text" {...register("name")} placeholder="Your Full Name" />
+                          <div className='w-2/4 flex space-x-6'>
+                          <p className='w-2/6'>Full Name</p> <input type="text" {...register("name")} placeholder="Your Full Name" />
                           </div>
-                          <div className='d-flex'>
-                          <p className='me-5 w-50'>Email</p> <input type="email" {...register("email")} placeholder="Email" />
+                          <div className='w-2/4 flex space-x-6'>
+                          <p className='w-2/6'>Email</p> <input  type="email" {...register("email")} placeholder="Email" />
                           </div>
-                        <div className='d-flex'>
-                             <div className='me-5'>
+                        <div className='w-2/4 flex space-x-6'>
+                             <div className='w-2/4'>
                              <p>ONLINE STATUS <br />
                           <small>When online, your Gigs are visible under <br /> the Online search filter.</small></p>
                              </div>
-                            <select {...register("status")} className="form_label h-50">
+                            <select  {...register("status")} className="border-2 form_label h-50">
                                 <option>
                                     GO OFFLINE FOR..
                                   </option>
@@ -37,11 +38,12 @@ const UpdateProfile = () => {
                             </select>
                         </div>
                         <div>
-                            <input className='btn btn-success' type="submit" value="Login" />
+                            <input className='bg-blue-500 hover:bg-blue-700 text-white font-bold' type="submit" value="Login" />
                         </div>
                     </form>
-        </div>
-        </div>
+                    <DeactiveAccount/>
+                </div>
+        </>
     );
 };
 

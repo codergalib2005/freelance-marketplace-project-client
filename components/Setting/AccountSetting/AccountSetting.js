@@ -6,7 +6,6 @@ const AccountSetting = () => {
     return (
         <div>
             <UpdateProfile/>
-            <DeactiveAccount/>
         </div>
     );
 };

@@ -2,8 +2,8 @@ import React from 'react';
 
 const Menu = () => {
     return (
-        <div>
-           <nav className='d-flex justify-content-center align-items-center'>
+        <>
+                <nav className='grid place-items-stretch'>
                     <ul>
                         <li>Account</li>
                         <li>Security</li>
@@ -11,8 +11,8 @@ const Menu = () => {
                         <li>Payment methods</li>
                         <li>Form W-9</li>
                     </ul>
-                </nav> 
-        </div>
+                </nav>
+            </> 
     );
 };
 
