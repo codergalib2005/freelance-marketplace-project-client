@@ -4,7 +4,7 @@ const LoginDevice = () => {
   return (
     <>
       <hr />
-      <h1>Logged in devices</h1>
+      <h1>Your Logged in devices</h1>
     </>
   );
 };
