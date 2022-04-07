@@ -166,3 +166,7 @@
     opacity: 0;
   }
 }
+
+.svg-hover:hover .icon{
+  fill: white;
+}
