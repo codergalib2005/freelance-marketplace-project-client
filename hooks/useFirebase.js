@@ -1,8 +1,9 @@
+import { message } from "antd";
+import axios from 'axios';
 import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import app from "../components/Firebase/firebase.init";
-import { useRouter } from 'next/router';
-
 
 
 
@@ -11,25 +12,46 @@ app();
 
 const useFirebase = () => {
     const [user, setUser] = useState({});
+    const [userStatus, setUserStatus] = useState("");
     const [loading, setIsLoadind] = useState(true);
     const [error, setError] = useState('');
     const router = useRouter()
 
     const auth = getAuth();
-
     //rgister user with email and pass
-    const registerUser = (email, password) => {
+    const registerUser = (data) => {
+        const { thumbnail, status, profession, name, image, gender, email, skills, about, avatar, education, bio, password } = data;
         setIsLoadind(true);
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-                // Signed in 
                 const user = userCredential.user;
-                router.replace("/")
-                setError('');
+                //  User data save in database
+                let body = {
+                    thumbnail,
+                    status,
+                    profession,
+                    name,
+                    image,
+                    gender,
+                    email,
+                    skills,
+                    about,
+                    avatar,
+                    education,
+                    bio
+                }
+                axios.post("https://dry-plains-53771.herokuapp.com/auth/users", body)
+                    .then(res => {
+                        message.success("User register successfully!");
+                        router.replace("/")
+                        setError('');
+                    })
+                    .catch(err => console.log(err))
             })
             .catch((error) => {
                 const errorCode = error.code;
                 setError(error.message);
+                message.error(error.message);
 
             })
             .finally(() => setIsLoadind(false));
@@ -47,7 +69,9 @@ const useFirebase = () => {
             setIsLoadind(false);
         });
         return () => unSubscribe;
-    }, [])
+    }, [auth]);
+
+
 
     //signIn user email and pass
     const logInUser = (email, password) => {
@@ -56,12 +80,13 @@ const useFirebase = () => {
             .then((userCredential) => {
                 // Signed in 
                 const user = userCredential.user;
-                // ...
+                message.success("User login successfully!");
                 router.replace("/")
                 setError('');
             })
             .catch((error) => {
                 setError(error.message)
+                message.error(error.message);
             })
             .finally(() => setIsLoadind(false));
     }
@@ -75,15 +100,15 @@ const useFirebase = () => {
                 // This gives you a Google Access Token. You can use it to access the Google API.
                 const credential = GoogleAuthProvider.credentialFromResult(result);
                 const token = credential.accessToken;
-                // The signed-in user info.
                 const user = result.user;
-                // ...
                 router.replace("/")
                 setError('');
+                message.success("User register successfully!");
             }).catch((error) => {
                 // Handle Errors here.
                 const errorCode = error.code;
                 setError(error.message)
+                message.error(error.message);
                 // The email of the user's account used.
                 const email = error.email;
                 // The AuthCredential type that was used.
@@ -91,9 +116,15 @@ const useFirebase = () => {
                 // ...
             })
             .finally(() => setIsLoadind(false));
-    }
+    };
 
-
+    // Load Login personal data loader 
+    useEffect(() => {
+        fetch(`https://dry-plains-53771.herokuapp.com/auth/users/email/${user.email}`)
+            .then((res) => res.json())
+            .then((data) => setUserStatus(data.result[0].status))
+            .catch((err) => console.log(err));
+    }, [user]);
 
     //logout email and pass
     const logOut = () => {
@@ -101,8 +132,10 @@ const useFirebase = () => {
         signOut(auth)
             .then(() => {
                 // Sign-out successful.
+                message.success("User sign out successfully!");
             }).catch((error) => {
                 // An error happened.
+                message.error(error.message);
             })
             .finally(() => setIsLoadind(false));
     }
@@ -115,7 +148,8 @@ const useFirebase = () => {
         loading,
         setIsLoadind,
         logOut,
-        error
+        error,
+        userStatus
     }
 };
 

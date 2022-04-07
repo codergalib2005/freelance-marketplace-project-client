@@ -1,11 +1,11 @@
-import { Input } from 'antd';
-import parse from 'html-react-parser';
+import { Input } from "antd";
+import parse from "html-react-parser";
 import dynamic from "next/dynamic";
-import React, { useReducer, useState } from 'react';
-import { BsCheck2Square } from 'react-icons/bs';
-import { FiEdit } from 'react-icons/fi';
-import { IoMdClose } from 'react-icons/io';
-import 'react-quill/dist/quill.snow.css'; // ES6
+import React, { useReducer, useState } from "react";
+import { BsCheck2Square } from "react-icons/bs";
+import { FiEdit } from "react-icons/fi";
+import { IoMdClose } from "react-icons/io";
+import "react-quill/dist/quill.snow.css"; // ES6
 
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 const TOOLBAR_OPTIONS = [
@@ -41,47 +41,51 @@ const formats = [
 ];
 
 const editorMood = {
-  editor: null
+  editor: null,
 };
 const controlReducer = (state, action) => {
   switch (action.type) {
     case "ABOUT_EDIT":
-      return { editor: state.editor = "ABOUT_EDIT" }
+      return { editor: (state.editor = "ABOUT_EDIT") };
       break;
     case "SKILLS_EDIT":
-      return { editor: state.editor = "SKILLS_EDIT" }
+      return { editor: (state.editor = "SKILLS_EDIT") };
       break;
     case "EDUCATION_EDIT":
-      return { editor: state.editor = "EDUCATION_EDIT" }
+      return { editor: (state.editor = "EDUCATION_EDIT") };
       break;
     case "CLOSE_EDITOR":
-      return { editor: state.editor = null }
-      break
+      return { editor: (state.editor = null) };
+      break;
     default:
-      return state
+      return state;
       break;
   }
-}
+};
+// this is text area for input
 const { TextArea } = Input;
 
-
 const About = () => {
-  const [state, dispatch] = useReducer(controlReducer, editorMood)
+  const [state, dispatch] = useReducer(controlReducer, editorMood);
   console.log(state.editor);
-  const [aboutBody, setAboutBody] = useState("")
-  const [skillsBody, setSkillsBody] = useState("")
-  const [educationBody, setEducationBody] = useState("")
-
-
+  const [aboutBody, setAboutBody] = useState("");
+  const [skillsBody, setSkillsBody] = useState("");
+  const [educationBody, setEducationBody] = useState("");
 
   return (
-    <div className='profile_about mt-4'>
+    <div className="profile_about mt-4">
       <div>
-        <ul className='box_list_ul'>
-          <li className='box_list_li'>
+        <ul className="box_list_ul">
+          <li className="box_list_li">
             <div>
-              <h3 className='text-3xl text-gray-800 font-medium pb-2 flex items-end'>
-                About <span className="text-lg pl-3 cursor-pointer text-[#e83a3b]" onClick={() => dispatch({ type: "ABOUT_EDIT" })}><FiEdit /></span>
+              <h3 className="text-3xl text-gray-800 font-medium pb-2 flex items-end">
+                About
+                <span
+                  className="text-lg pl-3 cursor-pointer text-[#e83a3b]"
+                  onClick={() => dispatch({ type: "ABOUT_EDIT" })}
+                >
+                  <FiEdit />
+                </span>
               </h3>
             </div>
             <div className="pb-4">
@@ -95,21 +99,34 @@ const About = () => {
                     formats={formats}
                   />
                   <div>
-                    <button className="text-xl mr-3 mt-3" onClick={() => dispatch({ type: "CLOSE_EDITOR" })}>
+                    <button
+                      className="text-xl mr-3 mt-3"
+                      onClick={() => dispatch({ type: "CLOSE_EDITOR" })}
+                    >
                       <IoMdClose />
                     </button>
-                    <button className="text-xl mr-3 mt-3" ><BsCheck2Square /></button>
+                    <button className="text-xl mr-3 mt-3">
+                      <BsCheck2Square />
+                    </button>
                   </div>
                 </div>
-              ) : (<div className="pl-3 html_parser_in_profile_about">
-                {parse(aboutBody)}
-              </div>)}
+              ) : (
+                <div className="pl-3 html_parser_in_profile_about">
+                  {parse(aboutBody)}
+                </div>
+              )}
             </div>
           </li>
-          <li className='box_list_li'>
+          <li className="box_list_li">
             <div>
-              <h3 className='text-3xl text-gray-800 font-medium py-2 flex items-end'>
-                Skills <span className="text-lg pl-3 cursor-pointer text-[#e83a3b]" onClick={() => dispatch({ type: "SKILLS_EDIT" })}><FiEdit /></span>
+              <h3 className="text-3xl text-gray-800 font-medium py-2 flex items-end">
+                Skills{" "}
+                <span
+                  className="text-lg pl-3 cursor-pointer text-[#e83a3b]"
+                  onClick={() => dispatch({ type: "SKILLS_EDIT" })}
+                >
+                  <FiEdit />
+                </span>
               </h3>
             </div>
             <div className="pb-4">
@@ -123,19 +140,34 @@ const About = () => {
                     formats={formats}
                   />
                   <div>
-                    <button className="text-xl mr-3 mt-3" onClick={() => dispatch({ type: "CLOSE_EDITOR" })}>
+                    <button
+                      className="text-xl mr-3 mt-3"
+                      onClick={() => dispatch({ type: "CLOSE_EDITOR" })}
+                    >
                       <IoMdClose />
                     </button>
-                    <button className="text-xl mr-3 mt-3" ><BsCheck2Square /></button>
+                    <button className="text-xl mr-3 mt-3">
+                      <BsCheck2Square />
+                    </button>
                   </div>
                 </div>
-              ) : (<div className="pl-3 html_parser_in_profile_about">{parse(skillsBody)}</div>)}
+              ) : (
+                <div className="pl-3 html_parser_in_profile_about">
+                  {parse(skillsBody)}
+                </div>
+              )}
             </div>
           </li>
-          <li className='box_list_li'>
+          <li className="box_list_li">
             <div>
-              <h3 className='text-3xl text-gray-800 font-medium py-2 flex items-end'>
-                Clients <span className="text-lg pl-3 cursor-pointer text-[#e83a3b]" onClick={() => dispatch({ type: "EDUCATION_EDIT" })}><FiEdit /></span>
+              <h3 className="text-3xl text-gray-800 font-medium py-2 flex items-end">
+                Clients{" "}
+                <span
+                  className="text-lg pl-3 cursor-pointer text-[#e83a3b]"
+                  onClick={() => dispatch({ type: "EDUCATION_EDIT" })}
+                >
+                  <FiEdit />
+                </span>
               </h3>
             </div>
             <div className="pb-4">
@@ -149,15 +181,22 @@ const About = () => {
                     formats={formats}
                   />
                   <div className="shadow-md p-4">
-                    <button className="text-xl mr-3 mt-3" onClick={() => dispatch({ type: "CLOSE_EDITOR" })}>
+                    <button
+                      className="text-xl mr-3 mt-3"
+                      onClick={() => dispatch({ type: "CLOSE_EDITOR" })}
+                    >
                       <IoMdClose />
                     </button>
-                    <button className="text-xl mr-3 mt-3" ><BsCheck2Square /></button>
+                    <button className="text-xl mr-3 mt-3">
+                      <BsCheck2Square />
+                    </button>
                   </div>
                 </div>
-              ) : (<div className="pl-3 html_parser_in_profile_about">
-                {parse(educationBody)}
-              </div>)}
+              ) : (
+                <div className="pl-3 html_parser_in_profile_about">
+                  {parse(educationBody)}
+                </div>
+              )}
             </div>
           </li>
         </ul>
