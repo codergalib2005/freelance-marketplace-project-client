@@ -25,7 +25,7 @@ const HowItWorks = () => {
                 <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil quos quis nam velit, sed et explicabo. Porro eos voluptates qui! </p>
               </Panel>
               <Panel header="Search Vacancies" key="2" className="site-collapse-custom-panel">
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat rerum sequi dicta, praesentium ipsa dolores illum quia voluptate eos eum!</p>
+                <p>Lorem ipsum  dolor sit, amet consectetur adipisicing elit. Placeat rerum sequi dicta, praesentium ipsa dolores illum quia voluptate eos eum!</p>
               </Panel>
               <Panel header="Apply Job" key="3" className="site-collapse-custom-panel">
                 <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa, inventore nulla? Sed enim architecto ab corporis nihil eius tempore pariatur, porro ipsam.</p>
