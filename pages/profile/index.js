@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
-import { Input } from "antd";
+import { Input, message } from "antd";
+import TextArea from "antd/lib/input/TextArea";
 import axios from 'axios';
 import React, { useReducer, useState } from "react";
 import { BsCheck2Square } from "react-icons/bs";
@@ -59,20 +60,47 @@ const Profile = () => {
     }, error => {
       console.log(error);
     });
-  console.log()
   // Handle Bio Edit Submit____
   const handleBioSubmit = () => {
-    axios.put(`https://dry-plains-53771.herokuapp.com/auth/users/bio/${thisUser?._id}`, {
-      bio: bioText,
-    })
-      .then(function (response) {
-        console.log(response);
-        dispatch({ type: "CLOSE_EDITOR" })
+    if (!bioText) {
+      message.error("Bio field Must need to fill-up!");
+      return;
+    } else {
+      axios.put(`https://dry-plains-53771.herokuapp.com/auth/users/bio/${thisUser?._id}`, {
+        bio: bioText,
       })
-      .catch(function (error) {
-        console.log(error);
-      });
+        .then(function (response) {
+          message.success("Bio Update Successfully!")
+          dispatch({ type: "CLOSE_EDITOR" })
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    }
   }
+  const handleProfessionSubmit = e => {
+    if (!professionText) {
+      message.error("Profession field Must need to fill-up!");
+      return;
+    } else {
+      axios.put(`https://dry-plains-53771.herokuapp.com/auth/users/profession/${thisUser?._id}`, {
+        profession: professionText,
+      })
+        .then(function (response) {
+          message.success("Profession Update Successfully!")
+          dispatch({ type: "CLOSE_EDITOR" })
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    }
+  }
+
+  // ================ Here are all props
+  const bioProps = {
+    defaultValue: bioText,
+  }
+  console.log(thisUser?.about);
   return (
     <div className="single_user_profile_section text_no_select px-8 feature-font bg-[#F5F7FB]">
       <div className="container-fluid px-5 xl:px-0  mx-auto py-12">
@@ -204,7 +232,7 @@ const Profile = () => {
             <div>
               {tabs === "about" && (
                 <div>
-                  <About />
+                  <About id={thisUser?._id} aboutt={thisUser?.about} skills={thisUser?.skills} education={thisUser?.education} />
                 </div>
               )}
               {tabs === "task" && (
@@ -242,6 +270,8 @@ const Profile = () => {
                   {state.editor === "PROFESSION_EDIT" ? (
                     <div className="mt-2">
                       <Input
+                        showCount
+                        maxLength={40}
                         placeholder="input with clear icon"
                         allowClear
                         onChange={(e) => setProfessionText(e.target.value)}
@@ -253,7 +283,7 @@ const Profile = () => {
                         >
                           <IoMdClose />
                         </button>
-                        <button className="text-xl mr-3 mt-3">
+                        <button onClick={handleProfessionSubmit} className="text-xl mr-3 mt-3">
                           <BsCheck2Square />
                         </button>
                       </div>
@@ -262,7 +292,7 @@ const Profile = () => {
                     <span className="block text-lg font-normal">
                       {thisUser?.profession}{" "}
                       <span
-                        className="text-lg pl-3 flex items-center cursor-pointer text-[#e83a3b]"
+                        className="text-lg pl-1 flex items-center cursor-pointer text-[#e83a3b]"
                         onClick={() => dispatch({ type: "PROFESSION_EDIT" })}
                       >
                         <FiEdit />
@@ -273,9 +303,12 @@ const Profile = () => {
                   <p className="block text-base text-gray-500 text-justify">
                     {state.editor === "BIO_EDIT" ? (
                       <div className="mt-2">
-                        <Input
+                        <TextArea
+                          showCount
+                          maxLength={100}
                           placeholder="input with clear icon"
                           allowClear
+                          {...bioProps}
                           defaultValue={thisUser?.bio}
                           onChange={(e) => setBioText(e.target.value)}
                         />
@@ -295,7 +328,7 @@ const Profile = () => {
                       <span className="block text-lg font-normal">
                         {thisUser?.bio}{" "}
                         <span
-                          className="text-lg pl-3 flex items-center cursor-pointer text-[#e83a3b]"
+                          className="text-lg pl-1 flex items-center cursor-pointer text-[#e83a3b]"
                           onClick={() => dispatch({ type: "BIO_EDIT" })}
                         >
                           <FiEdit />
