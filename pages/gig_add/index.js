@@ -1,12 +1,16 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
-import React, { useReducer } from "react";
+import { message } from 'antd';
+import axios from 'axios';
+import { useRouter } from 'next/router';
+import React, { useEffect, useReducer, useState } from "react";
 import { useForm } from "react-hook-form";
 import Footer from "../../components/Shared/Footer";
 import Header from "../../components/Shared/Header";
-// import { withPrivate } from "../../hooks/PrivateRoute";
+import { withPrivate } from "../../hooks/PrivateRoute";
+import useAuth from '../../hooks/useAuth';
 const showPageMood = {
-  showPage: "PRICING_PAGE"
+  showPage: "MAIN_PAGE"
 };
 const controlReducer = (state, action) => {
   switch (action.type) {
@@ -25,9 +29,23 @@ const controlReducer = (state, action) => {
   }
 }
 const GigCreation = () => {
-  const [state, dispatch] = useReducer(controlReducer, showPageMood)
+  const [state, dispatch] = useReducer(controlReducer, showPageMood);
+  const [thisUser, setThisUser] = useState({})
   const { register, handleSubmit, formState: { errors } } = useForm();
+  const { user, userStatus } = useAuth();
+  const router = useRouter()
+  useEffect(() => {
+    fetch(`https://dry-plains-53771.herokuapp.com/auth/users/email/${user?.email}`)
+      .then((res) => res.json())
+      .then((data) => setThisUser(data?.result[0]))
+      .catch((err) => console.log(err));
+  }, [user]);
+  console.log(thisUser);
+  console.log(userStatus)
   const onSubmit = data => {
+    data.email = user?.email;
+    data.name = thisUser?.name;
+    // data.name = user.
     // Image Upload in imgBB
     let gallery = new Array();
     const rf1 = new FileReader();
@@ -86,7 +104,12 @@ const GigCreation = () => {
                           .then(result4 => {
                             gallery.push(result4?.data?.url);
                             data.gallery = gallery
-                            console.log(data);
+                            axios.post("https://dry-plains-53771.herokuapp.com/auth/gigs", data)
+                              .then(res => {
+                                message.success("Gig Creation successfully!");
+                                router.replace("/profile")
+                              })
+                              .catch(err => console.log(err))
                           })
                           .catch(err => console.log(err))
                       }
@@ -94,18 +117,12 @@ const GigCreation = () => {
                     })
                     .catch(err => console.log(err))
                 }
-
-
               })
               .catch(err => console.log(err))
           }
-
         })
         .catch(err => console.log(err))
     }
-
-
-
   };
   return (
     <div>
@@ -129,12 +146,6 @@ const GigCreation = () => {
               <p className="text-xs">3</p>
             </div>
             <button>Linekd Account</button>
-          </div>
-          <div className="flex gap-2 ">
-            <div className="border-2   h-6 w-6 rounded-full flex justify-center items-center">
-              <p className="text-xs">4</p>
-            </div>
-            <button>Account Security</button>
           </div>
         </div>
         {/*============my Gig info section==============*/}
@@ -165,8 +176,8 @@ const GigCreation = () => {
                               <option value="Music and Audio">Music and Audio</option>
                               <option value="Animation and Video">Animation and Video</option>
                               <option value="Web Programming">Web Programming</option>
-                              <option value="CMS Customization">Web Programming</option>
-                              <option value="Graphics Design">Web Programming</option>
+                              <option value="CMS Customization">CMS Customization</option>
+                              <option value="Graphics Design">Graphics Design</option>
                             </select>
                           </div>
                         </div>
@@ -197,7 +208,7 @@ const GigCreation = () => {
                             <option value="2">3 Days</option>
                           </select>
                           {errors.first_day && <span className="text-red-700 block">Basic Price Must need to select</span>}
-                          <input type="number" placeholder="Service Price" className="px-2 w-full text-xl font-bold py-2 bg-gray-100" {...register("first_price", { min: 10, max: 40, required: true })} />
+                          <input type="number" placeholder="Service Price $10 to $40" className="px-2 w-full text-lg font-bold py-2 bg-gray-100" {...register("first_price", { min: 10, max: 40, required: true })} />
                           {errors.first_price && <span className="text-red-700 block">Basic Price $10 to $40</span>}
                         </div>
                         <div></div>
@@ -215,7 +226,7 @@ const GigCreation = () => {
                             <option value="6">6 Days</option>
                           </select>
                           {errors.second_day && <span className="text-red-700 block">Advance Price Must need to select</span>}
-                          <input type="number" placeholder="Service Price" className="px-2 w-full text-xl font-bold py-2 bg-gray-100" {...register("second_price", { min: 40, max: 100, required: true })} />
+                          <input type="number" placeholder="Service Price $40 to $100" className="px-2 w-full text-lg font-bold py-2 bg-gray-100" {...register("second_price", { min: 40, max: 100, required: true })} />
                           {errors.second_price && <span className="text-red-700 block">Advance Price $40 to $100</span>}
                         </div>
                         <div></div>
@@ -233,7 +244,7 @@ const GigCreation = () => {
                             <option value="9">9 Days</option>
                           </select>
                           {errors.third_day && <span className="text-red-700 block">Enterprise Price Must need to select</span>}
-                          <input type="number" placeholder="Service Price" className="px-2 w-full text-xl font-bold py-2 bg-gray-100" {...register("third_price", { min: 100, max: 200, required: true })} />
+                          <input type="number" placeholder="Service Price $100 to $200" className="px-2 w-full text-lg font-bold py-2 bg-gray-100" {...register("third_price", { min: 100, max: 200, required: true })} />
                           {errors.third_price && <span className="text-red-700 block">Enterprise Price $100 to $200</span>}
                         </div>
                         <div></div>
@@ -289,7 +300,7 @@ const GigCreation = () => {
               }
               {state.showPage === "GALLERY_PAGE" && (
                 <div className="mt-4">
-                  <button onClick={() => dispatch({ type: "GALLERY_PAGE" })} className="py-2 px-3 text-green-900 font-bold text-lg">Back</button>
+                  <button onClick={() => dispatch({ type: "PRICING_PAGE" })} className="py-2 px-3 text-green-900 font-bold text-lg">Back</button>
                   <button className="bg-green-900 py-2 px-6 text-lg font-bold text-white">Confirm Gig Publish</button>
                 </div>
               )
@@ -303,5 +314,5 @@ const GigCreation = () => {
   );
 };
 
-export default GigCreation;
-// export default withPrivate(GigCreation);
+// export default GigCreation;
+export default withPrivate(GigCreation);
