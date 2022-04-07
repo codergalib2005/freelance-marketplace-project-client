@@ -21,8 +21,10 @@ export default function Feature() {
     <div className="my-20 mx-8 md:mx-16 lg:mx-32 feature-font">
       <div className="flex justify-between flex-col md:flex-row mb-8 items-center">
         <div className="w-full md:w-10/12 lg:w-8/12">
-          <h2 className="text-3xl font-bold mb-2">Expolre popular services</h2>
-          <p className="w-full md:w-10/12 lg:w-8/12">
+          <h2 className="text-3xl font-bold mb-2 capitalize text-gray-700">
+            Expolre popular<span className="text-green-700"> services</span>
+          </h2>
+          <p className="w-full md:w-10/12 lg:w-8/12 text-gray-600 text">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit
             aliquid sapiente placeat laudantium culpa voluptate repellendus
             accusantium odit repellat suscipit?
@@ -56,7 +58,7 @@ export default function Feature() {
         className="mySwiper"
       >
         {features.map((feature) => (
-          <SwiperSlide key={feature.id} className="">
+          <SwiperSlide key={feature.id} className="py-4">
             <FeatureSingle feature={feature} />
           </SwiperSlide>
         ))}

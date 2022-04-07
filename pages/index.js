@@ -36,7 +36,7 @@ export default function Home() {
         <div>
           <HomeServicesSlider />
           <Feature />
-          <Topseller />
+          {/* <Topseller /> */}
           <HowItWorks />
         </div>
       </main>
