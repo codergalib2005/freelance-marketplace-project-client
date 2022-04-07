@@ -1,11 +1,15 @@
 /* eslint-disable @next/next/no-img-element */
 import { Input } from "antd";
+import axios from 'axios';
 import React, { useReducer, useState } from "react";
+import { BsCheck2Square } from "react-icons/bs";
 import { FiEdit } from "react-icons/fi";
 import { GrUserManager } from "react-icons/gr";
+import { IoMdClose } from "react-icons/io";
 import About from "../../components/Profile/About";
 import Review from "../../components/Profile/Review";
 import Task from "../../components/Profile/Task";
+import useAuth from '../../hooks/useAuth';
 const editorMood = {
   editor: null,
 };
@@ -20,6 +24,9 @@ const controlReducer = (state, action) => {
     case "EDUCATION_EDIT":
       return { editor: (state.editor = "EDUCATION_EDIT") };
       break;
+    case "BIO_EDIT":
+      return { editor: (state.editor = "BIO_EDIT") };
+      break;
     case "CLOSE_EDITOR":
       return { editor: (state.editor = null) };
       break;
@@ -30,24 +37,13 @@ const controlReducer = (state, action) => {
 };
 const Profile = () => {
   const [state, dispatch] = useReducer(controlReducer, editorMood);
-  console.log(state.editor);
+  const [thisUser, setThisUser] = useState({})
   const [tabs, setTabs] = useState("about");
-  const [professionText, setProfessionText] = useState(
-    "Web Application developer"
-  );
-  const user = {
-    banner:
-      "https://themesbrand.com/symox/layouts/assets/images/profile-bg-1.jpg",
-    avatar:
-      "https://themesbrand.com/symox/layouts/assets/images/users/avatar-5.jpg",
-    name: "User Name",
-    profession: "Front End Web Developer",
-    about:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum debitis quo eaque tenetur consequuntur esse ratione animi minus consequatur, quisquam unde blanditiis consectetur. Et voluptatum neque autem impedit quos sint! className",
-  };
-  const { banner, avatar, name, profession, about } = user;
+  const { user, userStatus, loading, setIsLoadind } = useAuth();
+  const [professionText, setProfessionText] = useState(`${thisUser?.profession}`);
+  const [bioText, setBioText] = useState(`${thisUser?.bio}`)
   const profileBanner = {
-    background: `radial-gradient(#3981c06d, #e83a3a6d),url(${banner}) no-repeat center center`,
+    background: `radial-gradient(#3981c06d, #e83a3a6d),url(${thisUser?.image}) no-repeat center center`,
     backgroundSize: "cover",
     height: "200px",
     borderTopLeftRadius: "10px",
@@ -57,7 +53,26 @@ const Profile = () => {
     borderTopLeftRadius: "5px",
     borderTopRightRadius: "5px",
   };
-  console.log(professionText);
+  axios.get(`https://dry-plains-53771.herokuapp.com/auth/users/email/${user?.email}`)
+    .then(response => {
+      setThisUser(response?.data?.result[0]);
+    }, error => {
+      console.log(error);
+    });
+  console.log()
+  // Handle Bio Edit Submit____
+  const handleBioSubmit = () => {
+    axios.put(`https://dry-plains-53771.herokuapp.com/auth/users/bio/${thisUser?._id}`, {
+      bio: bioText,
+    })
+      .then(function (response) {
+        console.log(response);
+        dispatch({ type: "CLOSE_EDITOR" })
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
   return (
     <div className="single_user_profile_section text_no_select px-8 feature-font bg-[#F5F7FB]">
       <div className="container-fluid px-5 xl:px-0  mx-auto py-12">
@@ -76,7 +91,7 @@ const Profile = () => {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 className="w-full rounded-full hover:scale-105 h-full transition-all duration-300 ease-linear"
-                src={avatar}
+                src={thisUser?.avatar}
                 alt=""
               />
             </div>
@@ -132,60 +147,54 @@ const Profile = () => {
             <div className="shadow-md flex">
               <div
                 style={profileSelectableCard}
-                className={`w-4/12 flex items-center justify-center flex-col py-2 border-b-2 cursor-pointer ${
-                  tabs === "about"
-                    ? "bg-[#c3d9ec] text-[#c3d9ec] border-[#3980c0]"
-                    : "border-gray-500 bg-50"
-                }`}
+                className={`w-4/12 flex items-center justify-center flex-col py-2 border-b-2 cursor-pointer ${tabs === "about"
+                  ? "bg-[#c3d9ec] text-[#c3d9ec] border-[#3980c0]"
+                  : "border-gray-500 bg-50"
+                  }`}
                 onClick={() => setTabs("about")}
               >
                 <span className="text-xl">
                   <GrUserManager />
                 </span>
                 <span
-                  className={`text-base font-medium ${
-                    tabs === "about" ? "text-[#3980c0]" : "text-gray-800"
-                  }`}
+                  className={`text-base font-medium ${tabs === "about" ? "text-[#3980c0]" : "text-gray-800"
+                    }`}
                 >
                   About
                 </span>
               </div>
               <div
                 style={profileSelectableCard}
-                className={`w-4/12 flex items-center justify-center flex-col py-2 border-b-2 cursor-pointer ${
-                  tabs === "task"
-                    ? "bg-[#c3d9ec] text-[#c3d9ec] border-[#3980c0]"
-                    : "border-gray-500 bg-50"
-                }`}
+                className={`w-4/12 flex items-center justify-center flex-col py-2 border-b-2 cursor-pointer ${tabs === "task"
+                  ? "bg-[#c3d9ec] text-[#c3d9ec] border-[#3980c0]"
+                  : "border-gray-500 bg-50"
+                  }`}
                 onClick={() => setTabs("task")}
               >
                 <span className="text-xl text-gray-800">
                   <GrUserManager />
                 </span>
                 <span
-                  className={`text-base font-medium ${
-                    tabs === "task" ? "text-[#3980c0]" : "text-gray-800"
-                  }`}
+                  className={`text-base font-medium ${tabs === "task" ? "text-[#3980c0]" : "text-gray-800"
+                    }`}
                 >
                   Tasks
                 </span>
               </div>
               <div
                 style={profileSelectableCard}
-                className={`w-4/12 flex items-center justify-center flex-col py-2 border-b-2 cursor-pointer ${
-                  tabs === "review"
-                    ? "bg-[#c3d9ec] text-[#c3d9ec] border-[#3980c0]"
-                    : "border-gray-500 bg-50"
-                }`}
+                className={`w-4/12 flex items-center justify-center flex-col py-2 border-b-2 cursor-pointer ${tabs === "review"
+                  ? "bg-[#c3d9ec] text-[#c3d9ec] border-[#3980c0]"
+                  : "border-gray-500 bg-50"
+                  }`}
                 onClick={() => setTabs("review")}
               >
                 <span className="text-xl text-gray-800">
                   <GrUserManager />
                 </span>
                 <span
-                  className={`text-base font-medium ${
-                    tabs === "review" ? "text-[#3980c0]" : "text-gray-800"
-                  }`}
+                  className={`text-base font-medium ${tabs === "review" ? "text-[#3980c0]" : "text-gray-800"
+                    }`}
                 >
                   Review
                 </span>
@@ -221,34 +230,79 @@ const Profile = () => {
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img
                       className="w-full hover:scale-105 h-full transition-all duration-300 ease-linear"
-                      src={avatar}
+                      src={thisUser?.avatar}
                       alt=""
                     />
                   </div>
                 </div>
                 <div className="pt-4">
                   <strong className="block text-xl text-gray-700">
-                    {name}
+                    {thisUser?.name}
                   </strong>
                   {state.editor === "PROFESSION_EDIT" ? (
-                    <Input
-                      placeholder="input with clear icon"
-                      allowClear
-                      onChange={(e) => setProfessionText(e)}
-                    />
+                    <div className="mt-2">
+                      <Input
+                        placeholder="input with clear icon"
+                        allowClear
+                        onChange={(e) => setProfessionText(e.target.value)}
+                      />
+                      <div className="py-2">
+                        <button
+                          className="text-xl mr-3 mt-3"
+                          onClick={() => dispatch({ type: "CLOSE_EDITOR" })}
+                        >
+                          <IoMdClose />
+                        </button>
+                        <button className="text-xl mr-3 mt-3">
+                          <BsCheck2Square />
+                        </button>
+                      </div>
+                    </div>
                   ) : (
                     <span className="block text-lg font-normal">
-                      {professionText}{" "}
+                      {thisUser?.profession}{" "}
                       <span
-                        className="text-lg pl-3 cursor-pointer text-[#e83a3b]"
+                        className="text-lg pl-3 flex items-center cursor-pointer text-[#e83a3b]"
                         onClick={() => dispatch({ type: "PROFESSION_EDIT" })}
                       >
                         <FiEdit />
+                        <span className="ml-2 text-gray-800 font-medium text-md">Edit your Profession</span>
                       </span>
                     </span>
                   )}
                   <p className="block text-base text-gray-500 text-justify">
-                    {about}
+                    {state.editor === "BIO_EDIT" ? (
+                      <div className="mt-2">
+                        <Input
+                          placeholder="input with clear icon"
+                          allowClear
+                          defaultValue={thisUser?.bio}
+                          onChange={(e) => setBioText(e.target.value)}
+                        />
+                        <div className="py-2">
+                          <button
+                            className="text-xl mr-3 mt-3"
+                            onClick={() => dispatch({ type: "CLOSE_EDITOR" })}
+                          >
+                            <IoMdClose />
+                          </button>
+                          <button onClick={handleBioSubmit} className="text-xl mr-3 mt-3">
+                            <BsCheck2Square />
+                          </button>
+                        </div>
+                      </div>
+                    ) : (
+                      <span className="block text-lg font-normal">
+                        {thisUser?.bio}{" "}
+                        <span
+                          className="text-lg pl-3 flex items-center cursor-pointer text-[#e83a3b]"
+                          onClick={() => dispatch({ type: "BIO_EDIT" })}
+                        >
+                          <FiEdit />
+                          <span className="ml-2 text-gray-800 font-medium text-md">Edit your bio</span>
+                        </span>
+                      </span>
+                    )}
                   </p>
                 </div>
               </div>
