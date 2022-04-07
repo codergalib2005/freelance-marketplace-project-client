@@ -314,5 +314,4 @@ const GigCreation = () => {
   );
 };
 
-// export default GigCreation;
 export default withPrivate(GigCreation);
