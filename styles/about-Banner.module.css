@@ -1,0 +1,10 @@
+.header_container{
+
+}
+.header_section{
+    background-image: url('../public/About/Image/about-image-02.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 500px;
+    background-position: center;
+}

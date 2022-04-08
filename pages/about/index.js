@@ -1,10 +1,13 @@
 import React from 'react';
+import Banner from '../../components/About/Banner';
 import Header from '../../components/About/Header';
 
 export default function About() {
     return (
         <div>
-            <h2>About</h2>
+            <div>
+                <Banner />
+            </div>
             <div>
                 <Header />
             </div>
