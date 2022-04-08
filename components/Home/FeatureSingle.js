@@ -3,14 +3,14 @@ import React from "react";
 const FeatureSingle = ({ feature }) => {
   const { img, title } = feature;
   return (
-    <div className=" ">
+    <div className="shadow-lg rounded-lg">
       <div className="">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img src={img} alt="image" />
       </div>
       <div className="text-left flex justify-between px-2 py-4">
         <p>{title}</p>
-        <div className="bg-gray-200 rounded-full w-8 h-8 flex justify-center items-center ">
+        <div className="bg-green-200 rounded-full w-8 h-8 flex justify-center items-center ">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             className="w-6/12 cursor-pointer"
