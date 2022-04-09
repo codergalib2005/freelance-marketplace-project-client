@@ -436,6 +436,9 @@
   left: 0;
   padding: 0 10px;
 }
+.item_path h4 {
+  color: white;
+}
 .item_path p {
   margin-bottom: 10px;
 }
@@ -520,18 +523,19 @@
   align-items: center;
 }
 .item_desc p {
-  font-size: 16px;
+  font-size: 20px;
   margin-bottom: 10px;
-  color: #23649c;
+  color: #051f35;
 }
 .item_desc h2 {
   font-size: 24px;
+  color: white;
 }
 .item_icon {
-  margin-left: 30px;
+  margin-left: 20px;
   font-size: 4rem;
   position: absolute;
-  top: 10px;
+  top: 25px;
 }
 .stand_section {
   display: flex;
@@ -680,5 +684,9 @@
   .col_learning19:hover {
     transform: translateY(-10px);
     transition: all 0.5s;
+  }
+  .item_path {
+    position: static;
+    padding: 0 10px;
   }
 }
