@@ -3,7 +3,7 @@ import styles from '../../styles/Request.module.css'
 
 const Request = () => {
   return (
-    <div className='p-12 container-fluid	bg-neutral-100 min-h-screen'>
+    <div className='p-12 container-fluid mx-auto	bg-neutral-100 min-h-screen'>
       <h2 className='text-4xl font-bold font-sans'>What Service Are You Looking For?</h2>
       <div className='grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 gap-8'>
         <form>

@@ -4,13 +4,17 @@ import React from 'react';
 const Header = () => {
     return (
         <div className='p-12'>
-            <ul className='text-center text-base font-semibold'>
-                <Link href="#"> 
+            <ul className='lg:flex justify-center text-base font-semibold'>
+               <div>
+               <Link href="#"> 
                  <a className='text-2xl font-medium py-6 px-8'>Who We Are</a>
                 </Link>
-                <Link href="#"> 
+               </div>
+              <div>
+              <Link href="#"> 
                  <a className='text-2xl font-medium py-6 px-8'>Meet Our Team</a>
                 </Link>
+              </div>
             </ul>
         </div>
     );
