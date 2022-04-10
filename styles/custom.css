@@ -166,3 +166,10 @@
     opacity: 0;
   }
 }
+/* ========================= */
+.profilePicUploadIcon {
+  position: absolute;
+  left: 61px;
+  bottom: 5px;
+  font-size: 30px;
+}
