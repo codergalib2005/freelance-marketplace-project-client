@@ -18,7 +18,7 @@ const SellerHeader = () => {
   console.log(user);
   return (
     <div style={{ zIndex: "1000" }} className="fixed top-0 left-0 w-full ">
-      <nav className="bg-lime-500">
+      <nav className="bg-stone-800">
         <div className="container m-auto flex justify-between items-center text-gray-700">
           <div className="flex items-center ">
             {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -49,18 +49,27 @@ const SellerHeader = () => {
             {user?.email ? (
               <button
                 onClick={logOut}
-                className="bg-lime-600 text-lg hover:bg-red-500 translate-all transition duration-300 rounded-md font-bold py-1 px-4 border-0 shadow ring-1 ring-red-300"
+                className="bg-green-600 text-lg hover:bg-red-500 translate-all transition duration-300 rounded-md font-bold py-1 px-4 border-0 shadow ring-1 ring-red-300"
               >
                 Sign Out
               </button>
             ) : (
               <>
-                <button className="bg-transparent text-lg hover:bg-lime-600 translate-all transition duration-300 rounded-md font-bold py-1 px-4 ring-1 ring-lime-400 shadow">
-                  <Link href="/login">Sign In</Link>
-                </button>
-                <button className="bg-transparent hover:bg-lime-600 translate-all transition duration-300 rounded-md font-bold py-1 mx-2 px-4 ring-2 ring-lime-400 shadow">
-                  <Link href="/login/register">Join</Link>
-                </button>
+                {" "}
+                <Link href="/login">
+                  <a className="hover:text-white">
+                    <button className="bg-transparent text-lg hover:bg-green-600 translate-all transition duration-300 rounded-md font-bold py-1 px-4 ring-1 ring-lime-400 shadow">
+                      Sign In
+                    </button>
+                  </a>
+                </Link>
+                <Link href="/login/register">
+                  <a className="hover:text-white">
+                    <button className="bg-transparent hover:bg-green-600 translate-all transition duration-300 rounded-md font-bold py-1 mx-2 px-4 ring-2 ring-lime-400 shadow">
+                      Join
+                    </button>
+                  </a>
+                </Link>
               </>
             )}
           </ul>

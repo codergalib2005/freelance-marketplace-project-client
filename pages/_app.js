@@ -4,6 +4,7 @@ import "../styles/custom.css";
 import "../styles/globals.css";
 import "../styles/profile.css";
 import "../styles/SellerFooter.css";
+import "../styles/SellerLearningPath.css";
 function MyApp({ Component, pageProps }) {
   return (
     <AuthProvider>
