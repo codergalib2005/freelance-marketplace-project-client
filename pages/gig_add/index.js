@@ -40,8 +40,6 @@ const GigCreation = () => {
       .then((data) => setThisUser(data?.result[0]))
       .catch((err) => console.log(err));
   }, [user]);
-  console.log(thisUser);
-  console.log(userStatus)
   const onSubmit = data => {
     data.email = user?.email;
     data.name = thisUser?.name;
@@ -314,5 +312,4 @@ const GigCreation = () => {
   );
 };
 
-// export default GigCreation;
 export default withPrivate(GigCreation);
