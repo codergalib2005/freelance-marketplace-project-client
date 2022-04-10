@@ -21,7 +21,7 @@ const SellerCommunity = () => {
             <h2 className="text-2xl text-gray-500">2. Deliver Great Work</h2>
             <p>
               Get notified when you get an order and use our system to discuss details with customers. 3. Get Paid Get paid on time, every time.
-              Payment is{" "}
+              Payment is protected
             </p>
           </div>
           <div className=" py-2 px-3 cursor-pointer hover:bg-white duration-300">
