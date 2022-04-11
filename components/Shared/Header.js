@@ -28,7 +28,7 @@ const Header = ({ bg }) => {
             <img className="w-36 cursor-pointer  py-4" src="/banner/navbar/image/logo-white.png" alt="" />
           </div>
           <ul className="hidden md:flex items-center  text-base font-semibold text-white cursor-pointer">
-            <Link href="/">
+            <Link href="/dashboard">
               <a className="hover:text-green-400 text-lg py-4 px-6">Business</a>
             </Link>
             <Link href="/profile">
@@ -46,20 +46,18 @@ const Header = ({ bg }) => {
             <Link href="/gig_add">
               <a className="hover:text-green-400 text-lg py-4 px-6">Create a Gig</a>
             </Link>
-            {
-              user?.email ?
-                (
-                  <button onClick={logOut} className="bg-indigo-400 text-lg hover:bg-orange-400 translate-all transition duration-300 rounded-md font-bold py-1 px-4 border-2">
-                    SignOut
-                  </button>
-                )
-                :
-                (
-                  <button className="bg-indigo-400 text-lg hover:bg-orange-400 translate-all transition duration-300 rounded-md font-bold py-1 px-4 border-2">
-                    <Link href="/login">Join</Link>
-                  </button>
-                )
-            }
+            {user?.email ? (
+              <button
+                onClick={logOut}
+                className="bg-indigo-400 text-lg hover:bg-orange-400 translate-all transition duration-300 rounded-md font-bold py-1 px-4 border-2"
+              >
+                SignOut
+              </button>
+            ) : (
+              <button className="bg-indigo-400 text-lg hover:bg-orange-400 translate-all transition duration-300 rounded-md font-bold py-1 px-4 border-2">
+                <Link href="/login">Join</Link>
+              </button>
+            )}
           </ul>
           <button className="block md:hidden py-3 px-4 mx-2 rounded focus:outline-none hover:bg-gray-200 group">
             <div className="w-5 h-1 bg-gray-600 mb-1"></div>
