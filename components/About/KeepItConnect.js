@@ -10,7 +10,7 @@ const KeepItConnect = () => {
                 </div>
                 <div className='mt-20 p-5'>
                     <h2 className='text-3xl font-semibold'>Be In Control. keep In Contact.</h2>
-                    <p className='text-lg mt-3'>Use Our Site & tools to work efficiently with your freeleancer. <br /> Shear files, Real time chat, monitor prograss, and so much more. </p>
+                    <p className='text-lg mt-3'>Use Our Site & tools to work efficiently with your freeleancer. Shear files, Real time chat, monitor prograss, and so much more. </p>
                     <div className='flex gap-10 mt-6'>
                         <div>
                             <FaRegCommentDots style={{ fontSize: '50px', color: '#800080' }} />
