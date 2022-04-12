@@ -9,7 +9,7 @@ const notification = () => {
         <div>
           <Menu />
         </div>
-        <div>
+        <div className="col-span-3 shadow-lg p-6">
           <Notification />
         </div>
       </div>

@@ -8,7 +8,7 @@ const setting = () => {
       <div>
         <Menu />
       </div>
-      <div>
+      <div className="col-span-3 shadow-lg p-6">
         <AccountSetting />
       </div>
     </div>
