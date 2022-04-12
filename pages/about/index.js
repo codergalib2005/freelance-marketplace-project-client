@@ -5,6 +5,7 @@ import KeepItConnect from '../../components/About/KeepItConnect';
 import Testimonial from '../../components/About/Testimonial';
 import WhoweAre from '../../components/About/WhoweAre';
 import SellerFooter from '../../components/BecomeASeller/SellerFooter';
+import Header from '../../components/About/Header';
 
 export default function About() {
     return (
@@ -27,6 +28,7 @@ export default function About() {
             <div>
             <SellerFooter />
             </div>
+            <h2>About</h2>
         </div>
     );
 };

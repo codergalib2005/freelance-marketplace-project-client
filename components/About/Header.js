@@ -18,6 +18,6 @@ const Header = () => {
       </ul>
     </div>
   );
-};
+import React from 'react';
 
 export default Header;

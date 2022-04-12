@@ -40,11 +40,7 @@ const GigCreation = () => {
       .then((data) => setThisUser(data?.result[0]))
       .catch((err) => console.log(err));
   }, [user]);
-  console.log(thisUser);
-  console.log(userStatus)
   const onSubmit = data => {
-    data.email = user?.email;
-    data.name = thisUser?.name;
     // data.name = user.
     // Image Upload in imgBB
     let gallery = new Array();
@@ -102,12 +98,16 @@ const GigCreation = () => {
                         })
                           .then(res => res.json())
                           .then(result4 => {
+                            data.email = user.email;
+                            data.name = thisUser.name;
                             gallery.push(result4?.data?.url);
                             data.gallery = gallery
                             axios.post("https://dry-plains-53771.herokuapp.com/auth/gigs", data)
                               .then(res => {
                                 message.success("Gig Creation successfully!");
-                                router.replace("/profile")
+                                // router.replace("/profile")
+                                console.log(res);
+                                console.log(data);
                               })
                               .catch(err => console.log(err))
                           })
@@ -124,6 +124,7 @@ const GigCreation = () => {
         .catch(err => console.log(err))
     }
   };
+  console.log(thisUser);
   return (
     <div>
       <Header bg="bg-gray-900" />
@@ -314,6 +315,5 @@ const GigCreation = () => {
   );
 };
 
-// export default GigCreation;
 export default withPrivate(GigCreation);
 

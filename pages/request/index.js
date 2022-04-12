@@ -4,6 +4,7 @@ import styles from '../../styles/Request.module.css'
 const Request = () => {
   return (
     <div className='p-12 container-fluid mx-auto	bg-neutral-100 min-h-screen'>
+    <div className='p-12	bg-neutral-100 min-h-screen'>
       <h2 className='text-4xl font-bold font-sans'>What Service Are You Looking For?</h2>
       <div className='grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 gap-8'>
         <form>
@@ -74,6 +75,13 @@ const Request = () => {
                   placeholder="$"
                 />
               </div>
+              <input
+               required
+               className="border outline-green-400 border-gray-300 px-2 w-8/12 md:w-6/12 lg:w-6/12 py-2"
+               type="number"
+               placeholder="$"
+              />
+            </div>
             </div>
             <hr className='mt-8' />
             <div className="mt-8 flex justify-end">

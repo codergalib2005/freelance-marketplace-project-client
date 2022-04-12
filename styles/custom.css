@@ -166,3 +166,23 @@
     opacity: 0;
   }
 }
+/* ========================= */
+.profilePicUploadIcon {
+  position: absolute;
+  left: 61px;
+  bottom: 5px;
+  font-size: 30px;
+}
+/* ===========Gig Search page styles========== */
+.gig_wrapper_column {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 px-6 min-h-screen;
+}
+.gig_card_row {
+  @apply grid sm:grid-cols-3 sm:items-center gap-4;
+}
+.MuiFormControlLabel-root {
+  color: #fff;
+}
+.MuiSvgIcon-root {
+  color: #fff !important;
+}
