@@ -1,0 +1,26 @@
+.request_services_days{
+    border: 1px solid #ddd;
+}
+.request_services_days li {
+    margin-left: 40px;
+    border-right: 1px solid #ddd;
+    padding: 10px 10px;
+}
+.request_services_days li small {
+    font-size: 18px;
+    text-align: center;
+}
+.request_services_days li:nth-child(4) {
+    border-right: none;
+}
+
+@media only screen and (min-width: 300px){
+    .request_choose{
+        margin-bottom: 20px;
+    }
+}
+@media only screen and (min-width: 768px){
+    .request_choose{
+        margin-bottom: 20px;
+    }
+}

@@ -8,7 +8,7 @@ const Counter = () => {
         <div className="border-[1px] border-gray-500 shadow-2xl shadow-slate-600 py-10 relative">
           <div className="flex justify-center mb-2">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="counter/img-1.png" alt="" />
+            <img src="counter/img-1.png/5484597.jpg" alt="" />
           </div>
             <CountUp
             className=" font-bold text-3xl "

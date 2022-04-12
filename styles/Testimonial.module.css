@@ -1,0 +1,7 @@
+.testimonial_container{
+    box-sizing: border-box;
+    box-shadow: 10px 10px 8px 10px #ddd;
+    display: inline-block;
+    padding: 40px 90px;
+    border-top: 2px solid #6278df;
+}

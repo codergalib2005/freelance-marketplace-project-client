@@ -120,11 +120,15 @@ const useFirebase = () => {
 
     // Load Login personal data loader 
     useEffect(() => {
+        setIsLoadind(true);
         fetch(`https://dry-plains-53771.herokuapp.com/auth/users/email/${user.email}`)
             .then((res) => res.json())
-            .then((data) => setUserStatus(data.result[0].status))
+            .then((data) => {
+                setUserStatus(data?.result[0]?.status)
+                setIsLoadind(false)
+            })
             .catch((err) => console.log(err));
-    }, [user]);
+    }, [user?.email]);
 
     //logout email and pass
     const logOut = () => {
