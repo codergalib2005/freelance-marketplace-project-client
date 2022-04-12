@@ -36,6 +36,9 @@ a {
 * {
   box-sizing: border-box;
 }
+.custom-font-1 {
+  font-family: "PT Sans", sans-serif;
+}
 .italic_text {
   font-family: "Hurricane", cursive;
 }

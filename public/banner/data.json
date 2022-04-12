@@ -1,27 +1,22 @@
 [
   {
     "_id": "0123",
-    "bg": "#D50000",
+    "bg": "#247881",
     "img": "https://i.ibb.co/C8PDMxw/client-image1.png"
   },
   {
     "_id": "0124",
-    "bg": "#C51162",
+    "bg": "#683531",
     "img": "https://i.ibb.co/MR3NrkP/client-image2.png"
   },
   {
     "_id": "0125",
-    "bg": "#AA00FF",
+    "bg": "#46244C",
     "img": "https://i.ibb.co/2ZSfnK0/client-image3.png"
   },
   {
     "_id": "0126",
-    "bg": "#6200EA",
+    "bg": "#203239",
     "img": "https://i.ibb.co/NnKFQz5/client-image4.png"
-  },
-  {
-    "_id": "0127",
-    "bg": "#304FFE",
-    "img": "https://i.ibb.co/Byrbvsf/client-image5.png"
   }
 ]
