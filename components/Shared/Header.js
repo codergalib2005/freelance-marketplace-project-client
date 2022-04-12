@@ -40,6 +40,9 @@ const Header = ({ bg }) => {
             <Link href="/">
               <a className="hover:text-green-400 text-lg py-4 px-6">Business</a>
             </Link>
+            <Link href="/profile">
+              <a className="hover:text-green-400 text-lg py-4 px-6">Profile</a>
+            </Link>
             <Link href="/">
               <a className="hover:text-green-400 text-lg py-4 px-6">Explore</a>
             </Link>

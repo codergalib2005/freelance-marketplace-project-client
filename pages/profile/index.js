@@ -1,13 +1,18 @@
 /* eslint-disable @next/next/no-img-element */
+import { Avatar } from "@mui/material";
 import { Input, message } from "antd";
 import TextArea from "antd/lib/input/TextArea";
 import axios from 'axios';
 import React, { useReducer, useState } from "react";
+import { useForm } from "react-hook-form";
 import { BsCheck2Square } from "react-icons/bs";
+import { FcCameraAddon } from 'react-icons/fc';
 import { FiEdit } from "react-icons/fi";
 import { GrUserManager } from "react-icons/gr";
 import { IoMdClose } from "react-icons/io";
 import About from "../../components/Profile/About";
+import BannerPicChange from "../../components/Profile/BannerPicChange";
+import ProfileModal from "../../components/Profile/ProfileModal";
 import Review from "../../components/Profile/Review";
 import Task from "../../components/Profile/Task";
 import useAuth from '../../hooks/useAuth';
@@ -42,7 +47,10 @@ const Profile = () => {
   const [tabs, setTabs] = useState("about");
   const { user, userStatus, loading, setIsLoadind } = useAuth();
   const [professionText, setProfessionText] = useState(`${thisUser?.profession}`);
-  const [bioText, setBioText] = useState(`${thisUser?.bio}`)
+  const [bioText, setBioText] = useState(`${thisUser?.bio}`);
+  const [openProfile, setOpenProfile] = useState(false);
+  const [openBanner, setOpenBanner] = useState(false);
+
   const profileBanner = {
     background: `radial-gradient(#3981c06d, #e83a3a6d),url(${thisUser?.image}) no-repeat center center`,
     backgroundSize: "cover",
@@ -100,7 +108,14 @@ const Profile = () => {
   const bioProps = {
     defaultValue: bioText,
   }
-  console.log(thisUser?.about);
+  const { register, handleSubmit } = useForm();
+  const onSubmit = data => console.log(data);
+
+  // console.log(thisUser)
+  const handleProfileOpen = () => setOpenProfile(true);
+  const handleProfileClose = () => setOpenProfile(false);
+  const handleBannerOpen = () => setOpenBanner(true)
+  const handleBannerClose = () => setOpenBanner(false);
   return (
     <div className="single_user_profile_section text_no_select px-8 feature-font bg-[#F5F7FB]">
       <div className="container-fluid px-5 xl:px-0  mx-auto py-12">
@@ -251,19 +266,45 @@ const Profile = () => {
           <div className="col-span-12 xl:col-span-4">
             {/* User Profile Box */}
             <div className="shadow-md">
-              <div className="" style={profileBanner}></div>
+              <div className="relative" style={profileBanner}>
+                <span
+                  className="text-2xl rounded-md absolute bottom-3 right-3 bg-gray-50 px-2 py-2"
+                  onClick={() => setOpenBanner(!openBanner)}
+                ><FcCameraAddon />
+                </span>
+                <BannerPicChange id={thisUser?._id} openBanner={openBanner} handleBannerClose={handleBannerClose} handleBannerOpen={handleBannerOpen} setOpenBanner={setOpenBanner} />
+              </div>
               <div className="p-3">
                 <div className="relative -top-16">
-                  <div className="w-20 h-20 rounded-full border-4 border-white overflow-hidden absolute">
+                  <div className="absolute">
                     {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      className="w-full hover:scale-105 h-full transition-all duration-300 ease-linear"
-                      src={thisUser?.avatar}
-                      alt=""
-                    />
+                    <div className="w-20 h-20 rounded-full overflow-hidden">
+                      {(thisUser?.avatar === "") && (
+                        <Avatar
+                          alt="Remy Sharp"
+                          src="https://mui.com/static/images/avatar/1.jpg"
+                          sx={{ width: '100%', height: '100%' }}
+                        />
+                      )}
+                      {thisUser?.avatar && (
+                        <Avatar
+                          alt="Remy Sharp"
+                          src={thisUser?.avatar}
+                          sx={{ width: '100%', height: '100%' }}
+                        />
+                      )}
+                    </div>
+                    <div className="position ">
+                      <span
+                        className="text-xl profilePicUploadIcon bg-gray-50 px-2 py-2 rounded-md shadow-lg"
+                        onClick={() => setOpenProfile(true)}
+                      ><FcCameraAddon />
+                        <ProfileModal id={thisUser?._id}  openProfile={openProfile} handleProfileOpen={handleProfileOpen} setOpenProfile={setOpenProfile} />
+                      </span>
+                    </div>
                   </div>
                 </div>
-                <div className="pt-4">
+                <div className="pt-12">
                   <strong className="block text-xl text-gray-700">
                     {thisUser?.name}
                   </strong>

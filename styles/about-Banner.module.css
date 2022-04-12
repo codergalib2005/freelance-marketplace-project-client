@@ -1,0 +1,22 @@
+.header_container{
+
+}
+.header_section{
+    background-image: url('https://i.ibb.co/HXX7c59/about-img-01.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 500px;
+    background-position: center;
+    position: relative;
+    z-index: 9;
+}
+.header_section::after{
+ content: '';
+ position: absolute;
+ left: 0;
+ top: 0;
+ height: 100%;
+ width: 100%;
+ background: rgb(0, 0, 0, .4);
+ z-index: -1;
+}

@@ -49,6 +49,7 @@ const GigCreation = () => {
   const onSubmit = (data) => {
     data.email = user?.email;
     data.name = thisUser?.name;
+  const onSubmit = data => {
     // data.name = user.
     // Image Upload in imgBB
     let gallery = new Array();
@@ -121,7 +122,15 @@ const GigCreation = () => {
                         )
                           .then((res) => res.json())
                           .then((result4) => {
-                            gallery.push(result4?.data?.url);
+                        fetch("https://api.imgbb.com/1/upload?expiration=600&key=aace97b9a0d4e6d8a83442b26ddb021e", {
+                          method: "POST",
+                          body: body4
+                        })
+                          .then(res => res.json())
+                          .then(result4 => {
+                            data.email = user.email;
+                            data.name = thisUser.name;
+                          gallery.push(result4?.data?.url);
                             data.gallery = gallery;
                             axios
                               .post(
@@ -131,6 +140,9 @@ const GigCreation = () => {
                               .then((res) => {
                                 message.success("Gig Creation successfully!");
                                 router.replace("/profile");
+                                // router.replace("/profile")
+                                console.log(res);
+                                console.log(data);
                               })
                               .catch((err) => console.log(err));
                           })
@@ -146,6 +158,7 @@ const GigCreation = () => {
         .catch((err) => console.log(err));
     };
   };
+  console.log(thisUser);
   return (
     <div>
       <Header bg="bg-gray-900" />
@@ -545,3 +558,4 @@ const GigCreation = () => {
 };
 
 export default withPrivate(GigCreation);
+
