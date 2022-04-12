@@ -7,17 +7,17 @@ const Menu = () => {
       <nav>
         <ul className="grid grid-rows-4">
           <li>
-            <Link href="/" passHref>
+            <Link href="/setting/account">
               <a className="hover:text-green-400 text-lg py-4 px-6">Account</a>
             </Link>
           </li>
           <li>
-            <Link href="/">
+            <Link href="/setting/security">
               <a className="hover:text-green-400 text-lg py-4 px-6">Security</a>
             </Link>
           </li>
           <li>
-            <Link href="/">
+            <Link href="/setting/notification">
               <a className="hover:text-green-400 text-lg py-4 px-6">
                 Notification
               </a>
