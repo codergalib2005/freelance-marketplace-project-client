@@ -12,6 +12,8 @@ import BreakdownThird from "./Breakdown/BreakdownThird";
 import Counter from "./Counter/Counter";
 import Devices from "./Devices/Devices";
 import Topseller from "../components/Shared/Topseller";
+import Refer from "./Refer/Refer";
+import CommunityBanner from "./community/CommunityBanner";
 
 export default function Home() {
   return (
@@ -27,9 +29,11 @@ export default function Home() {
         </div>
         <div>
           <Banner />
+          <CommunityBanner/>
           <BreakdownFirst/>
           <BreakdownSecond/>
           <BreakdownThird/>
+          <Refer/>
           <Devices/>
           <Counter/>
         </div>

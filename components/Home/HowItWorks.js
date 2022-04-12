@@ -41,7 +41,7 @@ const HowItWorks = () => {
         </div>
         <div className='mt-10'>
           {/* eslint-disable-next-line react/no-unknown-property */}
-          <iframe className={`${styles.how_it_work_img} w-full`} height="380" src="https://www.youtube.com/embed/77g4KA9WQL4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe className={`${styles.how_it_work_img} w-full`} height="380" src="https://www.youtube.com/embed/77g4KA9WQL4" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
       </div>
   </div>

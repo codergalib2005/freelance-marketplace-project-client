@@ -2,7 +2,7 @@ import React from "react";
 
 const Devices = () => {
   return (
-    <div className="container mx-auto my-16">
+    <div className="container mx-auto my-36">
       <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-14 justify-center items-center">
         <div>
           <h3 className="text-3xl text-indigo-900 font-bold">
@@ -11,7 +11,7 @@ const Devices = () => {
           <h3 className="text-3xl text-blue-600 font-bold my-3">
             Android And Iphone
           </h3>
-          <p className="text-base mb-8">
+          <p className="text-base mb-8 text-justify">
             Aliquam bibendum convallis eros malesuada volutpat. Donec odio urna,
             laoreet sed enim vitae, placerat ornare urna. Cras euismod sit amet
             urna eget sagittis. In scelerisque gravida commodo. Aliquam quis mi
