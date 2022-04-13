@@ -29,6 +29,9 @@ const Header = ({ bg }) => {
           </div>
           <ul className="hidden md:flex items-center  text-base font-semibold text-white cursor-pointer">
             <Link href="/dashboard">
+              <a className="hover:text-green-400 text-lg py-4 px-6">Dashboard</a>
+            </Link>
+            <Link href="/">
               <a className="hover:text-green-400 text-lg py-4 px-6">Business</a>
             </Link>
             <Link href="/profile">
