@@ -9,7 +9,7 @@ const SingleGig = ({ gig, gridColumn }) => {
         <div className={`mb-3 shadow-lg shadow-[#0a1929] p-2 rounded-lg overflow-hidden ${gridColumn === "grid_row" && "gig_card_row"}`}>
           <div className={`${gridColumn === "grid_row" && "col-span-1"}`}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/login/register.png" alt="" />
+            <img src={gig?.gallery[0]} alt="" />
           </div>
           <div className={`${gridColumn === "grid_row" && "col-span-2 "}`}>
             <div className=' py-2 mb-3'>

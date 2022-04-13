@@ -167,7 +167,7 @@
   }
 }
 
-.svg-hover:hover .icon{
+.svg-hover:hover .icon {
   fill: white;
 }
 /* ========================= */
@@ -179,7 +179,7 @@
 }
 /* ===========Gig Search page styles========== */
 .gig_wrapper_column {
-  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 px-6 min-h-screen;
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 px-6;
 }
 .gig_card_row {
   @apply grid sm:grid-cols-3 sm:items-center gap-4;
@@ -189,4 +189,24 @@
 }
 .MuiSvgIcon-root {
   color: #fff !important;
+}
+
+.button_gradient {
+  background: linear-gradient(-25deg, #d937de, #6c38f2);
+  padding: 0.6rem 2rem;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.2rem;
+  font-family: ui-rounded;
+  border-radius: 50px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.flat_gradient {
+  background: linear-gradient(-25deg, #d937de, #6c38f2);
+}
+.pricing_card {
+  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 50%;
 }
