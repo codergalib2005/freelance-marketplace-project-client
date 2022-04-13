@@ -10,15 +10,12 @@
 .dashboard_position {
   display: flex;
   justify-content: flex-start;
-  align-items: baseline;
-  gap: 30px;
 }
 
 /* Sidebar */
 .sidebar {
   background: rgb(0, 7, 61);
   color: white;
-  height: 100vh;
   overflow-y: auto;
 }
 
@@ -42,7 +39,7 @@
 }
 .icon {
   font-size: 25px;
-}
+} /* 
 .search {
   display: flex;
   align-items: center;
@@ -57,7 +54,7 @@
   background: rgb(238, 238, 238);
   color: white;
 }
-
+ */
 .routes {
   margin-top: 15px;
   display: flex;
@@ -83,7 +80,8 @@
 }
 .link_text {
   white-space: nowrap;
-  font-size: 15px;
+  font-size: 18px;
+  font-family: Poppins;
 }
 
 .menu {

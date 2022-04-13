@@ -14,7 +14,7 @@ import SideBarMenu from "./SideBarMenu";
 const routes = [
   {
     path: "/",
-    name: "Dashboard",
+    name: "Home",
     icon: <FaHome />,
   },
   {
@@ -130,7 +130,7 @@ const SideBar = ({ children }) => {
 
   return (
     <>
-      <div className="main-container">
+      <div className="main-container ">
         <motion.div
           animate={{
             width: isOpen ? "200px" : "45px",
@@ -141,7 +141,7 @@ const SideBar = ({ children }) => {
               damping: 10,
             },
           }}
-          className={`sidebar `}
+          className={`sidebar h-full`}
         >
           <div className="top_section">
             <AnimatePresence>
@@ -156,14 +156,14 @@ const SideBar = ({ children }) => {
               <FaBars onClick={toggle} />
             </div>
           </div>
-          <div className="search">
+          {/*  <div className="search">
             <div className="search_icon">
               <BiSearch />
             </div>
             <AnimatePresence>
               {isOpen && <motion.input initial="hidden" animate="show" exit="hidden" variants={inputAnimation} type="text" placeholder="Search" />}
             </AnimatePresence>
-          </div>
+          </div> */}
           <section className="routes">
             {routes.map((route, index) => {
               if (route.subRoutes) {
@@ -176,7 +176,7 @@ const SideBar = ({ children }) => {
                     <div className="icon">{route.icon}</div>
                     <AnimatePresence>
                       {isOpen && (
-                        <motion.div variants={showAnimation} initial="hidden" animate="show" exit="hidden" className="link_text">
+                        <motion.div variants={showAnimation} initial="hidden" animate="show" exit="hidden" className="link_text ">
                           {route.name}
                         </motion.div>
                       )}

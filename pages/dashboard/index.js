@@ -7,7 +7,7 @@ const Dashboard = () => {
   return (
     <section>
       <main>
-        <div className="dashboard_position">
+        <div className="dashboard_position bg-[#00073d]">
           <div>
             {" "}
             <SideBar />
