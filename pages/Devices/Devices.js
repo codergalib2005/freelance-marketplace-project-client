@@ -12,7 +12,7 @@ const Devices = () => {
           <h3 className="text-3xl text-blue-600 font-bold mt-1 mb-5">
             Android And Iphone
           </h3>
-          <p className="text-sm mb-8 text-gray-600 leading-6">
+          <p className="text-sm mb-8 text-gray-600 leading-6" />
           <p className="text-base mb-8 text-justify">
             Aliquam bibendum convallis eros malesuada volutpat. Donec odio urna,
             laoreet sed enim vitae, placerat ornare urna. Cras euismod sit amet

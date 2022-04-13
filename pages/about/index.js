@@ -1,11 +1,10 @@
 import React from 'react';
 import Banner from '../../components/About/Banner';
-import Header from '../../components/About/Header';
 import KeepItConnect from '../../components/About/KeepItConnect';
 import Testimonial from '../../components/About/Testimonial';
 import WhoweAre from '../../components/About/WhoweAre';
 import SellerFooter from '../../components/BecomeASeller/SellerFooter';
-import Header from '../../components/About/Header';
+import Nabbar from '../../components/About/Nabbar';
 
 export default function About() {
     return (
@@ -14,7 +13,7 @@ export default function About() {
                 <Banner />
             </div>
             <div>
-                <Header />
+                <Nabbar />
             </div>
             <div>
                 <WhoweAre />
