@@ -13,6 +13,7 @@ const Devices = () => {
             Android And Iphone
           </h3>
           <p className="text-sm mb-8 text-gray-600 leading-6" />
+          <p className="text-sm mb-8 text-gray-600 leading-6"></p>
           <p className="text-base mb-8 text-justify">
             Aliquam bibendum convallis eros malesuada volutpat. Donec odio urna,
             laoreet sed enim vitae, placerat ornare urna. Cras euismod sit amet
@@ -23,24 +24,24 @@ const Devices = () => {
             neque sed magna. Donec sed felis vitae tellus maximus finibus.
             Praesent semper dapibus arcu,
           </p>
-          <div className="flex gap-6">
-            <div className=" gap-2 items-center bg-gray-900 inline-flex px-6 py-3 rounded-md ">
-              <div>
-                <img className="w-6" src="Devices/playstore.svg" alt="" />
+          {/* <div className="flex gap-6">
+              <div className=" gap-2 items-center bg-gray-900 inline-flex px-6 py-3 rounded-md ">
+                <div>
+                  <img className="w-6" src="Devices/playstore.svg" alt="" />
+                </div>
+                <div>
+                  <p className="text-white text-sm">Download on</p>
+                  <h4 className="text-white text-md">Google Play</h4>
+                </div>
               </div>
-              <div>
-                <p className="text-white text-sm">Download on</p>
-                <h4 className="text-white text-md">Google Play</h4>
-              </div>
+            </div> */}
+          <div className=" gap-2 items-center bg-blue-900 inline-flex px-6 py-3 rounded-md">
+            <div>
+              <img className="w-6" src="Devices/apple.svg" alt="" />
             </div>
-            <div className=" gap-2 items-center bg-blue-900 inline-flex px-6 py-3 rounded-md">
-              <div>
-                <img className="w-6" src="Devices/apple.svg" alt="" />
-              </div>
-              <div>
-                <p className="text-white text-sm">Download on</p>
-                <h4 className="text-white text-md">App Store</h4>
-              </div>
+            <div>
+              <p className="text-white text-sm">Download on</p>
+              <h4 className="text-white text-md">App Store</h4>
             </div>
           </div>
         </div>
@@ -49,7 +50,7 @@ const Devices = () => {
           <img className="w-[30rem]" src="Devices/app.png" alt="" />
         </div>
       </div>
-    </div>
+    </div >
   );
 };
 

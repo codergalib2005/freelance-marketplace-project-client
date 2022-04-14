@@ -26,7 +26,7 @@ const gig_search = () => {
   }, 3000)
   // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
-    axios.get('https://dry-plains-53771.herokuapp.com/auth/gigs')
+    axios.get(`${process.env.NEXT_PUBLIC_API_URL}/gigs`)
       .then(res => {
         setAllGigs(res?.data?.result);
       })

@@ -1,4 +1,5 @@
 import React from "react";
+import { useForm } from "react-hook-form";
 
 const Updatepass = () => {
   const { register, handleSubmit } = useForm();
@@ -9,34 +10,40 @@ const Updatepass = () => {
     <>
       <h6 className="flex justify-start p-4">CHANGE PASSWORD</h6>
       <form onSubmit={handleSubmit(updateStatus)}>
-        <div className="w-2/4 flex space-x-6">
+        <div className="p-2 flex space-x-6">
           <p className="w-2/6">Current Password</p>{" "}
           <input
+            className="border-2"
             type="password"
             {...register("oldpass")}
             placeholder="Current Password"
           />
         </div>
-        <div className="w-2/4 flex space-x-6">
+        <div className="p-2 flex space-x-6">
           <p className="w-2/6">New Password</p>{" "}
           <input
+            className="border-2"
             type="password"
             {...register("Newpass")}
             placeholder="New Password"
           />
         </div>
-        <div className="w-2/4 flex space-x-6">
+        <div className="p-2 flex space-x-6">
           <p className="w-2/6">Confirm Password</p>{" "}
-          <input
-            type="password"
-            {...register("Confirmpass")}
-            placeholder="Confirm Password"
-          />
+          <div>
+            <input
+              className="border-2"
+              type="password"
+              {...register("Confirmpass")}
+              placeholder="Confirm Password"
+            />{" "}
+            <br />
+            <small className="text-red-600">
+              8 characters or longer. Combine upper and lowercase letters and
+              numbers.
+            </small>
+          </div>
         </div>
-        <small>
-          8 characters or longer. Combine upper and lowercase letters and
-          numbers.
-        </small>
         <br />
         <div className="flex justify-end">
           <input
