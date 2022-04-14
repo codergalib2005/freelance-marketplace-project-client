@@ -79,7 +79,7 @@ const About = ({ id, education, skills, aboutt }) => {
       message.error("About field Must need to fill-up!");
       return;
     } else {
-      axios.put(`https://dry-plains-53771.herokuapp.com/auth/users/about/${id}`, {
+      axios.put(`${process.env.NEXT_PUBLIC_API_URL}/users/about/${id}`, {
         about: aboutBody,
       })
         .then(function (response) {
@@ -96,7 +96,7 @@ const About = ({ id, education, skills, aboutt }) => {
       message.error("Skills field Must need to fill-up!");
       return;
     } else {
-      axios.put(`https://dry-plains-53771.herokuapp.com/auth/users/skills/${id}`, {
+      axios.put(`${process.env.NEXT_PUBLIC_API_URL}/users/skills/${id}`, {
         skills: skillsBody,
       })
         .then(function (response) {
@@ -113,7 +113,7 @@ const About = ({ id, education, skills, aboutt }) => {
       message.error("Education field Must need to fill-up!");
       return;
     } else {
-      axios.put(`https://dry-plains-53771.herokuapp.com/auth/users/education/${id}`, {
+      axios.put(`${process.env.NEXT_PUBLIC_API_URL}/users/education/${id}`, {
         education: educationBody,
       })
         .then(function (response) {
@@ -147,7 +147,7 @@ const About = ({ id, education, skills, aboutt }) => {
               {/* {state.editor === null && (<div>Hello</div>)} */}
               {state.editor === "ABOUT_EDIT" ? (
                 <div className="shadow-md p-4">
-                  <TextArea showCount maxLength={200} onChange={e => setAboutBody(e.target.value)} />
+                  <TextArea showCount maxLength={500} onChange={e => setAboutBody(e.target.value)} />
                   <div>
                     <button
                       className="text-xl mr-3 mt-3"
@@ -185,7 +185,7 @@ const About = ({ id, education, skills, aboutt }) => {
                 <div className="shadow-md p-4">
                   <TextArea
                     showCount
-                    maxLength={200}
+                    maxLength={500}
                     onChange={(e) => setSkillsBody(e.target.value)} />
                   <div>
                     <button
@@ -224,7 +224,7 @@ const About = ({ id, education, skills, aboutt }) => {
                 <div>
                   <TextArea
                     showCount
-                    maxLength={200}
+                    maxLength={500}
                     onChange={(e) => setEducationBody(e.target.value)}
                   />
                   <div className="shadow-md p-4">
