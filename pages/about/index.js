@@ -6,6 +6,7 @@ import WhoweAre from '../../components/About/WhoweAre';
 import SellerFooter from '../../components/BecomeASeller/SellerFooter';
 import Nabbar from '../../components/About/Nabbar';
 
+
 export default function About() {
     return (
         <div>
@@ -27,7 +28,6 @@ export default function About() {
             <div>
             <SellerFooter />
             </div>
-            <h2>About</h2>
         </div>
     );
 };
