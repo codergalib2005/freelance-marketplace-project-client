@@ -15,7 +15,6 @@ const Header = ({ bg }) => {
       setShowBg(false);
     }
   };
-  console.log(user);
   return (
     <div
       style={{ zIndex: "1000" }}
