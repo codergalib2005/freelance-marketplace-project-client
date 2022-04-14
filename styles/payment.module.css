@@ -1,0 +1,5 @@
+.payment_container{
+    box-sizing: border-box;
+    box-shadow: 5px 5px 5px 5px #247881;
+    padding: 30px 20px;
+}
