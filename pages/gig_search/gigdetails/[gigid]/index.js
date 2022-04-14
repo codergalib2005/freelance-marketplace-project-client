@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useRouter } from 'next/router';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Moment from 'react-moment';
 import DetailsHeader from '../../../../components/gigs/DetailsHeader';
 import SliderBannerImage from '../../../../components/gigs/SliderBannerImage';
@@ -13,16 +13,18 @@ const GigDetails = () => {
   const [gigUser, setGigUser] = useState({})
   const [showPricing, setShowPricing] = useState("beginner")
   const router = useRouter()
-  const GETURL = `${process.env.NEXT_PUBLIC_API_URL}/gigs/${router?.query?.gigid}`
-  axios.get(GETURL)
-    .then(res => setSingleGig(res?.data?.result[0]))
-    .catch(err => console.log(err));
-  axios.get(`${process.env.NEXT_PUBLIC_API_URL}/users/email/${user?.email}`)
-    .then(response => {
-      setGigUser(response?.data?.result[0]);
-    }, error => {
-      console.log(error);
-    });
+  useEffect(() => {
+    const GETURL = `${process.env.NEXT_PUBLIC_API_URL}/gigs/${router?.query?.gigid}`
+    axios.get(GETURL)
+      .then(res => setSingleGig(res?.data?.result[0]))
+      .catch(err => console.log(err));
+  }, [router?.query?.gigid])
+    axios.get(`${process.env.NEXT_PUBLIC_API_URL}/users/email/${gig?.email}`)
+      .then(response => {
+        setGigUser(response?.data?.result[0]);
+      }, error => {
+        console.log(error);
+      });
   console.log(gigUser);
   return (
     <div className=' bg-[#2a3254] min-h-screen' >

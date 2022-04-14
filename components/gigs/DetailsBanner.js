@@ -5,7 +5,6 @@ import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import { Swiper, SwiperSlide } from 'swiper/react';
 const DetailsBanner = ({ gig,setActiveThumb }) => {
-  console.log(gig);
   return (
     <>
       <div>

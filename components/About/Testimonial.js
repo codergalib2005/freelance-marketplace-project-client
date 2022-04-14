@@ -1,6 +1,6 @@
 import React from 'react';
+import { FaAmericanSignLanguageInterpreting, FaStudiovinari, FaThinkPeaks } from 'react-icons/fa';
 import styles from '../../styles/Testimonial.module.css';
-import { FaThinkPeaks, FaStudiovinari, FaAmericanSignLanguageInterpreting } from 'react-icons/fa';
 
 
 const Testimonial = () => {
@@ -38,7 +38,7 @@ const Testimonial = () => {
                         </div>
                         <div className='text-left ml-4'>
                             <h3 className='text-lg font-semibold mt-3'>Our vission</h3>
-                            <p>To help build a better world that's interconnected for prosperity and wired for peace.</p>
+                            <p>To help build a better world thats interconnected for prosperity and wired for peace.</p>
                         </div>
                     </div>
                 </div>

@@ -28,6 +28,8 @@ font-family: 'PT Sans', sans-serif;
 font-family: 'Red Hat Mono', monospace
 font-family: 'Yellowtail', cursive;
    */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 a {
   color: inherit;
@@ -84,6 +86,15 @@ body::-webkit-scrollbar-track {
 body::-webkit-scrollbar-thumb {
   background-color: #1a2747;
   border-left: 2px solid rgb(24, 113, 203);
+}
+ul {
+  list-style: none;
+}
+li {
+  list-style: none;
+}
+a {
+  text-decoration: none;
 }
 .sidebar_menu_scrollbar::-webkit-scrollbar {
   width: 0;

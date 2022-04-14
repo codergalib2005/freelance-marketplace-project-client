@@ -49,6 +49,8 @@ const GigCreation = () => {
     gallery.push(data.image3);
     gallery.push(data.image4);
     data.gallery = gallery
+    data.name = thisUser?.name;
+    data.email = thisUser?.email
     axios.post(`${process.env.NEXT_PUBLIC_API_URL}/gigs`, data)
       .then(res => {
         message.success("Gig Creation successfully!");
@@ -56,7 +58,6 @@ const GigCreation = () => {
       })
       .catch(err => console.log(err))
   };
-  console.log(thisUser);
   return (
     <div>
       <Header bg="bg-gray-900" />

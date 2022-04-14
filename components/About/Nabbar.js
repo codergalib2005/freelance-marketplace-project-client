@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 
-const Header = () => {
+const Nabbar = () => {
   return (
     <div>
       <div className='p-12'>
@@ -22,4 +22,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default Nabbar;

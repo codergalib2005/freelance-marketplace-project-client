@@ -62,12 +62,12 @@ const Profile = () => {
     borderTopLeftRadius: "5px",
     borderTopRightRadius: "5px",
   };
-  axios.get(`${process.env.NEXT_PUBLIC_API_URL}/users/email/${user?.email}`)
-    .then(response => {
-      setThisUser(response?.data?.result[0]);
-    }, error => {
-      console.log(error);
-    });
+    axios.get(`${process.env.NEXT_PUBLIC_API_URL}/users/email/${user?.email}`)
+      .then(response => {
+        setThisUser(response?.data?.result[0]);
+      }, error => {
+        console.log(error);
+      });
   // Handle Bio Edit Submit____
   const handleBioSubmit = () => {
     if (!bioText) {
@@ -111,7 +111,6 @@ const Profile = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = data => console.log(data);
 
-  // console.log(thisUser)
   const handleProfileOpen = () => setOpenProfile(true);
   const handleProfileClose = () => setOpenProfile(false);
   const handleBannerOpen = () => setOpenBanner(true)
