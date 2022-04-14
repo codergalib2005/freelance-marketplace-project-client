@@ -62,7 +62,7 @@ const Profile = () => {
     borderTopLeftRadius: "5px",
     borderTopRightRadius: "5px",
   };
-  axios.get(`https://dry-plains-53771.herokuapp.com/auth/users/email/${user?.email}`)
+  axios.get(`${process.env.NEXT_PUBLIC_API_URL}/users/email/${user?.email}`)
     .then(response => {
       setThisUser(response?.data?.result[0]);
     }, error => {
@@ -74,7 +74,7 @@ const Profile = () => {
       message.error("Bio field Must need to fill-up!");
       return;
     } else {
-      axios.put(`https://dry-plains-53771.herokuapp.com/auth/users/bio/${thisUser?._id}`, {
+      axios.put(`${process.env.NEXT_PUBLIC_API_URL}/users/bio/${thisUser?._id}`, {
         bio: bioText,
       })
         .then(function (response) {
@@ -91,7 +91,7 @@ const Profile = () => {
       message.error("Profession field Must need to fill-up!");
       return;
     } else {
-      axios.put(`https://dry-plains-53771.herokuapp.com/auth/users/profession/${thisUser?._id}`, {
+      axios.put(`${process.env.NEXT_PUBLIC_API_URL}/users/profession/${thisUser?._id}`, {
         profession: professionText,
       })
         .then(function (response) {
@@ -132,11 +132,16 @@ const Profile = () => {
             <img className="w-6 h-6" src="/profile/select.png" alt="" />
             <div className="w-8 h-8 rounded-full border-4 border-white ">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              {!thisUser?.avatar && <img
+                className="w-full rounded-full hover:scale-105 h-full transition-all duration-300 ease-linear"
+                src="https://i.ibb.co/bb4pZNP/boy-avatar.png"
+                alt=""
+              />}
+              {thisUser?.avatar && <img
                 className="w-full rounded-full hover:scale-105 h-full transition-all duration-300 ease-linear"
                 src={thisUser?.avatar}
                 alt=""
-              />
+              />}
             </div>
           </div>
         </div>
@@ -282,13 +287,13 @@ const Profile = () => {
                       {(thisUser?.avatar === "") && (
                         <Avatar
                           alt="Remy Sharp"
-                          src="https://mui.com/static/images/avatar/1.jpg"
+                          src="https://i.ibb.co/bb4pZNP/boy-avatar.png"
                           sx={{ width: '100%', height: '100%' }}
                         />
                       )}
                       {thisUser?.avatar && (
                         <Avatar
-                          alt="Remy Sharp"
+                          alt={thisUser?.name}
                           src={thisUser?.avatar}
                           sx={{ width: '100%', height: '100%' }}
                         />
@@ -299,7 +304,7 @@ const Profile = () => {
                         className="text-xl profilePicUploadIcon bg-gray-50 px-2 py-2 rounded-md shadow-lg"
                         onClick={() => setOpenProfile(true)}
                       ><FcCameraAddon />
-                        <ProfileModal id={thisUser?._id}  openProfile={openProfile} handleProfileOpen={handleProfileOpen} setOpenProfile={setOpenProfile} />
+                        <ProfileModal id={thisUser?._id} openProfile={openProfile} handleProfileOpen={handleProfileOpen} setOpenProfile={setOpenProfile} />
                       </span>
                     </div>
                   </div>

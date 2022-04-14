@@ -1,11 +1,9 @@
-import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import SendIcon from '@mui/icons-material/Send';
-import { Fade } from '@mui/material';
+import { Fade, TextField } from '@mui/material';
 import Backdrop from '@mui/material/Backdrop';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import { red } from '@mui/material/colors';
-import IconButton from '@mui/material/IconButton';
 import Modal from '@mui/material/Modal';
 import { styled } from '@mui/material/styles';
 import { message } from 'antd';
@@ -34,30 +32,14 @@ const ProfilePicUpload = ({ handleProfileClose, handleOpenProfile, openProfile, 
   const { register, handleSubmit, reset } = useForm();
   const primary = red[500];
   const onSubmit = (data) => {
-    const rf = new FileReader();
-    rf.readAsDataURL(data.image[0])
-    rf.onloadend = function (event) {
-      const body = new FormData();
-      body.append("image", event.target.result.split(",").pop()); //To delete 'data:image/png;base64,' otherwise imgbb won't process it.
-      body.append("name", data.image[0].name);
-      fetch("https://api.imgbb.com/1/upload?expiration=600&key=aace97b9a0d4e6d8a83442b26ddb021e", {
-        method: "POST",
-        body: body
+    axios.put(`${process.env.NEXT_PUBLIC_API_URL}/users/avatar/${id}`, data)
+      .then(function (response) {
+        setOpenProfile(false);
+        message.success("Profile Banner Update Successfully!")
       })
-        .then(res => res.json())
-        .then(result => {
-          axios.put(`https://dry-plains-53771.herokuapp.com/auth/users/banner/${id}`, {
-            image: result.data.url
-          })
-            .then(function (response) {
-              setOpenProfile(false);
-              message.success("Profile Banner Update Successfully!")
-            })
-            .catch(function (error) {
-              console.log(error);
-            });
-        })
-    }
+      .catch(function (error) {
+        console.log(error);
+      });
   }
   return (
     <Modal
@@ -75,10 +57,7 @@ const ProfilePicUpload = ({ handleProfileClose, handleOpenProfile, openProfile, 
         <Fade in={openProfile}>
           <Box sx={style} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <label htmlFor="icon-button-file">
-              <Input {...register("image", { required: true })} accept="image/*" id="icon-button-file" type="file" />
-              <IconButton color="primary" aria-label="upload picture" component="span">
-                <PhotoCamera />
-              </IconButton>
+            <TextField {...register("image", { required: true })} type="text" />
               <span className='font-bold text-lg text-gray-50 pr-3'>Upload Banner Image</span>
               <Button type="submit" variant="contained" color="primary" xs={{ background: 'blue', paddingLeft: '1rem' }} endIcon={<SendIcon />}>
                 Send

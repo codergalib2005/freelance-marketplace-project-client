@@ -38,6 +38,9 @@ a {
 * {
   box-sizing: border-box;
 }
+.custom-font-1 {
+  font-family: "PT Sans", sans-serif;
+}
 .italic_text {
   font-family: "Hurricane", cursive;
 }
@@ -83,7 +86,6 @@ body::-webkit-scrollbar-thumb {
   background-color: #1a2747;
   border-left: 2px solid rgb(24, 113, 203);
 }
-
 ul {
   list-style: none;
 }
@@ -92,4 +94,28 @@ li {
 }
 a {
   text-decoration: none;
+}
+.sidebar_menu_scrollbar::-webkit-scrollbar {
+  width: 0;
+}
+
+.sidebar_menu_scrollbar::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 7px rgba(0, 0, 0, 0.689);
+}
+
+.sidebar_menu_scrollbar::-webkit-scrollbar-thumb {
+  background-color: #1a2747;
+  border-left: 0px solid rgb(24, 113, 203);
+}
+.content_scrollbar::-webkit-scrollbar {
+  width: 0;
+}
+
+.content_scrollbar::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 7px rgba(0, 0, 0, 0.689);
+}
+
+.content_scrollbar::-webkit-scrollbar-thumb {
+  background-color: #1a2747;
+  border-left: 0px solid rgb(24, 113, 203);
 }
