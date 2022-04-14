@@ -56,7 +56,6 @@ const GigCreation = () => {
       })
       .catch(err => console.log(err))
   };
-  console.log(thisUser);
   return (
     <div>
       <Header bg="bg-gray-900" />
