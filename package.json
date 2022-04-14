@@ -10,7 +10,6 @@
     "dev:test": "env-cmd -f .env.testing next dev -p 4000"
   },
   "dependencies": {
-    "proxy": "https://dry-plains-53771.herokuapp.com/auth",
     "@ant-design/icons": "^4.7.0",
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
