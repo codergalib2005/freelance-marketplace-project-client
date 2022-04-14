@@ -4,10 +4,10 @@ import "../styles/custom.css";
 import "../styles/globals.css";
 import "../styles/profile.css";
 import "../styles/SellerFooter.css";
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps, router }) {
   return (
     <AuthProvider>
-      <Component {...pageProps} />
+      <Component {...pageProps} key={router.route} />
     </AuthProvider>
   );
 }

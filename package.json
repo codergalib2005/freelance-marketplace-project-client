@@ -19,6 +19,7 @@
     "antd": "^4.19.3",
     "axios": "^0.26.1",
     "firebase": "^9.6.10",
+    "framer-motion": "^6.2.10",
     "html-react-parser": "^1.4.10",
     "next": "12.1.2",
     "next-redux-wrapper": "^7.0.5",
