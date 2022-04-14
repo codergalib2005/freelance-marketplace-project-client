@@ -38,6 +38,7 @@
     "redux": "^4.1.2",
     "scss": "^0.2.4",
     "slick-carousel": "^1.8.1",
+    "socket.io-client": "^4.4.1",
     "swiper": "^8.1.0"
   },
   "devDependencies": {
