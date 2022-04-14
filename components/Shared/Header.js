@@ -28,17 +28,14 @@ const Header = ({ bg }) => {
             <img className="w-36 cursor-pointer  py-4" src="/banner/navbar/image/logo-white.png" alt="" />
           </div>
           <ul className="hidden md:flex items-center  text-base font-semibold text-white cursor-pointer">
-            <Link href="/dashboard">
-              <a className="hover:text-green-400 text-lg py-4 px-6">Dashboard</a>
-            </Link>
             <Link href="/">
               <a className="hover:text-green-400 text-lg py-4 px-6">Business</a>
             </Link>
             <Link href="/profile">
               <a className="hover:text-green-400 text-lg py-4 px-6">Profile</a>
             </Link>
-            <Link href="/">
-              <a className="hover:text-green-400 text-lg py-4 px-6">Explore</a>
+            <Link href="/dashboard">
+              <a className="hover:text-green-400 text-lg py-4 px-6">Dashboard</a>
             </Link>
             <Link href="/">
               <a className="hover:text-green-400 text-lg py-4 px-6">$ USD</a>
