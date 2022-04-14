@@ -368,6 +368,7 @@
 }
 .hide {
   opacity: 0 !important;
+}
 .button_gradient {
   background: linear-gradient(-25deg, #d937de, #6c38f2);
   padding: 0.6rem 2rem;
