@@ -42,8 +42,8 @@ const Header = ({ bg }) => {
             <Link href="/profile">
               <a className="hover:text-green-400 text-lg py-4 px-6">Profile</a>
             </Link>
-            <Link href="/">
-              <a className="hover:text-green-400 text-lg py-4 px-6">Explore</a>
+            <Link href="/dashboard">
+              <a className="hover:text-green-400 text-lg py-4 px-6">Dashboard</a>
             </Link>
             <Link href="/">
               <a className="hover:text-green-400 text-lg py-4 px-6">$ USD</a>

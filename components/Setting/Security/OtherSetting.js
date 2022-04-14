@@ -5,8 +5,8 @@ const OtherSetting = () => {
     <>
       <hr />
       <div className="flex space-x-6 py-4">
-        <p className="w-2/6">PHONE VERIFICATION</p>
-        <p className="flex justify-center">
+        <p>PHONE VERIFICATION</p>
+        <p className="flex justify-center w-3/4">
           Your phone is verified with Fiverr. Click Edit to change your phone
           number
         </p>
