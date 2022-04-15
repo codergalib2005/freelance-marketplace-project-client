@@ -25,7 +25,7 @@ export default function Home() {
       </Head>
       <main>
         <div>
-          <Header bg="bg-transparent" />
+          <Header />
         </div>
         <div>
           <Banner />
