@@ -31,21 +31,14 @@ export default function Home() {
           <Banner />
           <BreakdownFirst />
           <BreakdownSecond />
-          {/* <BreakdownThird /> */}
           <Devices />
           <Counter />
           <CommunityBanner />
-          {/* <BreakdownFirst/>
-          <BreakdownSecond/>
-          <BreakdownThird/> */}
           <Refer />
-          {/* <Devices/> */}
-          {/* <Counter/> */}
         </div>
         <div>
           <HomeServicesSlider />
           <Feature />
-          {/* <Topseller /> */}
           <HowItWorks />
         </div>
       </main>

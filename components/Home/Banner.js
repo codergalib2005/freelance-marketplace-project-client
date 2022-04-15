@@ -27,12 +27,12 @@ const Banner = () => {
     };
   }, [index]);
   return (
-    <div className="banner_main_parent_box slider_screen">
+    <div className="banner_main_parent_box slider_screen ">
       <div className="banner_content">
         <div className="container-fluid mx-auto px-5">
           <div className="banner_content_wrapper flex items-center slider_screen">
             <div className="banner_content_left md:w-8/12 lg:w-6/12 ">
-              <h1 className="title text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-100 custom-font-1 leading-8 capitalize ">
+              <h1 className=" text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-100  leading-8 capitalize text-left">
                 Welcome to Client <br />
                 <span className=" py-3 inline-block">handle freelance</span>
                 <br />
