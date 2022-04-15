@@ -5,7 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
 import "swiper/css/pagination";
-import { Autoplay, Pagination } from "swiper";
+import { Autoplay } from "swiper";
 
 const bannerData = [
   {
@@ -72,10 +72,10 @@ const Banner = () => {
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
-        // autoplay={{
-        //   delay: 3000,
-        //   disableOnInteraction: false,
-        // }}
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: false,
+        }}
         // pagination={{
         //   clickable: true,
         // }}
@@ -128,94 +128,6 @@ const Banner = () => {
             </div>
           </SwiperSlide>
         ))}
-        {/* <SwiperSlide>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 overflow-x-hidden">
-            <div className=" pl-0 md:pl-12 lg:pl-24 pt-24">
-              <div className="text-center md:text-left ">
-                <h2 className="text-6xl font-bold text-[#2A3254]">
-                  Digital Marketing
-                </h2>
-                <p className="text-gray-500 text-sm my-3 w-96 mx-auto md:mx-0">
-                  The best services in our company that is curently on the top
-                  position from other services
-                </p>
-                <div className="flex gap-4 justify-center md:justify-start">
-                  <button className="px-8 py-3 rounded bg-pink-500 text-lg  text-white">
-                    Get Started
-                  </button>
-                  <button className="px-8 py-3  rounded border-2 border-pink-400  text-lg">
-                    Try Now
-                  </button>
-                </div>
-
-                <div className="mt-12 flex gap-6 justify-center md:justify-start">
-                  <div className="">
-                    <p className="font-bold text-3xl">10+</p>
-                    <p className="w-[80%] text-sm">Years of experiences</p>
-                  </div>
-                  <div className="">
-                    <p className="font-bold text-3xl">5k+</p>
-                    <p className="w-[80%] text-sm">Specialist available</p>
-                  </div>
-                  <div className="">
-                    <p className="font-bold text-3xl">100%</p>
-                    <p className="w-[80%] text-sm">Client Satisfaction</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="flex w-full">
-              <img
-                className="w-[80%] max-w-full mx-auto"
-                src="/banner/marketing.gif"
-                alt=""
-              />
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 overflow-x-hidden">
-            <div className=" pl-6 md:pl-12 lg:pl-24 pt-24">
-              <div className="text-center md:text-left">
-                <h2 className="text-5xl font-bold ">Web Developement</h2>
-                <p className="text-gray-500 text-sm my-3 w-96 mx-auto md:mx-0">
-                  The best services in our company that is curently on the best
-                  selling part of our company on demand.
-                </p>
-                <div className="flex gap-4 justify-center md:justify-start">
-                  <button className="px-8 py-3 rounded bg-pink-500 text-lg  text-white">
-                    Get Started
-                  </button>
-                  <button className="px-8 py-3  rounded border-2 border-pink-400  text-lg">
-                    Try Now
-                  </button>
-                </div>
-
-                <div className="mt-12 flex gap-6 justify-center md:justify-start">
-                  <div className="">
-                    <p className="font-bold text-2xl">15+</p>
-                    <p className="w-[80%] text-sm">Years of experiences</p>
-                  </div>
-                  <div className="">
-                    <p className="font-bold text-2xl">15k+</p>
-                    <p className="w-[80%] text-sm">Specialist available</p>
-                  </div>
-                  <div className="">
-                    <p className="font-bold text-2xl">100%</p>
-                    <p className="w-[80%] text-sm">Client Satisfaction</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="flex w-full">
-              <img
-                className="w-[80%] max-w-full mx-auto"
-                src="/banner/web-dev.gif"
-                alt=""
-              />
-            </div>
-          </div>
-        </SwiperSlide> */}
       </Swiper>
     </div>
   );
