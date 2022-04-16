@@ -35,96 +35,29 @@ const GigCreation = () => {
   const { user, userStatus } = useAuth();
   const router = useRouter()
   useEffect(() => {
-    fetch(`https://dry-plains-53771.herokuapp.com/auth/users/email/${user?.email}`)
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/email/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setThisUser(data?.result[0]))
       .catch((err) => console.log(err));
-  }, [user]);
+  }, [user?.email]);
   const onSubmit = data => {
-    // data.name = user.
-    // Image Upload in imgBB
+    data.email = user.email;
+    data.name = thisUser.name;
     let gallery = new Array();
-    const rf1 = new FileReader();
-    rf1.readAsDataURL(data.image1[0])
-    rf1.onloadend = function (event1) {
-      const body1 = new FormData();
-      body1.append("image", event1.target.result.split(",").pop()); //To delete 'data:image/png;base64,' otherwise imgbb won't process it.
-      body1.append("name", data.image1[0].name);
-      fetch("https://api.imgbb.com/1/upload?expiration=600&key=aace97b9a0d4e6d8a83442b26ddb021e", {
-        method: "POST",
-        body: body1
+    gallery.push(data.image1);
+    gallery.push(data.image2);
+    gallery.push(data.image3);
+    gallery.push(data.image4);
+    data.gallery = gallery
+    data.name = thisUser?.name;
+    data.email = thisUser?.email
+    axios.post(`${process.env.NEXT_PUBLIC_API_URL}/gigs`, data)
+      .then(res => {
+        message.success("Gig Creation successfully!");
+        router.replace("/profile")
       })
-        .then(res => res.json())
-        .then(result1 => {
-          gallery.push(result1?.data?.url);
-          // Image 2 save in imgBB______
-          const rf2 = new FileReader();
-          rf2.readAsDataURL(data.image2[0])
-          rf2.onloadend = function (event2) {
-            const body2 = new FormData();
-            body2.append("image", event2.target.result.split(",").pop()); //To delete 'data:image/png;base64,' otherwise imgbb won't process it.
-            body2.append("name", data.image2[0].name);
-            fetch("https://api.imgbb.com/1/upload?expiration=600&key=aace97b9a0d4e6d8a83442b26ddb021e", {
-              method: "POST",
-              body: body2
-            })
-              .then(res => res.json())
-              .then(result2 => {
-                gallery.push(result2?.data?.url);
-                // Image 3 save in imgBB______
-                const rf3 = new FileReader();
-                rf3.readAsDataURL(data.image3[0])
-                rf3.onloadend = function (event3) {
-                  const body3 = new FormData();
-                  body3.append("image", event3.target.result.split(",").pop()); //To delete 'data:image/png;base64,' otherwise imgbb won't process it.
-                  body3.append("name", data.image3[0].name);
-                  fetch("https://api.imgbb.com/1/upload?expiration=600&key=aace97b9a0d4e6d8a83442b26ddb021e", {
-                    method: "POST",
-                    body: body3
-                  })
-                    .then(res => res.json())
-                    .then(result3 => {
-                      gallery.push(result3?.data?.url);
-                      // Image 4 save in imgBB______
-                      const rf4 = new FileReader();
-                      rf4.readAsDataURL(data.image4[0])
-                      rf4.onloadend = function (event4) {
-                        const body4 = new FormData();
-                        body4.append("image", event4.target.result.split(",").pop()); //To delete 'data:image/png;base64,' otherwise imgbb won't process it.
-                        body4.append("name", data.image4[0].name);
-                        fetch("https://api.imgbb.com/1/upload?expiration=600&key=aace97b9a0d4e6d8a83442b26ddb021e", {
-                          method: "POST",
-                          body: body4
-                        })
-                          .then(res => res.json())
-                          .then(result4 => {
-                            data.email = user.email;
-                            data.name = thisUser.name;
-                            gallery.push(result4?.data?.url);
-                            data.gallery = gallery
-                            axios.post("https://dry-plains-53771.herokuapp.com/auth/gigs", data)
-                              .then(res => {
-                                message.success("Gig Creation successfully!");
-                                // router.replace("/profile")
-                                console.log(res);
-                                console.log(data);
-                              })
-                              .catch(err => console.log(err))
-                          })
-                          .catch(err => console.log(err))
-                      }
-
-                    })
-                    .catch(err => console.log(err))
-                }
-              })
-              .catch(err => console.log(err))
-          }
-        })
-        .catch(err => console.log(err))
-    }
+      .catch(err => console.log(err))
   };
-  console.log(thisUser);
   return (
     <div>
       <Header bg="bg-gray-900" />
@@ -261,22 +194,22 @@ const GigCreation = () => {
                     <div className="grid grid-cols-4">
                       <div>
                         <strong className="text-lg text-gray-900 text-bold mb-3 block">Select image One</strong>
-                        <input type="file" {...register("image1", { required: true })} />
+                        <input type="text" {...register("image1", { required: true })} />
                         {errors.image1 && <span className="text-red-700 block">Image one is required</span>}
                       </div>
                       <div>
                         <strong className="text-lg text-gray-900 text-bold mb-3 block">Select image Two</strong>
-                        <input type="file" {...register("image2", { required: true })} />
+                        <input type="text" {...register("image2", { required: true })} />
                         {errors.image2 && <span className="text-red-700 block">Image two is required</span>}
                       </div>
                       <div>
                         <strong className="text-lg text-gray-900 text-bold mb-3 block">Select image Four</strong>
-                        <input type="file" {...register("image3", { required: true })} />
+                        <input type="text" {...register("image3", { required: true })} />
                         {errors.image3 && <span className="text-red-700 block">Image three is required</span>}
                       </div>
                       <div>
                         <strong className="text-lg text-gray-900 text-bold mb-3 block">Select image Five</strong>
-                        <input type="file" {...register("image4", { required: true })} />
+                        <input type="text" {...register("image4", { required: true })} />
                         {errors.image4 && <span className="text-red-700 block">Image four is required</span>}
                       </div>
                     </div>

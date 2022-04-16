@@ -15,7 +15,7 @@ const SellerFooter = () => {
           <img className="img-responsive mb-10" src="https://i.ibb.co/Ssxh3cj/logo-white.png" alt="" />
           <p>
             Workfleek - Top Freelancer Marketplace WordPress Theme Dotem eiusmod tempor incune utnaem labore etdolore maignaiqua enim poskina ilukita
-            ylokem lokateise ination voluptate velit ecillum dolore eu fugiat nulla pariatur lokaim urianewce more...
+            ylokem lokateise ination voluptate velit ecillum dolore eu fugiat nulla pariatur lokaim urianewce more and more...
           </p>
         </div>
         <div className="col_footer">
