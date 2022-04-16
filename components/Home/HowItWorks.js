@@ -107,7 +107,6 @@ const HowItWorks = () => {
             inventore nulla? Sed enim architecto ab corporis nihil eius tempore
             pariatur, porro ipsam.
           </p>
-
           <p>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat
             rerum sequi dicta, praesentium ipsa dolores illum quia voluptate eos

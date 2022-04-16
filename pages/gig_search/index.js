@@ -13,6 +13,8 @@ import SingleGig from '../../components/gigs/SingleGig';
 const gig_search = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [value, setValue] = useState('');
+  //gig search
+  const [search, setSearch] = useState('');
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [showSidebar, setShowSidebar] = useState(true)
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -48,7 +50,7 @@ const gig_search = () => {
             </div>
             <div className='flex rounded-full pr-5  bg-gray-50 items-center h-14 w-full' style={{ maxWidth: "400px" }}>
               <span style={{ width: "100%", maxWidth: "60px", }} className='flex items-center justify-center text-2xl'><BiSearchAlt2 /></span>
-              <input className='w-full h-10 rounded-full p-2 outline-none' type="text" placeholder='search' />
+              <input className='w-full h-10 rounded-full p-2 outline-none' type="text" placeholder='search' onChange={e => {setSearch(e.target.value)}} />
             </div>
             <div>
               <ul className='flex items-center'>
@@ -114,14 +116,14 @@ const gig_search = () => {
                   value={value}
                   onChange={handleChange}
                 >
-                  <FormControlLabel value="design" control={<Radio />} label="Design" />
-                  <FormControlLabel value="development" control={<Radio color="success" />} label="Development" />
-                  <FormControlLabel value="graphic" control={<Radio color="success" />} label="Graphic" />
-                  <FormControlLabel value="writing" control={<Radio color="success" />} label="Writing" />
-                  <FormControlLabel value="ceo" control={<Radio color="success" />} label="CEO" />
-                  <FormControlLabel value="Marketing" control={<Radio color="success" />} label="Marketing" />
-                  <FormControlLabel value="apps" control={<Radio color="success" />} label="Mobile Apps" />
-                  <FormControlLabel value="web" control={<Radio color="success" />} label="Web" />
+                  <FormControlLabel  onClick={e => {setSearch(e.target?.value?.toLowerCase())}} value="design" control={<Radio  />} label="Design" />
+                  <FormControlLabel  onClick={e => {setSearch(e.target?.value?.toLowerCase())}} value="development" control={<Radio color="success" />} label="Development" />
+                  <FormControlLabel  onClick={e => {setSearch(e.target?.value?.toLowerCase())}} value="graphic" control={<Radio color="success" />} label="Graphic" />
+                  <FormControlLabel  onClick={e => {setSearch(e.target?.value?.toLowerCase())}} value="writing" control={<Radio color="success" />} label="Writing" />
+                  <FormControlLabel  onClick={e => {setSearch(e.target?.value?.toLowerCase())}} value="ceo" control={<Radio color="success" />} label="CEO" />
+                  <FormControlLabel  onClick={e => {setSearch(e.target?.value?.toLowerCase())}} value="Marketing" control={<Radio color="success" />} label="Marketing" />
+                  <FormControlLabel  onClick={e => {setSearch(e.target?.value?.toLowerCase())}} value="apps" control={<Radio color="success" />} label="Mobile Apps" />
+                  <FormControlLabel  onClick={e => {setSearch(e.target?.value?.toLowerCase())}} value="web" control={<Radio color="success" />} label="Web" />
                 </RadioGroup>
               </FormControl>
             </div>
@@ -145,7 +147,13 @@ const gig_search = () => {
             {!loading && (
               <div className={`${gridColumn === "grid_column" && "gig_wrapper_column"}`}>
                 {
-                  allGigs?.map(gig => <SingleGig gridColumn={gridColumn} key={gig?._id} gig={gig} />)
+                  allGigs?.filter((gig)=>{
+                    if(search === ''){
+                      return gig
+                    }else if(gig.category.toLowerCase().includes(search?.toLowerCase())){
+                      return gig
+                    }
+                  }).map(gig => <SingleGig gridColumn={gridColumn} key={gig?._id} gig={gig} />)
                 }
               </div>
             )
