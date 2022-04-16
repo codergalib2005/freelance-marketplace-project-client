@@ -21,7 +21,7 @@ const payment = () => {
                             <Input suffix="VISA" />
                             <div className="mt-8 flex justify-center">
                                 <button className="bg-green-500 text-white px-8 py-2 rounded-sm">
-                                    Pay
+                                    Pay Now
                                 </button>
                             </div>
                         </form>
