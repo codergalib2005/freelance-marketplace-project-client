@@ -118,14 +118,14 @@ const gig_search = () => {
                   value={value}
                   onChange={handleChange}
                 >
-                  <FormControlLabel value="design" control={<Radio />} label="Design" />
-                  <FormControlLabel value="development" control={<Radio color="success" />} label="Development" />
-                  <FormControlLabel value="graphic" control={<Radio color="success" />} label="Graphic" />
-                  <FormControlLabel value="writing" control={<Radio color="success" />} label="Writing" />
-                  <FormControlLabel value="ceo" control={<Radio color="success" />} label="CEO" />
-                  <FormControlLabel value="Marketing" control={<Radio color="success" />} label="Marketing" />
-                  <FormControlLabel value="apps" control={<Radio color="success" />} label="Mobile Apps" />
-                  <FormControlLabel value="web" control={<Radio color="success" />} label="Web" />
+                  <FormControlLabel  onClick={e => {setSearch(e.target.value.toLowerCase())}} value="design" control={<Radio  />} label="Design" />
+                  <FormControlLabel  onClick={e => {setSearch(e.target.value.toLowerCase())}} value="development" control={<Radio color="success" />} label="Development" />
+                  <FormControlLabel  onClick={e => {setSearch(e.target.value.toLowerCase())}} value="graphic" control={<Radio color="success" />} label="Graphic" />
+                  <FormControlLabel  onClick={e => {setSearch(e.target.value.toLowerCase())}} value="writing" control={<Radio color="success" />} label="Writing" />
+                  <FormControlLabel  onClick={e => {setSearch(e.target.value.toLowerCase())}} value="ceo" control={<Radio color="success" />} label="CEO" />
+                  <FormControlLabel  onClick={e => {setSearch(e.target.value.toLowerCase())}} value="Marketing" control={<Radio color="success" />} label="Marketing" />
+                  <FormControlLabel  onClick={e => {setSearch(e.target.value.toLowerCase())}} value="apps" control={<Radio color="success" />} label="Mobile Apps" />
+                  <FormControlLabel  onClick={e => {setSearch(e.target.value.toLowerCase())}} value="web" control={<Radio color="success" />} label="Web" />
                 </RadioGroup>
               </FormControl>
             </div>
