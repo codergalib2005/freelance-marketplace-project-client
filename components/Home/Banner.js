@@ -68,7 +68,7 @@ const bannerData = [
 
 const Banner = () => {
   return (
-    <div className="">
+    <div className="cubano">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
