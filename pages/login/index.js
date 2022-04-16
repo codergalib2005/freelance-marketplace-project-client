@@ -11,9 +11,6 @@ const Login = () => {
     logInUser(data.email, data.password)
   };
 
-  console.log(userStatus)
-
-
   return (
     <div className='w-full bg-[#1a2747] overflow-visible md:overflow-hidden'>
       {!loading && (

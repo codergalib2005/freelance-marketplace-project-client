@@ -1,13 +1,19 @@
 import React from 'react';
-import styles from '../../styles/Request.module.css'
+import styles from '../../styles/Request.module.css';
 
 
 const index = () => {
   return (
     <div className='p-12 container-fluid mx-auto	bg-neutral-100 min-h-screen'>
+<<<<<<< HEAD
+      <div className='p-12	bg-neutral-100 min-h-screen'>
+        <h2 className='text-4xl font-bold font-sans'>What Service Are You Looking For?</h2>
+        <div className='grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 gap-8'>
+=======
       <h2 className='text-4xl font-bold font-sans'>What Service Are You Looking For?</h2>
       <div className='grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 gap-8'>
         <div>
+>>>>>>> 5796e36a871bfa6789ce64a8ef8f53f1973bd4d6
           <form>
             <div className='p-10 bg-white mt-8'>
               <div className="">
@@ -26,12 +32,21 @@ const index = () => {
               </div>
               <div className='mt-5'>
                 <input type="file" className="block w-full text-sm text-slate-500
+<<<<<<< HEAD
+              file:mr-4 file:py-2 file:px-4
+              file:rounded-full file:border-0
+              file:text-sm file:font-semibold
+              file:bg-violet-50 file:text-violet-700
+              hover:file:bg-violet-100
+            "/>
+=======
             file:mr-4 file:py-2 file:px-4
             file:rounded-full file:border-0
             file:text-sm file:font-semibold
             file:bg-violet-50 file:text-violet-700
             hover:file:bg-violet-100
           "/>
+>>>>>>> 5796e36a871bfa6789ce64a8ef8f53f1973bd4d6
               </div>
               <hr className='mt-14' />
               <div>
@@ -76,6 +91,24 @@ const index = () => {
                     placeholder="$"
                   />
                 </div>
+<<<<<<< HEAD
+                <input
+                  required
+                  className="border outline-green-400 border-gray-300 px-2 w-8/12 md:w-6/12 lg:w-6/12 py-2"
+                  type="number"
+                  placeholder="$"
+                />
+              </div>
+            </div>
+            <hr className='mt-8' />
+            <div className="mt-8 flex justify-end">
+              <button className="bg-green-500 text-white px-8 py-2 rounded-sm">
+                Submit Request
+              </button>
+            </div>
+          </form>
+        </div>
+=======
               </div>
               <hr className='mt-8' />
               <div className="mt-8 flex justify-end">
@@ -87,12 +120,14 @@ const index = () => {
           </form>
         </div>
 
+>>>>>>> 5796e36a871bfa6789ce64a8ef8f53f1973bd4d6
         {/* image section */}
         <div>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img className='h-full' src="/Request/Image/request-img.jpg" alt="" />
         </div>
-      </div>
-    </div>
+      </div >
+    </div >
   );
 };
 

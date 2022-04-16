@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable react-hooks/rules-of-hooks */
 
 // import React, { useState } from "react";
@@ -61,6 +62,11 @@ import io from "socket.io-client";
 import { useState } from "react";
 import Chat from "../../components/Chat/Chat";
 import Footer from "../../components/Shared/Footer";
+import Link from "next/link";
+import { IconButton } from "@mui/material";
+import { AccountCircle } from "@mui/icons-material";
+import NotificationsIcon from "@mui/icons-material/Notifications";
+import MailIcon from "@mui/icons-material/Mail";
 
 const socket = io.connect("http://localhost:5000");
 
@@ -76,25 +82,78 @@ function ChatApp() {
   };
 
   return (
-    <div className="App  grid place-items-center mt-8">
-      {!showChat ? (
-        <div className="joinChatContainer ">
-          <h3>Join a Chat</h3>
-          <input
-            type="text"
-            placeholder="Jhon.."
-            onChange={(e) => setUsername(e.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="Room ID.."
-            onChange={(e) => setRoom(e.target.value)}
-          />
-          <button onClick={joinRoom}>Join A Room</button>
+    <div className="App  ">
+      <nav className="mb-8 bg-gray-700 py-2 px-8 flex items-center justify-between">
+        <div className="">
+          <Link href="/" alt="logo">
+            <a>
+              <img
+                className="w-24 md:w-36 lg:w-36 cursor-pointer  py-4"
+                src="/banner/navbar/image/logo-white.png"
+                alt=""
+              />
+            </a>
+          </Link>
         </div>
-      ) : (
-        <Chat socket={socket} username={username} room={room} />
-      )}
+        <div className="flex items-center gap-4">
+          <div className="">
+            <input
+              type="text"
+              placeholder="Search ..."
+              className="border px-4 py-2 rounded outline-none w-full"
+            />
+          </div>
+          <div className="flex">
+            <IconButton
+              // size="large"
+              aria-label="show 4 new mails"
+              color="inherit"
+            >
+              {/* <Badge badgeContent={4} color="error"> */}
+              <MailIcon />
+              {/* </Badge> */}
+            </IconButton>
+            <IconButton
+              // size="large"
+              aria-label="show 17 new notifications"
+              color="inherit"
+            >
+              {/* <Badge badgeContent={17} color="error"> */}
+              <NotificationsIcon />
+              {/* </Badge> */}
+            </IconButton>
+            <IconButton
+              // size="large"
+              aria-label="show 17 new notifications"
+              color="inherit"
+            >
+              <AccountCircle />
+            </IconButton>
+          </div>
+        </div>
+      </nav>
+      <div className="">
+        {!showChat ? (
+          <div className="joinChatContainer  grid place-items-center my-36">
+            <h3>Join a Chat</h3>
+            <input
+              type="text"
+              placeholder="Jhon.."
+              onChange={(e) => setUsername(e.target.value)}
+            />
+            <input
+              type="text"
+              placeholder="Room ID.."
+              onChange={(e) => setRoom(e.target.value)}
+            />
+            <button onClick={joinRoom}>Join A Room</button>
+          </div>
+        ) : (
+          <div className=" grid place-items-center">
+            <Chat socket={socket} username={username} room={room} />
+          </div>
+        )}
+      </div>
       <Footer />
     </div>
   );

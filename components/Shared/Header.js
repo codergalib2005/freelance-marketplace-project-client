@@ -2,32 +2,30 @@ import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 
-const Header = ({ bg }) => {
-  const [showBg, setShowBg] = useState(false);
+const Header = () => {
+  // const [showBg, setShowBg] = useState(false);
   const { user, logOut } = useAuth();
-  useEffect(() => {
-    window.addEventListener("scroll", OnScrollHeader);
-  }, []);
-  const OnScrollHeader = (e) => {
-    if (window.scrollY >= 100) {
-      setShowBg(true);
-    } else {
-      setShowBg(false);
-    }
-  };
-  console.log(user);
+  // useEffect(() => {
+  //   window.addEventListener("scroll", OnScrollHeader);
+  // }, []);
+  // const OnScrollHeader = (e) => {
+  //   if (window.scrollY >= 100) {
+  //     setShowBg(true);
+  //   } else {
+  //     setShowBg(false);
+  //   }
+  // };
   return (
     <div
       style={{ zIndex: "1000" }}
-      className="fixed top-0 left-0 w-full feature-font"
+      className=" top-0 left-0 w-full feature-font "
     >
       <nav
-        className={`fixed top-0 left-0 w-full shadow transition-all duration-500 ease-linear ${
-          showBg ? "bg-gray-900" : bg
+        className={`top-0 left-0 w-full shadow transition-all duration-500 ease-linear bg-gray-600
         }`}
         style={{ zIndex: "289" }}
       >
-        <div className="container m-auto flex justify-between items-center text-gray-700">
+        <div className="container m-auto flex justify-between items-center text-gray-100 ">
           <div>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -36,7 +34,7 @@ const Header = ({ bg }) => {
               alt=""
             />
           </div>
-          <ul className="hidden md:flex items-center  text-base font-semibold text-white cursor-pointer">
+          <ul className="hidden md:flex items-center  text-base font-semibold  cursor-pointer">
             <Link href="/">
               <a className="hover:text-green-400 text-lg py-4 px-6">Business</a>
             </Link>
@@ -44,7 +42,9 @@ const Header = ({ bg }) => {
               <a className="hover:text-green-400 text-lg py-4 px-6">Profile</a>
             </Link>
             <Link href="/dashboard">
-              <a className="hover:text-green-400 text-lg py-4 px-6">Dashboard</a>
+              <a className="hover:text-green-400 text-lg py-4 px-6">
+                Dashboard
+              </a>
             </Link>
             <Link href="/">
               <a className="hover:text-green-400 text-lg py-4 px-6">$ USD</a>

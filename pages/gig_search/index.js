@@ -5,7 +5,7 @@ import RadioGroup from '@mui/material/RadioGroup';
 import Skeleton from '@mui/material/Skeleton';
 import axios from 'axios';
 import Link from 'next/link';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { AiOutlineBars } from 'react-icons/ai';
 import { BiSearchAlt2 } from 'react-icons/bi';
 import { BsFillGrid3X3GapFill, BsFilterLeft } from 'react-icons/bs';
@@ -27,7 +27,6 @@ const gig_search = () => {
     setLoading(false);
   }, 3000)
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  useEffect(() => {
     axios.get(`${process.env.NEXT_PUBLIC_API_URL}/gigs`)
       .then(res => {
         setAllGigs(res?.data?.result);
@@ -36,11 +35,10 @@ const gig_search = () => {
         console.log(err)
       }
       )
-  }, [])
   const handleChange = (event) => {
     setValue(event.target.value);
   };
-  console.log(allGigs);
+  console.log(allGigs)
   return (
     <div>
       <nav className='bg-[#2a3254]'>

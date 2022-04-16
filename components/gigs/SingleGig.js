@@ -2,7 +2,6 @@ import Link from 'next/link';
 import React from 'react';
 import Moment from 'react-moment';
 const SingleGig = ({ gig, gridColumn }) => {
-  console.log(gig);
   return (
     <>
       <Link passHref href={`/gig_search/gigdetails/${gig?._id}`}>

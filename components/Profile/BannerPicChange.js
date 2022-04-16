@@ -25,7 +25,6 @@ const styles = {
 };
 const BannerPicChange = ({ handleBannerClose, handleopenBanner, openBanner, id, setOpenBanner }) => {
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
-  console.log(id);
   const primary = red[500];
   const onSubmit = (data) => {
     axios.put(`${process.env.NEXT_PUBLIC_API_URL}/users/banner/${id}`, data)

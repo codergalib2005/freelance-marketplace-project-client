@@ -25,8 +25,6 @@ const register = () => {
     }
   }
 
-console.log(userStatus)
-
 
 return (
   <div className='w-full bg-[#1a2747]'>
