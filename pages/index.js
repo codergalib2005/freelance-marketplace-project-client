@@ -17,6 +17,7 @@ import Refer from "./Refer/Refer";
 import CommunityBanner from "./community/CommunityBanner";
 import bg from "../public/Reviews.png";
 import HowWeWorks from "../components/HowWeWorks/howweworks";
+import Coummunity from "./community";
 
 export default function Home() {
   return (
@@ -43,8 +44,7 @@ export default function Home() {
           <BreakdownSecond />
           <Devices />
           <Counter />
-          <CommunityBanner />
-          <Refer />
+          {/* <Coummunity /> */}
         </div>
         <div>
           <HomeServicesSlider />
