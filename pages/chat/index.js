@@ -132,24 +132,28 @@ function ChatApp() {
           </div>
         </div>
       </nav>
-      {!showChat ? (
-        <div className="joinChatContainer  grid place-items-center my-36">
-          <h3>Join a Chat</h3>
-          <input
-            type="text"
-            placeholder="Jhon.."
-            onChange={(e) => setUsername(e.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="Room ID.."
-            onChange={(e) => setRoom(e.target.value)}
-          />
-          <button onClick={joinRoom}>Join A Room</button>
-        </div>
-      ) : (
-        <Chat socket={socket} username={username} room={room} />
-      )}
+      <div className="">
+        {!showChat ? (
+          <div className="joinChatContainer  grid place-items-center my-36">
+            <h3>Join a Chat</h3>
+            <input
+              type="text"
+              placeholder="Jhon.."
+              onChange={(e) => setUsername(e.target.value)}
+            />
+            <input
+              type="text"
+              placeholder="Room ID.."
+              onChange={(e) => setRoom(e.target.value)}
+            />
+            <button onClick={joinRoom}>Join A Room</button>
+          </div>
+        ) : (
+          <div className=" grid place-items-center">
+            <Chat socket={socket} username={username} room={room} />
+          </div>
+        )}
+      </div>
       <Footer />
     </div>
   );

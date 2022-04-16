@@ -75,26 +75,69 @@ const HowItWorks = () => {
             ></iframe>
           </div>
         </div>
-              <Panel header="Complete Profile" key="1" className="site-collapse-custom-panel">
-                <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil quos quis nam velit, sed et explicabo. Porro eos voluptates qui! </p>
-              </Panel>
-              <Panel header="Search Vacancies" key="2" className="site-collapse-custom-panel">
+        <Panel
+          header="Complete Profile"
+          key="1"
+          className="site-collapse-custom-panel"
+        >
+          <p>
+            {" "}
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil quos
+            quis nam velit, sed et explicabo. Porro eos voluptates qui!{" "}
+          </p>
+        </Panel>
+        <Panel
+          header="Search Vacancies"
+          key="2"
+          className="site-collapse-custom-panel"
+        >
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat
+            rerum sequi dicta, praesentium ipsa dolores illum quia voluptate eos
+            eum!
+          </p>
+        </Panel>
+        <Panel
+          header="Apply Job"
+          key="3"
+          className="site-collapse-custom-panel"
+        >
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa,
+            inventore nulla? Sed enim architecto ab corporis nihil eius tempore
+            pariatur, porro ipsam.
+          </p>
 
-                <p>Lorem ipsum  dolor sit, amet consectetur adipisicing elit. Placeat rerum sequi dicta, praesentium ipsa dolores illum quia voluptate eos eum!</p>
-              </Panel>
-              <Panel header="Apply Job" key="3" className="site-collapse-custom-panel">
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa, inventore nulla? Sed enim architecto ab corporis nihil eius tempore pariatur, porro ipsam.</p>
-
-                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat rerum sequi dicta, praesentium ipsa dolores illum quia voluptate eos eum!</p>
-              </Panel>
-              <Panel header="Apply Job" key="3" className="site-collapse-custom-panel">
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa, inventore nulla? Sed enim architecto ab corporis nihil eius tempore pariatur, iure eaque! Modi, porro ipsam.</p>
-              </Panel>     
-        </div>
-        <div className='mt-10'>
-          {/* eslint-disable-next-line react/no-unknown-property */}
-          <iframe className={`${styles.how_it_work_img} w-full`} height="380" src="https://www.youtube.com/embed/77g4KA9WQL4" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat
+            rerum sequi dicta, praesentium ipsa dolores illum quia voluptate eos
+            eum!
+          </p>
+        </Panel>
+        <Panel
+          header="Apply Job"
+          key="3"
+          className="site-collapse-custom-panel"
+        >
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsa,
+            inventore nulla? Sed enim architecto ab corporis nihil eius tempore
+            pariatur, iure eaque! Modi, porro ipsam.
+          </p>
+        </Panel>
+      </div>
+      <div className="mt-10">
+        {/* eslint-disable-next-line react/no-unknown-property */}
+        <iframe
+          className={`${styles.how_it_work_img} w-full`}
+          height="380"
+          src="https://www.youtube.com/embed/77g4KA9WQL4"
+          title="YouTube video player"
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullscreen
+        ></iframe>
+      </div>
       {/* </div> */}
     </section>
   );

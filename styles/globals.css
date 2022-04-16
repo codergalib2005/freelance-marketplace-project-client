@@ -2,7 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 /* @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=Hurricane&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Red+Hat+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400;1,500;1,600&family=Yellowtail&display=swap"); */
-@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=PT+Sans:wght@400;700&family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;1,500&family=Red+Hat+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Yellowtail&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=PT+Sans:wght@400;700&family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;1,500&family=Red+Hat+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Yellowtail&display=swap"); */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
 *,
 *::after,
 *::before {
@@ -18,7 +19,7 @@ body {
   /* font-family: "PT Sans", sans-serif; */
   /* font-family: "Red Hat Mono", monospace; */
   /* font-family: "Yellowtail", cursive; */
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif !important;
 
   /* added by mahmud */
   /* 
@@ -28,8 +29,6 @@ font-family: 'PT Sans', sans-serif;
 font-family: 'Red Hat Mono', monospace
 font-family: 'Yellowtail', cursive;
    */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 a {
   color: inherit;
