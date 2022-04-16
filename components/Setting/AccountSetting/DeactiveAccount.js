@@ -54,7 +54,7 @@ const DeactiveAccount = () => {
           </select>
         </div>
         <input
-          className="bg-red-500 hover:bg-red-700 text-white font-bold"
+          className="rounded bg-red-500 hover:bg-red-700 text-white font-bold"
           type="submit"
           value="Deactive Account"
         />
