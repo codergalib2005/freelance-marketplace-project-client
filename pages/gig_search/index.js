@@ -118,14 +118,14 @@ const gig_search = () => {
                   value={value}
                   onChange={handleChange}
                 >
-                  <FormControlLabel  onClick={e => {setSearch(e.target.value.toLowerCase())}} value="design" control={<Radio  />} label="Design" />
-                  <FormControlLabel  onClick={e => {setSearch(e.target.value.toLowerCase())}} value="development" control={<Radio color="success" />} label="Development" />
-                  <FormControlLabel  onClick={e => {setSearch(e.target.value.toLowerCase())}} value="graphic" control={<Radio color="success" />} label="Graphic" />
-                  <FormControlLabel  onClick={e => {setSearch(e.target.value.toLowerCase())}} value="writing" control={<Radio color="success" />} label="Writing" />
-                  <FormControlLabel  onClick={e => {setSearch(e.target.value.toLowerCase())}} value="ceo" control={<Radio color="success" />} label="CEO" />
-                  <FormControlLabel  onClick={e => {setSearch(e.target.value.toLowerCase())}} value="Marketing" control={<Radio color="success" />} label="Marketing" />
-                  <FormControlLabel  onClick={e => {setSearch(e.target.value.toLowerCase())}} value="apps" control={<Radio color="success" />} label="Mobile Apps" />
-                  <FormControlLabel  onClick={e => {setSearch(e.target.value.toLowerCase())}} value="web" control={<Radio color="success" />} label="Web" />
+                  <FormControlLabel  onClick={e => {setSearch(e.target?.value?.toLowerCase())}} value="design" control={<Radio  />} label="Design" />
+                  <FormControlLabel  onClick={e => {setSearch(e.target?.value?.toLowerCase())}} value="development" control={<Radio color="success" />} label="Development" />
+                  <FormControlLabel  onClick={e => {setSearch(e.target?.value?.toLowerCase())}} value="graphic" control={<Radio color="success" />} label="Graphic" />
+                  <FormControlLabel  onClick={e => {setSearch(e.target?.value?.toLowerCase())}} value="writing" control={<Radio color="success" />} label="Writing" />
+                  <FormControlLabel  onClick={e => {setSearch(e.target?.value?.toLowerCase())}} value="ceo" control={<Radio color="success" />} label="CEO" />
+                  <FormControlLabel  onClick={e => {setSearch(e.target?.value?.toLowerCase())}} value="Marketing" control={<Radio color="success" />} label="Marketing" />
+                  <FormControlLabel  onClick={e => {setSearch(e.target?.value?.toLowerCase())}} value="apps" control={<Radio color="success" />} label="Mobile Apps" />
+                  <FormControlLabel  onClick={e => {setSearch(e.target?.value?.toLowerCase())}} value="web" control={<Radio color="success" />} label="Web" />
                 </RadioGroup>
               </FormControl>
             </div>
@@ -152,7 +152,7 @@ const gig_search = () => {
                   allGigs?.filter((gig)=>{
                     if(search === ''){
                       return gig
-                    }else if(gig.category.toLowerCase().includes(search.toLowerCase())){
+                    }else if(gig.category.toLowerCase().includes(search?.toLowerCase())){
                       return gig
                     }
                   }).map(gig => <SingleGig gridColumn={gridColumn} key={gig?._id} gig={gig} />)
