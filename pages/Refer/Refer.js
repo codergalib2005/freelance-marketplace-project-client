@@ -5,7 +5,6 @@ import SharePartOfRefer from "./SharePartOfRefer";
 
 const Refer = () => {
   const { user } = useAuth();
-  console.log(user);
   
   return (
     <div>

@@ -54,9 +54,10 @@ const UpdateProfile = () => {
           </div>
           <div>
             <input
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold"
+              className="rounded bg-blue-500 hover:bg-blue-700 text-white font-bold"
+              color="primary"
               type="submit"
-              value="Login"
+              value="Save Changes"
             />
           </div>
         </form>

@@ -15,7 +15,6 @@ const SellerHeader = () => {
       setShowBg(false);
     }
   };
-  console.log(user);
   return (
     <div style={{ zIndex: "1000" }} className="fixed top-0 left-0 w-full ">
       <nav className="bg-stone-800">

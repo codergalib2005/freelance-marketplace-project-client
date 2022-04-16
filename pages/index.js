@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Head from "next/head";
 import React from "react";
 import Banner from "../components/Home/Banner";
@@ -14,6 +15,7 @@ import Devices from "./Devices/Devices";
 import Topseller from "../components/Shared/Topseller";
 import Refer from "./Refer/Refer";
 import CommunityBanner from "./community/CommunityBanner";
+import bg from "../public/Reviews.png";
 
 export default function Home() {
   return (
@@ -25,27 +27,26 @@ export default function Home() {
       </Head>
       <main>
         <div>
-          <Header bg="bg-transparent" />
+          <Header />
         </div>
         <div>
           <Banner />
+          <div>
+            <img
+              src="https://raw.githubusercontent.com/mahmudulhaquequdrati/all-gifs/main/Reviews.png"
+              alt=""
+            />
+          </div>
           <BreakdownFirst />
           <BreakdownSecond />
-          <BreakdownThird />
           <Devices />
           <Counter />
-          <CommunityBanner/>
-          <BreakdownFirst/>
-          <BreakdownSecond/>
-          <BreakdownThird/>
-          <Refer/>
-          <Devices/>
-          <Counter/>
+          <CommunityBanner />
+          <Refer />
         </div>
         <div>
           <HomeServicesSlider />
           <Feature />
-          {/* <Topseller /> */}
           <HowItWorks />
         </div>
       </main>
