@@ -32,25 +32,29 @@ const howWeWorks = [
 const HowWeWorks = () => {
   return (
     <div>
-      <h2 className="text-center text-3xl lg:text-5xl text-[#2A3254] font-semibold mt-8">
+      <h2 className="text-center text-3xl lg:text-5xl text-[#2A3254] font-semibold mt-16">
         See How We Works
       </h2>
       <p className="text-sm text-gray-600 text-center w-[80%] lg:w-[30%] mx-auto pt-2">
         our offical interior design and build team have more than 10 years of
         experience in the workplace design industry.
       </p>
-      <div className="grid grid-cols-1 md:grid-cols-2 px-24 mt-16 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 px-4 md:px-24 mt-10 gap-y-3 md:gap-8">
         {howWeWorks.map((hw, ind) => (
-          <div className="flex" key={ind}>
-            <div className="w-[40%] ">
-              <img className="w-full " src={hw.img} alt="" />
+          <div className="flex shadow-sm shadow-orange-700 rounded-md overflow-hidden" key={ind}>
+            <div className="w-[40%] h-full">
+              <img className="w-full h-full" src={hw.img} alt="" />
             </div>
-            <div className="px-6 w-[60%]">
-              <p className="text-gray-500 font-semibold text-md">{hw.id}</p>
-              <h4 className="font-bold text-gray-600 my-2 text-lg">
-                {hw.title}
-              </h4>
-              <p className=" text-gray-400 ">{hw.desc}</p>
+            <div className="w-[60%]">
+              <p className="text-gray-300 px-4 font-semibold text-lg bg-orange-700">
+                {hw.id}
+              </p>
+              <div className="px-3">
+                <h4 className="font-bold text-[#2a3254] my-2 text-lg">
+                  {hw.title}
+                </h4>
+                <p className=" text-gray-400 ">{hw.desc}</p>
+              </div>
             </div>
           </div>
         ))}

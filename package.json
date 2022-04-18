@@ -19,6 +19,7 @@
     "@mui/material": "^5.6.0",
     "antd": "^4.19.5",
     "axios": "^0.26.1",
+    "cors": "^2.8.5",
     "cross-env": "^7.0.3",
     "env-cmd": "^10.1.0",
     "firebase": "^9.6.10",
@@ -41,6 +42,7 @@
     "socket.io-client": "^4.4.1",
     "swiper": "^8.1.0"
   },
+  "proxy": "https://morning-thicket-69860.herokuapp.com/auth",
   "devDependencies": {
     "@swc/cli": "^0.1.57",
     "@swc/core": "^1.2.165",
