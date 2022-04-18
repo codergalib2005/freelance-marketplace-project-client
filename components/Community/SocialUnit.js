@@ -2,8 +2,9 @@ import React from "react";
 
 const SocialUnit = () => {
   return (
-    <div className="container mx-auto px-8 md:px-8 lg:px-8 my-8">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-12 items-center">
+    <div className=" hover:bg-orange-100 transition-all duration-500">
+     <div className="container mx-auto px-8 md:px-8 lg:px-8 my-8">
+     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-12 items-center">
         <div className="">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img src="/community/social .png" alt="" />
@@ -39,6 +40,7 @@ const SocialUnit = () => {
           </div>
         </div>
       </div>
+     </div>
     </div>
   );
 };
