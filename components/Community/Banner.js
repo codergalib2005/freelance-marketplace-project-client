@@ -7,7 +7,7 @@ const Banner = () => {
         <div className=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 items-center">
           <div>
             <div>
-              <h4 className="text-4xl md:text-4xl lg:text-6xl text-indigo-900">
+              <h4 className="text-4xl md:text-4xl lg:text-6xl text-indigo-900 font-bold">
                 Do everything that you can do for your dream
                 <span className=" font-serif"> Community</span>
               </h4>
