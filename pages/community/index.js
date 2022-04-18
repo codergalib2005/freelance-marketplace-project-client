@@ -1,13 +1,13 @@
 import React from "react";
 import Refer from "../Refer/Refer";
-import CommunityBanner from "./CommunityBanner";
 import Banner from '../../components/Community/Banner'
+import Cart from "../../components/Community/Cart";
 
 const Coummunity = () => {
   return (
-    <div>
+    <div className="bg-orange-100">
       <Banner/>
-      <CommunityBanner />
+        <Cart/>
       <Refer />
     </div>
   );
