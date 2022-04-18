@@ -3,10 +3,10 @@ import React from "react";
 const Cart = () => {
   return (
     <div>
-      <div className="container mx-auto px-8 md:px-0 lg:px-0 my-6">
+      <div className="container mx-auto px-8 md:px-0 lg:px-0 my-20">
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-14">
           {/* cart 1 */}
-          <div className="hover:bg-orange-50 transition-all duration-500 hover:shadow-md  rounded-md">
+          <div className="hover:bg-orange-100 transition-all duration-500 hover:shadow-md  rounded-md">
             <h4 className="text-2xl my-6 px-12 opacity-50">
               A community is a social unit a group of living thing.
             </h4>
@@ -18,7 +18,7 @@ const Cart = () => {
           </div>
 
           {/* cart 2 */}
-          <div className="hover:bg-orange-50 px-12 transition-all duration-500 hover:shadow-md  rounded-md">
+          <div className="hover:bg-orange-100 px-12 transition-all duration-500 hover:shadow-md  rounded-md">
             <div>
               <div>
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -34,7 +34,7 @@ const Cart = () => {
             </div>
           </div>
           {/* cart 3 */}
-          <div className="hover:bg-orange-50 px-12 transition-all duration-500 hover:shadow-md  rounded-md">
+          <div className="hover:bg-orange-100 px-12 transition-all duration-500 hover:shadow-md  rounded-md">
             <div className="pt-24">
               <h4 className="text-2xl text-indigo-900 font-semibold my-6">
                 Trends{" "}

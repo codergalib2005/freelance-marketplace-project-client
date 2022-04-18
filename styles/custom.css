@@ -396,3 +396,13 @@
   border-bottom-right-radius: 50%;
   border-bottom-left-radius: 50%;
 }
+
+
+/* ==================================
+              Features Cart
+   ==================================
+ */
+
+ .styled:hover .text {
+   color: white;
+ }
