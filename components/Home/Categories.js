@@ -18,7 +18,7 @@ const Categories = () => {
         </div>
         <div>
           <h1 className="text-[#2a3254] text-xl hover:text-[#e83a3b] pb-5">
-          <Link href="/">
+          <Link href="/gig_search">
              <a className="flex items-center hover:text-[#e83a3b] font-bold transition-all duration-300 ease-linear">Explore All <BsBoxArrowInRight className="ml-2"/></a>
           </Link>
           </h1>

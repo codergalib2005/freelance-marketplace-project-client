@@ -413,3 +413,7 @@
   }
 
 }
+/* Taks Craetor page */
+.date-picker-task-create input{
+  color: #fff !important;
+}
