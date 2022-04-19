@@ -396,3 +396,24 @@
   border-bottom-right-radius: 50%;
   border-bottom-left-radius: 50%;
 }
+/* Device component Styles */
+.application_animation{
+  animation: deviceAnimation 2s linear infinite;
+}
+
+@keyframes deviceAnimation {
+  0%{
+    transform: rotate(0deg) translateY(0);
+  }
+  50%{
+    transform: rotate(-15deg) translateY(25px);
+  }
+  100%{
+    transform: rotate(0deg) translateY(0);
+  }
+
+}
+/* Taks Craetor page */
+.date-picker-task-create input{
+  color: #fff !important;
+}
