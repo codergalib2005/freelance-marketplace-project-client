@@ -18,6 +18,7 @@
     "@material-ui/lab": "^4.0.0-alpha.61",
     "@mui/icons-material": "^5.6.0",
     "@mui/material": "^5.6.0",
+    "@stripe/stripe-js": "^1.27.0",
     "@mui/x-date-pickers-pro": "^5.0.0-alpha.1",
     "@mui/x-license-pro": "^5.9.0",
     "antd": "^4.19.5",
@@ -29,6 +30,7 @@
     "firebase": "^9.6.10",
     "framer-motion": "^6.2.10",
     "html-react-parser": "^1.4.10",
+    "micro": "^9.3.4",
     "next": "12.1.2",
     "next-redux-wrapper": "^7.0.5",
     "react": "18.0.0",
@@ -44,6 +46,7 @@
     "scss": "^0.2.4",
     "slick-carousel": "^1.8.1",
     "socket.io-client": "^4.4.1",
+    "stripe": "^8.217.0",
     "swiper": "^8.1.0"
   },
   "proxy": "https://morning-thicket-69860.herokuapp.com/auth",

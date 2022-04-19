@@ -31,8 +31,8 @@ const Menu = () => {
             </Link>
           </li>
           <li>
-            <Link href="/">
-              <a className="hover:text-green-400 text-lg py-4 px-6">Form W-9</a>
+            <Link href="/ourTeam">
+              <a className="hover:text-green-400 text-lg py-4 px-6">Our Team</a>
             </Link>
           </li>
         </ul>
