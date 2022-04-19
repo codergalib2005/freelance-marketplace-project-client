@@ -76,7 +76,7 @@ const useFirebase = () => {
 
 //for admin
 // useEffect(() => {
-//     fetch(`l300/users/${user.email}`)
+//     fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/admin/${user?.email}`)
 //     .then(res => res.json())
 //     .then(data => setAdmin(data.admin))
 // },[user?.email])
@@ -154,7 +154,7 @@ const useFirebase = () => {
 
     return {
         user,
-        admin,
+        // admin,
         registerUser,
         logInUser,
         signInWithGoogle,
