@@ -21,43 +21,69 @@ const routes = [
     path: "/users",
     name: "Users",
     icon: <FaUser />,
+    subRoutes: [
+      {
+        path: "/user/manageUser",
+        name: "Mange User",
+        icon: <BsCartCheck />,
+      },
+    ],
   },
   {
     path: "/messages",
     name: "Messages",
     icon: <MdMessage />,
-  },
-  {
-    path: "/analytics",
-    name: "Analytics",
-    icon: <BiAnalyse />,
-  },
-  {
-    path: "/file-manager",
-    name: "File Manager",
-    icon: <AiTwotoneFileExclamation />,
     subRoutes: [
       {
-        path: "/settings/profile",
-        name: "Profile ",
+        path: "/message/inbox",
+        name: "Inbox ",
         icon: <FaUser />,
       },
       {
-        path: "/settings/2fa",
-        name: "2FA",
+        path: "/message/send",
+        name: "Send",
         icon: <FaLock />,
-      },
-      {
-        path: "/settings/billing",
-        name: "Billing",
-        icon: <FaMoneyBill />,
       },
     ],
   },
   {
-    path: "/order",
-    name: "Order",
+    path: "/analytics/earning",
+    name: "Earning",
+    icon: <BiAnalyse />,
+  },
+  {
+    path: "/admin",
+    name: "Admin",
+    icon: <AiTwotoneFileExclamation />,
+    subRoutes: [
+      {
+        path: "/admin/makeAdmin",
+        name: "Make Admin ",
+        icon: <FaUser />,
+      },
+      {
+        path: "/admin/manageAdmin",
+        name: "Manage Admin",
+        icon: <FaLock />,
+      },
+    ],
+  },
+  {
+    path: "/gig",
+    name: "Gigs",
     icon: <BsCartCheck />,
+    subRoutes: [
+      {
+        path: "/gig/topGigs",
+        name: "TOP Gig",
+        icon: <FaUser />,
+      },
+      {
+        path: "/gig/manageGig",
+        name: "Manage Gig",
+        icon: <FaUser />,
+      },
+    ],
   },
   {
     path: "/settings",
@@ -71,13 +97,13 @@ const routes = [
         icon: <FaUser />,
       },
       {
-        path: "/settings/2fa",
-        name: "2FA",
+        path: "/settings/editProfile",
+        name: "Edit Profile",
         icon: <FaLock />,
       },
       {
-        path: "/settings/billing",
-        name: "Billing",
+        path: "/settings/manageProfile",
+        name: "Manage Profile",
         icon: <FaMoneyBill />,
       },
     ],
@@ -86,6 +112,35 @@ const routes = [
     path: "/saved",
     name: "Saved",
     icon: <AiFillHeart />,
+  },
+  {
+    path: "/sellers",
+    name: "Sellers",
+    icon: <AiFillHeart />,
+    subRoutes: [
+      {
+        path: "/sellers/topSellers",
+        name: "TOP Sellers ",
+        icon: <FaUser />,
+      },
+      {
+        path: "/sellers/manageSeller",
+        name: "Manage Seller",
+        icon: <FaLock />,
+      },
+    ],
+  },
+  {
+    path: "/buyers",
+    name: "Buyers",
+    icon: <AiFillHeart />,
+    subRoutes: [
+      {
+        path: "/buyers/manageBuyers",
+        name: "Manage Buyers",
+        icon: <FaLock />,
+      },
+    ],
   },
 ];
 

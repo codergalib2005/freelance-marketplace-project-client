@@ -11,11 +11,14 @@ import BreakdownFirst from "./Breakdown/BreakdownFirst";
 import BreakdownSecond from "./Breakdown/BreakdownSecond";
 import BreakdownThird from "./Breakdown/BreakdownThird";
 import Counter from "./Counter/Counter";
-import Devices from "./Devices/Devices";
+import Devices from "../components/Home/Devices";
 import Topseller from "../components/Shared/Topseller";
 import Refer from "./Refer/Refer";
 import CommunityBanner from "./community/CommunityBanner";
 import bg from "../public/Reviews.png";
+import HowWeWorks from "../components/HowWeWorks/howweworks";
+import Coummunity from "./community";
+import Categories from "../components/Home/Categories";
 
 export default function Home() {
   return (
@@ -31,18 +34,13 @@ export default function Home() {
         </div>
         <div>
           <Banner />
-          <div>
-            <img
-              src="https://raw.githubusercontent.com/mahmudulhaquequdrati/all-gifs/main/Reviews.png"
-              alt=""
-            />
-          </div>
-          <BreakdownFirst />
-          <BreakdownSecond />
+          <Categories />
+          <HowWeWorks />
+          {/* <BreakdownFirst />
+          <BreakdownSecond /> */}
           <Devices />
           <Counter />
-          <CommunityBanner />
-          <Refer />
+          {/* <Coummunity /> */}
         </div>
         <div>
           <HomeServicesSlider />

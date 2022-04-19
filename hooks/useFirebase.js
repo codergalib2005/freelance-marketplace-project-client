@@ -15,6 +15,9 @@ const useFirebase = () => {
     const [userStatus, setUserStatus] = useState("");
     const [loading, setIsLoadind] = useState(true);
     const [error, setError] = useState('');
+    //for admin
+    // const [admin, setAdmin] = useState(false)
+
     const router = useRouter()
 
     const auth = getAuth();
@@ -71,7 +74,12 @@ const useFirebase = () => {
         return () => unSubscribe;
     }, [auth]);
 
-
+//for admin
+// useEffect(() => {
+//     fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/admin/${user?.email}`)
+//     .then(res => res.json())
+//     .then(data => setAdmin(data.admin))
+// },[user?.email])
 
     //signIn user email and pass
     const logInUser = (email, password) => {
@@ -146,6 +154,7 @@ const useFirebase = () => {
 
     return {
         user,
+        // admin,
         registerUser,
         logInUser,
         signInWithGoogle,
