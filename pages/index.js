@@ -19,6 +19,7 @@ import bg from "../public/Reviews.png";
 import HowWeWorks from "../components/HowWeWorks/howweworks";
 import Coummunity from "./community";
 import Categories from "../components/Home/Categories";
+import SkillMenu from "../components/Home/SkilledPeople/SkillMenu";
 
 export default function Home() {
   return (
@@ -46,6 +47,9 @@ export default function Home() {
           <HomeServicesSlider />
           <Feature />
           <HowItWorks />
+        </div>
+        <div>
+          <SkillMenu />
         </div>
       </main>
       <footer>
