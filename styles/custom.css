@@ -441,3 +441,25 @@
   overflow-y: scroll;
   padding-right: 10px;
 }
+
+/* ? conversation css added */
+.conversation {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+  padding: 10px;
+
+  /* overflow: hidden; */
+}
+.conversation:hover {
+  background-color: gainsboro;
+}
+.conversationImg {
+  width: 40px;
+  /* height: 60px; */
+  border-radius: 50%;
+}
+.conversationName {
+  font-weight: 500;
+}

@@ -36,6 +36,9 @@ function ChatApp() {
                 marginTop: "30px",
               }}
             >
+              <Conversation />
+              <Conversation />
+              <Conversation />
               {/* {conversation.map((c, i) => (
                 <div
                   key={i}
