@@ -1,19 +1,18 @@
 import React, { useState } from 'react';
-import {  Input, message } from 'antd';
+import { Input, message } from 'antd';
 import styles from '../../styles/payment.module.css';
 
-
-const admin = () => {
+const removeAdmin = () => {
     const [email, setEmail] = useState('');
 
     const handleONBlur = e => {
         setEmail(e.target?.value)
     }
-
-    const handleAdminSubmit = e => {
-        e.preventDefault()
+    //remove admin
+    const handleRemove = e => {
         const User = { email }
-        fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/admin/${email}`, {
+        e.preventDefault()
+        fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/remove/admin/${email}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -23,7 +22,7 @@ const admin = () => {
             .then(res => res.json())
             .then(data => {
                 setEmail(data)
-                message.success('Admin Create successfully')
+                message.success('Admin Remove successfully')
             }).catch(
                 err => {
                     console.log(err)
@@ -34,7 +33,7 @@ const admin = () => {
         <div className='container-fluid mx-auto p-28 min-h-screen'>
             <div className='grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 gap-12'>
                 <div className={`flex justify-center ${styles.payment_container}`}>
-                    <form onSubmit={handleAdminSubmit} >
+                    <form onSubmit={handleRemove} >
                         <br />
                         <Input placeholder="Your Email" type="email" onBlur={handleONBlur} />
                         <br />
@@ -55,26 +54,4 @@ const admin = () => {
     );
 };
 
-export default admin;
-//admin create
-// app.put('users/admin', async (req, res) =>{
-//     const user = req.body;
-//     const filter = {emeil: user.email};
-//     const updateDoc = {$set: {role: 'admin'}};
-//     const result = await usersCollection.updateOne(filter, updateDoc)
-//     res.json(result)
-
-// })
-
-
-//check admin
-// app.get('/users/:email', async (req, res) =>{
-//     const email =  req.params.email;
-//     const query  = {email: email};
-//     const user = await usersCollection.findOne(query);
-//     let isAdmin = false;
-//     if(user?.role === 'admin'){
-//         isAdmin= true
-//     }
-//     res.json9({admin: isAdmin});
-// } )
+export default removeAdmin;

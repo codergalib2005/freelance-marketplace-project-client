@@ -11,6 +11,8 @@ import Paper from '@mui/material/Paper';
 
 const manageAdmin = () => {
   const [ourUsers, setOurUsers] = useState([]);
+  
+  
 
   useEffect(() =>{
     fetch(`${process.env.NEXT_PUBLIC_API_URL}/users`)
@@ -18,16 +20,17 @@ const manageAdmin = () => {
     .then(data => setOurUsers(data.result))
   },[]);
 
+ 
   return (
-    <TableContainer component={Paper}>
-      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+    <TableContainer className="p-10" component={Paper} >
+      <Table  aria-label="simple table">
         <TableHead>
           <TableRow>
             <TableCell>Name</TableCell>
-            <TableCell align="right">Email</TableCell>
-            <TableCell align="right">Role</TableCell>
-            <TableCell align="right"></TableCell>
-            <TableCell align="right"></TableCell>
+            <TableCell align="left">Email</TableCell>
+            <TableCell align="left">Role</TableCell>
+            <TableCell align="left"></TableCell>
+            <TableCell align="left"></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -41,10 +44,10 @@ const manageAdmin = () => {
           <TableCell component="th" scope="row">
           {OurUser.name}
           </TableCell>
-          <TableCell align="right">{OurUser.email}</TableCell>
-          <TableCell align="right">{OurUser.admin}</TableCell>
-          <TableCell align="right"><button>Make Admin</button></TableCell>
-          <TableCell align="right"><button>Remove Admin</button></TableCell>
+          <TableCell align="left">{OurUser.email}</TableCell>
+          <TableCell align="left">{OurUser.admin}</TableCell>
+          <TableCell align="left"><button >Make Admin</button></TableCell>
+          <TableCell align="left"><button >Remove Admin</button></TableCell>
         </TableRow>
          ))
        }
