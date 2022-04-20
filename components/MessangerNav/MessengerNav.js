@@ -8,7 +8,7 @@ import Link from "next/link";
 
 const MessengerNav = () => {
   return (
-    <nav className=" bg-gray-700 py-2 px-8 flex items-center justify-between">
+    <nav className=" bg-gray-700 py-1 px-8 flex items-center justify-between">
       <div className="">
         <Link href="/" alt="logo">
           <a>
@@ -25,7 +25,7 @@ const MessengerNav = () => {
           <input
             type="text"
             placeholder="Search ..."
-            className="border px-4 py-2 rounded outline-none w-full"
+            className="border px-4 py-1 rounded outline-none w-full"
           />
         </div>
         <div className="flex">

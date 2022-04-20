@@ -31,6 +31,7 @@ function ChatApp() {
               className="chatMenuInput"
             />
             <div
+              onClick={() => setCurrentChat("true")}
               className=""
               style={{
                 marginTop: "30px",
@@ -58,11 +59,14 @@ function ChatApp() {
             <div className="chatBoxWrapper">
               <p className="chatWrapperP">Start Conversation</p>
               <div className="chatBoxTop">
-                {messages.map((m, i) => (
+                <Message />
+                <Message own={true} />
+                <Message />
+                {/* {messages.map((m, i) => (
                   <div key={i} ref={scrollRef}>
                     <Message message={m} own={m.sender === user?._id} />
                   </div>
-                ))}
+                ))} */}
               </div>
               <div className="chatBoxBottom">
                 <textarea
