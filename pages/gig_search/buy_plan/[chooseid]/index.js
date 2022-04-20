@@ -8,6 +8,7 @@ import TextField from "@mui/material/TextField";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
+import { useForm } from "react-hook-form";
 
 const BuyPlan = () => {
   const [value, setValue] = React.useState(new Date());
@@ -15,6 +16,19 @@ const BuyPlan = () => {
   const { loading } = useAuth();
   const router = useRouter();
   const id = router?.query?.chooseid;
+  const { user } = useAuth();
+
+  //hook from function
+  const { register, handleSubmit } = useForm();
+  const onSubmit = data => {
+    data.seller_email = gig.email,
+    data.buyer_email = user.email,
+    data.gig_title = gig.gig_title,
+    data.category = gig.category,
+    data.time = value
+    console.log(data)
+  };
+
   useEffect(() => {
     const GETURL = `${process.env.NEXT_PUBLIC_API_URL}/gigs/${id}`;
     axios
@@ -24,6 +38,23 @@ const BuyPlan = () => {
       })
       .catch((err) => console.log(err));
   }, [id, router.query.gigid]);
+  console.log(gig);
+
+  //post
+  // axios.post(
+  //   "http://localhost:3000/api/contact",
+  //   {
+  //     firstName,
+  //     lastName,
+  //     email,
+  //   },
+  //   {
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //   },
+  //   console.log(res) //this comes back undefined
+  // )
 
   return (
     <div>
@@ -68,6 +99,22 @@ const BuyPlan = () => {
                       }}
                     />
                   </LocalizationProvider>
+                </div>
+
+                <div>
+
+                  <h1>{gig.category}</h1>
+                  <h2>{gig.gig_title}</h2>
+                  <h2>{gig.email}</h2>
+                  <p>{user.email}</p>
+                  <form onSubmit={handleSubmit(onSubmit)}>
+                    <select {...register("Package")}>
+                      <option value="Basic">Basic</option>
+                      <option value="Standred">Standred</option>
+                      <option value="Primiun">Primiun</option>
+                    </select>
+                    <input type="submit" />
+                  </form>
                 </div>
               </div>
             </div>

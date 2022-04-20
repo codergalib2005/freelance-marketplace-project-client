@@ -7,6 +7,11 @@ import DetailsHeader from "../../../../components/gigs/DetailsHeader";
 import SliderBannerImage from "../../../../components/gigs/SliderBannerImage";
 import useAuth from "../../../../hooks/useAuth";
 import Link from "next/link";
+import { useForm } from "react-hook-form";
+import Rating from '@mui/material/Rating';
+import { message } from 'antd';
+
+
 
 const GigDetails = () => {
   const { user } = useAuth();
@@ -14,6 +19,33 @@ const GigDetails = () => {
   const [gigUser, setGigUser] = useState({});
   const [showPricing, setShowPricing] = useState("beginner");
   const router = useRouter();
+  const [rating, setRating] = useState(0);
+  //hook from
+  console.log(user)
+  const { register, handleSubmit } = useForm();
+  const onSubmit = data => {
+    data.rating = rating,
+    data.sellerEmail = gig?.email,
+    data.buyerEmail = user?.email,
+    data.buyerName = user?.displayName ? user?.displayName : 'user name does not existed',
+    
+        //post
+  axios.post(
+    `${process.env.NEXT_PUBLIC_API_URL}/reviews/`,
+      data ,
+    
+    {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    },
+    
+  ).then(
+    () => message.success('review successfully')
+  ).catch (err => message.error(err))
+
+    console.log(data)
+  };
   useEffect(() => {
     const GETURL = `${process.env.NEXT_PUBLIC_API_URL}/gigs/${router?.query?.gigid}`;
     axios
@@ -31,6 +63,8 @@ const GigDetails = () => {
         console.log(error);
       }
     );
+
+  
   console.log(gigUser);
   return (
     <div className=" bg-[#2a3254] min-h-screen">
@@ -122,26 +156,23 @@ const GigDetails = () => {
                 <div className="border-b-2 border-[#2a3254]">
                   <div className="grid grid-cols-3 bg-white rounded-md border-2 border-b-0 border-white">
                     <div
-                      className={`text-center cursor-pointer py-2 text-lg font-bold ${
-                        showPricing === "beginner" && "bg-[#2a3254] text-white"
-                      }`}
+                      className={`text-center cursor-pointer py-2 text-lg font-bold ${showPricing === "beginner" && "bg-[#2a3254] text-white"
+                        }`}
                       onClick={() => setShowPricing("beginner")}
                     >
                       Beginner
                     </div>
                     <div
-                      className={`text-center cursor-pointer py-2 text-lg font-bold ${
-                        showPricing === "expert" && "bg-[#2a3254] text-white"
-                      }`}
+                      className={`text-center cursor-pointer py-2 text-lg font-bold ${showPricing === "expert" && "bg-[#2a3254] text-white"
+                        }`}
                       onClick={() => setShowPricing("expert")}
                     >
                       Expert
                     </div>
                     <div
-                      className={`text-center cursor-pointer py-2 text-lg font-bold ${
-                        showPricing === "experience" &&
+                      className={`text-center cursor-pointer py-2 text-lg font-bold ${showPricing === "experience" &&
                         "bg-[#2a3254] text-white"
-                      }`}
+                        }`}
                       onClick={() => setShowPricing("experience")}
                     >
                       Experience
@@ -289,6 +320,17 @@ const GigDetails = () => {
                   </button>
                 </Link>
               </div>
+
+              <div>
+              <Rating onChange={e => setRating(e.target.value)} name="half-rating" defaultValue={2.5} precision={0.5} />
+                <form onSubmit={handleSubmit(onSubmit)}>
+                  <input {...register("description")} />
+                  <input {...register("profession")} />
+                  <input {...register("buyerImage")} />
+                  <input type="submit" />
+                </form>
+              </div>
+
             </div>
           </div>
         </div>
@@ -298,3 +340,4 @@ const GigDetails = () => {
 };
 
 export default GigDetails;
+
