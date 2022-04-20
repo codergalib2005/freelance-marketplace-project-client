@@ -35,8 +35,8 @@ const manageAdmin = () => {
           <SideBar />
           <SideBarMenu />
         </div>
-        <div className="">
-        <TableContainer className={styles.table_container} component={Paper} >
+        <div className={styles.table_container}>
+        <TableContainer  component={Paper} >
         <Table aria-label="simple table">
           <TableHead>
             <TableRow>
