@@ -1,18 +1,36 @@
-import React from 'react';
+import React, { useState, useRef } from "react";
 import { useForm } from "react-hook-form";
-
+import { message } from "antd";
 
 const GetLinks = () => {
-    const {
-        register,
-        handleSubmit,
-        watch,
-        formState: { errors },
-        } = useForm();
-       const onSubmit = (data) => console.log(data);
-    return (
-        <div>
-            <div className="container mx-auto bg-white -my-28 shadow-md py-10">
+  const [copySuccess, setCopySuccess] = useState("");
+  const textAreaRef = useRef(null);
+
+  function copyToClipboard(e) {
+    setCopySuccess("");
+    textAreaRef.current.select();
+    document.execCommand("copy");
+
+    // This is just personal preference.
+    // I prefer to not show the the whole text area selected.
+    e.target.focus();
+    setCopySuccess("Copied!");
+  }
+
+  if (copySuccess) {
+    message.success("This is a success message");
+  }
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => console.log(data);
+  return (
+    <div>
+      <div className="container mx-auto bg-white -my-28 shadow-md py-10">
         {" "}
         <div className="mx-8 lg:mx-20">
           {" "}
@@ -51,8 +69,13 @@ const GetLinks = () => {
                 <input
                   className="appearance-none py-2 border block w-full md:w-80 lg:w-96  text-gray-700 border-gray-400 rounded px-4 border-r-0 rounded-r-none leading-tight focus:outline-none "
                   type="text"
+                  value="hello world bangladesh eerter"
+                  ref={textAreaRef}
                 />
-                <button className="appearance-none py-2 block w-24 text-gray-700 border rounded-l-none  rounded px-4  leading-tight focus:outline-none bg-gray-200 border-gray-500 focus:bg-gray-300 text-lg font-bold">
+                <button
+                  className="appearance-none py-2 block w-24 text-gray-700 border rounded-l-none  rounded px-4  leading-tight focus:outline-none bg-gray-200 border-gray-500 focus:bg-gray-300 text-lg font-bold"
+                  onClick={copyToClipboard}
+                >
                   Copy
                 </button>
               </div>
@@ -100,8 +123,8 @@ const GetLinks = () => {
           </div>{" "}
         </div>{" "}
       </div>
-        </div>
-    );
+    </div>
+  );
 };
 
 export default GetLinks;
