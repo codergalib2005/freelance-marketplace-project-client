@@ -44,6 +44,7 @@
     "scss": "^0.2.4",
     "slick-carousel": "^1.8.1",
     "socket.io-client": "^4.4.1",
+    "sweetalert2": "^11.4.8",
     "swiper": "^8.1.0"
   },
   "proxy": "https://morning-thicket-69860.herokuapp.com/auth",
