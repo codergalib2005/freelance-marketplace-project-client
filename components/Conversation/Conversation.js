@@ -3,20 +3,25 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 
 const Conversation = ({ conversation, currentUser }) => {
-  // const [user, setUser] = useState(null);
+  const [user, setUser] = useState([]);
+  const userInfo = user[0];
 
-  // useEffect(() => {
-  //   const friendId = conversation.members.find((m) => m !== currentUser?._id);
-  //   const getUser = async () => {
-  //     try {
-  //       const res = await axios.get("/users?userId=" + friendId);
-  //       setUser(res.data);
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   };
-  //   getUser();
-  // }, [currentUser, conversation]);
+  useEffect(() => {
+    const friendEmail = conversation?.members?.find(
+      (m) => m !== currentUser?.email
+    );
+    const getUser = async () => {
+      try {
+        const res = await axios.get(
+          "http://localhost:8800/api/users/" + friendEmail
+        );
+        setUser(res.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getUser();
+  }, [currentUser, conversation]);
 
   return (
     <div className="conversation">
@@ -25,7 +30,7 @@ const Conversation = ({ conversation, currentUser }) => {
         alt=""
         className="conversationImg"
       />
-      <p className="conversationName">Mahmud Test</p>
+      <p className="conversationName">{userInfo?.name}</p>
     </div>
   );
 };

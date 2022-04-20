@@ -11,11 +11,42 @@ const socket = io.connect("http://localhost:5000");
 function ChatApp() {
   const { user } = useAuth();
   const [conversation, setCoversation] = useState([]);
-  const [messages, setMessages] = useState([]);
-  const [newMessage, setNewMessage] = useState("");
-  const [arrivalMessage, setArrivalMessage] = useState(null);
   const [currentChat, setCurrentChat] = useState(null);
+  const [messages, setMessages] = useState([]);
+  const [arrivalMessage, setArrivalMessage] = useState(null);
+  const [newMessage, setNewMessage] = useState("");
   const scrollRef = useRef();
+
+  // * get the conversation user specific
+  useEffect(() => {
+    const getConversation = async () => {
+      try {
+        const res = await axios.get(
+          "http://localhost:8800/api/conversations/" + user?.email
+        );
+        setCoversation(res.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getConversation();
+  }, [user?.email]);
+
+  // * get messages for specific id
+  useEffect(() => {
+    const getMessage = async () => {
+      try {
+        const res = await axios.get(
+          "http://localhost:8800/api/messages/" + currentChat?._id
+        );
+        setMessages(res.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getMessage();
+  }, [currentChat?._id]);
+  console.log(messages);
 
   return (
     <div className="  ">
@@ -31,25 +62,20 @@ function ChatApp() {
               className="chatMenuInput"
             />
             <div
-              onClick={() => setCurrentChat("true")}
-              className=""
               style={{
                 marginTop: "30px",
               }}
             >
-              <Conversation />
-              <Conversation />
-              <Conversation />
-              {/* {conversation.map((c, i) => (
+              {conversation.map((c, i) => (
                 <div
                   key={i}
                   onClick={() => {
                     setCurrentChat(c);
                   }}
                 >
-                  <Conversations conversation={c} currentUser={user} />
+                  <Conversation conversation={c} currentUser={user} />
                 </div>
-              ))} */}
+              ))}
             </div>
           </div>
         </div>
@@ -59,16 +85,16 @@ function ChatApp() {
             <div className="chatBoxWrapper">
               <p className="chatWrapperP">Start Conversation</p>
               <div className="chatBoxTop">
-                <Message />
+                {/* <Message />
                 <Message own={true} />
                 <Message />
                 <Message own={true} />
-                <Message />
-                {/* {messages.map((m, i) => (
+                <Message /> */}
+                {messages.map((m, i) => (
                   <div key={i} ref={scrollRef}>
-                    <Message message={m} own={m.sender === user?._id} />
+                    <Message message={m} own={m.sender === user?.email} />
                   </div>
-                ))} */}
+                ))}
               </div>
               <div className="chatBoxBottom">
                 <input

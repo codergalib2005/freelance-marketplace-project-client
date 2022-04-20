@@ -11,9 +11,7 @@ const Message = ({ own, message }) => {
           alt=""
         />
 
-        <p className="messageText">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni, error.
-        </p>
+        <p className="messageText">{message.text}</p>
       </div>
       <div className="messageBottom">
         <p>1 hour ago</p>
