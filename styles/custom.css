@@ -412,7 +412,7 @@
 }
 .chatBoxBottom {
   padding-top: 20px;
-  padding-left: 20px;
+  /* padding-left: 20px; */
   padding-right: 20px;
   margin-top: 10px;
   display: flex;
@@ -421,11 +421,13 @@
 }
 .chatMessageInput {
   width: 75%;
-  height: 60px;
-  padding: 20px;
+  height: 70px;
+  padding: 0 10px 20px;
+  border: 1px solid black;
+  /* padding: 5px 20px; */
 }
 .chatBoxButtonSubmit {
-  width: 60px;
+  width: 80px;
   height: 40px;
   border: none;
   border-radius: 5px;
@@ -449,10 +451,15 @@
   gap: 16px;
   cursor: pointer;
   padding: 10px;
+  border: 1px solid gainsboro;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  transition: all 0.3s ease-in;
 
   /* overflow: hidden; */
 }
 .conversation:hover {
+  /* border: none; */
   background-color: gainsboro;
 }
 .conversationImg {
@@ -480,10 +487,11 @@
   border-radius: 50%;
 }
 .messageText {
-  background-color: rgb(37, 37, 180);
-  padding: 10px;
+  background-color: rgba(199, 199, 199, 0.527);
+  padding: 20px;
   border-radius: 20px;
-  color: #fff;
+  color: black;
+
   max-width: 300px;
 }
 .messageBottom {
@@ -495,6 +503,7 @@
   /* background-color: darkcyan; */
 }
 .message.own .messageText {
-  background-color: green;
-  color: black;
+  background-color: rgb(91, 91, 218);
+
+  color: #fff;
 }

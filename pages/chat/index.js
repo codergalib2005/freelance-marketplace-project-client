@@ -62,6 +62,8 @@ function ChatApp() {
                 <Message />
                 <Message own={true} />
                 <Message />
+                <Message own={true} />
+                <Message />
                 {/* {messages.map((m, i) => (
                   <div key={i} ref={scrollRef}>
                     <Message message={m} own={m.sender === user?._id} />
@@ -69,7 +71,7 @@ function ChatApp() {
                 ))} */}
               </div>
               <div className="chatBoxBottom">
-                <textarea
+                <input
                   onChange={(e) => setNewMessage(e.target.value)}
                   id="text"
                   placeholder="Write your  message.... "
@@ -77,7 +79,7 @@ function ChatApp() {
                   // onKeyPress={(e) => {
                   //   e.key === "Enter" && handleSendButton();
                   // }}
-                ></textarea>
+                ></input>
                 <button
                   className="chatBoxButtonSubmit"
                   // onClick={handleSendButton}
