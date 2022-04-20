@@ -74,6 +74,11 @@ const routes = [
     icon: <BsCartCheck />,
     subRoutes: [
       {
+        path: "/gig/totalGigs",
+        name: "Total Gigs",
+        icon: <FaUser />,
+      },
+      {
         path: "/gig/topGigs",
         name: "TOP Gig",
         icon: <FaUser />,
