@@ -2,45 +2,99 @@
 import axios from "axios";
 import io from "socket.io-client";
 import React, { useEffect, useRef, useState } from "react";
-
-import Link from "next/link";
-// import { IconButton } from "@mui/material";
-// import { AccountCircle } from "@mui/icons-material";
-// import NotificationsIcon from "@mui/icons-material/Notifications";
-// import MailIcon from "@mui/icons-material/Mail";
 import useAuth from "../../hooks/useAuth";
 import Conversation from "../../components/Conversation/Conversation";
 import Message from "../../components/Message/Message";
 import MessengerNav from "../../components/MessangerNav/MessengerNav";
-
 const socket = io.connect("http://localhost:5000");
 
 function ChatApp() {
   const { user } = useAuth();
-  console.log(user?.displayName);
+  const [conversation, setCoversation] = useState([]);
+  const [messages, setMessages] = useState([]);
+  const [newMessage, setNewMessage] = useState("");
+  const [arrivalMessage, setArrivalMessage] = useState(null);
+  const [currentChat, setCurrentChat] = useState(null);
+  const scrollRef = useRef();
 
   return (
     <div className="  ">
       <MessengerNav />
-      <div className="">
-        <div className="joinChatContainer  grid place-items-center my-36">
-          <h3>Join a Chat</h3>
-          <input
-            type="text"
-            placeholder="Jhon.."
-            onChange={(e) => setUsername(e.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="Room ID.."
-            onChange={(e) => setRoom(e.target.value)}
-          />
-          <button onClick={joinRoom}>Join A Room</button>
+      {/* //* main messenger part */}
+      <div className="mesenger">
+        {/* //? chat conversation part design */}
+        <div className="chatMenu">
+          <div className="chatMenuWrapper">
+            <input
+              type="text"
+              placeholder="Search your friends"
+              className="chatMenuInput"
+            />
+            <div
+              className=""
+              style={{
+                marginTop: "30px",
+              }}
+            >
+              {/* {conversation.map((c, i) => (
+                <div
+                  key={i}
+                  onClick={() => {
+                    setCurrentChat(c);
+                  }}
+                >
+                  <Conversations conversation={c} currentUser={user} />
+                </div>
+              ))} */}
+            </div>
+          </div>
         </div>
-
-        <div className=" grid place-items-center">
-          {/* <Chat socket={socket} username={username} room={room} /> */}
+        {/* //* chat message part  */}
+        <div className="chatBox">
+          {currentChat ? (
+            <div className="chatBoxWrapper">
+              <p className="chatWrapperP">Start Conversation</p>
+              <div className="chatBoxTop">
+                {messages.map((m, i) => (
+                  <div key={i} ref={scrollRef}>
+                    <Message message={m} own={m.sender === user?._id} />
+                  </div>
+                ))}
+              </div>
+              <div className="chatBoxBottom">
+                <textarea
+                  onChange={(e) => setNewMessage(e.target.value)}
+                  id="text"
+                  placeholder="Write your  message.... "
+                  className="chatMessageInput"
+                  // onKeyPress={(e) => {
+                  //   e.key === "Enter" && handleSendButton();
+                  // }}
+                ></textarea>
+                <button
+                  className="chatBoxButtonSubmit"
+                  // onClick={handleSendButton}
+                >
+                  Send
+                </button>
+              </div>
+            </div>
+          ) : (
+            <p
+              style={{
+                fontSize: "48px",
+                color: "lightblue",
+                marginTop: "30px",
+                padding: "20px",
+              }}
+            >
+              Open a conversation
+            </p>
+          )}
         </div>
+        {/* <div className="chatOnline">
+          <div className="onlineWrapper">online</div>
+        </div> */}
       </div>
       {/* <Footer /> */}
     </div>

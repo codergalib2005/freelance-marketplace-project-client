@@ -8,7 +8,7 @@ import Link from "next/link";
 
 const MessengerNav = () => {
   return (
-    <nav className="mb-8 bg-gray-700 py-2 px-8 flex items-center justify-between">
+    <nav className=" bg-gray-700 py-2 px-8 flex items-center justify-between">
       <div className="">
         <Link href="/" alt="logo">
           <a>

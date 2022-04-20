@@ -38,51 +38,6 @@
   transition: all 2s linear;
 }
 
-/* .slider_screen {
-  height: 100vh;
-  max-height: 700px; 
-}*/
-
-/* feature css */
-/* .feature-font {
-  font-family: "Poppins", sans-serif;
-} */
-/* .swiper {
-  width: 100%;
-  height: 100%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.swiper-slide {
-  text-align: center;
-  font-size: 18px;
-  background: #fff;
-  height: calc((100% - 30px) / 2) !important;
-
-
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
-  align-items: center;
-} */
-
-/* media query */
-/* @media only screen and (max-width: 868px) {
-  .slider_screen {
-    height: 100vh;
-    max-height: 900px;
-  }
-} */
-
 /* Register page design */
 .input_form input {
   @apply border-2 border-gray-300 w-full block text-lg font-bold rounded-md py-1 px-4 mb-3;
@@ -397,23 +352,92 @@
   border-bottom-left-radius: 50%;
 }
 /* Device component Styles */
-.application_animation{
+.application_animation {
   animation: deviceAnimation 2s linear infinite;
 }
 
 @keyframes deviceAnimation {
-  0%{
+  0% {
     transform: rotate(0deg) translateY(0);
   }
-  50%{
+  50% {
     transform: rotate(-15deg) translateY(25px);
   }
-  100%{
+  100% {
     transform: rotate(0deg) translateY(0);
   }
-
 }
 /* Taks Craetor page */
-.date-picker-task-create input{
+.date-picker-task-create input {
   color: #fff !important;
+}
+
+/* * chat started */
+/* * main container */
+.mesenger {
+  background-color: rgb(77, 77, 77);
+  height: calc(100vh - 50px);
+  display: flex;
+}
+/* * conversation */
+.chatMenu {
+  border: 1px solid #000;
+  flex: 3;
+}
+.chatMenuInput {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px 0;
+  border: none;
+  border-bottom: 1px solid #000;
+}
+
+/* * chat message box */
+.chatBox {
+  border: 1px solid #000;
+  flex: 9;
+}
+.chatWrapperP {
+  margin-bottom: 10px;
+}
+.chatMenuWrapper,
+.chatBoxWrapper,
+.onlineWrapper {
+  /* padding: 20px; */
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 95%;
+}
+.chatBoxBottom {
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.chatMessageInput {
+  width: 75%;
+  height: 60px;
+  padding: 20px;
+}
+.chatBoxButtonSubmit {
+  width: 60px;
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: lightblue;
+}
+.chatBoxWrapper {
+  display: flex;
+  flex-direction: column;
+}
+.chatBoxTop {
+  height: 100%;
+  overflow-y: scroll;
+  padding-right: 10px;
 }
