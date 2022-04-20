@@ -1,14 +1,9 @@
-import React from "react";
-import useAuth from "../../hooks/useAuth";
-import RefaringSteps from "./RefaringSteps";
-import SharePartOfRefer from "./SharePartOfRefer";
+import React from 'react';
 
-const Refer = () => {
-  const { user } = useAuth();
-  
-  return (
-    <div>
-      <div
+const Banner = () => {
+    return (
+        <div>
+            <div
         className="h-[500px] "
         style={{
           backgroundImage: "url(refer/banner.jpg)",
@@ -39,11 +34,9 @@ const Refer = () => {
             </h4>{" "}
           </div>{" "}
         </div>{" "}
-      </div>{" "}
-      <SharePartOfRefer/>
-      <RefaringSteps/>
-    </div>
-  );
+      </div>
+        </div>
+    );
 };
 
-export default Refer;
+export default Banner;

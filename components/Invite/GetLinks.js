@@ -2,7 +2,7 @@ import React from 'react';
 import { useForm } from "react-hook-form";
 
 
-const SharePartOfRefer = () => {
+const GetLinks = () => {
     const {
         register,
         handleSubmit,
@@ -104,4 +104,4 @@ const SharePartOfRefer = () => {
     );
 };
 
-export default SharePartOfRefer;
+export default GetLinks;

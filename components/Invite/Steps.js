@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
-const RefaringSteps = () => {
-  return (
-    <div>
-      <div className="bg-gray-200">
+const Steps = () => {
+    return (
+        <div>
+             <div className="bg-gray-200">
         <div className="container mx-auto mt-32">
           <h4 className="text-center text-3xl my-6 pt-8">Three Easy Steps</h4>
           <div className="md:flex lg:flex gap-20 mx-16 py-7">
@@ -13,7 +13,7 @@ const RefaringSteps = () => {
                 <img src="refer/messages.png" alt="" />
               </div>
               <div>
-                <h5 className="text-center text-xl">
+                <h5 className="text-center text-xl pb-8">
                   Spread the word by email or with your link via social sharing
                 </h5>
               </div>
@@ -24,7 +24,7 @@ const RefaringSteps = () => {
                 <img src="refer/diary (1).png" alt="" />
               </div>
               <div>
-                <h5 className="text-center text-xl">
+                <h5 className="text-center text-xl pb-8">
                   Your friend signs up to Fiverr & gets 10% off their first
                   purchase
                 </h5>
@@ -36,7 +36,7 @@ const RefaringSteps = () => {
                 <img src="refer/currency.png" alt="" />
               </div>
               <div>
-                <h5 className="text-center text-xl">
+                <h5 className="text-center text-xl pb-8">
                   You get 10% of their first order amount, up to $100
                 </h5>
               </div>
@@ -58,8 +58,8 @@ const RefaringSteps = () => {
           Read Terms
         </p>
       </div>
-    </div>
-  );
+        </div>
+    );
 };
 
-export default RefaringSteps;
+export default Steps;
