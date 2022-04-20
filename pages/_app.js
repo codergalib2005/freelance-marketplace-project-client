@@ -6,6 +6,7 @@ import "../styles/profile.css";
 import "../styles/SellerFooter.css";
 import "../styles/SellerLearningPath.css";
 import "../styles/global.sidebar.css";
+import "../styles/pages/_totalGigs.css";
 function MyApp({ Component, pageProps }) {
   return (
     <AuthProvider>
