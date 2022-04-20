@@ -21,7 +21,7 @@ function ChatApp() {
     <div className="  ">
       <MessengerNav />
       {/* //* main messenger part */}
-      <div className="mesenger">
+      <div className="mesenger mainChatPart">
         {/* //? chat conversation part design */}
         <div className="chatMenu">
           <div className="chatMenuWrapper">

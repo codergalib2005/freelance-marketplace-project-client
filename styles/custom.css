@@ -374,6 +374,7 @@
 
 /* * chat started */
 /* * main container */
+
 .mesenger {
   /* background-color: rgb(77, 77, 77); */
   height: calc(100vh - 63px);
@@ -385,7 +386,8 @@
   flex: 3;
 }
 .chatMenuInput {
-  width: 80%;
+  width: 100%;
+  border-radius: 15px;
   margin-left: auto;
   margin-right: auto;
   padding: 10px 10px;
@@ -423,7 +425,8 @@
   width: 75%;
   height: 70px;
   padding: 0 10px 20px;
-  border: 1px solid black;
+  border: 1px solid gainsboro;
+  border-radius: 20px;
   /* padding: 5px 20px; */
 }
 .chatBoxButtonSubmit {
