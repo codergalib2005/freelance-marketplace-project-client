@@ -1,6 +1,6 @@
 import { message } from "antd";
 import axios from 'axios';
-import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import app from "../components/Firebase/firebase.init";
@@ -21,6 +21,8 @@ const useFirebase = () => {
     const router = useRouter()
 
     const auth = getAuth();
+
+    
     //rgister user with email and pass
     const registerUser = (data) => {
         const { thumbnail, status, profession, name, image, gender, email, skills, about, avatar, education, bio, password } = data;
@@ -43,6 +45,16 @@ const useFirebase = () => {
                     education,
                     bio
                 }
+                //update profile
+                updateProfile(auth.currentUser, {
+                    displayName: name, photoURL: avatar
+                  }).then(() => {
+                    // Profile updated!
+                    // ...
+                  }).catch((error) => {
+                    // An error occurred
+                    // ...
+                  });
                 axios.post(`${process.env.NEXT_PUBLIC_API_URL}/users`, body)
                     .then(res => {
                         message.success("User register successfully!");

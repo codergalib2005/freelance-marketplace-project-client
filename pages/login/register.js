@@ -19,8 +19,8 @@ const register = () => {
         data.about = "",
         data.education = "",
         data.thumbnail = ""
-      data.avatar = "";
       data.image = "";
+      
       registerUser(data);
     }
   }
@@ -55,6 +55,7 @@ return (
                       <input className='w-32 h-16 cursor-pointer rounded-full' type="file" {...register("image", { required: true })} accept=".jpg, .jpeg, .png" placeholder='Select Your profile pic' />
                     </Tooltip> */}
                   {/* {errors.image && <span className='text-red-600 font-bold'>Profile Image is required</span>} */}
+                  <input className='style' {...register("avatar", { required: true })} placeholder="image url" />
                   <input className='style' {...register("name", { required: true })} placeholder="Name" />
                   {errors.name && <span className='text-red-600 font-bold'>Name is required</span>}
                   <div className="div grid grid-cols-2 gap-2">
