@@ -5,6 +5,8 @@ import Cart from "../../components/Community/Cart";
 import SocialUnit from "../../components/Community/SocialUnit";
 import Features from "../../components/Community/Features";
 import Building from "../../components/Community/Building";
+import Testimonial from "../../components/About/Testimonial";
+import SellerFooter from "../../components/BecomeASeller/SellerFooter";
 
 const Coummunity = () => {
   return (
@@ -14,6 +16,8 @@ const Coummunity = () => {
         <SocialUnit/>
         <Features/>
         <Building/>
+      <Testimonial/>
+      <SellerFooter/>
       <Refer />
     </div>
   );

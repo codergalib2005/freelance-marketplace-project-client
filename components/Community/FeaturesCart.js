@@ -7,7 +7,7 @@ const FeaturesCart = ({ title, dec }) => {
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           className="w-20 rounded-full"
-          src="/community/tick gif.gif"
+          src="/community/newspaper.svg"
           alt=""
         />
       </div>
