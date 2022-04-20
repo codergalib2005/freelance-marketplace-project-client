@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
+import { format } from "timeago.js";
 
 const Message = ({ own, message }) => {
   return (
@@ -14,7 +15,7 @@ const Message = ({ own, message }) => {
         <p className="messageText">{message.text}</p>
       </div>
       <div className="messageBottom">
-        <p>1 hour ago</p>
+        <p>{format(message.createdAt)}</p>
       </div>
     </div>
   );
