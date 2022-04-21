@@ -10,6 +10,7 @@ import Link from "next/link";
 import { useForm } from "react-hook-form";
 import Rating from '@mui/material/Rating';
 import { message } from 'antd';
+import styles from '../../../../styles/gigid.module.css';
 
 
 
@@ -321,13 +322,17 @@ const GigDetails = () => {
                 </Link>
               </div>
 
-              <div>
-              <Rating onChange={e => setRating(e.target.value)} name="half-rating" defaultValue={2.5} precision={0.5} />
+              <div className={`mt-10 ${styles.review_contaner}`}>
+              <strong className="text-xl font-bold text-white border-b-2 border-[#a78737] pr-5 mt-6 pb-1 mb-2 online-block">
+                    Give a Review
+                  </strong> <br /> <br />
+
+              <Rating onChange={e => setRating(e.target.value)} name="half-rating" defaultValue={2.5} precision={0.5} /> <br />
                 <form onSubmit={handleSubmit(onSubmit)}>
-                  <input {...register("description")} />
-                  <input {...register("profession")} />
-                  <input {...register("buyerImage")} />
-                  <input type="submit" />
+                  <textarea {...register("description")} placeholder='Your Comment' required  /> <br /> <br />
+                  <input {...register("profession")} placeholder='Your profession'  type="text" required  /> <br /> <br />
+                  <input {...register("buyerImage")} placeholder='Your image URL' required  /> <br /> <br />
+                  <input className="text-white bg-purple-500 px-4 py-2 rounded-md font-bold" type="submit" />
                 </form>
               </div>
 
