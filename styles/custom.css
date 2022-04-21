@@ -396,6 +396,18 @@
   border-bottom-right-radius: 50%;
   border-bottom-left-radius: 50%;
 }
+
+
+
+/* ==================================
+              Features Cart
+   ==================================
+ */
+
+ .styled:hover .text {
+   color: white;
+ }
+
 /* Device component Styles */
 .application_animation{
   animation: deviceAnimation 2s linear infinite;
@@ -417,3 +429,4 @@
 .date-picker-task-create input{
   color: #fff !important;
 }
+
