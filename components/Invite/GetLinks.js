@@ -1,25 +1,14 @@
-import React, { useState, useRef } from "react";
+import React, { useState} from "react";
 import { useForm } from "react-hook-form";
-import { message } from "antd";
+
 
 const GetLinks = () => {
-  const [copySuccess, setCopySuccess] = useState("");
-  const textAreaRef = useRef(null);
+ const [copied,setCopied]=useState(false)
 
-  function copyToClipboard(e) {
-    setCopySuccess("");
-    textAreaRef.current.select();
-    document.execCommand("copy");
-
-    // This is just personal preference.
-    // I prefer to not show the the whole text area selected.
-    e.target.focus();
-    setCopySuccess("Copied!");
+  if(copied){
+    alert("Copied success")
   }
-
-  if (copySuccess) {
-    message.success("This is a success message");
-  }
+  
 
   const {
     register,
@@ -69,12 +58,12 @@ const GetLinks = () => {
                 <input
                   className="appearance-none py-2 border block w-full md:w-80 lg:w-96  text-gray-700 border-gray-400 rounded px-4 border-r-0 rounded-r-none leading-tight focus:outline-none "
                   type="text"
-                  value="hello world bangladesh eerter"
-                  ref={textAreaRef}
+                  value="http://localhost:3000/"
+                   
                 />
                 <button
                   className="appearance-none py-2 block w-24 text-gray-700 border rounded-l-none  rounded px-4  leading-tight focus:outline-none bg-gray-200 border-gray-500 focus:bg-gray-300 text-lg font-bold"
-                  onClick={copyToClipboard}
+                  onClick={() => {navigator.clipboard.writeText("http://localhost:3000/"); alert("Copied success");}}
                 >
                   Copy
                 </button>
