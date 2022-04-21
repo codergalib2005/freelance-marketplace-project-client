@@ -22,10 +22,10 @@ const BuyPlan = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = data => {
     data.seller_email = gig.email,
-    data.buyer_email = user.email,
-    data.gig_title = gig.gig_title,
-    data.category = gig.category,
-    data.time = value
+      data.buyer_email = user.email,
+      data.gig_title = gig.gig_title,
+      data.category = gig.category,
+      data.time = value
     console.log(data)
   };
 
@@ -101,20 +101,75 @@ const BuyPlan = () => {
                   </LocalizationProvider>
                 </div>
 
-                <div>
-
-                  <h1>{gig.category}</h1>
-                  <p>{gig.gig_title}</p>
-                  <p>{gig.email}</p>
-                  <p>{user.email}</p>
-                  <form onSubmit={handleSubmit(onSubmit)}>
-                    <select {...register("Package")}>
-                      <option value="Basic">Basic</option>
-                      <option value="Standred">Standred</option>
-                      <option value="Primiun">Primiun</option>
-                    </select>
-                    <input type="submit" />
-                  </form>
+                <div className="p-10">
+                  <div >
+                    <div>
+                      <div className="h-56 flat_gradient pricing_card flex items-center justify-center flex-col">
+                        <h2 className="text-xl font-bold text-center text-white uppercase">
+                        {gig.category}
+                        </h2>
+                      </div>
+                      <div className="flex items-center justify-center ">
+                        <div className="rounded-full w-24 h-24 flex items-center justify-center bg-white shadow-lg text-center relative -top-12">
+                          <div>
+                            <h1 className="text-[#2a3254] text-2xl font-bold">
+                            </h1>
+                            <h4 className="text-xl font-bold text-[#2a3254]">
+                            </h4>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="grid grid-cols-6 mx-4 pl-2  border-b border-[#2a3254] py-2 rounded-2xl">
+                        <div className="col-span-2">
+                          <strong className="text-lg font-bold text-[#2a3254]">
+                            Title
+                          </strong>
+                        </div>
+                        <div className="col-span-4 self-center text-base">
+                          {gig.gig_title}
+                        </div>
+                      </div>
+                      <div className="grid grid-cols-6 mx-4 pl-2  border-b border-[#2a3254] py-2 rounded-2xl">
+                        <div className="col-span-2">
+                          <strong className="text-lg font-bold text-[#2a3254]">
+                            Seller Email
+                          </strong>
+                        </div>
+                        <div className="col-span-4 self-center text-base">
+                          {gig.email}
+                        </div>
+                      </div>
+                      <div className="grid grid-cols-6 mx-4 pl-2  border-b border-[#2a3254] py-2 rounded-2xl">
+                        <div className="col-span-2">
+                          <strong className="text-lg font-bold text-[#2a3254]">
+                            Buyer Email
+                          </strong>
+                        </div>
+                        <div className="col-span-4 self-center text-base">
+                          {user.email}
+                        </div>
+                      </div>
+                      <div className="grid grid-cols-6 mx-4 pl-2  border-b border-[#2a3254] py-2 rounded-2xl">
+                        <div className="col-span-2">
+                          <strong className="text-lg font-bold text-[#2a3254]">
+                            select
+                          </strong>
+                        </div>
+                        <div className="col-span-4 self-center text-base">
+                          <form onSubmit={handleSubmit(onSubmit)}>
+                            <select {...register("Package")}>
+                              <option value="Basic">Basic</option>
+                              <option value="Standred">Standred</option>
+                              <option value="Primiun">Primiun</option>
+                            </select>
+                            <button className="button_gradient  flat_gradient">
+                              <input type="submit" />
+                            </button>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -125,3 +180,7 @@ const BuyPlan = () => {
   );
 };
 export default BuyPlan;
+
+
+
+
