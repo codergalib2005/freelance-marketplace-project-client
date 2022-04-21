@@ -5,41 +5,9 @@ import React, { useReducer, useState } from "react";
 import { BsCheck2Square } from "react-icons/bs";
 import { FiEdit } from "react-icons/fi";
 import { IoMdClose } from "react-icons/io";
-import "react-quill/dist/quill.snow.css"; // ES6
 import useAuth from "../../hooks/useAuth";
 
-const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
-const TOOLBAR_OPTIONS = [
-  [{ header: [1, 2, 3, 4, 5, 6, false] }],
-  [{ font: [] }],
-  [{ list: "ordered" }, { list: "bullet" }],
-  ["bold", "italic", "underline"],
-  [{ color: [] }, { background: [] }],
-  [{ script: "sub" }, { script: "super" }],
-  [{ align: [] }],
-  ["image", "blockquote", "code-block"],
-  ["clean"],
-];
 
-const modules = {
-  // #3 Add "image" to the toolbar
-  toolbar: TOOLBAR_OPTIONS,
-};
-
-const formats = [
-  "header",
-  "bold",
-  "italic",
-  "underline",
-  "strike",
-  "blockquote",
-  "list",
-  "bullet",
-  "indent",
-  "link",
-  "image",
-  "imageBlot", // #5 Optional if using custom formats
-];
 
 const editorMood = {
   editor: null,

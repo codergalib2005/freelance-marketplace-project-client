@@ -33,7 +33,7 @@ const Login = () => {
                   </Link>
                 </div>
                 <div className='p-3 flex items-stretch justify-center flex-col h-full'>
-                  <h1 className='text-4xl font-bold text-gray-900 mb-3'>Register</h1>
+                  <h1 className='text-4xl font-bold text-gray-900 mb-3'>LogIn</h1>
                   {/* ----This is the form---- */}
                   <form className='input_form' onSubmit={handleSubmit(onSubmit)}>
                     <input className='style' {...register("email", { required: true })} placeholder="E-mail" />

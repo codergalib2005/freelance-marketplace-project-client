@@ -5,7 +5,7 @@ const SingleGig = ({ gig, gridColumn }) => {
   return (
     <>
       <Link passHref href={`/gig_search/gigdetails/${gig?._id}`}>
-        <div className={`mb-3 shadow-lg shadow-[#0a1929] p-2 rounded-lg overflow-hidden ${gridColumn === "grid_row" && "gig_card_row"}`}>
+        <div className={`mb-3 shadow-lg shadow-[#0a1929] p-2 rounded-lg overflow-hidden cursor-pointer ${gridColumn === "grid_row" && "gig_card_row"}`}>
           <div className={`${gridColumn === "grid_row" && "col-span-1"}`}>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={gig?.gallery[0]} alt="" />
