@@ -1,0 +1,135 @@
+NPM-CONFIG(1)                                                    NPM-CONFIG(1)
+
+NNAAMMEE
+       nnppmm--ccoonnffiigg - Manage the npm configuration files
+
+   SSyynnooppssiiss
+         npm config set <key>=<value> [<key>=<value> ...]
+         npm config get [<key> [<key> ...]]
+         npm config delete <key> [<key> ...]
+         npm config list [--json]
+         npm config edit
+
+         alias: c
+
+       Note: This command is unaware of workspaces.
+
+   DDeessccrriippttiioonn
+       npm  gets  its config settings from the command line, environment vari‐
+       ables, nnppmmrrcc files, and in some cases, the ppaacckkaaggee..jjssoonn file.
+
+       See npm help npmrc for more information about the npmrc files.
+
+       See npm help config(7) for a more thorough explanation  of  the  mecha‐
+       nisms involved, and a full list of config options available.
+
+       The  nnppmm  ccoonnffiigg command can be used to update and edit the contents of
+       the user and global npmrc files.
+
+   SSuubb--ccoommmmaannddss
+       Config supports the following sub-commands:
+
+   sseett
+         npm config set key=value [key=value...]
+         npm set key=value [key=value...]
+
+       Sets each of the config keys to the value provided.
+
+       If value is omitted, then it sets it to an empty string.
+
+       Note: for backwards compatibility, nnppmm ccoonnffiigg sseett  kkeeyy  vvaalluuee  is  sup‐
+       ported as an alias for nnppmm ccoonnffiigg sseett kkeeyy==vvaalluuee.
+
+   ggeett
+         npm config get [key ...]
+         npm get [key ...]
+
+       Echo the config value(s) to stdout.
+
+       If  multiple  keys  are provided, then the values will be prefixed with
+       the key names.
+
+       If no keys are provided, then this command behaves the same as nnppmm ccoonn‐‐
+       ffiigg lliisstt.
+
+   lliisstt
+         npm config list
+
+       Show  all the config settings. Use --ll to also show defaults. Use ----jjssoonn
+       to show the settings in json format.
+
+   ddeelleettee
+         npm config delete key [key ...]
+
+       Deletes the specified keys from all configuration files.
+
+   eeddiitt
+         npm config edit
+
+       Opens the config file in an editor.  Use the ----gglloobbaall flag to edit  the
+       global config.
+
+   CCoonnffiigguurraattiioonn
+   jjssoonn
+       • Default: false
+
+       • Type: Boolean
+
+       Whether or not to output JSON data, rather than the normal output.
+
+       • In nnppmm ppkkgg sseett it enables parsing set values with JSON.parse() before
+         saving them to your ppaacckkaaggee..jjssoonn.
+
+       Not supported by all npm commands.
+
+   gglloobbaall
+       • Default: false
+
+       • Type: Boolean
+
+       Operates in "global" mode, so that packages are installed into the pprree‐‐
+       ffiixx folder instead of the current working directory. See npm help fold‐
+       ers for more on the differences in behavior.
+
+       • packages are installed into the {{pprreeffiixx}}//lliibb//nnooddee__mmoodduulleess folder, in‐
+         stead of the current working directory.
+
+       • bin files are linked to {{pprreeffiixx}}//bbiinn
+
+       • man pages are linked to {{pprreeffiixx}}//sshhaarree//mmaann
+
+   eeddiittoorr
+       • Default: The EDITOR or VISUAL environment variables, or 'notepad.exe'
+         on Windows, or 'vim' on Unix systems
+
+       • Type: String
+
+       The command to run for nnppmm eeddiitt and nnppmm ccoonnffiigg eeddiitt.
+
+   llooccaattiioonn
+       • Default: "user" unless ----gglloobbaall is passed, which will also  set  this
+         value to "global"
+
+       • Type: "global", "user", or "project"
+
+       When passed to nnppmm ccoonnffiigg this refers to which config file to use.
+
+   lloonngg
+       • Default: false
+
+       • Type: Boolean
+
+       Show extended information in llss, sseeaarrcchh, and hheellpp--sseeaarrcchh.
+
+   SSeeee AAllssoo
+       • npm help folders
+
+       • npm help config
+
+       • npm help package.json
+
+       • npm help npmrc
+
+       • npm help npm
+
+                                  April 2022                     NPM-CONFIG(1)
