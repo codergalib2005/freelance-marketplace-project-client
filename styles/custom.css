@@ -385,30 +385,43 @@
   /* border: 1px solid #000; */
   flex: 3;
 }
+.chatOnline{
+  flex:3
+}
 .chatMenuInput {
   width: 100%;
-  border-radius: 15px;
+  border-radius: 15px 15px 0 0;
   margin-left: auto;
   margin-right: auto;
   padding: 10px 10px;
   border: none;
+  outline: none;
   border-bottom: 1px solid #000;
 }
 
 /* * chat message box */
 .chatBox {
   /* border: 1px solid #000; */
-  flex: 9;
+  flex: 6;
 }
 .chatWrapperP {
   margin-bottom: 10px;
 }
+.onlineWrapper{
+  height: 100%;
+  overflow-y: scroll;
+}
+.chatMenuWrapper{
+  height: 100%;
+  overflow-y: scroll;
+}
+
 .chatMenuWrapper,
 .chatBoxWrapper,
 .onlineWrapper {
   /* padding: 20px; */
-  padding-top: 20px;
-  padding-left: 20px;
+  margin-top: 20px;
+  margin-left: 20px;
   padding-right: 20px;
   height: 95%;
 }
@@ -424,7 +437,7 @@
 .chatMessageInput {
   width: 75%;
   height: 70px;
-  padding: 0 10px 20px;
+  padding:  20px;
   border: 1px solid gainsboro;
   border-radius: 20px;
   /* padding: 5px 20px; */
