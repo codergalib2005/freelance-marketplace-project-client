@@ -152,7 +152,7 @@ const BuyPlan = () => {
                       <div className="grid grid-cols-6 mx-4 pl-2  border-b border-[#2a3254] py-2 rounded-2xl">
                         <div className="col-span-2">
                           <strong className="text-lg font-bold text-[#2a3254]">
-                            select
+                            select Category
                           </strong>
                         </div>
                         <div className="col-span-4 self-center text-base">
