@@ -104,8 +104,8 @@ const BuyPlan = () => {
                 <div>
 
                   <h1>{gig.category}</h1>
-                  <h2>{gig.gig_title}</h2>
-                  <h2>{gig.email}</h2>
+                  <p>{gig.gig_title}</p>
+                  <p>{gig.email}</p>
                   <p>{user.email}</p>
                   <form onSubmit={handleSubmit(onSubmit)}>
                     <select {...register("Package")}>
