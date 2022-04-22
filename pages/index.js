@@ -7,21 +7,16 @@ import HomeServicesSlider from "../components/Home/HomeServicesSlider";
 import HowItWorks from "../components/Home/HowItWorks";
 import Footer from "../components/Shared/Footer";
 import Header from "../components/Shared/Header";
-import BreakdownFirst from "./Breakdown/BreakdownFirst";
-import BreakdownSecond from "./Breakdown/BreakdownSecond";
+// import BreakdownFirst from "./Breakdown/BreakdownFirst";
+// import BreakdownSecond from "./Breakdown/BreakdownSecond";
 import Counter from "./Counter/Counter";
 
-import Devices from "./Devices/Devices";
 
 import HowWeWorks from "../components/HowWeWorks/howweworks";
 
 import Devices from "../components/Home/Devices";
-import Topseller from "../components/Shared/Topseller";
-import Refer from "./Refer/Refer";
-import CommunityBanner from "./community/CommunityBanner";
-import bg from "../public/Reviews.png";
-import HowWeWorks from "../components/HowWeWorks/howweworks";
-import Coummunity from "./community";
+// import Topseller from "../components/Shared/Topseller";
+// import bg from "../public/Reviews.png";
 import Categories from "../components/Home/Categories";
 
 

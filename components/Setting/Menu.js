@@ -4,9 +4,13 @@ import React from "react";
 const Menu = () => {
   return (
     <>
-      <nav>
+      <nav >
         <ul className="grid grid-rows-4">
-          <li>
+          <li className="flex">
+              <div>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img className="w-6" src="/menu/manage-profile.svg" alt="" />
+              </div>
             <Link href="/setting/account">
               <a className="hover:text-green-400 text-lg py-4 px-6">Account</a>
             </Link>

@@ -3,7 +3,7 @@ import UpdateProfile from "./UpdateProfile";
 
 const AccountSetting = () => {
   return (
-    <div>
+    <div> 
       <UpdateProfile />
     </div>
   );

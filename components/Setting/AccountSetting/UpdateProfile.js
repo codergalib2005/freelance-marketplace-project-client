@@ -14,9 +14,9 @@ const UpdateProfile = () => {
       <div>
         <form onSubmit={handleSubmit(updateStatus)}>
           <div className="p-2 flex space-x-6">
-            <p className="w-2/6">Full Name</p>{" "}
+            <p className="w-2/6">Full Name </p>{" "}
             <input
-              className="border-2"
+              className="border-[1px] rounded-md shadow-md px-2 py-[2px] border-blue-700 outline-[1px] outline-blue-700"
               type="text"
               {...register("name")}
               placeholder="Your Full Name"
@@ -25,7 +25,7 @@ const UpdateProfile = () => {
           <div className="p-2 flex space-x-6">
             <p className="w-2/6">Email</p>{" "}
             <input
-              className="border-2"
+              className="border-[1px] rounded-md shadow-md px-2 py-[2px] border-blue-700 outline-[1px] outline-blue-700"
               type="email"
               {...register("email")}
               placeholder="Email"
@@ -43,7 +43,7 @@ const UpdateProfile = () => {
             </div>
             <select
               {...register("status")}
-              className="border-2 form_label h-2/4"
+              className="border-[1px] rounded-md shadow-md px-2 py-[2px] border-blue-700 outline-[1px] outline-blue-700 form_label h-2/4"
             >
               <option>GO OFFLINE FOR..</option>
               <option value="1 hour">1 HOUR</option>
@@ -54,7 +54,7 @@ const UpdateProfile = () => {
           </div>
           <div>
             <input
-              className="rounded bg-blue-500 hover:bg-blue-700 text-white font-bold"
+              className="rounded bg-blue-500 hover:bg-blue-700 text-white font-bold px-4 py-[2px]"
               color="primary"
               type="submit"
               value="Save Changes"
