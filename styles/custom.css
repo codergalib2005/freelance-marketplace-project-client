@@ -146,8 +146,8 @@
 .MuiSvgIcon-root {
   color: #fff !important;
 }
+/* 
 
-/* chat */
 .joinChatContainer {
   display: flex;
   flex-direction: column;
@@ -215,7 +215,6 @@
   background: #fff;
   overflow-y: scroll;
   position: relative;
-  /* border-radius: 10px; */
 }
 .chat-window .chat-body .message-container {
   width: 100%;
@@ -234,15 +233,11 @@
 }
 
 .chat-window .chat-body .message .message-content {
-  /* width: auto;
-  height: auto; */
-  /* min-height: 40px; */
+ 
   max-width: 150px;
   background-color: #43a047;
   border-radius: 5px;
   color: white;
-  /* display: flex;
-  align-items: center; */
   margin-right: 5px;
   margin-left: 5px;
   padding-right: 5px;
@@ -295,7 +290,7 @@
   border-top: none;
   overflow: hidden;
   display: flex;
-  /* margin-top: 2px; */
+ 
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
 }
@@ -328,7 +323,7 @@
 
 .chat-window .chat-footer button:hover {
   color: #43a047;
-}
+} */
 .hide {
   opacity: 0 !important;
 }
@@ -388,7 +383,7 @@
 .chatOnline{
   flex:3
 }
-.chatMenuInput {
+/* .chatMenuInput {
   width: 100%;
   border-radius: 15px 15px 0 0;
   margin-left: auto;
@@ -397,7 +392,7 @@
   border: none;
   outline: none;
   border-bottom: 1px solid #000;
-}
+} */
 
 /* * chat message box */
 .chatBox {
@@ -419,7 +414,6 @@
 .chatMenuWrapper,
 .chatBoxWrapper,
 .onlineWrapper {
-  /* padding: 20px; */
   margin-top: 20px;
   margin-left: 20px;
   padding-right: 20px;
@@ -427,21 +421,19 @@
 }
 .chatBoxBottom {
   padding-top: 20px;
-  /* padding-left: 20px; */
   padding-right: 20px;
   margin-top: 10px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.chatMessageInput {
+ .chatMessageInput {
   width: 75%;
   height: 70px;
   padding:  20px;
   border: 1px solid gainsboro;
   border-radius: 20px;
-  /* padding: 5px 20px; */
-}
+} 
 .chatBoxButtonSubmit {
   width: 80px;
   height: 40px;
@@ -522,4 +514,10 @@
   background-color: rgb(91, 91, 218);
 
   color: #fff;
+}
+
+
+/* * chat responsive */
+@media screen and (max-width: 768px) {
+ 
 }

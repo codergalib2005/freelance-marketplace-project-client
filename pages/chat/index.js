@@ -7,7 +7,14 @@ import Conversation from "../../components/Conversation/Conversation";
 import Message from "../../components/Message/Message";
 import MessengerNav from "../../components/MessangerNav/MessengerNav";
 import AllUsers from "../../components/AllUsers/AllUsers";
+import { message, Button, Space } from 'antd';
 
+const warning = () => {
+  message.warning('You already have a conversation with this friend!');
+};
+const warning2 = () => {
+  message.warning('You can not create conversation with yourself!');
+};
 
 const socket = io.connect("http://localhost:8900");
 
@@ -42,7 +49,7 @@ function ChatApp() {
         receiverEmail
     }
     const res = await axios.post('http://localhost:8800/api/conversations/', newConversationOfUser)
-    console.log(res);
+    
     if(res.data.members){
        const res = await axios.get(
           "http://localhost:8800/api/conversations/" + user?.email
@@ -51,11 +58,12 @@ function ChatApp() {
     }
     
    else if(res.data.message){
-      alert("You already have a conversation with this friend!")
+      warning()
+      return
     }
     }
     else{
-      alert("You can not create conversation with yourself!")
+      warning2()
       return
     }
     
@@ -168,11 +176,12 @@ function ChatApp() {
         {/* //? chat conversation part design */}
         <div className="chatMenu">
           <div className="chatMenuWrapper">
-            <input
+            <p className='text-md font-semibold text-gray-600 mt-6'>Your Current Conversations</p>
+            {/* <input
               type="text"
               placeholder="Search your friends"
               className="chatMenuInput"
-            />
+            /> */}
             <div className='chatMenuItem'
               style={{
                 marginTop: "30px",
@@ -198,11 +207,7 @@ function ChatApp() {
             <div className="chatBoxWrapper">
               <p className="chatWrapperP">Start Conversation</p>
               <div className="chatBoxTop">
-                {/* <Message />
-                <Message own={true} />
-                <Message />
-                <Message own={true} />
-                <Message /> */}
+              
                 {messages.map((m, i) => (
                   <div key={i} ref={scrollRef}>
                     <Message message={m} own={m.sender === user?.email} />
@@ -243,7 +248,8 @@ function ChatApp() {
         {/* //* all user */}
         <div className="chatOnline">
           <div className="onlineWrapper">
-            <p>All Users</p>
+            <p className='text-gray-600 text-center font-bold text-2xl '>All Users</p>
+            <p className='text-gray-600 text-center font-medium'>click any user to start conversation</p>
             <div
               style={{
                 marginTop: "30px",
