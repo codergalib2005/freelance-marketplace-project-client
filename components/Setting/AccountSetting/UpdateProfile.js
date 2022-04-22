@@ -15,9 +15,9 @@ const UpdateProfile = () => {
       <div>
         <form onSubmit={handleSubmit(updateStatus)}  >
           <div className="p-2 flex space-x-6">
-            <p className="text-sm lg:text-base w-2/6">Full Name* </p>{" "}
+            <p className="text-sm   w-2/6">Full Name* </p>{" "}
             <input
-              className="border-[1px]  text-sm lg:text-base rounded-md shadow-md px-2 py-[3px] border-blue-700 outline-[1px] outline-blue-700"
+              className="border-[1px]  text-sm  bg-indigo-100 rounded-md shadow-md px-2 py-[3px] border-blue-700 outline-[1px] outline-blue-700"
               type="text"
               {...register("name")}
               placeholder="Your Full Name"
@@ -25,9 +25,9 @@ const UpdateProfile = () => {
             />
           </div>
           <div className="p-2 flex space-x-6">
-            <p className="w-2/6 text-sm lg:text-base">Email*</p>{" "}
+            <p className="w-2/6 text-sm  ">Email*</p>{" "}
             <input
-              className="border-[1px] rounded-md text-sm lg:text-base shadow-md px-2 py-[3px] border-blue-700 outline-[1px] outline-blue-700"
+              className="border-[1px] rounded-md text-sm  bg-indigo-100 shadow-md px-2 py-[3px] border-blue-700 outline-[1px] outline-blue-700"
               type="email"
               {...register("email")}
               placeholder="Email"
@@ -46,9 +46,9 @@ const UpdateProfile = () => {
             </div>
             <select
               {...register("status")}
-              className="border-[1px] rounded-md shadow-md px-2 py-[3px] border-blue-700 outline-[1px] outline-blue-700 form_label h-2/4 text-sm lg:text-base"
+              className="border-[1px] rounded-md shadow-md px-2 py-[3px] border-blue-700 outline-[1px] outline-blue-700 form_label h-2/4 text-sm bg-indigo-100 "
             >
-              <option>GO OFFLINE FOR..</option>
+              <option disabled selected>GO OFFLINE FOR..</option>
               <option value="1 hour">1 HOUR</option>
               <option value="1 day">1 DAY</option>
               <option value="1 week">1 WEEK</option>
