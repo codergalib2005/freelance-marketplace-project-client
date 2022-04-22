@@ -380,6 +380,9 @@
   /* border: 1px solid #000; */
   flex: 3;
 }
+.responsiveMenuTool{
+  display: none !important;
+}
 .chatOnline{
   flex:3
 }
@@ -406,18 +409,49 @@
   height: 100%;
   overflow-y: scroll;
 }
+.menu1{
+  z-index: 120;
+  padding-left: 10px;
+  padding-top: 15px;
+}
+.menu2{
+  z-index: 130;
+  padding-right: 15px;
+  padding-top: 15px;
+}
+ 
+
+
 .chatMenuWrapper{
-  height: 100%;
+    /* margin-top: 20px; */
+  margin-left: 20px;
+  padding-right: 20px;
+ height: 90%;
   overflow-y: scroll;
+  display: block !important;
+  transition: 2s;
+  top: 40;
+}
+.onlineMenuWrapper{
+  margin-left: 20px;
+  padding-right: 20px;
+ height: 91%;
+  overflow-y: scroll;
+  display: block !important;
+  transition: 1s;
+  top: 40;
 }
 
-.chatMenuWrapper,
-.chatBoxWrapper,
-.onlineWrapper {
+
+.chatBoxWrapper
+ {
   margin-top: 20px;
   margin-left: 20px;
   padding-right: 20px;
   height: 95%;
+}
+.onlineWrapper{
+  padding-top: 20px;
 }
 .chatBoxBottom {
   padding-top: 20px;
@@ -459,9 +493,10 @@
   gap: 16px;
   cursor: pointer;
   padding: 10px;
-  border: 1px solid gainsboro;
+  border: 1px solid gray;
   border-radius: 20px;
   margin-bottom: 10px;
+  /* margin-top: 20px; */
   transition: all 0.3s ease-in;
 
   /* overflow: hidden; */
@@ -519,5 +554,72 @@
 
 /* * chat responsive */
 @media screen and (max-width: 768px) {
- 
+.chatMenuWrapper.open{
+   left: -100%;
+   
+}
+.chatMenuWrapper{
+  display: block !important;
+  position: absolute;
+  top: 40;
+}
+.chatMenuWrapper2{
+     display: block !important;
+    position: absolute !important;
+  padding: 20px 40px;
+    left: 0%;
+    background-color: lightblue !important;
+    /* height: 100vh !important; */
+    /* width: 40%;  */
+    top: 40;
+    transition:1s;
+   height: 91%;
+  overflow-y: scroll;
+  z-index: 20;
+  color: rgb(17, 17, 17);
+}
+.onlineMenuWrapper.open2{
+   left: -100%;
+   overflow-y: scroll;
+}
+.onlineMenuWrapper{
+  display: block !important;
+  position: absolute;
+  top: 40;
+  overflow-y: scroll;
+}
+.onlineMenuWrapper2{
+     display: block !important;
+    position: absolute !important;
+  padding: 20px 40px;
+    right: 0%;
+    background-color: lightblue !important;
+    /* height: 100vh !important; */
+    /* width: 40%;  */
+    top: 40;
+     margin-right: 0px;
+    transition:1s;
+   height: 91%;
+ overflow-y: scroll;
+  z-index: 20;
+  color: rgb(17, 17, 17);
+}
+.chatMenu{
+  flex: 0;
+}
+.chatBox {
+  padding: 20px 20px 0px 20px;
+  /* border: 1px solid #000; */
+  flex: 10;
+}
+.chatOnline{
+  flex: 0;
+}
+.chatBoxWrapper
+ {
+  margin-top: 0px;
+  margin-left: 10px;
+  padding-right: 10px;
+  height: 95%;
+}
 }

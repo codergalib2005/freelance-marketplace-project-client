@@ -7,7 +7,8 @@ import Conversation from "../../components/Conversation/Conversation";
 import Message from "../../components/Message/Message";
 import MessengerNav from "../../components/MessangerNav/MessengerNav";
 import AllUsers from "../../components/AllUsers/AllUsers";
-import { message, Button, Space } from 'antd';
+import { message } from 'antd';
+import {HiMenuAlt2, HiMenuAlt3} from 'react-icons/hi'
 
 const warning = () => {
   message.warning('You already have a conversation with this friend!');
@@ -20,6 +21,18 @@ const socket = io.connect("http://localhost:8900");
 
 function ChatApp() {
   const { user } = useAuth();
+
+  const [open, setOpen]=useState(false)
+  const [open2, setOpen2]=useState(false)
+
+  const openforMenu1 = ()=>{
+    setOpen(!open)
+    setOpen2(false)
+  }
+  const openforMenu2 = ()=>{
+    setOpen2(!open2)
+    setOpen(false)
+  }
   
   const [conversation, setCoversation] = useState([]);
   const [currentChat, setCurrentChat] = useState(null);
@@ -28,7 +41,7 @@ function ChatApp() {
   const [newMessage, setNewMessage] = useState("");
   const [allUsers, setAllUsers] = useState([]);
   const scrollRef = useRef();
-
+console.log(currentChat);
 // * add user for socket and get user for socket
   useEffect(() => {
     socket.emit("addUser", user.email);
@@ -55,10 +68,12 @@ function ChatApp() {
           "http://localhost:8800/api/conversations/" + user?.email
         );
         setCoversation(res.data);
+        setOpen2(false)
     }
     
    else if(res.data.message){
       warning()
+      setOpen2(false)
       return
     }
     }
@@ -167,21 +182,27 @@ function ChatApp() {
     scrollRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
-
+  //* conversation click
+  const conversationClick=(value)=>{
+    setCurrentChat(value);
+    setOpen(false)
+  }
+/* 
+HiMenuAlt2
+*/
   return (
     <div className="  ">
       <MessengerNav />
       {/* //* main messenger part */}
       <div className="mesenger mainChatPart">
+        <span onClick={ openforMenu1} className='text-3xl block lg:hidden menu1'>  <HiMenuAlt2  /></span>
         {/* //? chat conversation part design */}
-        <div className="chatMenu">
-          <div className="chatMenuWrapper">
+        <div className="chatMenu ">
+      
+          <div className={open ? "chatMenuWrapper2 ": "chatMenuWrapper open"}>
+            
             <p className='text-md font-semibold text-gray-600 mt-6'>Your Current Conversations</p>
-            {/* <input
-              type="text"
-              placeholder="Search your friends"
-              className="chatMenuInput"
-            /> */}
+           
             <div className='chatMenuItem'
               style={{
                 marginTop: "30px",
@@ -190,9 +211,7 @@ function ChatApp() {
               {conversation.map((c, i) => (
                 <div
                   key={i}
-                  onClick={() => {
-                    setCurrentChat(c);
-                  }}
+                  onClick={()=>conversationClick(c)}
                 >
                   <Conversation conversation={c} currentUser={user} />
                 </div>
@@ -201,10 +220,15 @@ function ChatApp() {
             </div>
           </div>
         </div>
+        
         {/* //* chat message part  */}
         <div className="chatBox">
+          
           {currentChat ? (
+            
+            
             <div className="chatBoxWrapper">
+              
               <p className="chatWrapperP">Start Conversation</p>
               <div className="chatBoxTop">
               
@@ -237,7 +261,7 @@ function ChatApp() {
               style={{
                 fontSize: "48px",
                 color: "lightblue",
-                marginTop: "30px",
+                marginTop: "20px",
                 padding: "20px",
               }}
             >
@@ -247,8 +271,8 @@ function ChatApp() {
         </div>
         {/* //* all user */}
         <div className="chatOnline">
-          <div className="onlineWrapper">
-            <p className='text-gray-600 text-center font-bold text-2xl '>All Users</p>
+          <div className={open2 ? "onlineMenuWrapper2 ": "onlineMenuWrapper open2"}>
+            <p className='text-gray-600 text-center font-bold text-2xl mt-6'>All Users</p>
             <p className='text-gray-600 text-center font-medium'>click any user to start conversation</p>
             <div
               style={{
@@ -269,6 +293,7 @@ function ChatApp() {
             </div>
           </div>
         </div>
+        <span onClick={openforMenu2} className='text-3xl block lg:hidden menu2 '>  <HiMenuAlt3  /></span>
       </div>
       {/* <Footer /> */}
     </div>
