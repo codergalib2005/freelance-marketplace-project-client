@@ -8,7 +8,8 @@ const DeactiveAccount = () => {
   };
   return (
     <>
-      <hr />
+      <hr className="border-2 border-blue-700 w-full" />
+      <hr className="border-2 border-blue-700 w-full" />
       <div className="flex space-x-6">
         <p className="w-2/6">ACCOUNT DEACTIVATION</p>
         <div>
