@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 const Updatepass = () => {
   const { register, handleSubmit } = useForm();
   const updateStatus = (data) => {
-    console.log(data);
+    // console.log(data);
   };
   return (
     <>
