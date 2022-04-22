@@ -3,7 +3,7 @@ import React from "react";
 
 const Devices = () => {
   return (
-    <div className="container px-4 mx-auto my-36">
+    <div className="container overflow-hidden px-4 mx-auto my-36">
       <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-14 justify-center items-center">
         <div className="px-8 md:px-2 lg:px-0">
           <h3 className="text-4xl text-[#2a3254] font-bold">

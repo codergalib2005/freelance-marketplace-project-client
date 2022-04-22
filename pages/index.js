@@ -6,10 +6,12 @@ import Feature from "../components/Home/Feature";
 import HomeServicesSlider from "../components/Home/HomeServicesSlider";
 import Footer from "../components/Shared/Footer";
 import Header from "../components/Shared/Header";
-import Counter from "./Counter/Counter";
 import Devices from "../components/Home/Devices";
 import HowWeWorks from "../components/HowWeWorks/Howweworks";
 import Categories from "../components/Home/Categories";
+import HeaderTop from "../components/Shared/HeaderTop";
+import Counter from "../components/Home/Counter";
+import HowItWorks from "../components/Home/HowItWorks";
 
 
 export default function Home() {
@@ -22,6 +24,7 @@ export default function Home() {
       </Head>
       <main>
         <div>
+          <HeaderTop />
           <Header />
         </div>
         <div>
@@ -32,6 +35,7 @@ export default function Home() {
           <BreakdownSecond /> */}
           <Devices />
           <Counter />
+          <HowItWorks />
 
         </div>
         <div>

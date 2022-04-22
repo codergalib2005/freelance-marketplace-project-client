@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useState } from "react";
-import styles from "../../styles/Banner.module.css";
+// import styles from "../../styles/Banner.module.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
