@@ -1,134 +1,107 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
-
+import { CgMenuRight } from 'react-icons/cg';
+import { AiOutlineClose } from 'react-icons/ai';
+import { GrLogout } from 'react-icons/gr';
 const Header = () => {
-  // const [showBg, setShowBg] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
+  const [fixedMenu, setFixedMenu] = useState(false);
+  useEffect(() => {
+    window.addEventListener("scroll", OnScrollHeader);
+  }, []);
+  const OnScrollHeader = (e) => {
+    if (window.scrollY >= 200) {
+      setFixedMenu(true);
+    } else {
+      setFixedMenu(false);
+    }
+  };
   const { user, logOut } = useAuth();
-  // useEffect(() => {
-  //   window.addEventListener("scroll", OnScrollHeader);
-  // }, []);
-  // const OnScrollHeader = (e) => {
-  //   if (window.scrollY >= 100) {
-  //     setShowBg(true);
-  //   } else {
-  //     setShowBg(false);
-  //   }
-  // };
   return (
-    <div
-      style={{ zIndex: "1000" }}
-      className=" top-0 left-0 w-full feature-font "
-    >
-      <nav
-        className={`top-0 left-0 w-full shadow transition-all duration-500 ease-linear bg-gray-600
-        }`}
-        style={{ zIndex: "289" }}
-      >
-        <div className="container m-auto flex justify-between items-center text-gray-100 ">
+    <div className={`bg-[#2a3254] border-t-2 border-white transition-all ease-linear duration-700  py-3 ${fixedMenu ? "fixed w-full left-0 top-0 z-40 border-none" : ""}`}>
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between">
           <div>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              className="w-36 cursor-pointer  py-4"
-              src="/banner/navbar/image/logo-white.png"
-              alt=""
-            />
+            <img src="/navbar/image/logo-white.png" alt="" />
           </div>
-          <ul className="hidden md:flex items-center  text-base font-semibold  cursor-pointer">
-            <Link href="/">
-              <a className="hover:text-green-400 text-lg py-4 px-6">Business</a>
-            </Link>
-            <Link href="/profile">
-              <a className="hover:text-green-400 text-lg py-4 px-6">Profile</a>
-            </Link>
-            <Link href="/dashboard">
-              <a className="hover:text-green-400 text-lg py-4 px-6">
-                Dashboard
-              </a>
-            </Link>
-            <Link href="/">
-              <a className="hover:text-green-400 text-lg py-4 px-6">$ USD</a>
-            </Link>
-            <Link href="/become&seller">
-              <a className="hover:text-green-400 text-lg py-4 px-6">
-                Become a Seller
-              </a>
-            </Link>
-            <Link href="/gig_add">
-              <a className="hover:text-green-400 text-lg py-4 px-6">
-                Create a Gig
-              </a>
-            </Link>
-            {user?.email ? (
-              <button
-                onClick={logOut}
-                className="bg-indigo-400 text-lg hover:bg-orange-400 translate-all transition duration-300 rounded-md font-bold py-1 px-4 border-2"
-              >
-                SignOut
-              </button>
-            ) : (
-              <button className="bg-indigo-400 text-lg hover:bg-orange-400 translate-all transition duration-300 rounded-md font-bold py-1 px-4 border-2">
-                <Link href="/login">Join</Link>
-              </button>
-            )}
-          </ul>
-          <button className="block md:hidden py-3 px-4 mx-2 rounded focus:outline-none hover:bg-gray-200 group">
-            <div className="w-5 h-1 bg-gray-600 mb-1"></div>
-            <div className="w-5 h-1 bg-gray-600 mb-1"></div>
-            <div className="w-5 h-1 bg-gray-600"></div>
-            <div
-              className="absolute top-0 -right-full h-screen w-8/12 bg-white border opacity-0
-      group-focus:right-0 group-focus:opacity-100 transition-all duration-300"
-            >
-              <ul className="flex flex-col items-end w-full text-base cursor-pointer pt-10">
-                <li className="bg-green-600 hover:bg-green-800 rounded-sm px-8 py-2 font-bold text-white -mt-6 mr-8 ">
-                  Join Freelance
+          {!showMenu && <div className="inline-block lg:hidden">
+            <span onClick={() => setShowMenu(!showMenu)} className="text-3xl cursor-pointer text-white transition-all duration-500 ease-linear"><CgMenuRight /></span>
+          </div>}
+          {showMenu && <div className="text-3xl cursor-pointer text-white transition-all duration-500 ease-linear">
+            😀
+          </div>
+          }
+          <div className="hidden lg:inline-block">
+            <ul className="flex items-center">
+              <li className="text-lg font-medium text-[white] ml-5">
+                <Link href="/"><a>Home</a></Link>
+              </li>
+              <li className="text-lg font-medium text-[white] ml-5">
+                <Link href="/profile"><a>Profile</a></Link>
+              </li>
+              <li className="text-lg font-medium text-[white] ml-5">
+                <Link href="/dashboard"><a>Dashboard</a></Link>
+              </li>
+              <li className="text-lg font-medium text-[white] ml-5">
+                <Link href="/become&seller"><a>Become A Seller</a></Link>
+              </li>
+              <li className="text-lg font-medium text-[white] ml-5">
+                <Link href="/gig_add"><a>Create A gig</a></Link>
+              </li>
+              {user?.email ? (<li className=" ml-5">
+                <button id="login" className="text-lg font-bold text-[#fff] flex items-center uppercase" onClick={logOut}>Logout {" "} <GrLogout style={{ paddingLeft: '10px', fontSize: '30px', color: "white" }} /></button>
+              </li>) :
+                (<li className=" ml-5">
+                  <Link href="/login" ><a>
+                    <button id="login" className="text-lg font-bold text-[#fff] flex items-center uppercase" >Login {" "} <GrLogout style={{ paddingLeft: '10px', fontSize: '30px', }} color="white" /></button>
+                  </a></Link>
+                </li>)}
+            </ul>
+          </div>
+          <div className={`lg:hidden fixed top-0 ${showMenu ? "left-0 transition-all ease-linear duration-300" : "-left-full transition-all ease-linear duration-300"} w-72 min-h-screen z-50 bg-white flex justify-start flex-col border-r-2 shado-lg shadow-[#ec489ab7] border-[#2a3254] hover:border-[#ec4899]`}>
+            <div className="h-20 flex items-center text-2xl border-b-2 border-[#2a3254] hover:border-[#ec4899] text-[#2a3254] hover:text-[#ec4899] pr-5 justify-end ">
+              <AiOutlineClose onClick={() => setShowMenu(!showMenu)} className="cursor-pointer" />
+            </div>
+            <div>
+              <ul onClick={() => setShowMenu(!showMenu)} className="flex items-center flex-col">
+                <li className="text-lg font-medium text-[#2a3254] py-3">
+                  <Link href="/"><a>Home</a></Link>
                 </li>
-
-                <Link href="/">
-                  <a className="hover:text-green-400 mr-10 text-lg pt-6 pb-2 px-6">
-                    Sign in
-                  </a>
-                </Link>
-                <Link href="/">
-                  <a className="hover:text-green-400 mr-10 text-lg  px-6">
-                    Freelance Business
-                  </a>
-                </Link>
-                <Link href="/">
-                  <a className="hover:text-green-400 mr-10 text-lg py-2 px-6">
-                    Explore
-                  </a>
-                </Link>
-                <li className=" pt-2 px-6 font-medium mr-10 text-semibold">
-                  General
+                <li className="text-lg font-medium text-[#2a3254] py-3">
+                  <Link href="/"><a>Profile</a></Link>
                 </li>
-                <hr className="w-full" />
-                <Link href="/">
-                  <a className="hover:text-green-400 mr-10 text-lg pt-6 pb-2 px-6">
-                    Home
-                  </a>
-                </Link>
-                <Link href="/">
-                  <a className="hover:text-green-400 mr-10 text-lg py-2  px-6">
-                    Contact
-                  </a>
-                </Link>
-                <Link href="/">
-                  <a className="hover:text-green-400 mr-10 text-lg py-2  px-6">
-                    Services
-                  </a>
-                </Link>
-                <Link href="/">
-                  <a className="hover:text-green-400 mr-10 text-lg py-2  px-6">
-                    About
-                  </a>
-                </Link>
+                <li className="text-lg font-medium text-[#2a3254] py-3">
+                  <Link href="/"><a>Dashboard</a></Link>
+                </li>
+                <li className="text-lg font-medium text-[#2a3254] py-3">
+                  <Link href="/"><a>Become A Seller</a></Link>
+                </li>
+                <li className="text-lg font-medium text-[#2a3254] py-3">
+                  <Link href="/"><a>Create A gig</a></Link>
+                </li>
               </ul>
             </div>
-          </button>
+            <div className="border-t-2 border-[#2a3254] hover:border-[#ec4899] mt-2 pt-5 flex items-center justify-center flex-col text-center">
+              {user?.email ? (
+                <div>
+                  <button className="text-lg font-bold text-[#2a3254] flex items-center uppercase" onClick={logOut}>Logout {" "} <GrLogout style={{ paddingLeft: '10px', fontSize: '30px' }} /></button>
+                  {user?.displayName && (
+                    <button className="text-xl flex text-center justify-center font-medium text-[#2a3254] pt-3">{user?.displayName}</button>
+                  )}
+                </div>) : (
+                <div>
+                  <Link href="/login" ><a>
+                    <button className="text-lg font-bold text-[#2a3254] flex items-center uppercase" >Login {" "} <GrLogout style={{ paddingLeft: '10px', fontSize: '30px' }} /></button>
+                  </a></Link>
+                </div>
+              )
+              }
+            </div>
+          </div>
         </div>
-      </nav>
+      </div>
     </div>
   );
 };
