@@ -12,6 +12,8 @@ import Categories from "../components/Home/Categories";
 import HeaderTop from "../components/Shared/HeaderTop";
 import Counter from "../components/Home/Counter";
 import HowItWorks from "../components/Home/HowItWorks";
+import TryIt from "../components/Home/TryIt";
+import Growing from "../components/Home/Growing";
 
 
 export default function Home() {
@@ -34,8 +36,10 @@ export default function Home() {
           {/* <BreakdownFirst />
           <BreakdownSecond /> */}
           <Devices />
+          <Growing />
           <Counter />
           <HowItWorks />
+          <TryIt />
 
         </div>
         <div>

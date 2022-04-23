@@ -3,8 +3,8 @@ import CountUp from "react-countup";
 import { FcFeedback } from "react-icons/fc";
 const Counter = () => {
   return (
-    <div className="container mx-auto">
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6 text-center ">
+    <div className="container mx-auto px-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-6 text-center justify-center">
         <div className="rounded-lg shadow-2xl  py-10 relative">
           <div className="flex justify-center mb-2">
             {/* eslint-disable-next-line @next/next/no-img-element */}
