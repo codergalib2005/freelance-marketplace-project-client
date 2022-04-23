@@ -39,16 +39,16 @@ const Header = () => {
                 <Link href="/"><a>Home</a></Link>
               </li>
               <li className="text-lg font-medium text-[white] ml-5">
-                <Link href="/"><a>Profile</a></Link>
+                <Link href="/profile"><a>Profile</a></Link>
               </li>
               <li className="text-lg font-medium text-[white] ml-5">
-                <Link href="/"><a>Dashboard</a></Link>
+                <Link href="/dashboard"><a>Dashboard</a></Link>
               </li>
               <li className="text-lg font-medium text-[white] ml-5">
-                <Link href="/"><a>Become A Seller</a></Link>
+                <Link href="/become&seller"><a>Become A Seller</a></Link>
               </li>
               <li className="text-lg font-medium text-[white] ml-5">
-                <Link href="/"><a>Create A gig</a></Link>
+                <Link href="/gig_add"><a>Create A gig</a></Link>
               </li>
               {user?.email ? (<li className=" ml-5">
                 <button id="login" className="text-lg font-bold text-[#fff] flex items-center uppercase" onClick={logOut}>Logout {" "} <GrLogout style={{ paddingLeft: '10px', fontSize: '30px', color: "white" }} /></button>
