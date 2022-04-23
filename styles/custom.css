@@ -346,6 +346,16 @@
   border-bottom-right-radius: 50%;
   border-bottom-left-radius: 50%;
 }
+
+/* ==================================
+              Features Cart
+   ==================================
+ */
+
+.styled:hover .text {
+  color: white;
+}
+
 /* Device component Styles */
 .application_animation {
   animation: deviceAnimation 2s linear infinite;
@@ -622,4 +632,98 @@
   padding-right: 10px;
   height: 95%;
 }
+}
+  color: #fff !important;
+}
+
+/* =================How It Work Component============== */
+.how_it_work_component .ant-collapse-header {
+  background: #2a3254;
+  color: #fff !important;
+  font-size: 1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+}
+.how_it_work_component .ant-collapse-content-box {
+  background: #c2410c;
+  color: #fff !important;
+}
+.how_it_work_component .ant-collapse-item {
+  margin-bottom: 1rem;
+  background: none !important;
+  border: none !important;
+  border-radius: 0.7rem !important;
+}
+.how_it_work_component .ant-collapse {
+  border: none !important;
+  background-color: none !important;
+}
+.how_it_works_video_class {
+  width: 100% !important;
+  height: auto !important;
+  min-height: 330px;
+}
+.how_it_works_video_class .video-stream {
+  width: 100% !important;
+  height: 100%;
+  left: 0px !important;
+  top: 0px;
+}
+.how_it_work_component .html5-video-container video {
+  width: 100% !important;
+  left: 0px !important;
+  min-height: 400px;
+}
+.how_it_works_video_class div {
+  height: 360px !important;
+}
+.how_works_play_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 45px;
+  color: #e83a3b;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  border: 3px solid #e83a3b;
+  text-align: center;
+  cursor: pointer;
+  animation: buttonAnimate 2s infinite;
+}
+
+@keyframes buttonAnimate {
+  0% {
+    width: 55px;
+    height: 55px;
+    border-color: #e83a3b;
+    color: #e83a3b;
+  }
+  30% {
+    width: 65px;
+    height: 65px;
+    border-color: #43a047;
+    color: #43a047;
+    opacity: 1;
+  }
+  50% {
+    width: 65px;
+    height: 65px;
+    border-color: #e83a3b;
+    color: #e83a3b;
+    opacity: 1;
+  }
+  100% {
+    width: 55px;
+    height: 55px;
+    opacity: 0;
+    background-color: none;
+  }
 }
