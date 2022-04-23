@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React, { useState } from 'react';
 import { Input, message } from 'antd';
 import useAuth from '../../hooks/useAuth';
@@ -81,7 +82,7 @@ const RemoveAdmin = () => {
     );
 };
 
-export default removeAdmin;
+export default RemoveAdmin;
         // <div className='container-fluid mx-auto p-28 min-h-screen'>
         //     <div className='grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 gap-12'>
         //         <div className={`flex justify-center ${styles.payment_container}`}>

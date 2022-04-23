@@ -77,4 +77,4 @@ const ManageAdmin = () => {
   );
 };
 
-export default manageAdmin;
+export default ManageAdmin;
