@@ -8,34 +8,37 @@ const Updatepass = () => {
   };
   return (
     <>
-      <h6 className="flex justify-start p-4">CHANGE PASSWORD</h6>
+      <h6 className="flex justify-start p-2">CHANGE PASSWORD</h6>
       <form onSubmit={handleSubmit(updateStatus)}>
         <div className="p-2 flex space-x-6">
-          <p className="w-2/6">Current Password</p>{" "}
+          <p className="w-2/6">Current Password*</p>{" "}
           <input
-            className="border-2"
+            className="border-2 outline-none border-green-500 rounded-md px-2"
             type="password"
             {...register("oldpass")}
             placeholder="Current Password"
+            required
           />
         </div>
         <div className="p-2 flex space-x-6">
-          <p className="w-2/6">New Password</p>{" "}
+          <p className="w-2/6">New Password*</p>{" "}
           <input
-            className="border-2"
+            className="border-2 outline-none border-green-500 rounded-md px-2"
             type="password"
             {...register("Newpass")}
             placeholder="New Password"
+            required
           />
         </div>
         <div className="p-2 flex space-x-6">
-          <p className="w-2/6">Confirm Password</p>{" "}
+          <p className="w-2/6">Confirm Password*</p>{" "}
           <div>
             <input
-              className="border-2"
+              className="border-2 outline-none border-green-500 rounded-md px-2"
               type="password"
               {...register("Confirmpass")}
               placeholder="Confirm Password"
+              required
             />{" "}
             <br />
             <small className="text-red-600">

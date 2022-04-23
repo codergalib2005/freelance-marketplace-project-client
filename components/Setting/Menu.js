@@ -1,10 +1,10 @@
 import Link from "next/link";
 import React from "react";
 
-const Menu = () => {
+const Menu = ({ getValue }) => {
   return (
     <>
-      <nav>
+      <nav onClick={getValue}>
         <ul className="grid grid-rows-4">
           <li className="flex items-center mx-8 space-x-2">
             <div>
