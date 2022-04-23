@@ -5,7 +5,7 @@ import DeactiveAccount from "./DeactiveAccount";
 const UpdateProfile = () => {
   const { register, handleSubmit } = useForm();
   const updateStatus = (data) => {
-    console.log(data);
+    // console.log(data);
   };
   return (
     <>

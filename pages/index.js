@@ -4,22 +4,15 @@ import React from "react";
 import Banner from "../components/Home/Banner";
 import Feature from "../components/Home/Feature";
 import HomeServicesSlider from "../components/Home/HomeServicesSlider";
-import HowItWorks from "../components/Home/HowItWorks";
 import Footer from "../components/Shared/Footer";
 import Header from "../components/Shared/Header";
-import BreakdownFirst from "./Breakdown/BreakdownFirst";
-import BreakdownSecond from "./Breakdown/BreakdownSecond";
-import BreakdownThird from "./Breakdown/BreakdownThird";
-import Counter from "./Counter/Counter";
 import Devices from "../components/Home/Devices";
-import Topseller from "../components/Shared/Topseller";
-import Refer from "./Refer/Refer";
-import CommunityBanner from "./community/CommunityBanner";
-import bg from "../public/Reviews.png";
-import HowWeWorks from "../components/HowWeWorks/howweworks";
-import Coummunity from "./community";
+import HowWeWorks from "../components/HowWeWorks/Howweworks";
 import Categories from "../components/Home/Categories";
 import SkillMenu from "../components/Home/SkilledPeople/SkillMenu";
+import HeaderTop from "../components/Shared/HeaderTop";
+import Counter from "../components/Home/Counter";
+import HowItWorks from "../components/Home/HowItWorks";
 
 export default function Home() {
   return (
@@ -31,6 +24,7 @@ export default function Home() {
       </Head>
       <main>
         <div>
+          <HeaderTop />
           <Header />
         </div>
         <div>
@@ -41,12 +35,13 @@ export default function Home() {
           <BreakdownSecond /> */}
           <Devices />
           <Counter />
-          {/* <Coummunity /> */}
+          <HowItWorks />
+
         </div>
         <div>
           <HomeServicesSlider />
           <Feature />
-          <HowItWorks />
+          {/* <HowItWorks /> */}
         </div>
         <div>
           <SkillMenu />

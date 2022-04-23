@@ -6,6 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "heroku-postbuild": "npm run build",
     "lint": "next lint",
     "dev:test": "env-cmd -f .env.testing next dev -p 4000"
   },
@@ -18,9 +19,9 @@
     "@material-ui/lab": "^4.0.0-alpha.61",
     "@mui/icons-material": "^5.6.0",
     "@mui/material": "^5.6.0",
-    "@stripe/stripe-js": "^1.27.0",
     "@mui/x-date-pickers-pro": "^5.0.0-alpha.1",
     "@mui/x-license-pro": "^5.9.0",
+    "@stripe/stripe-js": "^1.27.0",
     "antd": "^4.19.5",
     "axios": "^0.26.1",
     "cors": "^2.8.5",
@@ -31,14 +32,15 @@
     "framer-motion": "^6.2.10",
     "html-react-parser": "^1.4.10",
     "micro": "^9.3.4",
-    "next": "12.1.2",
+    "next": "^12.1.2",
     "next-redux-wrapper": "^7.0.5",
-    "react": "18.0.0",
+    "react": "^18.0.0",
     "react-countup": "^6.2.0",
-    "react-dom": "18.0.0",
+    "react-dom": "^18.0.0",
     "react-hook-form": "^7.29.0",
     "react-icons": "^4.3.1",
     "react-moment": "^1.1.2",
+    "react-player": "^2.10.0",
     "react-redux": "^7.2.8",
     "react-slick": "^0.28.1",
     "recharts": "^2.1.9",
@@ -47,6 +49,9 @@
     "slick-carousel": "^1.8.1",
     "socket.io-client": "^4.4.1",
     "stripe": "^8.217.0",
+    "sweetalert2": "^11.4.8",
+    "swiper": "^8.1.0",
+    "timeago.js": "^4.0.2"
     "swiper": "^8.1.0"
   },
   "proxy": "https://morning-thicket-69860.herokuapp.com/auth",
@@ -57,6 +62,7 @@
     "eslint": "8.12.0",
     "eslint-config-next": "12.1.2",
     "postcss": "^8.4.12",
+    "postcss-import": "^14.1.0",
     "tailwindcss": "^3.0.23"
   }
 }

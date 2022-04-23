@@ -8,7 +8,7 @@ const Counter = () => {
         <div className="rounded-lg shadow-2xl  py-10 relative">
           <div className="flex justify-center mb-2">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="counter/img-1.png" alt="" />
+            <img className="w-16" src="counter/img-1.png" alt="" />
           </div>
           <CountUp
             className=" font-bold text-3xl "
@@ -36,7 +36,7 @@ const Counter = () => {
         <div className="shadow-xl rounded-lg py-10 relative">
           <div className="flex justify-center mb-2">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/counter/img-3.png" alt="" />
+            <img className="w-16" src="/counter/img-3.png" alt="" />
           </div>
           <CountUp
             className=" font-bold text-3xl "
