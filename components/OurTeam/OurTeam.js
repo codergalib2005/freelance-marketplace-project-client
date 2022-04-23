@@ -45,7 +45,7 @@ const OurTeam = () => {
   };
   return (
     <>
-      <div className="container p-4 grid lg:grid-cols-3 md:grid-cols-2 gap-8">
+      <div className="container mx-auto p-4 grid lg:grid-cols-3 md:grid-cols-2 gap-8">
         {/* {team.map((member) => (
           <div key={member.name} className="flex">
             <div>

@@ -1,10 +1,11 @@
+/* eslint-disable @next/next/no-img-element */
 import React, { useState } from 'react';
 import { Input, message } from 'antd';
 import useAuth from '../../hooks/useAuth';
 
 
-const admin = () => {
-    const [email, setEmail] = useState('');
+const Admin = () => {
+    const [email, setEmail] = useState("");
     const { loading } = useAuth();
     const handleONBlur = e => {
         setEmail(e.target?.value)
@@ -31,53 +32,53 @@ const admin = () => {
             )
     }
     return (
-     <div>
-               {loading && (
-            <div className="min-h-screen flex bg-orange-700 items-center justify-center">
-                <div className="lds-spinner">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
-            </div>
-        )}
-      
-       {
-           !loading && (
-               <div className='container-fluid mx-auto p-28 min-h-screen'>
-            <div className='grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 gap-12'>
-            <div className="flex justify-center shadow-lg rounded-lg p-10">
-                <form onSubmit={handleAdminSubmit} >
-                    <br />
-                    <Input placeholder="Your Email" type="email" onBlur={handleONBlur} />
-                    <br />
- 
-                    <div className="mt-8 flex justify-center">
-                        <button type="submit" className="bg-orange-500  text-white px-8 py-2 rounded-md">
-                            Make Admin
-                        </button>
+        <div>
+            {loading && (
+                <div className="min-h-screen flex bg-orange-700 items-center justify-center">
+                    <div className="lds-spinner">
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
+                        <div></div>
                     </div>
-                </form>
- 
-            </div>
-            <div>
-                <img src="https://img.freepik.com/free-vector/top-up-credit-concept-illustration_114360-7284.jpg?size=338&ext=jpg&ga=GA1.1.1852109835.1638216464" alt="" />
-            </div>
+                </div>
+            )}
+
+            {
+                !loading && (
+                    <div className='container-fluid mx-auto p-28 min-h-screen'>
+                        <div className='grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 gap-12'>
+                            <div className="flex justify-center shadow-lg rounded-lg p-10">
+                                <form onSubmit={handleAdminSubmit} >
+                                    <br />
+                                    <Input placeholder="Your Email" type="email" onBlur={handleONBlur} />
+                                    <br />
+
+                                    <div className="mt-8 flex justify-center">
+                                        <button type="submit" className="bg-orange-500  text-white px-8 py-2 rounded-md">
+                                            Make Admin
+                                        </button>
+                                    </div>
+                                </form>
+
+                            </div>
+                            <div>
+                                <img src="https://img.freepik.com/free-vector/top-up-credit-concept-illustration_114360-7284.jpg?size=338&ext=jpg&ga=GA1.1.1852109835.1638216464" alt="" />
+                            </div>
+                        </div>
+                    </div >
+                )
+
+            }
         </div>
-        </div >
-           )
- 
-       }
-     </div>
     );
 };
 

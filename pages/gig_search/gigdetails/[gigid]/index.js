@@ -11,6 +11,8 @@ import { useForm } from "react-hook-form";
 import Rating from '@mui/material/Rating';
 import { message } from 'antd';
 import styles from '../../../../styles/gigid.module.css';
+import Header from "../../../../components/Shared/Header";
+import HeaderTop from "../../../../components/Shared/HeaderTop";
 
 
 
@@ -66,7 +68,9 @@ const GigDetails = () => {
 
   return (
     <div className=" bg-[#2a3254] min-h-screen">
-      <DetailsHeader gig={gig} />
+      {/* <DetailsHeader gig={gig} /> */}
+      <HeaderTop />
+      <Header />
       <div className="container-fluid mx-auto px-3 py-10">
         <div className="grid grid-cols-1 lg:grid-cols-8 gap-4">
           <div className="col-span-5">
@@ -326,9 +330,9 @@ const GigDetails = () => {
 
                 <Rating onChange={e => setRating(e.target.value)} name="half-rating" defaultValue={2.5} precision={0.5} /> <br />
                 <form onSubmit={handleSubmit(onSubmit)}>
-                  <textarea {...register("description")} placeholder='Your Comment' required /> <br /> <br />
-                  <input {...register("profession")} placeholder='Your profession' type="text" required /> <br /> <br />
-                  <input {...register("buyerImage")} placeholder='Your image URL' required /> <br /> <br />
+                  <textarea className="py-1 px-2 rounded-2" {...register("description")} placeholder='Your Comment' required /> <br /> <br />
+                  <input className="py-1 px-2 rounded-2" {...register("profession")} placeholder='Your profession' type="text" required /> <br /> <br />
+                  <input className="py-1 px-2 rounded-2" {...register("buyerImage")} placeholder='Your image URL' required /> <br /> <br />
                   <input className="text-white bg-purple-500 px-4 py-2 rounded-md font-bold" type="submit" />
                 </form>
               </div>

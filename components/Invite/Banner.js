@@ -1,12 +1,12 @@
 import React from 'react';
 
 const Banner = () => {
-    return (
-        <div>
-            <div
+  return (
+    <div>
+      <div
         className="h-[500px] "
         style={{
-          backgroundImage: "url(refer/banner.png)",
+          background: "radial-gradient(rgba(0,0,0,0.6), rgba(0, 0, 0,0.6)),url(refer/banner.png)",
           backgroundPosition: "center",
         }}
       >
@@ -35,8 +35,8 @@ const Banner = () => {
           </div>{" "}
         </div>{" "}
       </div>
-        </div>
-    );
+    </div>
+  );
 };
 
 export default Banner;

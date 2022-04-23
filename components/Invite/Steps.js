@@ -1,16 +1,16 @@
 import React from 'react';
 
 const Steps = () => {
-    return (
-        <div>
-             <div className="bg-gray-200">
+  return (
+    <div>
+      <div className="bg-gray-200">
         <div className="container mx-auto mt-32">
           <h4 className="text-center text-3xl my-6 pt-8">Three Easy Steps</h4>
           <div className="md:flex lg:flex gap-20 mx-16 py-7">
             <div className="">
               <div className="flex justify-center ">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="refer/messages.png" alt="" />
+                <img className="w-32 mx-auto" src="refer/messages.png" alt="" />
               </div>
               <div>
                 <h5 className="text-center text-xl pb-8">
@@ -21,7 +21,7 @@ const Steps = () => {
             <div className="my-6 md:my-0 lg:my-0">
               <div className="flex justify-center">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="refer/diary (1).png" alt="" />
+                <img className="w-32 mx-auto" src="refer/diary (1).png" alt="" />
               </div>
               <div>
                 <h5 className="text-center text-xl pb-8">
@@ -33,7 +33,7 @@ const Steps = () => {
             <div>
               <div className="flex justify-center">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="refer/currency.png" alt="" />
+                <img className="w-32 mx-auto" src="refer/currency.png" alt="" />
               </div>
               <div>
                 <h5 className="text-center text-xl pb-8">
@@ -58,8 +58,8 @@ const Steps = () => {
           Read Terms
         </p>
       </div>
-        </div>
-    );
+    </div>
+  );
 };
 
 export default Steps;

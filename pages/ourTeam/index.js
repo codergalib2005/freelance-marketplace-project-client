@@ -1,6 +1,9 @@
 import React from "react";
 import OurTeam from "../../components/OurTeam/ourTeam";
 import { motion } from "framer-motion";
+import HeaderTop from "../../components/Shared/HeaderTop";
+import Header from "../../components/Shared/Header";
+import Footer from "../../components/Shared/Footer";
 
 const index = () => {
   const container = {
@@ -22,9 +25,20 @@ const index = () => {
     },
   };
   return (
-    <motion.div variants={container} initial="hidden" animate="visible">
-      <OurTeam />
-    </motion.div>
+    <div>
+      <header>
+        <HeaderTop />
+        <Header />
+      </header>
+      <main>
+        <motion.div variants={container} initial="hidden" animate="visible">
+          <OurTeam />
+        </motion.div>
+      </main>
+      <footer>
+        <Footer />
+      </footer>
+    </div>
   );
 };
 
