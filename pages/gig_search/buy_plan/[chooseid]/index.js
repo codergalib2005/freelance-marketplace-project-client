@@ -9,6 +9,7 @@ import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 import { useForm } from "react-hook-form";
+import { message } from 'antd';
 
 const BuyPlan = () => {
   const [value, setValue] = React.useState(new Date());
@@ -19,16 +20,39 @@ const BuyPlan = () => {
   const { user } = useAuth();
 
   //hook from function
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const onSubmit = data => {
-    data.seller_email = gig.email,
-      data.buyer_email = user.email,
-      data.gig_title = gig.gig_title,
-      data.category = gig.category,
-      data.time = value
-    console.log(data)
-  };
+  
+      // post
 
+      axios.post(
+        `${process.env.NEXT_PUBLIC_API_URL}/task/`,
+        {
+          sellerEmail: gig.email,
+          buyerEmail: user.email,
+          title: gig.gig_title,
+          category: gig.category,
+          price: data.price,
+          to: value
+    
+        },
+
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        },
+
+      ).then(
+        () => {
+          message.success('Task successfully')
+          reset();
+        }
+      ).catch(err => console.log(message))
+      
+
+  };
+  
   useEffect(() => {
     const GETURL = `${process.env.NEXT_PUBLIC_API_URL}/gigs/${id}`;
     axios
@@ -40,21 +64,7 @@ const BuyPlan = () => {
   }, [id, router.query.gigid]);
   console.log(gig);
 
-  //post
-  // axios.post(
-  //   "http://localhost:3000/api/contact",
-  //   {
-  //     firstName,
-  //     lastName,
-  //     email,
-  //   },
-  //   {
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   },
-  //   console.log(res) //this comes back undefined
-  // )
+
 
   return (
     <div>
@@ -126,7 +136,7 @@ const BuyPlan = () => {
                           </strong>
                         </div>
                         <div className="col-span-4 self-center text-base">
-                          {gig.gig_title}
+                          {/* {gig.gig_title} */}
                         </div>
                       </div>
                       <div className="grid grid-cols-6 mx-4 pl-2  border-b border-[#2a3254] py-2 rounded-2xl">
@@ -162,6 +172,7 @@ const BuyPlan = () => {
                               <option value="Standred">Standred</option>
                               <option value="Primiun">Primiun</option>
                             </select>
+                            <input type="number" {...register("price", {required: true})} placeholder="price" />
                             <button className="button_gradient  flat_gradient">
                               <input type="submit" />
                             </button>

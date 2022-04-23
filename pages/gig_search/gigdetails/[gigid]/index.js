@@ -39,7 +39,7 @@ const GigDetails = () => {
     data.rating = rating,
       data.sellerEmail = gig?.email,
       data.buyerEmail = user?.email,
-      data.buyerName = user?.displayName ? user?.displayName : 'user name does not existed',
+      data.buyerName = user?.displayName ? user?.displayName : 'Buyer Name',
 
       //post
       axios.post(
@@ -124,7 +124,7 @@ const GigDetails = () => {
                           <img className="rounded-full" src={seller.buyerImage} alt="" />
                         </div>
                         <div className="mt-10 ml-5">
-                          <Rating name="readOnly" defaultValue={seller.rating} readOnly /> <br />
+                          <Rating name="half-rating" defaultValue={seller.rating} readOnly /> <br />
                           <h4 className="text-white">{seller.profession}</h4>
 
                         </div>
