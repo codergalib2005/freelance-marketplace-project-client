@@ -24,6 +24,21 @@ const GigDetails = () => {
   const router = useRouter();
   const [rating, setRating] = useState(0);
 
+  const [sellerEmail, setSellerEmail] = useState([]);
+
+
+  //Buyer rivew
+  console.log(sellerEmail)
+  useEffect(() => {
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/reviews/sellerEmail/${gig?.email}`)
+      .then(res => res.json())
+      .then(data => {
+        setSellerEmail(data.result)
+      })
+  }, [gig?.email])
+
+
+
   //hook from
 
   const [sellerEmail, setSellerEmail] = useState([]);
@@ -45,17 +60,30 @@ const GigDetails = () => {
     data.rating = rating,
       data.sellerEmail = gig?.email,
       data.buyerEmail = user?.email,
-      data.buyerName = user?.displayName ? user?.displayName : 'user name does not existed',
+      data.buyerName = user?.displayName ? user?.displayName : 'Buyer Name',
+
 
       //post
       axios.post(
         `${process.env.NEXT_PUBLIC_API_URL}/reviews/`,
-        data,
-
-        {
-          headers: {
-            "Content-Type": "application/json",
+          data,
+        
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
           },
+
+  
+        ).then(
+          () => {
+            message.success('Review successfully')
+            reset();
+          }
+        ).catch(err => console.log(err))
+        
+  
+    };
         },
 
       ).then(
@@ -135,7 +163,11 @@ const GigDetails = () => {
                           <img className="rounded-full" src={seller.buyerImage} alt="" />
                         </div>
                         <div className="mt-10 ml-5">
+
+                          <Rating name="half-rating" defaultValue={seller.rating} readOnly /> <br />
+
                           <Rating name="readOnly" defaultValue={seller.rating} readOnly /> <br />
+
                           <h4 className="text-white">{seller.profession}</h4>
 
                         </div>
