@@ -136,7 +136,7 @@ const BuyPlan = () => {
                           </strong>
                         </div>
                         <div className="col-span-4 self-center text-base">
-                          {/* {gig.gig_title} */}
+                            {/* {gig.gig_title} */}
                         </div>
                       </div>
                       <div className="grid grid-cols-6 mx-4 pl-2  border-b border-[#2a3254] py-2 rounded-2xl">
