@@ -23,7 +23,23 @@ const GigDetails = () => {
   const [showPricing, setShowPricing] = useState("beginner");
   const router = useRouter();
   const [rating, setRating] = useState(0);
+
   //hook from
+
+  const [sellerEmail, setSellerEmail] = useState([]);
+
+
+  //Buyer rivew
+  console.log(sellerEmail)
+  useEffect(() => {
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/reviews/sellerEmail/${gig?.email}`)
+      .then(res => res.json())
+      .then(data => {
+        setSellerEmail(data.result)
+      })
+  }, [gig?.email])
+
+
   const { register, handleSubmit } = useForm();
   const onSubmit = data => {
     data.rating = rating,
@@ -44,7 +60,12 @@ const GigDetails = () => {
 
       ).then(
         () => message.success('review successfully')
+
       ).catch(err => console.log(err));
+
+      ).catch(err => message.error(err))
+
+
 
   };
   useEffect(() => {
@@ -97,6 +118,43 @@ const GigDetails = () => {
                 </div>
               )}
             </div>
+
+            <div className="mt-16 text-center">
+              <strong className="text-xl font-bold text-white border-b-2 border-[#a78737] pr-5 mt-6 pb-1 mb-2 online-block">
+                All Review
+              </strong> <br /> <br />
+            </div>
+
+            {
+              sellerEmail.map(seller => (
+                <div className="w-[50%] mt-10 mx-10">
+                  <div className="mt-10">
+                    <div className="shadow-sm shadow-oraange-700 rounded-md overflow-hidden">
+                      <div className="flex">
+                        <div>
+                          <img className="rounded-full" src={seller.buyerImage} alt="" />
+                        </div>
+                        <div className="mt-10 ml-5">
+                          <Rating name="readOnly" defaultValue={seller.rating} readOnly /> <br />
+                          <h4 className="text-white">{seller.profession}</h4>
+
+                        </div>
+                      </div>
+
+                      <div className="ml-2 mt-4">
+                        <h1 className="text-white">{seller.buyerName}</h1>
+                        <p className="text-white">{seller.description}</p>
+                        <h2 className="text-white">{seller.buyerEmail}</h2>
+                        <h5 className="text-white">{seller.date}</h5>
+                      </div>
+
+
+                    </div>
+                  </div>
+                </div>
+              ))
+            }
+
           </div>
           <div className="col-span-3">
             <div className="grid grid-cols-8">

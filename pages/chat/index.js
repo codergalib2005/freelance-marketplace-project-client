@@ -1,171 +1,303 @@
-// /* eslint-disable @next/next/no-img-element */
-// /* eslint-disable react-hooks/rules-of-hooks */
+/* eslint-disable @next/next/no-img-element */
+import axios from "axios";
+import io from "socket.io-client";
+import React, { useEffect, useRef, useState } from "react";
+import useAuth from "../../hooks/useAuth";
+import Conversation from "../../components/Conversation/Conversation";
+import Message from "../../components/Message/Message";
+import MessengerNav from "../../components/MessangerNav/MessengerNav";
+import AllUsers from "../../components/AllUsers/AllUsers";
+import { message } from 'antd';
+import {HiMenuAlt2, HiMenuAlt3} from 'react-icons/hi'
 
-// // import React, { useState } from "react";
-// // import useAuth from "../../hooks/useAuth";
-// // import Footer from "../../components/Shared/Footer";
-// // import io from "socket.io-client";
-// // import Chat from "../../components/Chat/Chat";
+const warning = () => {
+  message.warning('You already have a conversation with this friend!');
+};
+const warning2 = () => {
+  message.warning('You can not create conversation with yourself!');
+};
 
-// // const socket = io.connect("http://localhost:5000/");
+const socket = io.connect("http://localhost:8900");
 
-// // const index = () => {
-// //   const { user } = useAuth();
-// //   const [username, setUsername] = useState("");
-// //   const [room, setRoom] = useState("");
-// //   const [showChat, setShowChat] = useState(false);
-// //   const joinRoom = () => {
-// //     if (username !== "" && room !== "") {
-// //       socket.emit("join_room", room);
-// //       setShowChat(true);
-// //     }
-// //   };
-// //   return (
-// //     <div className="feature-font ">
-// //       <div className="mt-12 grid place-items-center">
-// //         {!showChat ? (
-// //           <div className="joinChatContainer flex flex-col">
-// //             <h3 className="text-center text-2xl font-bold">Join a Chat</h3>
-// //             <input
-// //               className="w-72  mx-auto border mt-4 px-4 py-2 rounded-lg outline-none"
-// //               type="text"
-// //               placeholder="Jhon.."
-// //               onChange={(e) => setUsername(e.target.value)}
-// //               // defaultValue={user?.email}
-// //               // value={username}
-// //             />
-// //             <input
-// //               className="w-72 mx-auto border mt-2 px-4 py-2 rounded-lg outline-none"
-// //               type="text"
-// //               placeholder="Room ID.."
-// //               onChange={(e) => setRoom(e.target.value)}
-// //             />
-// //             <button
-// //               onClick={joinRoom}
-// //               className="bg-blue-400 text-white rounded-lg px-6 py-2 w-32 mx-auto mt-4"
-// //             >
-// //               Join A Room
-// //             </button>
-// //           </div>
-// //         ) : (
-// //           <Chat socket={socket} username={username} room={room} />
-// //         )}
-// //       </div>
-// //       <Footer />
-// //     </div>
-// //   );
-// // };
+function ChatApp() {
+  const { user } = useAuth();
 
-// // export default index;
+  const [open, setOpen]=useState(false)
+  const [open2, setOpen2]=useState(false)
 
-// import io from "socket.io-client";
-// import { useState } from "react";
-// import Chat from "../../components/Chat/Chat";
-// import Footer from "../../components/Shared/Footer";
-// import Link from "next/link";
-// import { IconButton } from "@mui/material";
-// import { AccountCircle } from "@mui/icons-material";
-// import NotificationsIcon from "@mui/icons-material/Notifications";
-// import MailIcon from "@mui/icons-material/Mail";
+  const openforMenu1 = ()=>{
+    setOpen(!open)
+    setOpen2(false)
+  }
+  const openforMenu2 = ()=>{
+    setOpen2(!open2)
+    setOpen(false)
+  }
+  
+  const [conversation, setCoversation] = useState([]);
+  const [currentChat, setCurrentChat] = useState(null);
+  const [messages, setMessages] = useState([]);
+  const [arrivalMessage, setArrivalMessage] = useState(null);
+  const [newMessage, setNewMessage] = useState("");
+  const [allUsers, setAllUsers] = useState([]);
+  const scrollRef = useRef();
+console.log(currentChat);
+// * add user for socket and get user for socket
+  useEffect(() => {
+    socket.emit("addUser", user.email);
 
-// const socket = io.connect("http://localhost:5000");
+    // * we can use them as online friend now
+    socket?.on("getUsers", (users) => {
+      // console.log(users);
+    });
+  }, [user.email]);
 
-// function ChatApp() {
-//   const [username, setUsername] = useState("");
-//   const [room, setRoom] = useState("");
-//   const [showChat, setShowChat] = useState(false);
-//   const joinRoom = () => {
-//     if (username !== "" && room !== "") {
-//       socket.emit("join_room", room);
-//       setShowChat(true);
-//     }
-//   };
+  // * create new conversation
+  const createNewConversation= async(newUser)=>{
+    const senderEmail = user?.email;
+    const receiverEmail = newUser?.email;
+    if (senderEmail !== receiverEmail){
+      const newConversationOfUser= {
+        senderEmail,
+        receiverEmail
+    }
+    const res = await axios.post('http://localhost:8800/api/conversations/', newConversationOfUser)
+    
+    if(res.data.members){
+       const res = await axios.get(
+          "http://localhost:8800/api/conversations/" + user?.email
+        );
+        setCoversation(res.data);
+        setOpen2(false)
+    }
+    
+   else if(res.data.message){
+      warning()
+      setOpen2(false)
+      return
+    }
+    }
+    else{
+      warning2()
+      return
+    }
+    
+  }
 
-//   return (
-//     <div className="App  ">
-//       <nav className="mb-8 bg-gray-700 py-2 px-8 flex items-center justify-between">
-//         <div className="">
-//           <Link href="/" alt="logo">
-//             <a>
-//               <img
-//                 className="w-24 md:w-36 lg:w-36 cursor-pointer  py-4"
-//                 src="/banner/navbar/image/logo-white.png"
-//                 alt=""
-//               />
-//             </a>
-//           </Link>
-//         </div>
-//         <div className="flex items-center gap-4">
-//           <div className="">
-//             <input
-//               type="text"
-//               placeholder="Search ..."
-//               className="border px-4 py-2 rounded outline-none w-full"
-//             />
-//           </div>
-//           <div className="flex">
-//             <IconButton
-//               // size="large"
-//               aria-label="show 4 new mails"
-//               color="inherit"
-//             >
-//               {/* <Badge badgeContent={4} color="error"> */}
-//               <MailIcon />
-//               {/* </Badge> */}
-//             </IconButton>
-//             <IconButton
-//               // size="large"
-//               aria-label="show 17 new notifications"
-//               color="inherit"
-//             >
-//               {/* <Badge badgeContent={17} color="error"> */}
-//               <NotificationsIcon />
-//               {/* </Badge> */}
-//             </IconButton>
-//             <IconButton
-//               // size="large"
-//               aria-label="show 17 new notifications"
-//               color="inherit"
-//             >
-//               <AccountCircle />
-//             </IconButton>
-//           </div>
-//         </div>
-//       </nav>
-//       <div className="">
-//         {!showChat ? (
-//           <div className="joinChatContainer  grid place-items-center my-36">
-//             <h3>Join a Chat</h3>
-//             <input
-//               type="text"
-//               placeholder="Jhon.."
-//               onChange={(e) => setUsername(e.target.value)}
-//             />
-//             <input
-//               type="text"
-//               placeholder="Room ID.."
-//               onChange={(e) => setRoom(e.target.value)}
-//             />
-//             <button onClick={joinRoom}>Join A Room</button>
-//           </div>
-//         ) : (
-//           <div className=" grid place-items-center">
-//             <Chat socket={socket} username={username} room={room} />
-//           </div>
-//         )}
-//       </div>
-//       <Footer />
-//     </div>
-//   );
-// }
+  // * get the conversation user specific
+  useEffect(() => {
+    const getConversation = async () => {
+      try {
+        const res = await axios.get(
+          "http://localhost:8800/api/conversations/" + user?.email
+        );
+        setCoversation(res.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getConversation();
+  }, [user?.email]);
 
-// export default ChatApp;
+  // * get all users
+  useEffect(() => {
+    const getUsers = async () => {
+      try {
+        const res = await axios.get(
+         "http://localhost:8800/api/users"
+        );
+        setAllUsers(res.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getUsers();
+  }, []);
 
-import React from 'react';
-const Chat = () => {
+  // * get messages for specific id
+  useEffect(() => {
+    const getMessage = async () => {
+      try {
+        const res = await axios.get(
+          "http://localhost:8800/api/messages/" + currentChat?._id
+        );
+        setMessages(res.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getMessage();
+  }, [currentChat?._id]);
+
+  //* post new messages to database and server
+    const handleSendButton = async (e) => {
+    // e.preventDefault();
+    const message = {
+      sender: user?.email,
+      text: newMessage,
+      conversationId: currentChat._id,
+    };
+
+    const receiverEmail = currentChat?.members?.find(
+      (member) => member !== user.email
+    );
+
+    socket.emit("sendMessage", {
+      senderEmail: user.email,
+      receiverEmail,
+      text: newMessage,
+    });
+    try {
+      const res = await axios.post("http://localhost:8800/api/messages", message);
+      setMessages([...messages, res.data]);
+      const id = document.getElementById("text");
+      id.value = "";
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // * get message message from socket io
+    useEffect(() => {
+    socket?.on("getMessage", (data) => {
+      setArrivalMessage({
+        sender: data.senderEmail,
+        text: data.text,
+        createdAt: Date.now(),
+      });
+    });
+  }, [arrivalMessage]);
+
+  // * update texts from socket
+   useEffect(() => {
+    arrivalMessage &&
+      currentChat?.members?.includes(
+        arrivalMessage.sender || arrivalMessage.senderEmail
+      ) &&
+      setMessages((prev) => [...prev, arrivalMessage]);
+  }, [arrivalMessage, currentChat]);
+
+  // * scroll to bottom
+    useEffect(() => {
+    scrollRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages]);
+
+  //* conversation click
+  const conversationClick=(value)=>{
+    setCurrentChat(value);
+    setOpen(false)
+  }
+/* 
+HiMenuAlt2
+*/
   return (
-    <div></div>
-  )
+    <div className="  ">
+      <MessengerNav />
+      {/* //* main messenger part */}
+      <div className="mesenger mainChatPart">
+        <span onClick={ openforMenu1} className='text-3xl block lg:hidden menu1'>  <HiMenuAlt2  /></span>
+        {/* //? chat conversation part design */}
+        <div className="chatMenu ">
+      
+          <div className={open ? "chatMenuWrapper2 ": "chatMenuWrapper open"}>
+            
+            <p className='text-md font-semibold text-gray-600 mt-6'>Your Current Conversations</p>
+           
+            <div className='chatMenuItem'
+              style={{
+                marginTop: "30px",
+              }}
+            >
+              {conversation.map((c, i) => (
+                <div
+                  key={i}
+                  onClick={()=>conversationClick(c)}
+                >
+                  <Conversation conversation={c} currentUser={user} />
+                </div>
+              ))}
+               
+            </div>
+          </div>
+        </div>
+        
+        {/* //* chat message part  */}
+        <div className="chatBox">
+          
+          {currentChat ? (
+            
+            
+            <div className="chatBoxWrapper">
+              
+              <p className="chatWrapperP">Start Conversation</p>
+              <div className="chatBoxTop">
+              
+                {messages.map((m, i) => (
+                  <div key={i} ref={scrollRef}>
+                    <Message message={m} own={m.sender === user?.email} />
+                  </div>
+                ))}
+              </div>
+              <div className="chatBoxBottom">
+                <textarea
+                  onChange={(e) => setNewMessage(e.target.value)}
+                  id="text"
+                  placeholder="Write your  message.... "
+                  className="chatMessageInput"
+                  onKeyPress={(e) => {
+                    e.key === "Enter" && handleSendButton();
+                  }}
+                ></textarea>
+                <button
+                  className="chatBoxButtonSubmit"
+                  onClick={handleSendButton}
+                >
+                  Send
+                </button>
+              </div>
+            </div>
+          ) : (
+            <p
+              style={{
+                fontSize: "48px",
+                color: "lightblue",
+                marginTop: "20px",
+                padding: "20px",
+              }}
+            >
+              Open a conversation
+            </p>
+          )}
+        </div>
+        {/* //* all user */}
+        <div className="chatOnline">
+          <div className={open2 ? "onlineMenuWrapper2 ": "onlineMenuWrapper open2"}>
+            <p className='text-gray-600 text-center font-bold text-2xl mt-6'>All Users</p>
+            <p className='text-gray-600 text-center font-medium'>click any user to start conversation</p>
+            <div
+              style={{
+                marginTop: "30px",
+              }}
+            >
+              {allUsers.map((user, i) => (
+                <div
+                  key={i}
+                  onClick={() => {
+                    createNewConversation(user)
+                  }}
+                >
+                  <AllUsers user={user}  />
+                </div>
+              ))}
+               
+            </div>
+          </div>
+        </div>
+        <span onClick={openforMenu2} className='text-3xl block lg:hidden menu2 '>  <HiMenuAlt3  /></span>
+      </div>
+      {/* <Footer /> */}
+    </div>
+  );
 }
 
-export default Chat;
+export default ChatApp;
