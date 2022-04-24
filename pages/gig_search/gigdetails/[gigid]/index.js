@@ -34,12 +34,14 @@ const GigDetails = () => {
       })
   }, [gig?.email])
 
+  //hook from
   const { register, handleSubmit } = useForm();
   const onSubmit = data => {
     data.rating = rating,
       data.sellerEmail = gig?.email,
       data.buyerEmail = user?.email,
       data.buyerName = user?.displayName ? user?.displayName : 'Buyer Name',
+
 
       //post
       axios.post(
@@ -54,7 +56,8 @@ const GigDetails = () => {
 
       ).then(
         () => message.success('review successfully')
-      ).catch(err => message.error(err))
+      )
+      ).catch(err => console.log(err));
 
 
   };
@@ -75,7 +78,6 @@ const GigDetails = () => {
         console.log(error);
       }
     );
-
 
 
   return (

@@ -1,0 +1,35 @@
+[
+    {
+        "id": 1,
+        "title": "Unified and secure",
+        "dec": "Apps keep work and information right at your fingerprint __ and Slack keeps it all securely"
+    },
+    {
+        "id": 2,
+        "title": "No additional costs",
+        "dec": "Discussion is an important part of collaborative editing, because it helps all users to understand"
+    },
+    {
+        "id": 3,
+        "title": "Works on the go",
+        "dec": "Comments posted on user talk pages, article talk pages and other discussion pages must be properly signed."
+    },
+    {
+        "id": 4,
+        "title": "Unblock productivity",
+        "dec": "Signatures must include at least one direct internal link to your user page, user talk page."
+         
+    },
+    {
+        "id": 5,
+        "title": "Unnecessary delays",
+        "dec": "It is better to put information on your user page rather than in your signature."
+        
+    },
+    {
+        "id": 6,
+        "title": "Get going quickly",
+        "dec": "Substitution must not be used to circumvent the normal restrictions on signature content, including the use."
+         
+    }
+]
