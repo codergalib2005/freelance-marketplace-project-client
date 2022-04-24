@@ -21,7 +21,7 @@ const SellerHeader = () => {
         <div className="container m-auto flex justify-between items-center text-gray-700">
           <div className="flex items-center ">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img className="w-36 cursor-pointer  py-4" src="/banner/navbar/image/logo-white.png" alt="" />
+            <img className="w-36 cursor-pointer  py-4" src="navbar/image/logo-white.png" alt="" />
             <form
               action="#"
               onSubmit={(e) => {

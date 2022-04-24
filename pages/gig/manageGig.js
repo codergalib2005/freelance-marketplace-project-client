@@ -1,6 +1,6 @@
 import React from "react";
 
-const manageGig = () => {
+const ManageGig = () => {
   return (
     <div>
       <h2>Manage Gig</h2>
@@ -8,4 +8,4 @@ const manageGig = () => {
   );
 };
 
-export default manageGig;
+export default ManageGig;

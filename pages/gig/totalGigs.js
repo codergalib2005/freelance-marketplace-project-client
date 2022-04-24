@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import TotalGig from '../../components/TotalGig/TotalGig';
 
-const totalGigs = () => {
+const TotalGigs = () => {
     const [gigs, setGigs] = useState([])
 
     const gigUrl = `${process.env.NEXT_PUBLIC_API_URL}/gigs`;
@@ -26,4 +26,4 @@ const totalGigs = () => {
     );
 };
 
-export default totalGigs;
+export default TotalGigs;

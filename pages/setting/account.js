@@ -1,8 +1,8 @@
 import React from "react";
 import Menu from "../../components/Setting/Menu";
-import AccountSetting from "../../components/Setting/AccountSetting/AccountSetting";
+import AccountSettingCom from "../../components/Setting/AccountSetting/AccountSetting";
 
-const accountSetting = () => {
+const AccountSetting = () => {
   return (
     <>
       <div className="container grid grid-cols-4 gap-8">
@@ -10,11 +10,11 @@ const accountSetting = () => {
           <Menu />
         </div>
         <div className="col-span-3 shadow-lg p-6">
-          <AccountSetting />
+          <AccountSettingCom />
         </div>
       </div>
     </>
   );
 };
 
-export default accountSetting;
+export default AccountSetting;

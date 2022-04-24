@@ -7,7 +7,7 @@ import minhaj from "../../public/teamPhoto/minhaj.png";
 import alamin from "../../public/teamPhoto/alamin.png";
 import shobuj from "../../public/teamPhoto/shobuj.png";
 
-const OurTeam = () => {
+const OurTeamCom = () => {
   const team = [
     {
       name: "Asadullah Hil Galib",
@@ -45,7 +45,7 @@ const OurTeam = () => {
   };
   return (
     <>
-      <div className="container p-4 grid lg:grid-cols-3 md:grid-cols-2 gap-8">
+      <div className="container mx-auto p-4 grid lg:grid-cols-3 md:grid-cols-2 gap-8">
         {/* {team.map((member) => (
           <div key={member.name} className="flex">
             <div>
@@ -151,4 +151,4 @@ const OurTeam = () => {
   );
 };
 
-export default OurTeam;
+export default OurTeamCom;

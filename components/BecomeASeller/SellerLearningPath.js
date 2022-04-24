@@ -8,7 +8,7 @@ const SellerLearningPath = () => {
   return (
     <section className="section_path">
       <div className="main_container">
-        <div className="container_fluid learningPath_main">
+        <div className="container_fluid mx-auto px-4 learningPath_main">
           <div className="col_learning1">
             <h3>1 STEP</h3>
             <h2>GET YOUR BASICS RIGHT</h2>
@@ -84,7 +84,7 @@ const SellerLearningPath = () => {
           </div>
         </div>
       </div>
-      <div className="container_fluid second_path_learning">
+      <div className="container_fluid mx-auto px-4 second_path_learning">
         <div className="col_learning1">
           <h3>2 STEP</h3>
           <h2>BEGINNERS</h2>
@@ -101,16 +101,16 @@ const SellerLearningPath = () => {
             </div>
           </div>
           <div className="path_5 svg_line">
-            <img src="https://i.ibb.co/BrRsj23/download-2.png" alt="" />
+            {/* <img src="https://i.ibb.co/BrRsj23/download-2.png" alt="" /> */}
           </div>
           <div className="path_6 svg_line">
-            <img src="https://i.ibb.co/SsVv7DV/download-1.png" alt="" />
+            {/* <img src="https://i.ibb.co/SsVv7DV/download-1.png" alt="" /> */}
           </div>
           <div className="path_7 svg_line">
-            <img src="https://i.ibb.co/s9k6fhN/download-3.png" alt="" />
+            {/* <img src="https://i.ibb.co/s9k6fhN/download-3.png" alt="" /> */}
           </div>
           <div className="path_8 svg_line">
-            <img src="https://i.ibb.co/Gcg4J4V/download-4.png" alt="" />
+            {/* <img src="https://i.ibb.co/Gcg4J4V/download-4.png" alt="" /> */}
           </div>
         </div>
         <div className="col_learning6">
@@ -193,7 +193,7 @@ const SellerLearningPath = () => {
               </div>
             </div>
             <div className="svg_path9 svg_line">
-              <img src="https://i.ibb.co/87Yc4DV/download-2.png" alt="" />
+              {/* <img src="https://i.ibb.co/87Yc4DV/download-2.png" alt="" /> */}
             </div>
           </div>
         </div>
@@ -247,7 +247,7 @@ const SellerLearningPath = () => {
         </div>
       </div>
 
-      <div className="container_fluid fifth_path_learning">
+      <div className="container_fluid mx-auto px-4 fifth_path_learning">
         <div>
           <div className="icon_scroll2">
             <div className="icon_learning2">
@@ -343,7 +343,7 @@ const SellerLearningPath = () => {
             </div>
           </div>
         </div>
-        <div>
+        <div className="mx-auto px-4">
           {" "}
           <div>
             {" "}
@@ -381,7 +381,7 @@ const SellerLearningPath = () => {
 
       <div className="stand_section container_fluid">
         <div>
-          <h2> STAND OUT!</h2>
+          <h2 className="text-[#2a3254]"> STAND OUT!</h2>
           <p>
             Every course comes with a course completion certificate. Show <br /> off your skills to the community and stand out among others.
           </p>
@@ -391,7 +391,7 @@ const SellerLearningPath = () => {
         </div>
       </div>
       <div className="container_fluid last_section">
-        <h2>CAN'T FIND WHAT YOU ARE LOOKING FOR?</h2>
+        <h2 className="text-[#2a3254]">CAN'T FIND WHAT YOU ARE LOOKING FOR?</h2>
         <button>REQUEST A COURSE</button>
       </div>
     </section>

@@ -2,7 +2,7 @@ import React from "react";
 import Menu from "../../components/Setting/Menu";
 import Securiry from "../../components/Setting/Security/Security";
 
-const security = () => {
+const Security = () => {
   return (
     <>
       <div className="container grid grid-cols-4 gap-8">
@@ -17,4 +17,4 @@ const security = () => {
   );
 };
 
-export default security;
+export default Security;
