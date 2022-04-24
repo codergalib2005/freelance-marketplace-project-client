@@ -8,7 +8,10 @@ import Message from "../../components/Message/Message";
 import MessengerNav from "../../components/MessangerNav/MessengerNav";
 import AllUsers from "../../components/AllUsers/AllUsers";
 import { message } from 'antd';
-import {HiMenuAlt2, HiMenuAlt3} from 'react-icons/hi'
+import { HiMenuAlt2, HiMenuAlt3 } from 'react-icons/hi'
+import HeaderTop from "../../components/Shared/HeaderTop";
+import Header from "../../components/Shared/Header";
+import Footer from "../../components/Shared/Footer";
 
 const warning = () => {
   message.warning('You already have a conversation with this friend!');
@@ -22,18 +25,18 @@ const socket = io.connect("http://localhost:8900");
 function ChatApp() {
   const { user } = useAuth();
 
-  const [open, setOpen]=useState(false)
-  const [open2, setOpen2]=useState(false)
+  const [open, setOpen] = useState(false)
+  const [open2, setOpen2] = useState(false)
 
-  const openforMenu1 = ()=>{
+  const openforMenu1 = () => {
     setOpen(!open)
     setOpen2(false)
   }
-  const openforMenu2 = ()=>{
+  const openforMenu2 = () => {
     setOpen2(!open2)
     setOpen(false)
   }
-  
+
   const [conversation, setCoversation] = useState([]);
   const [currentChat, setCurrentChat] = useState(null);
   const [messages, setMessages] = useState([]);
@@ -41,8 +44,8 @@ function ChatApp() {
   const [newMessage, setNewMessage] = useState("");
   const [allUsers, setAllUsers] = useState([]);
   const scrollRef = useRef();
-console.log(currentChat);
-// * add user for socket and get user for socket
+  console.log(currentChat);
+  // * add user for socket and get user for socket
   useEffect(() => {
     socket.emit("addUser", user.email);
 
@@ -53,35 +56,35 @@ console.log(currentChat);
   }, [user.email]);
 
   // * create new conversation
-  const createNewConversation= async(newUser)=>{
+  const createNewConversation = async (newUser) => {
     const senderEmail = user?.email;
     const receiverEmail = newUser?.email;
-    if (senderEmail !== receiverEmail){
-      const newConversationOfUser= {
+    if (senderEmail !== receiverEmail) {
+      const newConversationOfUser = {
         senderEmail,
         receiverEmail
-    }
-    const res = await axios.post('http://localhost:8800/api/conversations/', newConversationOfUser)
-    
-    if(res.data.members){
-       const res = await axios.get(
+      }
+      const res = await axios.post('http://localhost:8800/api/conversations/', newConversationOfUser)
+
+      if (res.data.members) {
+        const res = await axios.get(
           "http://localhost:8800/api/conversations/" + user?.email
         );
         setCoversation(res.data);
         setOpen2(false)
+      }
+
+      else if (res.data.message) {
+        warning()
+        setOpen2(false)
+        return
+      }
     }
-    
-   else if(res.data.message){
-      warning()
-      setOpen2(false)
-      return
-    }
-    }
-    else{
+    else {
       warning2()
       return
     }
-    
+
   }
 
   // * get the conversation user specific
@@ -104,7 +107,7 @@ console.log(currentChat);
     const getUsers = async () => {
       try {
         const res = await axios.get(
-         "http://localhost:8800/api/users"
+          "http://localhost:8800/api/users"
         );
         setAllUsers(res.data);
       } catch (error) {
@@ -130,7 +133,7 @@ console.log(currentChat);
   }, [currentChat?._id]);
 
   //* post new messages to database and server
-    const handleSendButton = async (e) => {
+  const handleSendButton = async (e) => {
     // e.preventDefault();
     const message = {
       sender: user?.email,
@@ -158,7 +161,7 @@ console.log(currentChat);
   };
 
   // * get message message from socket io
-    useEffect(() => {
+  useEffect(() => {
     socket?.on("getMessage", (data) => {
       setArrivalMessage({
         sender: data.senderEmail,
@@ -169,7 +172,7 @@ console.log(currentChat);
   }, [arrivalMessage]);
 
   // * update texts from socket
-   useEffect(() => {
+  useEffect(() => {
     arrivalMessage &&
       currentChat?.members?.includes(
         arrivalMessage.sender || arrivalMessage.senderEmail
@@ -178,31 +181,32 @@ console.log(currentChat);
   }, [arrivalMessage, currentChat]);
 
   // * scroll to bottom
-    useEffect(() => {
+  useEffect(() => {
     scrollRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
   //* conversation click
-  const conversationClick=(value)=>{
+  const conversationClick = (value) => {
     setCurrentChat(value);
     setOpen(false)
   }
-/* 
-HiMenuAlt2
-*/
+  /* 
+  HiMenuAlt2
+  */
   return (
     <div className="  ">
-      <MessengerNav />
+      <HeaderTop />
+      <Header />
       {/* //* main messenger part */}
       <div className="mesenger mainChatPart">
-        <span onClick={ openforMenu1} className='text-3xl block lg:hidden menu1'>  <HiMenuAlt2  /></span>
+        <span onClick={openforMenu1} className='text-3xl block lg:hidden menu1'>  <HiMenuAlt2 /></span>
         {/* //? chat conversation part design */}
         <div className="chatMenu ">
-      
-          <div className={open ? "chatMenuWrapper2 ": "chatMenuWrapper open"}>
-            
+
+          <div className={open ? "chatMenuWrapper2 " : "chatMenuWrapper open"}>
+
             <p className='text-md font-semibold text-gray-600 mt-6'>Your Current Conversations</p>
-           
+
             <div className='chatMenuItem'
               style={{
                 marginTop: "30px",
@@ -211,27 +215,27 @@ HiMenuAlt2
               {conversation.map((c, i) => (
                 <div
                   key={i}
-                  onClick={()=>conversationClick(c)}
+                  onClick={() => conversationClick(c)}
                 >
                   <Conversation conversation={c} currentUser={user} />
                 </div>
               ))}
-               
+
             </div>
           </div>
         </div>
-        
+
         {/* //* chat message part  */}
         <div className="chatBox">
-          
+
           {currentChat ? (
-            
-            
+
+
             <div className="chatBoxWrapper">
-              
+
               <p className="chatWrapperP">Start Conversation</p>
               <div className="chatBoxTop">
-              
+
                 {messages.map((m, i) => (
                   <div key={i} ref={scrollRef}>
                     <Message message={m} own={m.sender === user?.email} />
@@ -271,7 +275,7 @@ HiMenuAlt2
         </div>
         {/* //* all user */}
         <div className="chatOnline">
-          <div className={open2 ? "onlineMenuWrapper2 ": "onlineMenuWrapper open2"}>
+          <div className={open2 ? "onlineMenuWrapper2 " : "onlineMenuWrapper open2"}>
             <p className='text-gray-600 text-center font-bold text-2xl mt-6'>All Users</p>
             <p className='text-gray-600 text-center font-medium'>click any user to start conversation</p>
             <div
@@ -286,16 +290,16 @@ HiMenuAlt2
                     createNewConversation(user)
                   }}
                 >
-                  <AllUsers user={user}  />
+                  <AllUsers user={user} />
                 </div>
               ))}
-               
+
             </div>
           </div>
         </div>
-        <span onClick={openforMenu2} className='text-3xl block lg:hidden menu2 '>  <HiMenuAlt3  /></span>
+        <span onClick={openforMenu2} className='text-3xl block lg:hidden menu2 '>  <HiMenuAlt3 /></span>
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }

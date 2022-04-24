@@ -63,8 +63,6 @@ const GigDetails = () => {
 
       ).catch(err => console.log(err));
 
-      ).catch(err => message.error(err))
-
 
 
   };
