@@ -1,5 +1,5 @@
 import React from "react";
-import OurTeamCom from "../../components/OurTeam/OurTeamCom";
+import OurTeamCom from "../../components/OurTeam/OurTeam";
 import { motion } from "framer-motion";
 import HeaderTop from "../../components/Shared/HeaderTop";
 import Header from "../../components/Shared/Header";
