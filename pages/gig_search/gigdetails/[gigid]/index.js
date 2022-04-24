@@ -46,21 +46,23 @@ const GigDetails = () => {
       //post
       axios.post(
         `${process.env.NEXT_PUBLIC_API_URL}/reviews/`,
-        data,
-
-        {
-          headers: {
-            "Content-Type": "application/json",
+          data,
+        
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
           },
-        },
-
-      ).then(
-        () => message.success('review successfully')
-      )
-      ).catch(err => console.log(err));
-
-
-  };
+  
+        ).then(
+          () => {
+            message.success('Review successfully')
+            reset();
+          }
+        ).catch(err => console.log(err))
+        
+  
+    };
   useEffect(() => {
     const GETURL = `${process.env.NEXT_PUBLIC_API_URL}/gigs/${router?.query?.gigid}`;
     axios
