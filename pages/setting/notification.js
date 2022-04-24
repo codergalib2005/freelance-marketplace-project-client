@@ -12,17 +12,17 @@ const notification = () => {
 
   return (
     <>
-    <div className="container grid md:grid-cols-4  gap-8 my-10 relative">
+    <div className="container grid md:grid-cols-4  gap-8  relative">
         <div
           className={`${
             !show
               ? "hidden   md:block "
               : " block translate-y-2 duration-1000 md:translate-y-0"
-          }  h-screen md:h-0 lg:h-0 bg-white md:bg-none lg:bg-none z-10`}
+          }  h-screen md:h-0 lg:h-0 bg-white md:bg-none lg:bg-none z-10 my-10`}
         >
           <Menu getValue={getValue} show={show} />
         </div>
-        <div className="col-span-3 shadow-lg p-3 py-8 absolute md:sticky">
+        <div className="col-span-3 shadow-lg p-3 my-8 absolute md:sticky">
           <div>
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
