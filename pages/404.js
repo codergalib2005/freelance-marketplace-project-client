@@ -5,7 +5,7 @@ import Header from "../components/Shared/Header";
 import Footer from '../components/Shared/Footer';
 import HeaderTop from "../components/Shared/HeaderTop";
 
-const errorPage = () => {
+const ErrorPage = () => {
   return (
     <>
       <div>
@@ -22,4 +22,4 @@ const errorPage = () => {
   );
 };
 
-export default errorPage;
+export default ErrorPage;

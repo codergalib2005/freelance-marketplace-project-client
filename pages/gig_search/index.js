@@ -14,7 +14,7 @@ import SingleGig from "../../components/gigs/SingleGig";
 import Footer from "../../components/Shared/Footer";
 import Header from "../../components/Shared/Header";
 import HeaderTop from "../../components/Shared/HeaderTop";
-const gig_search = () => {
+const GigSearch = () => {
   const [value, setValue] = useState("");
   const [search, setSearch] = useState("");
   const [showSidebar, setShowSidebar] = useState(true);
@@ -36,7 +36,6 @@ const gig_search = () => {
   const handleChange = (event) => {
     setValue(event.target.value);
   };
-  console.log(allGigs);
   return (
     <>
       <HeaderTop />
@@ -235,4 +234,4 @@ const gig_search = () => {
   );
 };
 
-export default gig_search;
+export default GigSearch;

@@ -5,7 +5,7 @@ import HeaderTop from "../../components/Shared/HeaderTop";
 import Header from "../../components/Shared/Header";
 import Footer from "../../components/Shared/Footer";
 
-const setting = () => {
+const Setting = () => {
   return (
     <div>
       <div>
@@ -27,4 +27,4 @@ const setting = () => {
   );
 };
 
-export default setting;
+export default Setting;

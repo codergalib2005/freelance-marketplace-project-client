@@ -7,7 +7,7 @@ import minhaj from "../../public/teamPhoto/minhaj.png";
 import alamin from "../../public/teamPhoto/alamin.png";
 import shobuj from "../../public/teamPhoto/shobuj.png";
 
-const OurTeam = () => {
+const OurTeamCom = () => {
   const team = [
     {
       name: "Asadullah Hil Galib",
@@ -151,4 +151,4 @@ const OurTeam = () => {
   );
 };
 
-export default OurTeam;
+export default OurTeamCom;

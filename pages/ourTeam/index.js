@@ -1,11 +1,11 @@
 import React from "react";
-import OurTeam from "../../components/OurTeam/ourTeam";
+import OurTeamCom from "../../components/OurTeam/OurTeamCom";
 import { motion } from "framer-motion";
 import HeaderTop from "../../components/Shared/HeaderTop";
 import Header from "../../components/Shared/Header";
 import Footer from "../../components/Shared/Footer";
 
-const index = () => {
+const OurTeam = () => {
   const container = {
     hidden: { opacity: 1, scale: 0 },
     visible: {
@@ -32,14 +32,14 @@ const index = () => {
       </header>
       <main>
         <motion.div variants={container} initial="hidden" animate="visible">
-          <OurTeam />
+          <OurTeamCom />
         </motion.div>
       </main>
       <footer>
         <Footer />
       </footer>
     </div>
-  );
+  )
 };
 
-export default index;
+export default OurTeam;

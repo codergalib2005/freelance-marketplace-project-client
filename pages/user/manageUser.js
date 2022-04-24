@@ -1,6 +1,6 @@
 import React from "react";
 
-const manageUser = () => {
+const ManageUser = () => {
   return (
     <div>
       <h2>Mange User</h2>
@@ -8,4 +8,4 @@ const manageUser = () => {
   );
 };
 
-export default manageUser;
+export default ManageUser;

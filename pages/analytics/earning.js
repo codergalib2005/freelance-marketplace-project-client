@@ -1,6 +1,6 @@
 import React from "react";
 
-const earning = () => {
+const Earning = () => {
   return (
     <div>
       <h3>Earning Our Marketplace</h3>
@@ -8,4 +8,4 @@ const earning = () => {
   );
 };
 
-export default earning;
+export default Earning;
