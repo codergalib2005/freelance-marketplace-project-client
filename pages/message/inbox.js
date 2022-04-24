@@ -1,6 +1,6 @@
 import React from "react";
 
-const inbox = () => {
+const Inbox = () => {
   return (
     <div>
       <h3>Message Inbox</h3>
@@ -8,4 +8,4 @@ const inbox = () => {
   );
 };
 
-export default inbox;
+export default Inbox;

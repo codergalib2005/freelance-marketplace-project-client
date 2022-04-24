@@ -1,6 +1,6 @@
 import React from "react";
 
-const send = () => {
+const SendBox = () => {
   return (
     <div>
       <h3>Message Send</h3>
@@ -8,4 +8,4 @@ const send = () => {
   );
 };
 
-export default send;
+export default SendBox;

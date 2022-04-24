@@ -1,6 +1,6 @@
 import React from "react";
 
-const topSellers = () => {
+const TopSellers = () => {
   return (
     <div>
       <h3>TOP Sellers</h3>
@@ -8,4 +8,4 @@ const topSellers = () => {
   );
 };
 
-export default topSellers;
+export default TopSellers;
