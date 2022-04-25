@@ -41,7 +41,7 @@ const GigDetails = () => {
 
   //hook from
 
-  const [sellerEmail, setSellerEmail] = useState([]);
+  
 
 
   //Buyer rivew
@@ -84,6 +84,9 @@ const GigDetails = () => {
         
   
     };
+
+  
+
         },
 
       ).then(
@@ -94,6 +97,7 @@ const GigDetails = () => {
 
 
   };
+
   useEffect(() => {
     const GETURL = `${process.env.NEXT_PUBLIC_API_URL}/gigs/${router?.query?.gigid}`;
     axios

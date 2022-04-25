@@ -563,7 +563,12 @@
     left: -100%;
   }
 }
+
+}
+.chatMenuWrapper{
+
 .chatMenuWrapper {
+
   display: block !important;
   position: absolute;
   top: 40;
@@ -620,11 +625,18 @@
 .chatOnline {
   flex: 0;
 }
+
+.chatBoxWrapper{
+
 .chatBoxWrapper {
+
   margin-top: 0px;
   margin-left: 10px;
   padding-right: 10px;
   height: 95%;
+
+  color: #fff !important;
+
 }
 
 /* =================How It Work Component============== */

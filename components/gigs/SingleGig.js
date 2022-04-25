@@ -12,10 +12,10 @@ const SingleGig = ({ gig, gridColumn }) => {
           </div>
           <div className={`${gridColumn === "grid_row" && "col-span-2 "}`}>
             <div className=' py-2 mb-3'>
-              <strong className='text-white border-b-2 border-[#e83a3b] pb-2 pr-3'><Moment fromNow ago>{gig?.date}</Moment></strong>
+              <strong className='text-black border-b-2 border-[#e83a3b] pb-2 pr-3'><Moment fromNow ago>{gig?.date}</Moment></strong>
             </div>
-            <h4 className='text-white font-bold text-xl'>{gig?.gig_title?.slice(0, 40)}</h4>
-            <p className='text-white font-normal text-base'>{gig?.description?.slice(0, 60)}...</p>
+            <h4 className='text-black font-bold text-xl'>{gig?.gig_title?.slice(0, 40)}</h4>
+            <p className='text-black font-normal text-base'>{gig?.description?.slice(0, 60)}...</p>
           </div>
         </div>
       </Link>
