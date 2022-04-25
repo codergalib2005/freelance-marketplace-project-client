@@ -111,7 +111,7 @@ const GigDetails = () => {
               </div>
             </div>
             <div className="grid grid-cols-5 gap-4 items-center justify-between  font-bold text-md mt-1 text-center mb-5">
-              <strong className="border-y-2  border-orange-200 py-1">
+              <strong className="border-y-2   border-orange-200 py-1">
                 {gigUser?.gender}
               </strong>
               <strong className="border-y-2 col-span-3 border-orange-200 py-1">
@@ -125,7 +125,7 @@ const GigDetails = () => {
             </div>
             {!(gigUser?.about === "") && (
               <div>
-                <strong className="text-xl font-bold  border-b-2 border-orange-200 pr-5 mt-6 pb-1 mb-2 online-block">
+                <strong className="text-xl font-bold text-white bg-green-500 px-3 py-2 border-b-2 border-orange-200 pr-5 mt-6 pb-1 mb-2 online-block">
                   About
                 </strong>
                 <p className="text-md  mt-2">{gigUser?.about}</p>
