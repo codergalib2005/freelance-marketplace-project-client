@@ -10,11 +10,11 @@ const Login = () => {
   };
 
   return (
-    <div className='w-full bg-[#fff] overflow-visible md:overflow-hidden'>
+    <div className='w-full bg-[#fff] overflow-visible md:overflow-hidden px-4'>
       {!loading && (
         <div>
-          <div className="container mx-auto px-2 flex items-center justify-center  min-h-screen border-2 border-[#2f9ece]">
-            <div style={{ maxHeight: '600px', height: '100vh' }} className="grid grid-cols-1 md:grid-cols-2 w-full">
+          <div style={{ minHeight: '90vh' }} className="container mx-auto flex items-center justify-center border-4 border-[#2f9ece]">
+            <div style={{ maxHeight: '600px', height: '100vh' }} className="grid grid-cols-1 md:grid-cols-2 w-full md:mt-5">
               <div className='bg-[#2f9ece] h-full flex items-stretch justify-center relative'>
                 <Link href="/">
                   <a className='w-32 text-center py-2 text-lg absolute left-2 top-2 bg-white font-bold rounded-md text-[#2f9ece]'>Go Home</a>
