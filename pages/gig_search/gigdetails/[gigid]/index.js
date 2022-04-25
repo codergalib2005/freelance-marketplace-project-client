@@ -65,9 +65,9 @@ const GigDetails = () => {
     );
 
   
-  console.log(gigUser);
+  
   return (
-    <div className=" bg-[#2a3254] min-h-screen">
+    <div className=" bg-white min-h-screen">
       <DetailsHeader gig={gig} />
       <div className="container-fluid mx-auto px-3 py-10">
         <div className="grid grid-cols-1 lg:grid-cols-8 gap-4">
@@ -78,18 +78,18 @@ const GigDetails = () => {
             <div>
               {!(gig?.gig_title === "") && (
                 <div className="mt-4">
-                  <strong className="text-xl font-bold text-white border-b-2 border-[#a78737] pr-5 mt-6 pb-1 mb-2 online-block">
+                  <strong className="text-xl font-bold  border-b-2 border-orange-200 pr-5 mt-6 pb-1 mb-2 online-block">
                     Gig Title
                   </strong>
-                  <p className="text-lg text-gray-400 mt-2">{gig?.gig_title}</p>
+                  <p className="text-lg  mt-2">{gig?.gig_title}</p>
                 </div>
               )}
               {!(gig?.description === "") && (
                 <div className="mt-3">
-                  <strong className="text-xl font-bold text-white border-b-2 border-[#a78737] pr-5 mt-6 pb-1 mb-2 online-block">
+                  <strong className="text-xl font-bold  border-b-2 border-orange-200 pr-5 mt-6 pb-1 mb-2 online-block">
                     Gig Description
                   </strong>
-                  <p className="text-md text-gray-400 mt-2">
+                  <p className="text-md  mt-2">
                     {gig?.description}
                   </p>
                 </div>
@@ -104,20 +104,20 @@ const GigDetails = () => {
                 <img className="mx-w-full" src={gigUser?.avatar} alt="" />
               </div>
               <div className="pl-3 col-span-6">
-                <strong className="border-b-2 border-[#ae8934] pb-2 mb-4 font-bold text-2xl text-white">
+                <strong className="border-b-2 border-orange-200 pb-2 mb-4 font-bold text-2xl ">
                   {gigUser?.name}
                 </strong>
-                <p className="pt-3 text-[#ddd]  text-lg">{gigUser?.bio}</p>
+                <p className="pt-3   text-lg">{gigUser?.bio}</p>
               </div>
             </div>
-            <div className="grid grid-cols-5 gap-4 items-center justify-between text-white font-bold text-md mt-1 text-center mb-5">
-              <strong className="border-y-2 border-[#a78737] py-1">
+            <div className="grid grid-cols-5 gap-4 items-center justify-between  font-bold text-md mt-1 text-center mb-5">
+              <strong className="border-y-2  border-orange-200 py-1">
                 {gigUser?.gender}
               </strong>
-              <strong className="border-y-2 col-span-3 border-[#a78737] py-1">
+              <strong className="border-y-2 col-span-3 border-orange-200 py-1">
                 {gigUser?.email}
               </strong>
-              <strong className="border-y-2 border-[#a78737] py-1">
+              <strong className="border-y-2 border-border-orange-200 py-1">
                 <Moment fromNow ago>
                   {gigUser?.date}
                 </Moment>
@@ -125,23 +125,23 @@ const GigDetails = () => {
             </div>
             {!(gigUser?.about === "") && (
               <div>
-                <strong className="text-xl font-bold text-white border-b-2 border-[#a78737] pr-5 mt-6 pb-1 mb-2 online-block">
+                <strong className="text-xl font-bold  border-b-2 border-orange-200 pr-5 mt-6 pb-1 mb-2 online-block">
                   About
                 </strong>
-                <p className="text-md text-gray-400 mt-2">{gigUser?.about}</p>
+                <p className="text-md  mt-2">{gigUser?.about}</p>
               </div>
             )}
             {!(gigUser?.skills === "") && (
               <div className="mt-5">
-                <strong className="text-xl font-bold text-white border-b-2 border-[#a78737] pr-5 mt-6 pb-1 mb-2 online-block">
+                <strong className="text-xl font-bold  border-b-2 border-orange-200 pr-5 mt-6 pb-1 mb-2 online-block">
                   Skills
                 </strong>
-                <p className="text-md text-gray-400 mt-2">{gigUser?.skills}</p>
+                <p className="text-md  mt-2">{gigUser?.skills}</p>
               </div>
             )}
             {!(gigUser?.education === "") && (
               <div className="mt-5">
-                <strong className="text-xl font-bold text-white border-b-2 border-[#a78737] pr-5 mt-6 pb-1 mb-2 online-block">
+                <strong className="text-xl font-bold  border-b-2 border-orange-200 pr-5 mt-6 pb-1 mb-2 online-block">
                   Education
                 </strong>
                 <p className="text-md text-gray-400 mt-2">
@@ -184,7 +184,7 @@ const GigDetails = () => {
                   {showPricing === "beginner" && (
                     <div>
                       <div className="h-56 flat_gradient pricing_card flex items-center justify-center flex-col">
-                        <h2 className="text-xl font-bold text-center text-white uppercase">
+                        <h2 className="text-xl font-bold text-center  uppercase">
                           Beginner
                         </h2>
                         <h1 className="text-white text-3xl font-bold text-center uppercase">
@@ -228,10 +228,10 @@ const GigDetails = () => {
                   {showPricing === "expert" && (
                     <div>
                       <div className="h-56 flat_gradient pricing_card flex items-center justify-center flex-col">
-                        <h2 className="text-xl font-bold text-center text-white uppercase">
+                        <h2 className="text-xl font-bold text-center  uppercase">
                           Expert
                         </h2>
-                        <h1 className="text-white text-3xl font-bold text-center uppercase">
+                        <h1 className=" text-3xl font-bold text-center uppercase">
                           ${gig?.second_price}/{gig?.second_day}.Day
                         </h1>
                       </div>
@@ -249,7 +249,7 @@ const GigDetails = () => {
                       </div>
                       <div className="grid grid-cols-6 pl-3 mx-3  border-b border-[#2a3254] py-2 rounded-2xl">
                         <div className="col-span-2">
-                          <strong className="text-lg font-bold text-[#2a3254]">
+                          <strong className="text-lg font-bold text-white">
                             Title
                           </strong>
                         </div>
@@ -259,7 +259,7 @@ const GigDetails = () => {
                       </div>
                       <div className="grid grid-cols-6 pl-3 mx-3  border-b border-[#2a3254] py-2 rounded-2xl">
                         <div className="col-span-2">
-                          <strong className="text-lg font-bold text-[#2a3254]">
+                          <strong className="text-lg font-bold text-white">
                             Description
                           </strong>
                         </div>
@@ -272,20 +272,20 @@ const GigDetails = () => {
                   {showPricing === "experience" && (
                     <div>
                       <div className="h-56 flat_gradient pricing_card flex items-center justify-center flex-col">
-                        <h2 className="text-xl font-bold text-center text-white uppercase">
+                        <h2 className="text-xl font-bold text-center  uppercase">
                           Experience
                         </h2>
-                        <h1 className="text-white text-3xl font-bold text-center uppercase">
+                        <h1 className="text-3xl font-bold text-center uppercase">
                           ${gig?.third_price}/{gig?.third_day}.Day
                         </h1>
                       </div>
                       <div className="flex items-center justify-center ">
                         <div className="rounded-full w-24 h-24 flex items-center justify-center bg-white shadow-lg text-center relative -top-12">
                           <div>
-                            <h1 className="text-[#2a3254] text-2xl font-bold">
+                            <h1 className="text-white text-2xl font-bold">
                               {gig?.third_day}
                             </h1>
-                            <h4 className="text-xl font-bold text-[#2a3254]">
+                            <h4 className="text-xl font-bold text-white">
                               Day
                             </h4>
                           </div>
@@ -293,7 +293,7 @@ const GigDetails = () => {
                       </div>
                       <div className="grid grid-cols-6 pl-3 mx-3  border-b border-[#2a3254] py-2 rounded-2xl">
                         <div className="col-span-2">
-                          <strong className="text-lg font-bold text-[#2a3254]">
+                          <strong className="text-lg font-bold text-white">
                             Title
                           </strong>
                         </div>
@@ -301,9 +301,9 @@ const GigDetails = () => {
                           {gig?.third_title}
                         </div>
                       </div>
-                      <div className="grid grid-cols-6 pl-3 mx-3  border-b border-[#2a3254] py-2 rounded-2xl">
+                      <div className="grid grid-cols-6 pl-3 mx-3  border-b border-white py-2 rounded-2xl">
                         <div className="col-span-2">
-                          <strong className="text-lg font-bold text-[#2a3254]">
+                          <strong className="text-lg font-bold text-white">
                             Description
                           </strong>
                         </div>
@@ -322,7 +322,7 @@ const GigDetails = () => {
               </div>
 
               <div>
-              <Rating onChange={e => setRating(e.target.value)} name="half-rating" defaultValue={2.5} precision={0.5} />
+              <Rating onChange={e => setRating(e.target.value)} name="half-rating" defaultValue={2.5} precision={0.5} className="text-orange-600" />
                 <form onSubmit={handleSubmit(onSubmit)}>
                   <input {...register("description")} />
                   <input {...register("profession")} />
