@@ -6,12 +6,12 @@ const Banner = () => {
   return (
     <div className={` ${styles.header_container}`}>
       <div className={styles.header_section}>
-        <div className="container m-auto flex justify-between items-center text-gray-700">
+        <div className="container-fluid m-auto flex justify-between items-center text-gray-700">
           <div>
             {/* eslint-disable-next-line @next/next/no-img-element */}
-          
+
             <img src="/navbar/image/logo-white.png" alt="" />
-        
+
           </div>
           <ul className="hidden md:flex items-center  text-base font-semibold text-white cursor-pointer">
             <Link href="/">

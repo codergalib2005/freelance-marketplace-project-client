@@ -27,10 +27,10 @@ const Register = () => {
 
 
   return (
-    <div className='w-full bg-[#1a2747]'>
+    <div className='w-full bg-[#fff]'>
       {!loading && (
-        <div>
-          <div className="container mx-auto px-2 flex items-center justify-center  min-h-screen">
+        <div className='px-4'>
+          <div style={{ minHeight: '90vh' }} className="container mx-auto flex items-center justify-center md:mt-5 shadow-lg shadow-[#1a2747] border-4 border-[#2f9ece]">
             <div style={{ maxHeight: '600px', height: '100vh' }} className="grid grid-cols-1 md:grid-cols-2 w-full">
               <div className='bg-[#2f9ece] h-full flex items-stretch justify-center relative'>
                 <Link href="/">
@@ -84,20 +84,7 @@ const Register = () => {
       )}
       {
         loading && (<div className='min-h-screen flex items-center justify-center'>
-          <div className="lds-spinner">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
+          <span className="main-loader"></span>
         </div>)
       }
     </div>

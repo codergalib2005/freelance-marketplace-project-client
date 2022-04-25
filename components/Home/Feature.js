@@ -18,8 +18,8 @@ export default function Feature() {
   }, []);
 
   return (
-    <div className="my-20 mx-8 md:mx-16 lg:mx-32 feature-font">
-      <div className="flex justify-between flex-col md:flex-row mb-8 items-center">
+    <div className="my-20 container mx-auto px-4 feature-font">
+      <div className=" flex justify-between flex-col md:flex-row mb-8 items-center">
         <div className="w-full md:w-10/12 lg:w-8/12">
           <h2 className="text-3xl font-bold mb-2 capitalize text-gray-700">
             Expolre popular<span className="text-green-700"> services</span>

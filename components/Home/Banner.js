@@ -68,7 +68,7 @@ const bannerData = [
 
 const Banner = () => {
   return (
-    <div className="cubano">
+    <div className="cubano container mx-auto px-4">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
@@ -84,8 +84,8 @@ const Banner = () => {
       >
         {bannerData.map((bd, ind) => (
           <SwiperSlide key={ind} bd={bd}>
-            <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-9  overflow-x-hidden py-12">
-              <div className="col-span-5 pl-0  lg:pl-24 pt-24">
+            <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-9  overflow-x-hidden py-12 items-center">
+              <div className="col-span-5 pl-0">
                 <div className="text-center lg:text-left ">
                   <h2 className="text-6xl font-bold text-[#2A3254]">
                     {bd?.title}

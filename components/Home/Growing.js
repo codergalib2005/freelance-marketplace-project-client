@@ -4,8 +4,8 @@ import React from 'react';
 const Growing = () => {
     return (
         <div className='px-4'>
-            <div className='container mx-auto px-4 py-4 bg-[#f3e5c2] rounded-md my-10'>
-                <div className='grid grid-cols-1 md:grid-cols-3 items-center'>
+            <div className='container mx-auto px-4 py-4 rounded-md my-10 px-4'>
+                <div className='grid grid-cols-1 md:grid-cols-3 items-center bg-[#f3e5c2] py-4 px-4 rounded-lg'>
                     <div className='col-span-2'>
                         <h1 className='text-2xl sm:text-4xl font-bold text-[#2a3254]'>
                             Find the talent needed to get your business growing.</h1>

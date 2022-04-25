@@ -41,7 +41,7 @@ const GigDetails = () => {
 
   //hook from
 
-  
+
 
 
   //Buyer rivew
@@ -55,7 +55,7 @@ const GigDetails = () => {
   }, [gig?.email])
 
 
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const onSubmit = data => {
     data.rating = rating,
       data.sellerEmail = gig?.email,
@@ -66,36 +66,22 @@ const GigDetails = () => {
       //post
       axios.post(
         `${process.env.NEXT_PUBLIC_API_URL}/reviews/`,
-          data,
-        
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
+        data,
+
+        {
+          headers: {
+            "Content-Type": "application/json",
           },
-
-  
-        ).then(
-          () => {
-            message.success('Review successfully')
-            reset();
-          }
-        ).catch(err => console.log(err))
-        
-  
-    };
-
-  
-
         },
 
+
       ).then(
-        () => message.success('review successfully')
-
-      ).catch(err => console.log(err));
-
-
-
+        () => {
+          message.success('Review successfully')
+          // something
+          reset();
+        }
+      ).catch(err => console.log(err))
   };
 
   useEffect(() => {
@@ -165,13 +151,8 @@ const GigDetails = () => {
                           <img className="rounded-full" src={seller.buyerImage} alt="" />
                         </div>
                         <div className="mt-10 ml-5">
-
                           <Rating name="half-rating" defaultValue={seller.rating} readOnly /> <br />
-
-                          <Rating name="readOnly" defaultValue={seller.rating} readOnly /> <br />
-
                           <h4 className="text-white">{seller.profession}</h4>
-
                         </div>
                       </div>
 

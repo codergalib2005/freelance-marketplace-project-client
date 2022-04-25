@@ -12,10 +12,10 @@ const Login = () => {
   };
 
   return (
-    <div className='w-full bg-[#1a2747] overflow-visible md:overflow-hidden'>
+    <div className='w-full bg-[#fff] overflow-visible md:overflow-hidden'>
       {!loading && (
         <div>
-          <div className="container mx-auto px-2 flex items-center justify-center  min-h-screen">
+          <div className="container mx-auto px-2 flex items-center justify-center  min-h-screen border-2 border-[#2f9ece]">
             <div style={{ maxHeight: '600px', height: '100vh' }} className="grid grid-cols-1 md:grid-cols-2 w-full">
               <div className='bg-[#2f9ece] h-full flex items-stretch justify-center relative'>
                 <Link href="/">
@@ -50,20 +50,7 @@ const Login = () => {
       )}
       {
         loading && (<div className='min-h-screen flex items-center justify-center'>
-          <div className="lds-spinner">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
+          <span className="main-loader"></span>
         </div>)
       }
     </div>

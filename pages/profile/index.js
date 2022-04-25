@@ -18,6 +18,7 @@ import Task from "../../components/Profile/Task";
 import Footer from "../../components/Shared/Footer";
 import Header from "../../components/Shared/Header";
 import HeaderTop from "../../components/Shared/HeaderTop";
+import { withPrivate } from "../../hooks/PrivateRoute";
 import useAuth from '../../hooks/useAuth';
 const editorMood = {
   editor: null,
@@ -123,7 +124,7 @@ const Profile = () => {
       <HeaderTop />
       <Header />
       <div className="single_user_profile_section text_no_select px-8 feature-font bg-[#F5F7FB]">
-        <div className="container-fluid px-5 xl:px-0  mx-auto py-12">
+        <div className="container px-4  mx-auto py-12">
           <div className="mb-8 flex justify-end">
             <div className="flex gap-4 md:gap-8 lg:gap-16  items-center">
               <input
@@ -151,9 +152,9 @@ const Profile = () => {
             </div>
           </div>
           {/* new section */}
-          <div className="mb-8 px-0 md:px-6 lg:px-12">
+          <div className="mb-8">
             <div className="">
-              <h2 className="text-4xl text-gray-800 font-semibold">Hello Tam</h2>
+              <h2 className="text-4xl text-gray-800 font-semibold">Hello ${user?.displayName}</h2>
               <div className="flex  gap-4 items-center">
                 <p className="text-xl text-gray-500 font-medium">
                   Have a nice day at work
@@ -400,4 +401,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default withPrivate(Profile);
