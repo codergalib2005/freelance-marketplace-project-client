@@ -195,7 +195,7 @@ function ChatApp() {
   */
   return (
     <div className="  ">
-      <HeaderTop />
+      {/* <HeaderTop /> */}
       <Header />
       {/* //* main messenger part */}
       <div className="mesenger mainChatPart">
@@ -299,7 +299,7 @@ function ChatApp() {
         </div>
         <span onClick={openforMenu2} className='text-3xl block lg:hidden menu2 '>  <HiMenuAlt3 /></span>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

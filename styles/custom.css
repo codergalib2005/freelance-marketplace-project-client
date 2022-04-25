@@ -562,7 +562,7 @@
   .chatMenuWrapper.open {
     left: -100%;
   }
-}
+
 .chatMenuWrapper {
   display: block !important;
   position: absolute;
@@ -627,7 +627,7 @@
   height: 95%;
   color: #fff !important;
 }
-
+}
 /* =================How It Work Component============== */
 .how_it_work_component .ant-collapse-header {
   background: #2a3254;
