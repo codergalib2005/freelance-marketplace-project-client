@@ -14,6 +14,7 @@ import Counter from "../components/Home/Counter";
 import HowItWorks from "../components/Home/HowItWorks";
 import TryIt from "../components/Home/TryIt";
 import Growing from "../components/Home/Growing";
+import HeaderBottom from "../components/Shared/HeaderBottom";
 
 
 export default function Home() {
@@ -28,6 +29,7 @@ export default function Home() {
         <div>
           <HeaderTop />
           <Header />
+          <HeaderBottom />
         </div>
         <div>
           <Banner />
