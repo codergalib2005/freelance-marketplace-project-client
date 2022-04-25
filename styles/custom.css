@@ -390,11 +390,11 @@
   /* border: 1px solid #000; */
   flex: 3;
 }
-.responsiveMenuTool{
+.responsiveMenuTool {
   display: none !important;
 }
-.chatOnline{
-  flex:3
+.chatOnline {
+  flex: 3;
 }
 /* .chatMenuInput {
   width: 100%;
@@ -415,52 +415,48 @@
 .chatWrapperP {
   margin-bottom: 10px;
 }
-.onlineWrapper{
+.onlineWrapper {
   height: 100%;
   overflow-y: scroll;
 }
-.menu1{
+.menu1 {
   z-index: 120;
   padding-left: 10px;
   padding-top: 15px;
 }
-.menu2{
+.menu2 {
   z-index: 130;
   padding-right: 15px;
   padding-top: 15px;
 }
- 
 
-
-.chatMenuWrapper{
-    /* margin-top: 20px; */
+.chatMenuWrapper {
+  /* margin-top: 20px; */
   margin-left: 20px;
   padding-right: 20px;
- height: 90%;
+  height: 90%;
   overflow-y: scroll;
   display: block !important;
   transition: 2s;
   top: 40;
 }
-.onlineMenuWrapper{
+.onlineMenuWrapper {
   margin-left: 20px;
   padding-right: 20px;
- height: 91%;
+  height: 91%;
   overflow-y: scroll;
   display: block !important;
   transition: 1s;
   top: 40;
 }
 
-
-.chatBoxWrapper
- {
+.chatBoxWrapper {
   margin-top: 20px;
   margin-left: 20px;
   padding-right: 20px;
   height: 95%;
 }
-.onlineWrapper{
+.onlineWrapper {
   padding-top: 20px;
 }
 .chatBoxBottom {
@@ -471,13 +467,13 @@
   align-items: center;
   justify-content: space-between;
 }
- .chatMessageInput {
+.chatMessageInput {
   width: 75%;
   height: 70px;
-  padding:  20px;
+  padding: 20px;
   border: 1px solid gainsboro;
   border-radius: 20px;
-} 
+}
 .chatBoxButtonSubmit {
   width: 80px;
   height: 40px;
@@ -561,61 +557,64 @@
   color: #fff;
 }
 
-
 /* * chat responsive */
 @media screen and (max-width: 768px) {
-.chatMenuWrapper.open{
-   left: -100%;
-   
+  .chatMenuWrapper.open {
+    left: -100%;
+  }
 }
+
 }
 .chatMenuWrapper{
+
+.chatMenuWrapper {
+
   display: block !important;
   position: absolute;
   top: 40;
 }
-.chatMenuWrapper2{
-     display: block !important;
-    position: absolute !important;
+.chatMenuWrapper2 {
+  display: block !important;
+  position: absolute !important;
   padding: 20px 40px;
-    left: 0%;
-    background-color: lightblue !important;
-    /* height: 100vh !important; */
-    /* width: 40%;  */
-    top: 40;
-    transition:1s;
-   height: 91%;
+  left: 0%;
+  background-color: lightblue !important;
+  /* height: 100vh !important; */
+  /* width: 40%;  */
+  top: 40;
+  transition: 1s;
+  height: 91%;
   overflow-y: scroll;
   z-index: 20;
   color: rgb(17, 17, 17);
 }
-.onlineMenuWrapper.open2{
-   left: -100%;
-   overflow-y: scroll;
+.onlineMenuWrapper.open2 {
+  left: -100%;
+  overflow-y: scroll;
 }
-.onlineMenuWrapper{
+.onlineMenuWrapper {
   display: block !important;
   position: absolute;
   top: 40;
   overflow-y: scroll;
 }
-.onlineMenuWrapper2{
-     display: block !important;
-    position: absolute !important;
+.onlineMenuWrapper2 {
+  display: block !important;
+  position: absolute !important;
   padding: 20px 40px;
-    right: 0%;
-    background-color: lightblue !important;
-    /* height: 100vh !important; */
-    /* width: 40%;  */
-    top: 40;
-     margin-right: 0px;
-    transition:1s;
-   height: 91%;
- overflow-y: scroll;
+  right: 0%;
+  background-color: lightblue !important;
+  /* height: 100vh !important; */
+  /* width: 40%;  */
+  top: 40;
+  margin-right: 0px;
+  transition: 1s;
+  height: 91%;
+  overflow-y: scroll;
   z-index: 20;
   color: rgb(17, 17, 17);
 }
-.chatMenu{
+.chatMenu {
   flex: 0;
 }
 .chatBox {
@@ -623,15 +622,21 @@
   /* border: 1px solid #000; */
   flex: 10;
 }
-.chatOnline{
+.chatOnline {
   flex: 0;
 }
+
 .chatBoxWrapper{
+
+.chatBoxWrapper {
+
   margin-top: 0px;
   margin-left: 10px;
   padding-right: 10px;
   height: 95%;
+
   color: #fff !important;
+
 }
 
 /* =================How It Work Component============== */
