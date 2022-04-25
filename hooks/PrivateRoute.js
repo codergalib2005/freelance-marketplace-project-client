@@ -11,21 +11,8 @@ export function withPrivate(Component) {
                 router.replace("/login/register")
             }, [router])
             return <button type="button" className="bg-indigo-500 ..." disabled>
-                <div className='min-h-screen bg-gray-900 flex items-center justify-center w-vw'>
-                    <div className="lds-spinner">
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                    </div>
+                <div className='min-h-screen flex items-center justify-center'>
+                    <span className="main-loader"></span>
                 </div>
             </button>
         }
