@@ -52,7 +52,7 @@
     "stripe": "^8.217.0",
     "sweetalert2": "^11.4.8",
     "swiper": "^8.1.0",
-    "timeago.js": "^4.0.2"
+    "timeago.js": "^4.0.2",
     "swiper": "^8.1.0"
   },
   "proxy": "https://morning-thicket-69860.herokuapp.com/auth",

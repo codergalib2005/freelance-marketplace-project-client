@@ -42,7 +42,7 @@ const GigSearch = () => {
       <Header />
       <div className="border-b-2 border-gray-50">
         {/* Filter box header */}
-        <div className="bg-[#0a1929] py-5 border-b-2 border-gray-50">
+        <div className="bg-[#0a1929] py-2 border-b-2 border-gray-50">
           <div className="container-fluid mx-auto px-4">
             <div className="flex items-center justify-between">
               <div>
@@ -78,7 +78,7 @@ const GigSearch = () => {
             </div>
           </div>
         </div>
-        <div className="bg-[#2a3254] min-h-screen">
+        <div className="bg-[#fff] min-h-screen">
           <div className="flex justify-between gap-4 relative">
             {/* This s the menu show sidebar */}
             <div
@@ -172,10 +172,10 @@ const GigSearch = () => {
             {/* Show All contents Here */}
             <div
               style={{ overflowY: "scroll", maxWidth: "1100px" }}
-              className={`content_scrollbar transition-all duration-300 py-10 ease-linear w-full bg-[#2a3254] h-4 min-h-screen text-white mx-auto px-6 ${showSidebar ? "pl-80" : "pl-6"
+              className={`content_scrollbar transition-all duration-300 py-10 ease-linear w-full bg-[#fff] h-4 min-h-screen text-white mx-auto px-6 ${showSidebar ? "pl-80" : "pl-6"
                 }`}
             >
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 px-2 sm:px-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 px-2  sm:px-5">
                 {loading &&
                   [0, 1, 2, 3, 4, 5, 6].map((item) => (
                     <div key={item}>
