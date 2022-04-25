@@ -17,3 +17,31 @@
   color: #fff !important;
   fill: #ec4899;
 }
+/* 
+==========================
+      Header bottom
+==========================
+*/
+.header_bottom {
+  z-index: 100;
+}
+.header_bottom .main_button .dropdown_button {
+  opacity: 0;
+  visibility: hidden;
+  transform: scaleY(0%);
+  transition: all 0.5s linear;
+  transform-origin: top center;
+  -o-transform-origin: top center;
+  -ms-transform-origin: top center;
+}
+
+.header_bottom .main_button:hover .dropdown_button {
+  opacity: 1;
+  visibility: visible;
+  transform: scaleY(100%);
+  background: #fff;
+  z-index: 100 !important;
+}
+.header_bottom .main_button .dropdown_button li:hover a {
+  color: #fff;
+}
