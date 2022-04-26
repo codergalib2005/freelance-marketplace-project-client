@@ -67,7 +67,7 @@ const GigDetails = () => {
   
   
   return (
-    <div className=" bg-white min-h-screen">
+    <div className=" bg-white min-h-screen gig_details_styles"  >
       <DetailsHeader gig={gig} />
       <div className="container-fluid mx-auto px-3 py-10">
         <div className="grid grid-cols-1 lg:grid-cols-8 gap-4">

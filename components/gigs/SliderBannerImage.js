@@ -24,7 +24,7 @@ const SliderBannerImage = ({ gig }) => {
             gig?.gallery?.map((item, index) => (
               <SwiperSlide key={index} className="slider_item">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={item} alt={item} />
+                <img className="h-96" src={item} alt={item} />
               </SwiperSlide>
             ))
           }
@@ -41,7 +41,7 @@ const SliderBannerImage = ({ gig }) => {
               gig?.gallery?.map((item, index) => (
                 <SwiperSlide key={index}>
                   {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={item} alt={item} />
+                  <img className="h-36" src={item} alt={item} />
                 </SwiperSlide>
               ))
             }
