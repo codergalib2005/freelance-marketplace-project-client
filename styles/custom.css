@@ -382,7 +382,7 @@
 
 .mesenger {
   /* background-color: rgb(77, 77, 77); */
-  height: calc(100vh - 63px);
+  height: calc(100vh - 60px);
   display: flex;
 }
 /* * conversation */
@@ -510,6 +510,7 @@
 .conversation:hover {
   /* border: none; */
   background-color: gainsboro;
+  color: black;
 }
 .conversationImg {
   width: 40px;
@@ -563,70 +564,70 @@
     left: -100%;
   }
 
-.chatMenuWrapper {
-  display: block !important;
-  position: absolute;
-  top: 40;
-}
-.chatMenuWrapper2 {
-  display: block !important;
-  position: absolute !important;
-  padding: 20px 40px;
-  left: 0%;
-  background-color: lightblue !important;
-  /* height: 100vh !important; */
-  /* width: 40%;  */
-  top: 40;
-  transition: 1s;
-  height: 91%;
-  overflow-y: scroll;
-  z-index: 20;
-  color: rgb(17, 17, 17);
-}
-.onlineMenuWrapper.open2 {
-  left: -100%;
-  overflow-y: scroll;
-}
-.onlineMenuWrapper {
-  display: block !important;
-  position: absolute;
-  top: 40;
-  overflow-y: scroll;
-}
-.onlineMenuWrapper2 {
-  display: block !important;
-  position: absolute !important;
-  padding: 20px 40px;
-  right: 0%;
-  background-color: lightblue !important;
-  /* height: 100vh !important; */
-  /* width: 40%;  */
-  top: 40;
-  margin-right: 0px;
-  transition: 1s;
-  height: 91%;
-  overflow-y: scroll;
-  z-index: 20;
-  color: rgb(17, 17, 17);
-}
-.chatMenu {
-  flex: 0;
-}
-.chatBox {
-  padding: 20px 20px 0px 20px;
-  /* border: 1px solid #000; */
-  flex: 10;
-}
-.chatOnline {
-  flex: 0;
-}
-.chatBoxWrapper {
-  margin-top: 0px;
-  margin-left: 10px;
-  padding-right: 10px;
-  height: 95%;
-  color: #fff !important;
-}
+  .chatMenuWrapper {
+    display: block !important;
+    position: absolute;
+    top: 40;
+  }
+  .chatMenuWrapper2 {
+    display: block !important;
+    position: absolute !important;
+    padding: 20px 40px;
+    left: 0%;
+    background-color: #5a61b7;
+    /* height: 100vh !important; */
+    /* width: 40%;  */
+    top: 40;
+    transition: 1s;
+    height: 91%;
+    overflow-y: scroll;
+    z-index: 20;
+    color: white;
+  }
+  .onlineMenuWrapper.open2 {
+    left: -100%;
+    overflow-y: scroll;
+  }
+  .onlineMenuWrapper {
+    display: block !important;
+    position: absolute;
+    top: 40;
+    overflow-y: scroll;
+  }
+  .onlineMenuWrapper2 {
+    display: block !important;
+    position: absolute !important;
+    padding: 20px 40px;
+    right: 0%;
+    background-color: #5a61b7;
+    /* height: 100vh !important; */
+    /* width: 40%;  */
+    top: 40;
+    margin-right: 0px;
+    transition: 1s;
+    height: 91%;
+    overflow-y: scroll;
+    z-index: 20;
+    color: white;
+  }
+  .chatMenu {
+    flex: 0;
+  }
+  .chatBox {
+    padding: 20px 20px 0px 20px;
+    /* border: 1px solid #000; */
+    flex: 10;
+  }
+  .chatOnline {
+    flex: 0;
+  }
+  .chatBoxWrapper {
+    margin-top: 0px;
+    margin-left: 10px;
+    padding-right: 10px;
+    height: 95%;
+    color: #fff !important;
+  }
 }
 /* =================How It Work Component============== */
 .how_it_work_component .ant-collapse-header {

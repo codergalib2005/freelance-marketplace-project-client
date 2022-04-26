@@ -7,17 +7,17 @@ import Conversation from "../../components/Conversation/Conversation";
 import Message from "../../components/Message/Message";
 import MessengerNav from "../../components/MessangerNav/MessengerNav";
 import AllUsers from "../../components/AllUsers/AllUsers";
-import { message } from 'antd';
-import { HiMenuAlt2, HiMenuAlt3 } from 'react-icons/hi'
+import { message } from "antd";
+import { HiMenuAlt2, HiMenuAlt3 } from "react-icons/hi";
 import HeaderTop from "../../components/Shared/HeaderTop";
 import Header from "../../components/Shared/Header";
 import Footer from "../../components/Shared/Footer";
 
 const warning = () => {
-  message.warning('You already have a conversation with this friend!');
+  message.warning("You already have a conversation with this friend!");
 };
 const warning2 = () => {
-  message.warning('You can not create conversation with yourself!');
+  message.warning("You can not create conversation with yourself!");
 };
 
 const socket = io.connect("http://localhost:8900");
@@ -25,17 +25,17 @@ const socket = io.connect("http://localhost:8900");
 function ChatApp() {
   const { user } = useAuth();
 
-  const [open, setOpen] = useState(false)
-  const [open2, setOpen2] = useState(false)
+  const [open, setOpen] = useState(false);
+  const [open2, setOpen2] = useState(false);
 
   const openforMenu1 = () => {
-    setOpen(!open)
-    setOpen2(false)
-  }
+    setOpen(!open);
+    setOpen2(false);
+  };
   const openforMenu2 = () => {
-    setOpen2(!open2)
-    setOpen(false)
-  }
+    setOpen2(!open2);
+    setOpen(false);
+  };
 
   const [conversation, setCoversation] = useState([]);
   const [currentChat, setCurrentChat] = useState(null);
@@ -44,16 +44,16 @@ function ChatApp() {
   const [newMessage, setNewMessage] = useState("");
   const [allUsers, setAllUsers] = useState([]);
   const scrollRef = useRef();
-  console.log(currentChat);
+  console.log(conversation);
   // * add user for socket and get user for socket
   useEffect(() => {
-    socket.emit("addUser", user.email);
+    socket.emit("addUser", user?.email);
 
     // * we can use them as online friend now
     socket?.on("getUsers", (users) => {
       // console.log(users);
     });
-  }, [user.email]);
+  }, [user?.email]);
 
   // * create new conversation
   const createNewConversation = async (newUser) => {
@@ -62,38 +62,40 @@ function ChatApp() {
     if (senderEmail !== receiverEmail) {
       const newConversationOfUser = {
         senderEmail,
-        receiverEmail
-      }
-      const res = await axios.post('http://localhost:8800/api/conversations/', newConversationOfUser)
+        receiverEmail,
+      };
+      const res = await axios.post(
+        "https://freelancer-chat-app-api.herokuapp.com/api/conversations/",
+        newConversationOfUser
+      );
 
-      if (res.data.members) {
+      if (res.data?.members) {
         const res = await axios.get(
-          "http://localhost:8800/api/conversations/" + user?.email
+          "https://freelancer-chat-app-api.herokuapp.com/api/conversations/" +
+            user?.email
         );
         setCoversation(res.data);
-        setOpen2(false)
+        setOpen2(false);
+      } else if (res.data.message) {
+        warning();
+        setOpen2(false);
+        return;
       }
-
-      else if (res.data.message) {
-        warning()
-        setOpen2(false)
-        return
-      }
+    } else {
+      warning2();
+      return;
     }
-    else {
-      warning2()
-      return
-    }
-
-  }
+  };
 
   // * get the conversation user specific
   useEffect(() => {
     const getConversation = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:8800/api/conversations/" + user?.email
+          "https://freelancer-chat-app-api.herokuapp.com/api/conversations/" +
+            user?.email
         );
+        console.log(user);
         setCoversation(res.data);
       } catch (error) {
         console.log(error);
@@ -107,7 +109,7 @@ function ChatApp() {
     const getUsers = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:8800/api/users"
+          "https://freelancer-chat-app-api.herokuapp.com/api/users"
         );
         setAllUsers(res.data);
       } catch (error) {
@@ -122,7 +124,8 @@ function ChatApp() {
     const getMessage = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:8800/api/messages/" + currentChat?._id
+          "https://freelancer-chat-app-api.herokuapp.com/api/messages/" +
+            currentChat?._id
         );
         setMessages(res.data);
       } catch (error) {
@@ -151,7 +154,10 @@ function ChatApp() {
       text: newMessage,
     });
     try {
-      const res = await axios.post("http://localhost:8800/api/messages", message);
+      const res = await axios.post(
+        "https://freelancer-chat-app-api.herokuapp.com/api/messages",
+        message
+      );
       setMessages([...messages, res.data]);
       const id = document.getElementById("text");
       id.value = "";
@@ -188,8 +194,8 @@ function ChatApp() {
   //* conversation click
   const conversationClick = (value) => {
     setCurrentChat(value);
-    setOpen(false)
-  }
+    setOpen(false);
+  };
   /* 
   HiMenuAlt2
   */
@@ -198,44 +204,39 @@ function ChatApp() {
       {/* <HeaderTop /> */}
       <Header />
       {/* //* main messenger part */}
-      <div className="mesenger mainChatPart">
-        <span onClick={openforMenu1} className='text-3xl block lg:hidden menu1'>  <HiMenuAlt2 /></span>
+      <div className="mesenger mainChatPart bg-[#EDEEF7]">
+        <span onClick={openforMenu1} className="text-3xl block lg:hidden menu1">
+          {" "}
+          <HiMenuAlt2 />
+        </span>
         {/* //? chat conversation part design */}
         <div className="chatMenu ">
-
           <div className={open ? "chatMenuWrapper2 " : "chatMenuWrapper open"}>
+            <p className="text-md font-semibold text-white lg:text-gray-800 mt-6">
+              Your Current Conversations
+            </p>
 
-            <p className='text-md font-semibold text-gray-600 mt-6'>Your Current Conversations</p>
-
-            <div className='chatMenuItem'
+            <div
+              className="chatMenuItem"
               style={{
                 marginTop: "30px",
               }}
             >
               {conversation.map((c, i) => (
-                <div
-                  key={i}
-                  onClick={() => conversationClick(c)}
-                >
+                <div key={i} onClick={() => conversationClick(c)}>
                   <Conversation conversation={c} currentUser={user} />
                 </div>
               ))}
-
             </div>
           </div>
         </div>
 
         {/* //* chat message part  */}
         <div className="chatBox">
-
           {currentChat ? (
-
-
             <div className="chatBoxWrapper">
-
               <p className="chatWrapperP">Start Conversation</p>
               <div className="chatBoxTop">
-
                 {messages.map((m, i) => (
                   <div key={i} ref={scrollRef}>
                     <Message message={m} own={m.sender === user?.email} />
@@ -264,7 +265,7 @@ function ChatApp() {
             <p
               style={{
                 fontSize: "48px",
-                color: "lightblue",
+                color: "#5534A5",
                 marginTop: "20px",
                 padding: "20px",
               }}
@@ -274,10 +275,18 @@ function ChatApp() {
           )}
         </div>
         {/* //* all user */}
-        <div className="chatOnline">
-          <div className={open2 ? "onlineMenuWrapper2 " : "onlineMenuWrapper open2"}>
-            <p className='text-gray-600 text-center font-bold text-2xl mt-6'>All Users</p>
-            <p className='text-gray-600 text-center font-medium'>click any user to start conversation</p>
+        <div className="chatOnline ">
+          <div
+            className={
+              open2 ? "onlineMenuWrapper2 " : "onlineMenuWrapper open2"
+            }
+          >
+            <p className="text-white lg:text-gray-800 text-center font-bold text-2xl mt-6">
+              All Users
+            </p>
+            <p className="text-white lg:text-gray-800 text-center font-medium">
+              click any user to start conversation
+            </p>
             <div
               style={{
                 marginTop: "30px",
@@ -287,17 +296,22 @@ function ChatApp() {
                 <div
                   key={i}
                   onClick={() => {
-                    createNewConversation(user)
+                    createNewConversation(user);
                   }}
                 >
                   <AllUsers user={user} />
                 </div>
               ))}
-
             </div>
           </div>
         </div>
-        <span onClick={openforMenu2} className='text-3xl block lg:hidden menu2 '>  <HiMenuAlt3 /></span>
+        <span
+          onClick={openforMenu2}
+          className="text-3xl block lg:hidden menu2 "
+        >
+          {" "}
+          <HiMenuAlt3 />
+        </span>
       </div>
       {/* <Footer /> */}
     </div>
