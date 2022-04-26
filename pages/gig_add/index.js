@@ -73,20 +73,20 @@ const GigCreation = () => {
               <p className="text-xs">1</p>
             </div>
             <button className="text-green-400 font-bold text-xs md:text-base">
-              Personal Info
+              Gig Info
             </button>
           </div>
           <div className="flex gap-2 items-center">
             <div className="border-2  h-5 w-5 rounded-full flex justify-center items-center">
               <p className="text-xs">2</p>
             </div>
-            <button>Professional Info</button>
+            <button>Gig Price</button>
           </div>
           <div className="flex gap-2 items-center">
             <div className="border-2   h-5 w-5 rounded-full flex justify-center items-center">
               <p className="text-xs">3</p>
             </div>
-            <button>Lineked Account</button>
+            <button>Gig Imgages</button>
           </div>
         </div>
         {/*============my Gig info section==============*/}
@@ -226,7 +226,7 @@ const GigCreation = () => {
                           </span>
                         )}
                         <select
-                          className="border border-gray-300 h-12 text-md w-full rounded-md mt-2 outline-none"
+                          className="border border-gray-300 h-12 text-md w-full rounded-md  outline-none"
                           {...register("first_day", { required: true })}
                         >
                           <option value="1">1 Day</option>
@@ -241,7 +241,7 @@ const GigCreation = () => {
                         <input
                           type="number"
                           placeholder="Service Price $10 to $40"
-                          className="px-2 w-full  font-medium py-2 bg-gray-100 outline-none"
+                          className="px-2 w-full  font-medium py-2 bg-gray-100 my-2 outline-none"
                           {...register("first_price", {
                             min: 10,
                             max: 40,
