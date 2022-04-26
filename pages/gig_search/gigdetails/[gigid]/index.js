@@ -89,7 +89,7 @@ const GigDetails = () => {
                   <strong className="text-xl font-bold  border-b-2 border-orange-200 pr-5 mt-6 pb-1 mb-2 online-block">
                     Gig Description
                   </strong>
-                  <p className="text-md  mt-2">
+                  <p className="text-md  mt-2 opacity-50">
                     {gig?.description}
                   </p>
                 </div>
@@ -117,7 +117,7 @@ const GigDetails = () => {
               <strong className="border-y-2 col-span-3 border-orange-200 py-1">
                 {gigUser?.email}
               </strong>
-              <strong className="border-y-2 border-border-orange-200 py-1">
+              <strong className="border-y-2 border-orange-200 py-1">
                 <Moment fromNow ago>
                   {gigUser?.date}
                 </Moment>
@@ -125,7 +125,7 @@ const GigDetails = () => {
             </div>
             {!(gigUser?.about === "") && (
               <div>
-                <strong className="text-xl font-bold text-white bg-green-500 px-3 py-2 border-b-2 border-orange-200 pr-5 mt-6 pb-1 mb-2 online-block">
+                <strong className="text-xl font-bold text-white bg-green-500 px-3 py-2   mt-6  mb-2 online-block">
                   About
                 </strong>
                 <p className="text-md  mt-2">{gigUser?.about}</p>
@@ -153,17 +153,17 @@ const GigDetails = () => {
               {/* Gig Pricing cards */}
               <div className="mt-6 bg-white rounded-md pb-8 relative">
                 {/* Header */}
-                <div className="border-b-2 border-[#2a3254]">
-                  <div className="grid grid-cols-3 bg-white rounded-md border-2 border-b-0 border-white">
+                <div className="">
+                  <div className="grid grid-cols-3 bg-white rounded-t-md border-2 border-[#7b92f7] border-b-0 ">
                     <div
-                      className={`text-center cursor-pointer py-2 text-lg font-bold ${showPricing === "beginner" && "bg-[#2a3254] text-white"
+                      className={`text-center cursor-pointer py-2 text-lg font-bold ${showPricing === "beginner" && "bg-[#7b92f7] text-white"
                         }`}
                       onClick={() => setShowPricing("beginner")}
                     >
                       Beginner
                     </div>
                     <div
-                      className={`text-center cursor-pointer py-2 text-lg font-bold ${showPricing === "expert" && "bg-[#2a3254] text-white"
+                      className={`text-center cursor-pointer py-2 text-lg font-bold ${showPricing === "expert" && "bg-[#7b92f7] text-white"
                         }`}
                       onClick={() => setShowPricing("expert")}
                     >
@@ -171,7 +171,7 @@ const GigDetails = () => {
                     </div>
                     <div
                       className={`text-center cursor-pointer py-2 text-lg font-bold ${showPricing === "experience" &&
-                        "bg-[#2a3254] text-white"
+                        "bg-[#7b92f7] text-white"
                         }`}
                       onClick={() => setShowPricing("experience")}
                     >
@@ -180,14 +180,14 @@ const GigDetails = () => {
                   </div>
                 </div>
                 {/* body */}
-                <div className=" pb-3 relative">
+                <div className=" pb-8 relative bg-orange-200 rounded-b-lg">
                   {showPricing === "beginner" && (
                     <div>
                       <div className="h-56 flat_gradient pricing_card flex items-center justify-center flex-col">
                         <h2 className="text-xl font-bold text-center  uppercase">
                           Beginner
                         </h2>
-                        <h1 className="text-white text-3xl font-bold text-center uppercase">
+                        <h1 className=" text-3xl font-bold text-center uppercase">
                           ${gig?.first_price}/{gig?.first_day}.Day
                         </h1>
                       </div>
@@ -249,7 +249,7 @@ const GigDetails = () => {
                       </div>
                       <div className="grid grid-cols-6 pl-3 mx-3  border-b border-[#2a3254] py-2 rounded-2xl">
                         <div className="col-span-2">
-                          <strong className="text-lg font-bold text-white">
+                          <strong className="text-lg font-bold ">
                             Title
                           </strong>
                         </div>
@@ -259,7 +259,7 @@ const GigDetails = () => {
                       </div>
                       <div className="grid grid-cols-6 pl-3 mx-3  border-b border-[#2a3254] py-2 rounded-2xl">
                         <div className="col-span-2">
-                          <strong className="text-lg font-bold text-white">
+                          <strong className="text-lg font-bold ">
                             Description
                           </strong>
                         </div>
@@ -282,10 +282,10 @@ const GigDetails = () => {
                       <div className="flex items-center justify-center ">
                         <div className="rounded-full w-24 h-24 flex items-center justify-center bg-white shadow-lg text-center relative -top-12">
                           <div>
-                            <h1 className="text-white text-2xl font-bold">
+                            <h1 className=" text-2xl font-bold">
                               {gig?.third_day}
                             </h1>
-                            <h4 className="text-xl font-bold text-white">
+                            <h4 className="text-xl font-bold ">
                               Day
                             </h4>
                           </div>
@@ -293,7 +293,7 @@ const GigDetails = () => {
                       </div>
                       <div className="grid grid-cols-6 pl-3 mx-3  border-b border-[#2a3254] py-2 rounded-2xl">
                         <div className="col-span-2">
-                          <strong className="text-lg font-bold text-white">
+                          <strong className="text-lg font-bold ">
                             Title
                           </strong>
                         </div>
@@ -301,9 +301,9 @@ const GigDetails = () => {
                           {gig?.third_title}
                         </div>
                       </div>
-                      <div className="grid grid-cols-6 pl-3 mx-3  border-b border-white py-2 rounded-2xl">
+                      <div className="grid grid-cols-6 pl-3 mx-3  border-b border-[#2a3254]  py-2 rounded-2xl">
                         <div className="col-span-2">
-                          <strong className="text-lg font-bold text-white">
+                          <strong className="text-lg font-bold ">
                             Description
                           </strong>
                         </div>
@@ -315,7 +315,7 @@ const GigDetails = () => {
                   )}
                 </div>
                 <Link href={`/gig_search/buy_plan/${gig?._id}`}>
-                  <button className="button_gradient flat_gradient">
+                  <button className="button_gradient absolute -mt-6 flat_gradient">
                     Buy Plan
                   </button>
                 </Link>
