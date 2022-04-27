@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../../styles/Request.module.css";
 
-const index = () => {
+const Request = () => {
   return (
     <div className="p-12 container-fluid mx-auto	bg-neutral-100 min-h-screen">
       <div className="p-12	bg-neutral-100 min-h-screen">
@@ -123,4 +123,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Request;

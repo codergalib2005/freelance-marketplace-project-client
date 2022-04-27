@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import Menu from "../../components/Setting/Menu";
-import Notification from "../../components/Setting/Notification/Notification";
+import NotificationCom from "../../components/Setting/Notification/Notification";
 
 const notification = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -10,6 +10,7 @@ const notification = () => {
     setShow(false);
   };
 
+const Notification = () => {
   return (
     <>
     <div className="container grid md:grid-cols-4  gap-8  relative">
@@ -33,10 +34,12 @@ const notification = () => {
             />
           </div>
           <Notification />
+        <div className="col-span-3 shadow-lg p-6">
+          <NotificationCom />
         </div>
       </div>
     </>
   );
 };
 
-export default notification;
+export default Notification;

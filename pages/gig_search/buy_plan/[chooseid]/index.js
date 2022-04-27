@@ -9,6 +9,7 @@ import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 import { useForm } from "react-hook-form";
+import { message } from 'antd';
 
 const BuyPlan = () => {
   const [value, setValue] = React.useState(new Date());
@@ -19,16 +20,39 @@ const BuyPlan = () => {
   const { user } = useAuth();
 
   //hook from function
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const onSubmit = data => {
-    data.seller_email = gig.email,
-    data.buyer_email = user.email,
-    data.gig_title = gig.gig_title,
-    data.category = gig.category,
-    data.time = value
-    console.log(data)
-  };
+  
+      // post
 
+      axios.post(
+        `${process.env.NEXT_PUBLIC_API_URL}/task/`,
+        {
+          sellerEmail: gig.email,
+          buyerEmail: user.email,
+          title: gig.gig_title,
+          category: gig.category,
+          price: data.price,
+          to: value
+    
+        },
+
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        },
+
+      ).then(
+        () => {
+          message.success('Task successfully')
+          reset();
+        }
+      ).catch(err => console.log(message))
+      
+
+  };
+  
   useEffect(() => {
     const GETURL = `${process.env.NEXT_PUBLIC_API_URL}/gigs/${id}`;
     axios
@@ -40,21 +64,7 @@ const BuyPlan = () => {
   }, [id, router.query.gigid]);
   console.log(gig);
 
-  //post
-  // axios.post(
-  //   "http://localhost:3000/api/contact",
-  //   {
-  //     firstName,
-  //     lastName,
-  //     email,
-  //   },
-  //   {
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   },
-  //   console.log(res) //this comes back undefined
-  // )
+
 
   return (
     <div>
@@ -101,20 +111,76 @@ const BuyPlan = () => {
                   </LocalizationProvider>
                 </div>
 
-                <div>
-
-                  <h1>{gig.category}</h1>
-                  <h2>{gig.gig_title}</h2>
-                  <h2>{gig.email}</h2>
-                  <p>{user.email}</p>
-                  <form onSubmit={handleSubmit(onSubmit)}>
-                    <select {...register("Package")}>
-                      <option value="Basic">Basic</option>
-                      <option value="Standred">Standred</option>
-                      <option value="Primiun">Primiun</option>
-                    </select>
-                    <input type="submit" />
-                  </form>
+                <div className="p-10">
+                  <div >
+                    <div>
+                      <div className="h-56 flat_gradient pricing_card flex items-center justify-center flex-col">
+                        <h2 className="text-xl font-bold text-center text-white uppercase">
+                        {gig.category}
+                        </h2>
+                      </div>
+                      <div className="flex items-center justify-center ">
+                        <div className="rounded-full w-24 h-24 flex items-center justify-center bg-white shadow-lg text-center relative -top-12">
+                          <div>
+                            <h1 className="text-[#2a3254] text-2xl font-bold">
+                            </h1>
+                            <h4 className="text-xl font-bold text-[#2a3254]">
+                            </h4>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="grid grid-cols-6 mx-4 pl-2  border-b border-[#2a3254] py-2 rounded-2xl">
+                        <div className="col-span-2">
+                          <strong className="text-lg font-bold text-[#2a3254]">
+                            Title
+                          </strong>
+                        </div>
+                        <div className="col-span-4 self-center text-base">
+                            {/* {gig.gig_title} */}
+                        </div>
+                      </div>
+                      <div className="grid grid-cols-6 mx-4 pl-2  border-b border-[#2a3254] py-2 rounded-2xl">
+                        <div className="col-span-2">
+                          <strong className="text-lg font-bold text-[#2a3254]">
+                            Seller Email
+                          </strong>
+                        </div>
+                        <div className="col-span-4 self-center text-base">
+                          {gig.email}
+                        </div>
+                      </div>
+                      <div className="grid grid-cols-6 mx-4 pl-2  border-b border-[#2a3254] py-2 rounded-2xl">
+                        <div className="col-span-2">
+                          <strong className="text-lg font-bold text-[#2a3254]">
+                            Buyer Email
+                          </strong>
+                        </div>
+                        <div className="col-span-4 self-center text-base">
+                          {user.email}
+                        </div>
+                      </div>
+                      <div className="grid grid-cols-6 mx-4 pl-2  border-b border-[#2a3254] py-2 rounded-2xl">
+                        <div className="col-span-2">
+                          <strong className="text-lg font-bold text-[#2a3254]">
+                            select Category
+                          </strong>
+                        </div>
+                        <div className="col-span-4 self-center text-base">
+                          <form onSubmit={handleSubmit(onSubmit)}>
+                            <select {...register("Package")}>
+                              <option value="Basic">Basic</option>
+                              <option value="Standred">Standred</option>
+                              <option value="Primiun">Primiun</option>
+                            </select>
+                            <input type="number" {...register("price", {required: true})} placeholder="price" />
+                            <button className="button_gradient  flat_gradient">
+                              <input type="submit" />
+                            </button>
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -125,3 +191,7 @@ const BuyPlan = () => {
   );
 };
 export default BuyPlan;
+
+
+
+

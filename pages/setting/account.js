@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Menu from "../../components/Setting/Menu";
-import AccountSetting from "../../components/Setting/AccountSetting/AccountSetting";
+import AccountSettingCom from "../../components/Setting/AccountSetting/AccountSetting";
 
 const accountSetting = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -9,6 +9,7 @@ const accountSetting = () => {
   const getValue = () => {
     setShow(false);
   };
+const AccountSetting = () => {
   return (
     <>
       <div className="container grid md:grid-cols-4  gap-8  relative">
@@ -32,10 +33,12 @@ const accountSetting = () => {
             />
           </div>
           <AccountSetting />
+        <div className="col-span-3 shadow-lg p-6">
+          <AccountSettingCom />
         </div>
       </div>
     </>
   );
 };
 
-export default accountSetting;
+export default AccountSetting;

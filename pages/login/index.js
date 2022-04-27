@@ -3,31 +3,27 @@ import React from 'react';
 import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
 const Login = () => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const { user, logInUser, signInWithGoogle, loading, error, userStatus } = useAuth();
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
   const onSubmit = data => {
     logInUser(data.email, data.password)
   };
 
   return (
-    <div className='w-full bg-[#1a2747] overflow-visible md:overflow-hidden'>
+    <div className='w-full bg-[#fff] overflow-visible md:overflow-hidden px-4'>
       {!loading && (
         <div>
-          <div className="container mx-auto px-2 flex items-center justify-center  min-h-screen">
+          <div style={{ minHeight: '90vh' }} className="container mx-auto flex items-center justify-center border-4 border-[#2f9ece]  md:mt-5">
             <div style={{ maxHeight: '600px', height: '100vh' }} className="grid grid-cols-1 md:grid-cols-2 w-full">
               <div className='bg-[#2f9ece] h-full flex items-stretch justify-center relative'>
                 <Link href="/">
                   <a className='w-32 text-center py-2 text-lg absolute left-2 top-2 bg-white font-bold rounded-md text-[#2f9ece]'>Go Home</a>
                 </Link>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src="/login/register.png" alt="" />
               </div>
               <div className='bg-white shadow-md h-full'>
                 <div className='flex justify-items-end content-end justify-end'>
                   <button className='w-28 text-lg text-center flex items-center justify-center py-2 bg-[#2f9ece] text-gray-50'>Login</button>
-                  {/* eslint-disable-next-line @next/next/link-passhref */}
                   <Link href="/login/register">
                     <button className=' w-28 text-lg text-center flex items-center justify-center  py-2 shadow-md'>Register</button>
                   </Link>
@@ -50,20 +46,7 @@ const Login = () => {
       )}
       {
         loading && (<div className='min-h-screen flex items-center justify-center'>
-          <div className="lds-spinner">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
+          <span className="main-loader"></span>
         </div>)
       }
     </div>

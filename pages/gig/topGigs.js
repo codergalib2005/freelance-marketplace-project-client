@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import TopGig from '../../components/TotalGig/TopGig';
 
-const topGigs = () => {
+const TopGigs = () => {
   const [gigs, setGigs] = useState([])
 
   const gigUrl = `${process.env.NEXT_PUBLIC_API_URL}/gigs/top`;
@@ -26,4 +26,4 @@ const topGigs = () => {
   );
 };
 
-export default topGigs;
+export default TopGigs;

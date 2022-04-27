@@ -55,7 +55,7 @@ const useFirebase = () => {
                     // An error occurred
                     // ...
                   });
-                axios.post(`${process.env.NEXT_PUBLIC_API_URL}/users`, body)
+                axios.post(`${process.env.NEXT_PUBLIC_API_URL}/users, body`)
                     .then(res => {
                         message.success("User register successfully!");
                         router.replace("/")
@@ -88,7 +88,7 @@ const useFirebase = () => {
 
 //for admin
 // useEffect(() => {
-//     fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/admin/${user?.email}`)
+//     fetch(${process.env.NEXT_PUBLIC_API_URL}/users/admin/${user?.email})
 //     .then(res => res.json())
 //     .then(data => setAdmin(data.admin))
 // },[user?.email])

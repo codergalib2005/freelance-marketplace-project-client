@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 const DeactiveAccount = () => {
   const { register, handleSubmit } = useForm();
   const deactiveAccount = (data) => {
-    console.log(data);
+    // console.log(data);
   };
   return (
     <>

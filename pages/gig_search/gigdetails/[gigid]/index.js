@@ -10,6 +10,9 @@ import Link from "next/link";
 import { useForm } from "react-hook-form";
 import Rating from '@mui/material/Rating';
 import { message } from 'antd';
+import styles from '../../../../styles/gigid.module.css';
+import Header from "../../../../components/Shared/Header";
+import HeaderTop from "../../../../components/Shared/HeaderTop";
 
 
 
@@ -20,32 +23,67 @@ const GigDetails = () => {
   const [showPricing, setShowPricing] = useState("beginner");
   const router = useRouter();
   const [rating, setRating] = useState(0);
+
+  const [sellerEmail, setSellerEmail] = useState([]);
+
+
+  //Buyer rivew
+  console.log(sellerEmail)
+  useEffect(() => {
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/reviews/sellerEmail/${gig?.email}`)
+      .then(res => res.json())
+      .then(data => {
+        setSellerEmail(data.result)
+      })
+  }, [gig?.email])
+
+
+
   //hook from
-  console.log(user)
-  const { register, handleSubmit } = useForm();
+
+
+
+
+  //Buyer rivew
+  console.log(sellerEmail)
+  useEffect(() => {
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/reviews/sellerEmail/${gig?.email}`)
+      .then(res => res.json())
+      .then(data => {
+        setSellerEmail(data.result)
+      })
+  }, [gig?.email])
+
+
+  const { register, handleSubmit, reset } = useForm();
   const onSubmit = data => {
     data.rating = rating,
-    data.sellerEmail = gig?.email,
-    data.buyerEmail = user?.email,
-    data.buyerName = user?.displayName ? user?.displayName : 'user name does not existed',
-    
-        //post
-  axios.post(
-    `${process.env.NEXT_PUBLIC_API_URL}/reviews/`,
-      data ,
-    
-    {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    },
-    
-  ).then(
-    () => message.success('review successfully')
-  ).catch (err => message.error(err))
+      data.sellerEmail = gig?.email,
+      data.buyerEmail = user?.email,
+      data.buyerName = user?.displayName ? user?.displayName : 'Buyer Name',
 
-    console.log(data)
+
+      //post
+      axios.post(
+        `${process.env.NEXT_PUBLIC_API_URL}/reviews/`,
+        data,
+
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        },
+
+
+      ).then(
+        () => {
+          message.success('Review successfully')
+          // something
+          reset();
+        }
+      ).catch(err => console.log(err))
   };
+
   useEffect(() => {
     const GETURL = `${process.env.NEXT_PUBLIC_API_URL}/gigs/${router?.query?.gigid}`;
     axios
@@ -62,13 +100,17 @@ const GigDetails = () => {
       (error) => {
         console.log(error);
       }
-    );
-
-  
+    );  
   
   return (
     <div className=" bg-white min-h-screen gig_details_styles"  >
       <DetailsHeader gig={gig} />
+
+  return (
+    <div className=" bg-[#2a3254] min-h-screen">
+      {/* <DetailsHeader gig={gig} /> */}
+      <HeaderTop />
+      <Header />
       <div className="container-fluid mx-auto px-3 py-10">
         <div className="grid grid-cols-1 lg:grid-cols-8 gap-4">
           <div className="col-span-5">
@@ -95,6 +137,42 @@ const GigDetails = () => {
                 </div>
               )}
             </div>
+
+            <div className="mt-16 text-center">
+              <strong className="text-xl font-bold text-white border-b-2 border-[#a78737] pr-5 mt-6 pb-1 mb-2 online-block">
+                All Review
+              </strong> <br /> <br />
+            </div>
+
+            {
+              sellerEmail.map(seller => (
+                <div className="w-[50%] mt-10 mx-10">
+                  <div className="mt-10">
+                    <div className="shadow-sm shadow-oraange-700 rounded-md overflow-hidden">
+                      <div className="flex">
+                        <div>
+                          <img className="rounded-full" src={seller.buyerImage} alt="" />
+                        </div>
+                        <div className="mt-10 ml-5">
+                          <Rating name="half-rating" defaultValue={seller.rating} readOnly /> <br />
+                          <h4 className="text-white">{seller.profession}</h4>
+                        </div>
+                      </div>
+
+                      <div className="ml-2 mt-4">
+                        <h1 className="text-white">{seller.buyerName}</h1>
+                        <p className="text-white">{seller.description}</p>
+                        <h2 className="text-white">{seller.buyerEmail}</h2>
+                        <h5 className="text-white">{seller.date}</h5>
+                      </div>
+
+
+                    </div>
+                  </div>
+                </div>
+              ))
+            }
+
           </div>
           <div className="col-span-3">
             <div className="grid grid-cols-8">
@@ -323,11 +401,17 @@ const GigDetails = () => {
 
               <div>
               <Rating onChange={e => setRating(e.target.value)} name="half-rating" defaultValue={2.5} precision={0.5} className="text-orange-600" />
+              <div className={`mt-10 ${styles.review_contaner}`}>
+                <strong className="text-xl font-bold text-white border-b-2 border-[#a78737] pr-5 mt-6 pb-1 mb-2 online-block">
+                  Give a Review
+                </strong> <br /> <br />
+
+                <Rating onChange={e => setRating(e.target.value)} name="half-rating" defaultValue={2.5} precision={0.5} /> <br />
                 <form onSubmit={handleSubmit(onSubmit)}>
-                  <input {...register("description")} />
-                  <input {...register("profession")} />
-                  <input {...register("buyerImage")} />
-                  <input type="submit" />
+                  <textarea className="py-1 px-2 rounded-2" {...register("description")} placeholder='Your Comment' required /> <br /> <br />
+                  <input className="py-1 px-2 rounded-2" {...register("profession")} placeholder='Your profession' type="text" required /> <br /> <br />
+                  <input className="py-1 px-2 rounded-2" {...register("buyerImage")} placeholder='Your image URL' required /> <br /> <br />
+                  <input className="text-white bg-purple-500 px-4 py-2 rounded-md font-bold" type="submit" />
                 </form>
               </div>
 

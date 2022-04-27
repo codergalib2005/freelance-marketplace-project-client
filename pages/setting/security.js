@@ -9,6 +9,7 @@ const security = () => {
   const getValue = () => {
     setShow(false);
   };
+const Security = () => {
   return (
     <div className="container grid md:grid-cols-4  gap-8 my-10 relative">
       <div
@@ -36,4 +37,4 @@ const security = () => {
   );
 };
 
-export default security;
+export default Security;

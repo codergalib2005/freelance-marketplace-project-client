@@ -6,7 +6,6 @@ import "swiper/css/thumbs";
 import { Swiper, SwiperSlide } from 'swiper/react';
 const SliderBannerImage = ({ gig }) => {
   const [activeThumb, setActiveThumb] = useState()
-  console.log(gig);
   return (
     <>
       <div>
