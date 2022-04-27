@@ -8,6 +8,7 @@ import "swiper/css/pagination";
 // import required modules
 import { Pagination } from "swiper";
 import FeatureSingle from "./FeatureSingle";
+import Link from "next/link";
 
 export default function Feature() {
   const [features, setFeatures] = useState([]);
@@ -22,7 +23,7 @@ export default function Feature() {
       <div className=" flex justify-between flex-col md:flex-row mb-8 items-center">
         <div className="w-full md:w-10/12 lg:w-8/12">
           <h2 className="text-3xl font-bold mb-2 capitalize text-gray-700">
-            Expolre popular<span className="text-green-700"> services</span>
+            Expolre popular<span className="text-blue-600"> services</span>
           </h2>
           <p className="w-full md:w-10/12 lg:w-8/12 text-gray-600 text">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit
@@ -32,9 +33,11 @@ export default function Feature() {
         </div>
 
         <div className="mt-6 md:mt-0 lg:mt-0">
-          <button className="border-2 border-blue-500  rounded-md py-3 px-6">
+          <Link href='/gig_search'>
+          <a className="border-2 border-blue-500  rounded-md py-3 px-6">
             Explore Now
-          </button>
+          </a>
+          </Link>
         </div>
       </div>
       <Swiper
