@@ -3,56 +3,55 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import useAuth from "../../../../hooks/useAuth";
 import DetailsHeader from "../../../../components/gigs/DetailsHeader";
-import { styled } from "@mui/material/styles";
-import TextField from "@mui/material/TextField";
-import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 import { useForm } from "react-hook-form";
 import { message } from 'antd';
+import Header from "../../../../components/Shared/Header";
+import HeaderTop from "../../../../components/Shared/HeaderTop";
+import AdapterDateFns from "@mui/lab/AdapterDateFns";
+import LocalizationProvider from "@mui/lab/LocalizationProvider";
+import StaticDateTimePicker from "@mui/lab/StaticDateTimePicker";
+import { Box, Paper } from "@mui/material";
+import TextField from "@mui/material/TextField";
+import Head from 'next/head'
+
 
 const BuyPlan = () => {
-  const [value, setValue] = React.useState(new Date());
+  const [calenderValue, setCalenderValue] = React.useState(new Date());
   const [gig, setSingleGig] = useState({});
   const { loading } = useAuth();
   const router = useRouter();
   const id = router?.query?.chooseid;
   const { user } = useAuth();
-
   //hook from function
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = data => {
-
     // post
-
     axios.post(
       `${process.env.NEXT_PUBLIC_URL}/task/`,
       {
-        sellerEmail: gig.email,
-        buyerEmail: user.email,
-        title: gig.gig_title,
-        category: gig.category,
-        price: data.price,
-        to: value
+        sellerEmail: gig?.email,
+        buyerEmail: user?.email,
+        title: gig?.gig_title,
+        category: gig?.category,
+        price: data?.budge,
+        to: calenderValue
 
       },
-
       {
         headers: {
           "Content-Type": "application/json",
         },
       },
-
     ).then(
       () => {
         message.success('Task successfully')
+        // router.push(`/gig_search/gigdetails/${gig?._id}`)
+        router.back()
         reset();
       }
     ).catch(err => console.log(message))
-
-
   };
-
   useEffect(() => {
     const GETURL = `${process.env.NEXT_PUBLIC_URL}/gigs/${id}`;
     axios
@@ -62,127 +61,75 @@ const BuyPlan = () => {
       })
       .catch((err) => console.log(err));
   }, [id, router.query.gigid]);
-
-
-
+  console.log(gig);
   return (
     <div>
+      <Head>
+        <title>Buy Plan | {gig?.title}</title>
+        <meta itemprop="title" content={gig?.gig_title} />
+        <meta itemprop="description" content={gig?.description} />
+      </Head>
       {loading && (
-        <div className="min-h-screen flex bg-orange-700 items-center justify-center">
-          <div className="lds-spinner">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-          </div>
+        <div className='min-h-screen flex items-center justify-center w-screen'>
+          <span className="main-loader"></span>
         </div>
       )}
       {!loading && (
         <div>
-          <DetailsHeader />
+          {/* <div>
+            <HeaderTop />
+            <Header />
+          </div> */}
           <div>
-            <div className="container mx-auto px-4">
-              <div className="grid gap-6 md:grid-cols-2">
-                <div></div>
-                <div>
-                  <LocalizationProvider dateAdapter={AdapterDateFns}>
-                    <DateTimePicker
-                      renderInput={(props) => (
-                        <TextField
-                          sx={{ color: "#fff" }}
-                          className="bg-[#0a1929] text-gray-50 date-picker-task-create"
-                          {...props}
-                        />
-                      )}
-                      value={value}
-                      onChange={(newValue) => {
-                        setValue(newValue);
-                      }}
-                    />
-                  </LocalizationProvider>
+            <div className='bg-white relative overflow-x-hidden'>
+              <div className='grid grid-cols-6 w-screen min-h-screen'>
+                <div className='col-span-4'></div>
+                <div style={{ borderBottomLeftRadius: "45%", borderTopLeftRadius: "45%" }} className='col-span-2 bg-[#1cc7c1] '>
                 </div>
-
-                <div className="p-10">
-                  <div >
-                    <div>
-                      <div className="h-56 flat_gradient pricing_card flex items-center justify-center flex-col">
-                        <h2 className="text-xl font-bold text-center text-white uppercase">
-                          {gig.category}
-                        </h2>
+              </div>
+              <div className='absolute top-0 left-0 w-screen min-h-screen flex items-center justify-center px-4'>
+                <div className="container mx-auto shadow-2xl rounded-2xl py-4 overflow-hidden">
+                  <Paper elevation={5} style={{ background: 'none', minHeight: '100%' }}>
+                    <div className='grid items-center grid-cols-1 md:grid-cols-2 gap-4'>
+                      <div>
+                        <img src="/buy_plan/agenda.gif" alt="" />
                       </div>
-                      <div className="flex items-center justify-center ">
-                        <div className="rounded-full w-24 h-24 flex items-center justify-center bg-white shadow-lg text-center relative -top-12">
-                          <div>
-                            <h1 className="text-[#2a3254] text-2xl font-bold">
-                            </h1>
-                            <h4 className="text-xl font-bold text-[#2a3254]">
-                            </h4>
-                          </div>
+                      <div>
+                        <div>
+                          <Paper style={{ background: "rgba(255, 255,255,0.4)" }} elevation={5}>
+                            <LocalizationProvider dateAdapter={AdapterDateFns}>
+                              <StaticDateTimePicker
+                                displayStaticWrapperAs="desktop"
+                                value={calenderValue}
+                                onChange={(newValue) => {
+                                  setCalenderValue(newValue);
+                                }}
+                                renderInput={(params) => <TextField {...params} />}
+                              />
+                            </LocalizationProvider>
+                          </Paper>
                         </div>
-                      </div>
-                      <div className="grid grid-cols-6 mx-4 pl-2  border-b border-[#2a3254] py-2 rounded-2xl">
-                        <div className="col-span-2">
-                          <strong className="text-lg font-bold text-[#2a3254]">
-                            Title
-                          </strong>
+                        <h2 className="text-[#1cc7c1] mt-1 buy_task_glass font-medium">{gig?.gig_title}</h2>
+                        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                          <h2 className="text-[#1cc7c1] buy_task_glass font-medium">{gig?.email}</h2>
+                          <h2 className="text-[#1cc7c1] buy_task_glass font-medium">{user?.email}</h2>
                         </div>
-                        <div className="col-span-4 self-center text-base">
-                          {/* {gig.gig_title} */}
-                        </div>
-                      </div>
-                      <div className="grid grid-cols-6 mx-4 pl-2  border-b border-[#2a3254] py-2 rounded-2xl">
-                        <div className="col-span-2">
-                          <strong className="text-lg font-bold text-[#2a3254]">
-                            Seller Email
-                          </strong>
-                        </div>
-                        <div className="col-span-4 self-center text-base">
-                          {gig.email}
-                        </div>
-                      </div>
-                      <div className="grid grid-cols-6 mx-4 pl-2  border-b border-[#2a3254] py-2 rounded-2xl">
-                        <div className="col-span-2">
-                          <strong className="text-lg font-bold text-[#2a3254]">
-                            Buyer Email
-                          </strong>
-                        </div>
-                        <div className="col-span-4 self-center text-base">
-                          {user.email}
-                        </div>
-                      </div>
-                      <div className="grid grid-cols-6 mx-4 pl-2  border-b border-[#2a3254] py-2 rounded-2xl">
-                        <div className="col-span-2">
-                          <strong className="text-lg font-bold text-[#2a3254]">
-                            select Category
-                          </strong>
-                        </div>
-                        <div className="col-span-4 self-center text-base">
+                        <h2 className="text-[#1cc7c1] buy_task_glass font-medium">{gig?.category}</h2>
+                        <div>
                           <form onSubmit={handleSubmit(onSubmit)}>
-                            <select {...register("Package")}>
-                              <option value="Basic">Basic</option>
-                              <option value="Standred">Standred</option>
-                              <option value="Primiun">Primiun</option>
-                            </select>
-                            <input type="number" {...register("price", { required: true })} placeholder="price" />
-                            <button className="button_gradient  flat_gradient">
-                              <input type="submit" />
-                            </button>
+                            <div className="grid grid-cols-1 sm:grid-cols-2">
+                              <input className="buy_task_glass outline w-full outline-[#c2410c]" type="number" {...register("budge", { required: true })} placeholder="$ Price / budge" />
+                              <input className="mt-1 sm:mt-0 sm:ml-3 text-lg font-medium uppercase bg-[#c2410c] text-gray-50 text-center w-full sm:w-32 py-2 shadow-md rounded-full cursor-pointer" type="submit" value="Submit" />
+                            </div>
                           </form>
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </Paper>
                 </div>
               </div>
-            </div>
+            </div >
+
           </div>
         </div>
       )}
