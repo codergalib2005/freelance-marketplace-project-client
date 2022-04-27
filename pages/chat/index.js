@@ -20,7 +20,7 @@ const warning2 = () => {
   message.warning("You can not create conversation with yourself!");
 };
 
-const socket = io.connect("http://localhost:8900");
+const socket = io.connect("https://freelance-app-socket-server.herokuapp.com");
 
 function ChatApp() {
   const { user } = useAuth();
@@ -212,7 +212,7 @@ function ChatApp() {
         {/* //? chat conversation part design */}
         <div className="chatMenu ">
           <div className={open ? "chatMenuWrapper2 " : "chatMenuWrapper open"}>
-            <p className="text-md font-semibold text-white lg:text-gray-800 mt-6">
+            <p className="text-md font-semibold text-white lg:text-gray-800 mt-8 text-center">
               Your Current Conversations
             </p>
 
@@ -235,8 +235,8 @@ function ChatApp() {
         <div className="chatBox">
           {currentChat ? (
             <div className="chatBoxWrapper">
-              <p className="chatWrapperP">Start Conversation</p>
-              <div className="chatBoxTop">
+              <p className="chatWrapperP text-gray-700">Start Conversation</p>
+              <div className="chatBoxTop ">
                 {messages.map((m, i) => (
                   <div key={i} ref={scrollRef}>
                     <Message message={m} own={m.sender === user?.email} />
@@ -248,13 +248,13 @@ function ChatApp() {
                   onChange={(e) => setNewMessage(e.target.value)}
                   id="text"
                   placeholder="Write your  message.... "
-                  className="chatMessageInput"
+                  className="chatMessageInput text-gray-700"
                   onKeyPress={(e) => {
                     e.key === "Enter" && handleSendButton();
                   }}
                 ></textarea>
                 <button
-                  className="chatBoxButtonSubmit"
+                  className="chatBoxButtonSubmit bg-purple-500 text-white"
                   onClick={handleSendButton}
                 >
                   Send
