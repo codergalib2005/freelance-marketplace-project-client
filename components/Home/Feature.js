@@ -32,7 +32,7 @@ export default function Feature() {
         </div>
 
         <div className="mt-6 md:mt-0 lg:mt-0">
-          <button className="bg-blue-500 text-white rounded-md py-3 px-6">
+          <button className="border-2 border-blue-500  rounded-md py-3 px-6">
             Explore Now
           </button>
         </div>

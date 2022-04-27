@@ -1,12 +1,12 @@
+{/* eslint-disable-next-line @next/next/no-img-element */}
 import React from "react";
-
 const FeatureSingle = ({ feature }) => {
   const { img, title } = feature;
   return (
     <div className="shadow-lg rounded-lg">
-      <div className="">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={img} alt="image" />
+      <div className=" rounded-lg">
+   
+        <img className='rounded-lg' src={img} alt="image" />
       </div>
       <div className="text-left flex justify-between px-2 py-4">
         <p>{title}</p>
