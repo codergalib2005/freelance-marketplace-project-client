@@ -22,39 +22,39 @@ const BuyPlan = () => {
   //hook from function
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = data => {
-  
-      // post
 
-      axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}/task/`,
-        {
-          sellerEmail: gig.email,
-          buyerEmail: user.email,
-          title: gig.gig_title,
-          category: gig.category,
-          price: data.price,
-          to: value
-    
+    // post
+
+    axios.post(
+      `${process.env.NEXT_PUBLIC_URL}/task/`,
+      {
+        sellerEmail: gig.email,
+        buyerEmail: user.email,
+        title: gig.gig_title,
+        category: gig.category,
+        price: data.price,
+        to: value
+
+      },
+
+      {
+        headers: {
+          "Content-Type": "application/json",
         },
+      },
 
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        },
+    ).then(
+      () => {
+        message.success('Task successfully')
+        reset();
+      }
+    ).catch(err => console.log(message))
 
-      ).then(
-        () => {
-          message.success('Task successfully')
-          reset();
-        }
-      ).catch(err => console.log(message))
-      
 
   };
-  
+
   useEffect(() => {
-    const GETURL = `${process.env.NEXT_PUBLIC_API_URL}/gigs/${id}`;
+    const GETURL = `${process.env.NEXT_PUBLIC_URL}/gigs/${id}`;
     axios
       .get(GETURL)
       .then((res) => {
@@ -62,7 +62,6 @@ const BuyPlan = () => {
       })
       .catch((err) => console.log(err));
   }, [id, router.query.gigid]);
-  console.log(gig);
 
 
 
@@ -116,7 +115,7 @@ const BuyPlan = () => {
                     <div>
                       <div className="h-56 flat_gradient pricing_card flex items-center justify-center flex-col">
                         <h2 className="text-xl font-bold text-center text-white uppercase">
-                        {gig.category}
+                          {gig.category}
                         </h2>
                       </div>
                       <div className="flex items-center justify-center ">
@@ -136,7 +135,7 @@ const BuyPlan = () => {
                           </strong>
                         </div>
                         <div className="col-span-4 self-center text-base">
-                            {/* {gig.gig_title} */}
+                          {/* {gig.gig_title} */}
                         </div>
                       </div>
                       <div className="grid grid-cols-6 mx-4 pl-2  border-b border-[#2a3254] py-2 rounded-2xl">
@@ -172,7 +171,7 @@ const BuyPlan = () => {
                               <option value="Standred">Standred</option>
                               <option value="Primiun">Primiun</option>
                             </select>
-                            <input type="number" {...register("price", {required: true})} placeholder="price" />
+                            <input type="number" {...register("price", { required: true })} placeholder="price" />
                             <button className="button_gradient  flat_gradient">
                               <input type="submit" />
                             </button>

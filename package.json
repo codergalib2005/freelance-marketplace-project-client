@@ -11,6 +11,7 @@
     "dev:test": "env-cmd -f .env.testing next dev -p 4000"
   },
   "dependencies": {
+    "@agnostech/react-agora-ng": "^2.0.0-beta16",
     "@ant-design/icons": "^4.7.0",
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
@@ -22,6 +23,7 @@
     "@mui/x-date-pickers-pro": "^5.0.0-alpha.1",
     "@mui/x-license-pro": "^5.9.0",
     "@stripe/stripe-js": "^1.27.0",
+    "agora-rtc-react": "github:AgoraIO-Community/agora-rtc-react#v1.0.1",
     "antd": "^4.19.5",
     "axios": "^0.26.1",
     "cors": "^2.8.5",
@@ -54,7 +56,7 @@
     "swiper": "^8.1.0",
     "timeago.js": "^4.0.2"
   },
-  "proxy": "https://morning-thicket-69860.herokuapp.com/auth",
+  "proxy": "https://intense-forest-11415.herokuapp.com/auth",
   "devDependencies": {
     "@swc/cli": "^0.1.57",
     "@swc/core": "^1.2.165",

@@ -17,7 +17,7 @@ const Admin = () => {
     const handleAdminSubmit = e => {
         e.preventDefault()
         const User = { email }
-        fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/admin/${email}`, {
+        fetch(`${process.env.NEXT_PUBLIC_URL}/users/admin/${email}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

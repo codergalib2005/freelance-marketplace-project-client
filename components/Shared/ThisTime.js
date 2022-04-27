@@ -10,7 +10,6 @@ const ThisTime = () => {
         timer(new Date().toLocaleTimeString());
     }, 1000)
     // }, [time])
-    console.log(thisTime);
     return (
         <div>
             {thisTime}

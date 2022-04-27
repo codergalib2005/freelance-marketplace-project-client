@@ -32,7 +32,7 @@ const ProfilePicUpload = ({ handleProfileClose, handleOpenProfile, openProfile, 
   const { register, handleSubmit, reset } = useForm();
   const primary = red[500];
   const onSubmit = (data) => {
-    axios.put(`${process.env.NEXT_PUBLIC_API_URL}/users/avatar/${id}`, data)
+    axios.put(`${process.env.NEXT_PUBLIC_URL}/users/avatar/${id}`, data)
       .then(function (response) {
         setOpenProfile(false);
         message.success("Profile Banner Update Successfully!")
@@ -57,7 +57,7 @@ const ProfilePicUpload = ({ handleProfileClose, handleOpenProfile, openProfile, 
         <Fade in={openProfile}>
           <Box sx={style} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
             <label htmlFor="icon-button-file">
-            <TextField {...register("image", { required: true })} type="text" />
+              <TextField {...register("image", { required: true })} type="text" />
               <span className='font-bold text-lg text-gray-50 pr-3'>Upload Banner Image</span>
               <Button type="submit" variant="contained" color="primary" xs={{ background: 'blue', paddingLeft: '1rem' }} endIcon={<SendIcon />}>
                 Send

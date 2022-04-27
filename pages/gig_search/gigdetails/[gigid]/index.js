@@ -30,7 +30,7 @@ const GigDetails = () => {
   //Buyer rivew
   console.log(sellerEmail)
   useEffect(() => {
-    fetch(`${process.env.NEXT_PUBLIC_API_URL}/reviews/sellerEmail/${gig?.email}`)
+    fetch(`${process.env.NEXT_PUBLIC_URL}/reviews/sellerEmail/${gig?.email}`)
       .then(res => res.json())
       .then(data => {
         setSellerEmail(data.result)
@@ -45,9 +45,8 @@ const GigDetails = () => {
 
 
   //Buyer rivew
-  console.log(sellerEmail)
   useEffect(() => {
-    fetch(`${process.env.NEXT_PUBLIC_API_URL}/reviews/sellerEmail/${gig?.email}`)
+    fetch(`${process.env.NEXT_PUBLIC_URL}/reviews/sellerEmail/${gig?.email}`)
       .then(res => res.json())
       .then(data => {
         setSellerEmail(data.result)
@@ -65,7 +64,7 @@ const GigDetails = () => {
 
       //post
       axios.post(
-        `${process.env.NEXT_PUBLIC_API_URL}/reviews/`,
+        `${process.env.NEXT_PUBLIC_URL}/reviews/`,
         data,
 
         {
@@ -85,14 +84,14 @@ const GigDetails = () => {
   };
 
   useEffect(() => {
-    const GETURL = `${process.env.NEXT_PUBLIC_API_URL}/gigs/${router?.query?.gigid}`;
+    const GETURL = `${process.env.NEXT_PUBLIC_URL}/gigs/${router?.query?.gigid}`;
     axios
       .get(GETURL)
       .then((res) => setSingleGig(res?.data?.result[0]))
       .catch((err) => console.log(err));
   }, [router?.query?.gigid]);
   axios
-    .get(`${process.env.NEXT_PUBLIC_API_URL}/users/email/${gig?.email}`)
+    .get(`${process.env.NEXT_PUBLIC_URL}/users/email/${gig?.email}`)
     .then(
       (response) => {
         setGigUser(response?.data?.result[0]);
