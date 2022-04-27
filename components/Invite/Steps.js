@@ -9,7 +9,7 @@ const Steps = () => {
           <div className="md:flex lg:flex gap-20 mx-16 py-7">
             <div className="">
               <div className="flex justify-center ">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
+                {/* eslint-disable-next-line @next/next/no-img-element */}                <img className="w-20" src="refer/messages.png" alt="" />
                 <img className="w-32 mx-auto" src="refer/messages.png" alt="" />
               </div>
               <div>
@@ -21,6 +21,7 @@ const Steps = () => {
             <div className="my-6 md:my-0 lg:my-0">
               <div className="flex justify-center">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img className="w-20" src="refer/diary (1).png" alt="" />
                 <img className="w-32 mx-auto" src="refer/diary (1).png" alt="" />
               </div>
               <div>
@@ -33,6 +34,7 @@ const Steps = () => {
             <div>
               <div className="flex justify-center">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img className="w-20" src="refer/currency.png" alt="" />
                 <img className="w-32 mx-auto" src="refer/currency.png" alt="" />
               </div>
               <div>

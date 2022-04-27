@@ -3,7 +3,8 @@ import React from "react";
 const OtherSetting = () => {
   return (
     <>
-      <hr />
+      <hr className="border-2 border-green-500 w-full" />
+      
       <div className="flex space-x-6 py-4">
         <p>PHONE VERIFICATION</p>
         <p className="flex justify-center w-3/4">
