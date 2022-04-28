@@ -18,7 +18,7 @@ const RemoveAdmin = () => {
     const handleRemove = e => {
         const User = { email }
         e.preventDefault()
-        fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/remove/admin/${email}`, {
+        fetch(`${process.env.NEXT_PUBLIC_URL}/users/remove/admin/${email}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

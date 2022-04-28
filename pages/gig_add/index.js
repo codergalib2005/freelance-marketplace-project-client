@@ -35,7 +35,7 @@ const GigCreation = () => {
   const { user, userStatus } = useAuth();
   const router = useRouter()
   useEffect(() => {
-    fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/email/${user?.email}`)
+    fetch(`${process.env.NEXT_PUBLIC_URL}/users/email/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setThisUser(data?.result[0]))
       .catch((err) => console.log(err));
@@ -51,7 +51,7 @@ const GigCreation = () => {
     data.gallery = gallery
     data.name = thisUser?.name;
     data.email = thisUser?.email
-    axios.post(`${process.env.NEXT_PUBLIC_API_URL}/gigs`, data)
+    axios.post(`${process.env.NEXT_PUBLIC_URL}/gigs`, data)
       .then(res => {
         message.success("Gig Creation successfully!");
         router.replace("/profile")

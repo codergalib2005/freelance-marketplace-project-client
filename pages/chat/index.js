@@ -44,7 +44,6 @@ function ChatApp() {
   const [newMessage, setNewMessage] = useState("");
   const [allUsers, setAllUsers] = useState([]);
   const scrollRef = useRef();
-  console.log(currentChat);
   // * add user for socket and get user for socket
   useEffect(() => {
     socket.emit("addUser", user.email);

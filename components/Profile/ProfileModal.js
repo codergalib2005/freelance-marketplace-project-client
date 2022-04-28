@@ -27,7 +27,7 @@ const ProfileModal = ({ handleProfileClose, handleOpenProfile, openProfile, id, 
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
   const primary = red[500];
   const onSubmit = (data) => {
-    axios.put(`${process.env.NEXT_PUBLIC_API_URL}/users/avatar/${id}`, data)
+    axios.put(`${process.env.NEXT_PUBLIC_URL}/users/avatar/${id}`, data)
       .then(function (response) {
         setOpenProfile(false);
         message.success("Profile Pic Update Successfully!")
