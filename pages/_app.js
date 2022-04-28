@@ -16,7 +16,7 @@ function MyApp({ Component, pageProps }) {
       <NextNProgress color="#29D"
         startPosition={0.3}
         stopDelayMs={200}
-        height={6}
+        height={3}
         showOnShallow={true} />
       <AuthProvider>
         <Component {...pageProps} />

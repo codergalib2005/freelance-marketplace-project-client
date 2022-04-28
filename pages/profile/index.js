@@ -66,7 +66,7 @@ const Profile = () => {
     borderTopLeftRadius: "5px",
     borderTopRightRadius: "5px",
   };
-  axios.get(`${process.env.NEXT_PUBLIC_API_URL}/users/email/${user?.email}`)
+  axios.get(`${process.env.NEXT_PUBLIC_URL}/users/email/${user?.email}`)
     .then(response => {
       setThisUser(response?.data?.result[0]);
     }, error => {
@@ -78,7 +78,7 @@ const Profile = () => {
       message.error("Bio field Must need to fill-up!");
       return;
     } else {
-      axios.put(`${process.env.NEXT_PUBLIC_API_URL}/users/bio/${thisUser?._id}`, {
+      axios.put(`${process.env.NEXT_PUBLIC_URL}/users/bio/${thisUser?._id}`, {
         bio: bioText,
       })
         .then(function (response) {
@@ -95,7 +95,7 @@ const Profile = () => {
       message.error("Profession field Must need to fill-up!");
       return;
     } else {
-      axios.put(`${process.env.NEXT_PUBLIC_API_URL}/users/profession/${thisUser?._id}`, {
+      axios.put(`${process.env.NEXT_PUBLIC_URL}/users/profession/${thisUser?._id}`, {
         profession: professionText,
       })
         .then(function (response) {

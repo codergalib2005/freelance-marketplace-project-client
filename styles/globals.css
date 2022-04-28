@@ -197,3 +197,8 @@ a {
     box-shadow: 0.8em -0.1em 0 0 currentcolor;
   }
 }
+::selection {
+  background: hsl(161deg 100% 48% / 92%);
+  color: #000000;
+  text-shadow: 1px 1px 2px #b51616, 0 0 1em #a12727, 0 0 0.2em #bd0b0b;
+}

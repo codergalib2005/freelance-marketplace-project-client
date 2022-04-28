@@ -18,7 +18,7 @@ const RemoveAdmin = () => {
     const handleRemove = e => {
         const User = { email }
         e.preventDefault()
-        fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/remove/admin/${email}`, {
+        fetch(`${process.env.NEXT_PUBLIC_URL}/users/remove/admin/${email}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -71,7 +71,7 @@ const RemoveAdmin = () => {
 
                                         <div className="mt-8 flex justify-center">
                                             <button type="submit" className="bg-orange-500  text-white px-8 py-2 rounded-md">
-                                                Make Admin
+                                                Remove Admin
                                             </button>
                                         </div>
                                     </form>

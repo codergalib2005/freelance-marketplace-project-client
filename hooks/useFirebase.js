@@ -22,7 +22,7 @@ const useFirebase = () => {
 
     const auth = getAuth();
 
-    
+
     //rgister user with email and pass
     const registerUser = (data) => {
         const { thumbnail, status, profession, name, image, gender, email, skills, about, avatar, education, bio, password } = data;
@@ -48,14 +48,14 @@ const useFirebase = () => {
                 //update profile
                 updateProfile(auth.currentUser, {
                     displayName: name, photoURL: avatar
-                  }).then(() => {
+                }).then(() => {
                     // Profile updated!
                     // ...
-                  }).catch((error) => {
+                }).catch((error) => {
                     // An error occurred
                     // ...
-                  });
-                axios.post(`${process.env.NEXT_PUBLIC_API_URL}/users, body`)
+                });
+                axios.post(`${process.env.NEXT_PUBLIC_URL}/users, body`)
                     .then(res => {
                         message.success("User register successfully!");
                         router.replace("/")
@@ -74,6 +74,7 @@ const useFirebase = () => {
 
     //user observe user 
     useEffect(() => {
+        setIsLoadind(true);
         const unSubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
                 setUser(user);
@@ -86,12 +87,23 @@ const useFirebase = () => {
         return () => unSubscribe;
     }, [auth]);
 
+
 //for admin
+// axios.get(`${process.env.NEXT_PUBLIC_API_URL}/users/admin/${user?.email}}`)
+// .then(res => setAdmin(res.data.admin))
 // useEffect(() => {
-//     fetch(${process.env.NEXT_PUBLIC_API_URL}/users/admin/${user?.email})
+//     fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/admin/${user?.email}}`)
 //     .then(res => res.json())
-//     .then(data => setAdmin(data.admin))
+//     .then(data => setAdmin(data?.access))
 // },[user?.email])
+
+    //for admin
+    // useEffect(() => {
+    //     fetch(${process.env.NEXT_PUBLIC_URL}/users/admin/${user?.email})
+    //     .then(res => res.json())
+    //     .then(data => setAdmin(data.admin))
+    // },[user?.email])
+
 
     //signIn user email and pass
     const logInUser = (email, password) => {
@@ -141,7 +153,7 @@ const useFirebase = () => {
     // Load Login personal data loader 
     useEffect(() => {
         setIsLoadind(true);
-        fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/email/${user.email}`)
+        fetch(`${process.env.NEXT_PUBLIC_URL}/users/email/${user?.email}`)
             .then((res) => res.json())
             .then((data) => {
                 setUserStatus(data?.result[0]?.status)

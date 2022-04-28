@@ -727,3 +727,25 @@
     background-color: none;
   }
 }
+
+/* ================BUY PLAN PAGE=============== */
+.buy_task_glass {
+  background: rgb(0 255 243 / 39%);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgb(0 0 0 / 38%);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  font-size: 1.1rem;
+  color: #000 !important;
+  text-align: center;
+  margin: 0.2rem 0;
+  padding: 0.3rem;
+}
+.Mui-selected {
+  background-color: #c2410c !important;
+  color: "#fff !important";
+}
+.MuiPickerStaticWrapper-root {
+  background: none !important;
+}

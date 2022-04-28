@@ -6,7 +6,7 @@ import TopGig from '../../components/TotalGig/TopGig';
 const TopGigs = () => {
   const [gigs, setGigs] = useState([])
 
-  const gigUrl = `${process.env.NEXT_PUBLIC_API_URL}/gigs/top`;
+  const gigUrl = `${process.env.NEXT_PUBLIC_URL}/gigs/top`;
   useEffect(() => {
     fetch(gigUrl).then(res => res.json()).then(data => setGigs(data.result))
   }, [gigUrl])

@@ -9,26 +9,29 @@ const UpdateProfile = () => {
   };
   return (
     <>
-      <label>Need to update your public profile? Go to My Profile</label>
-      <hr />
+      <p className="text-base font-extralight">Need to update your public profile? <span className="text-pink-500 hover:underline hover:cursor-pointer">Go to My Profile</span></p>
+      <hr className="border-2 border-blue-700 w-full" />
+      <hr className="border-2 border-blue-700 w-full" />
       <div>
-        <form onSubmit={handleSubmit(updateStatus)}>
+        <form onSubmit={handleSubmit(updateStatus)}  >
           <div className="p-2 flex space-x-6">
-            <p className="w-2/6">Full Name</p>{" "}
+            <p className="text-sm   w-2/6">Full Name* </p>{" "}
             <input
-              className="border-2"
+              className="border-[1px]  text-sm  bg-indigo-100 rounded-md shadow-md px-2 py-[3px] border-blue-700 outline-[1px] outline-blue-700"
               type="text"
               {...register("name")}
               placeholder="Your Full Name"
+              required
             />
           </div>
           <div className="p-2 flex space-x-6">
-            <p className="w-2/6">Email</p>{" "}
+            <p className="w-2/6 text-sm  ">Email*</p>{" "}
             <input
-              className="border-2"
+              className="border-[1px] rounded-md text-sm  bg-indigo-100 shadow-md px-2 py-[3px] border-blue-700 outline-[1px] outline-blue-700"
               type="email"
               {...register("email")}
               placeholder="Email"
+              required
             />
           </div>
           <div className="p-2 flex space-x-6">
@@ -43,9 +46,9 @@ const UpdateProfile = () => {
             </div>
             <select
               {...register("status")}
-              className="border-2 form_label h-2/4"
+              className="border-[1px] rounded-md shadow-md px-2 py-[3px] border-blue-700 outline-[1px] outline-blue-700 form_label h-2/4 text-sm bg-indigo-100 "
             >
-              <option>GO OFFLINE FOR..</option>
+              <option disabled selected>GO OFFLINE FOR..</option>
               <option value="1 hour">1 HOUR</option>
               <option value="1 day">1 DAY</option>
               <option value="1 week">1 WEEK</option>
@@ -54,7 +57,7 @@ const UpdateProfile = () => {
           </div>
           <div>
             <input
-              className="rounded bg-blue-500 hover:bg-blue-700 text-white font-bold"
+              className="rounded bg-blue-500 hover:bg-blue-700 text-white font-bold px-4 py-[2px]"
               color="primary"
               type="submit"
               value="Save Changes"

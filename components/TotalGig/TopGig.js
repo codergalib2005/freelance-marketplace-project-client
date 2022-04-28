@@ -5,7 +5,7 @@ import { message } from 'antd'
 const TotalGig = (props) => {
     const { gallery, gig_title, level, category, _id } = props.gig;
     const handleClick = (id) => {
-        const url = `${process.env.NEXT_PUBLIC_API_URL}/gigs/remove/top/${id}`;
+        const url = `${process.env.NEXT_PUBLIC_URL}/gigs/remove/top/${id}`;
         fetch(url, {
             method: "PUT",
         })

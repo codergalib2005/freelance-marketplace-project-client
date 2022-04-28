@@ -7,7 +7,7 @@ import Footer from '../../components/Shared/Footer';
 import HeaderTop from '../../components/Shared/HeaderTop';
 
 
-const Admin = () => {
+const MakeAdmin = () => {
     const [email, setEmail] = useState("");
     const { loading } = useAuth();
     const handleONBlur = e => {
@@ -17,7 +17,7 @@ const Admin = () => {
     const handleAdminSubmit = e => {
         e.preventDefault()
         const User = { email }
-        fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/admin/${email}`, {
+        fetch(`${process.env.NEXT_PUBLIC_URL}/users/admin/${email}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -89,4 +89,4 @@ const Admin = () => {
     );
 };
 
-export default Admin;
+export default MakeAdmin;

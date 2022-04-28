@@ -6,7 +6,7 @@ import TotalGig from '../../components/TotalGig/TotalGig';
 const TotalGigs = () => {
     const [gigs, setGigs] = useState([])
 
-    const gigUrl = `${process.env.NEXT_PUBLIC_API_URL}/gigs`;
+    const gigUrl = `${process.env.NEXT_PUBLIC_URL}/gigs`;
     useEffect(() => {
         fetch(gigUrl).then(res => res.json()).then(data => setGigs(data.result))
     }, [gigUrl])
