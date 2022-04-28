@@ -99,14 +99,11 @@ const GigDetails = () => {
       (error) => {
         console.log(error);
       }
-    );  
-  
+    );
+
   return (
     <div className=" bg-white min-h-screen gig_details_styles"  >
       <DetailsHeader gig={gig} />
-
-  return (
-    <div className=" bg-[#2a3254] min-h-screen">
       {/* <DetailsHeader gig={gig} /> */}
       <HeaderTop />
       <Header />
@@ -154,15 +151,15 @@ const GigDetails = () => {
                         </div>
                         <div className="mt-10 ml-5">
                           <Rating name="half-rating" defaultValue={seller.rating} readOnly /> <br />
-                          <h4 className="text-white">{seller.profession}</h4>
+                          <h4 className="text-[#2a3254]">{seller.profession}</h4>
                         </div>
                       </div>
 
                       <div className="ml-2 mt-4">
-                        <h1 className="text-white">{seller.buyerName}</h1>
-                        <p className="text-white">{seller.description}</p>
-                        <h2 className="text-white">{seller.buyerEmail}</h2>
-                        <h5 className="text-white">{seller.date}</h5>
+                        <h1 className="text-[#2a3254]">{seller.buyerName}</h1>
+                        <p className="text-[#2a3254]">{seller.description}</p>
+                        <h2 className="text-[#2a3254]">{seller.buyerEmail}</h2>
+                        <h5 className="text-[#2a3254]">{seller.date}</h5>
                       </div>
 
 
@@ -233,14 +230,14 @@ const GigDetails = () => {
                 <div className="">
                   <div className="grid grid-cols-3 bg-white rounded-t-md border-2 border-[#7b92f7] border-b-0 ">
                     <div
-                      className={`text-center cursor-pointer py-2 text-lg font-bold ${showPricing === "beginner" && "bg-[#7b92f7] text-white"
+                      className={`text-center cursor-pointer py-2 text-lg font-bold ${showPricing === "beginner" && "bg-[#8537ed] text-white"
                         }`}
                       onClick={() => setShowPricing("beginner")}
                     >
                       Beginner
                     </div>
                     <div
-                      className={`text-center cursor-pointer py-2 text-lg font-bold ${showPricing === "expert" && "bg-[#7b92f7] text-white"
+                      className={`text-center cursor-pointer py-2 text-lg font-bold ${showPricing === "expert" && "bg-[#8537ed] text-white"
                         }`}
                       onClick={() => setShowPricing("expert")}
                     >
@@ -248,7 +245,7 @@ const GigDetails = () => {
                     </div>
                     <div
                       className={`text-center cursor-pointer py-2 text-lg font-bold ${showPricing === "experience" &&
-                        "bg-[#7b92f7] text-white"
+                        "bg-[#8537ed] text-white"
                         }`}
                       onClick={() => setShowPricing("experience")}
                     >
@@ -257,14 +254,14 @@ const GigDetails = () => {
                   </div>
                 </div>
                 {/* body */}
-                <div className=" pb-8 relative bg-orange-200 rounded-b-lg">
+                <div className=" pb-8 relative bg-white shadow-2xl rounded-b-lg">
                   {showPricing === "beginner" && (
                     <div>
                       <div className="h-56 flat_gradient pricing_card flex items-center justify-center flex-col">
                         <h2 className="text-xl font-bold text-center  uppercase">
                           Beginner
                         </h2>
-                        <h1 className=" text-3xl font-bold text-center uppercase">
+                        <h1 className=" text-3xl font-bold text-center uppercase text-white">
                           ${gig?.first_price}/{gig?.first_day}.Day
                         </h1>
                       </div>
@@ -308,7 +305,7 @@ const GigDetails = () => {
                         <h2 className="text-xl font-bold text-center  uppercase">
                           Expert
                         </h2>
-                        <h1 className=" text-3xl font-bold text-center uppercase">
+                        <h1 className=" text-3xl font-bold text-center uppercase text-white">
                           ${gig?.second_price}/{gig?.second_day}.Day
                         </h1>
                       </div>
@@ -352,7 +349,7 @@ const GigDetails = () => {
                         <h2 className="text-xl font-bold text-center  uppercase">
                           Experience
                         </h2>
-                        <h1 className="text-3xl font-bold text-center uppercase">
+                        <h1 className="text-3xl font-bold text-center uppercase text-white">
                           ${gig?.third_price}/{gig?.third_day}.Day
                         </h1>
                       </div>
@@ -399,21 +396,22 @@ const GigDetails = () => {
               </div>
 
               <div>
-              <Rating onChange={e => setRating(e.target.value)} name="half-rating" defaultValue={2.5} precision={0.5} className="text-orange-600" />
-              <div className={`mt-10 ${styles.review_contaner}`}>
-                <strong className="text-xl font-bold text-white border-b-2 border-[#a78737] pr-5 mt-6 pb-1 mb-2 online-block">
-                  Give a Review
-                </strong> <br /> <br />
+                <Rating onChange={e => setRating(e.target.value)} name="half-rating" defaultValue={2.5} precision={0.5} className="text-orange-600" />
+                <div className={`mt-10 ${styles.review_contaner}`}>
+                  <strong className="text-2xl font-bold text-[#2a3254] border-b-2 border-[#a78737] pr-5 mt-6 pb-1 mb-2 online-block">
+                    Give a Review
+                  </strong> <br /> <br />
 
-                <Rating onChange={e => setRating(e.target.value)} name="half-rating" defaultValue={2.5} precision={0.5} /> <br />
-                <form onSubmit={handleSubmit(onSubmit)}>
-                  <textarea className="py-1 px-2 rounded-2" {...register("description")} placeholder='Your Comment' required /> <br /> <br />
-                  <input className="py-1 px-2 rounded-2" {...register("profession")} placeholder='Your profession' type="text" required /> <br /> <br />
-                  <input className="py-1 px-2 rounded-2" {...register("buyerImage")} placeholder='Your image URL' required /> <br /> <br />
-                  <input className="text-white bg-purple-500 px-4 py-2 rounded-md font-bold" type="submit" />
-                </form>
+                  <Rating onChange={e => setRating(e.target.value)} name="half-rating" defaultValue={2.5} precision={0.5} /> <br />
+                  <form onSubmit={handleSubmit(onSubmit)}>
+                    <textarea className="py-1 px-2 rounded-2 h-18 border border-[#2a3254] rounded-md shadow-lg" {...register("description")} placeholder='Your Comment' required /> <br /> <br />
+                    <input className="py-1 px-2 rounded-2 border border-[#2a3254] rounded-md shadow-lg" {...register("profession")} placeholder='Your profession' type="text" required /> <br /> <br />
+                    <input className="py-1 px-2 rounded-2 border border-[#2a3254] rounded-md shadow-lg" {...register("buyerImage")} placeholder='Your image URL' required /> <br /> <br />
+                    <input className="text-white bg-purple-500 px-4 py-2 rounded-md font-bold" type="submit" />
+                  </form>
+                </div>
+
               </div>
-
             </div>
           </div>
         </div>
