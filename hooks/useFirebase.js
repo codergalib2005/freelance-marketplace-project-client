@@ -87,12 +87,23 @@ const useFirebase = () => {
         return () => unSubscribe;
     }, [auth]);
 
+
+//for admin
+// axios.get(`${process.env.NEXT_PUBLIC_API_URL}/users/admin/${user?.email}}`)
+// .then(res => setAdmin(res.data.admin))
+// useEffect(() => {
+//     fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/admin/${user?.email}}`)
+//     .then(res => res.json())
+//     .then(data => setAdmin(data?.access))
+// },[user?.email])
+
     //for admin
     // useEffect(() => {
     //     fetch(${process.env.NEXT_PUBLIC_URL}/users/admin/${user?.email})
     //     .then(res => res.json())
     //     .then(data => setAdmin(data.admin))
     // },[user?.email])
+
 
     //signIn user email and pass
     const logInUser = (email, password) => {

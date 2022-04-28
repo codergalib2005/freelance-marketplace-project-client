@@ -71,7 +71,7 @@ const RemoveAdmin = () => {
 
                                         <div className="mt-8 flex justify-center">
                                             <button type="submit" className="bg-orange-500  text-white px-8 py-2 rounded-md">
-                                                Make Admin
+                                                Remove Admin
                                             </button>
                                         </div>
                                     </form>
