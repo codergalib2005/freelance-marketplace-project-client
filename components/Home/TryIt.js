@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import Link from 'next/link';
 import React from 'react';
 import { AiOutlineDoubleRight } from 'react-icons/ai';
 import { BsFillPlayFill } from 'react-icons/bs';
@@ -11,13 +12,17 @@ const TryIt = () => {
                         <h1 className='text-4xl text-[#273067] font-bold'>Let customers see a good friend in you</h1>
                         <p className='py-3 text-lg font-medium text-[#2a3254]'>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel veniam odio cum aliquam fugit fugiat aut iste delectus vitae itaque!</p>
                         <div className='grid grid-cols-2 gap-4 items-center justify-between'>
-                            <button className='bg-[#273067] flex items-center rounded-full py-1 px-4 justify-between text-white font-bold'>Try It
+                           <Link href="/gig_search"> 
+                           <button className='bg-[#273067] flex items-center rounded-full py-1 px-4 justify-between text-white font-bold'>Try It
                                 <span className='text-[#273067] bg-white w-8 h-8 rounded-full flex items-center justify-center text-xl '><AiOutlineDoubleRight /></span>
                             </button>
-                            <div className='flex items-center justify-between pr-4 font-bold text-md md:text-lg'>
+                            </Link>
+                         <Link href="https://www.youtube.com/">
+                         <div className='flex items-center justify-between pr-4 font-bold text-md md:text-lg'>
                                 <button className='bg-white flex items-center justify-center rounded-full shadow-xl text-3xl shadow-[#ee7c18] text-[#ee7c18] w-10 h-10 '><BsFillPlayFill /> </button>
                                 Play Video
                             </div>
+                         </Link>
                         </div>
                     </div>
                     <div className='py-8 sm:py-0'>

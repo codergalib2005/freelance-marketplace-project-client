@@ -159,7 +159,8 @@ const useFirebase = () => {
                 setUserStatus(data?.result[0]?.status)
                 setIsLoadind(false)
             })
-            .catch((err) => console.log(err));
+            .catch((err) => console.log(err))
+            .finally(() => setIsLoadind(false));
     }, []);
 
     //logout email and pass

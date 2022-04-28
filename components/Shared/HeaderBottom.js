@@ -22,11 +22,11 @@ const HeaderBottom = () => {
                                     </span>
                                 </span>
                                 <ul className='absolute top-6 text-md left-0 w-40 bg-white shadow-lg dropdown_button'>
-                                    <li className='py-2 border-b border-gray-500 px-6 hover:bg-[#ec4899]'><Link href="/"><a className="block">Page 1</a></Link></li>
-                                    <li className='py-2 border-b border-gray-500 px-6 hover:bg-[#ec4899]'><Link href="/"><a className="block">Page 2</a></Link></li>
-                                    <li className='py-2 border-b border-gray-500 px-6 hover:bg-[#ec4899]'><Link href="/"><a className="block">Page 3</a></Link></li>
-                                    <li className='py-2 border-b border-gray-500 px-6 hover:bg-[#ec4899]'><Link href="/"><a className="block">Page 4</a></Link></li>
-                                    <li className='py-2 px-6 hover:bg-[#ec4899]'><Link href="/"><a className="block">Page 5</a></Link></li>
+                                    <li className='py-2 border-b border-gray-500 px-6 hover:bg-[#ec4899]'><Link href="/about"><a className="block">About</a></Link></li>
+                                    <li className='py-2 border-b border-gray-500 px-6 hover:bg-[#ec4899]'><Link href="/chat"><a className="block">Chat</a></Link></li>
+                                    <li className='py-2 border-b border-gray-500 px-6 hover:bg-[#ec4899]'><Link href="/invite"><a className="block">Invite</a></Link></li>
+                                    <li className='py-2 border-b border-gray-500 px-6 hover:bg-[#ec4899]'><Link href="/ourTeam"><a className="block">Our Team</a></Link></li>
+                                    <li className='py-2 px-6 hover:bg-[#ec4899]'><Link href="/setting"><a className="block">Setting</a></Link></li>
                                 </ul>
                             </li>
                             <li className='mx-2 relative main_button'>
@@ -37,7 +37,7 @@ const HeaderBottom = () => {
                                     </span>
                                 </span>
                                 <ul className='absolute top-6 text-md left-0 w-40 bg-white shadow-lg dropdown_button'>
-                                    <li className='py-2 border-b border-gray-500 px-6 hover:bg-[#ec4899]'><Link href="/"><a className="block">Learning 1</a></Link></li>
+                                    <li className='py-2 border-b border-gray-500 px-6 hover:bg-[#ec4899]'><Link href="/community"><a className="block">Community</a></Link></li>
                                     <li className='py-2 border-b border-gray-500 px-6 hover:bg-[#ec4899]'><Link href="/"><a className="block">Learning 2</a></Link></li>
                                     <li className='py-2 border-b border-gray-500 px-6 hover:bg-[#ec4899]'><Link href="/"><a className="block">Learning 3</a></Link></li>
                                     <li className='py-2 px-6 hover:bg-[#ec4899]'><Link href="/"><a className="block">Learning 4</a></Link></li>
