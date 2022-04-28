@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Menu from "../../components/Setting/Menu";
 import NotificationCom from "../../components/Setting/Notification/Notification";
 
-const Notification = () => {
+const Notification2 = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [show, setShow] = useState(false);
 
@@ -31,7 +31,6 @@ const Notification = () => {
               alt=""
             />
           </div>
-          <Notification />
           <div className="col-span-3 shadow-lg p-6">
             <NotificationCom />
           </div>
@@ -41,4 +40,4 @@ const Notification = () => {
   );
 };
 
-export default Notification;
+export default Notification2;
