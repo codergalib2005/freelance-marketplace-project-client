@@ -1,25 +1,24 @@
-import React from "react";
 
+import Link from "next/link";
+import React from "react";
+import { BsBoxArrowInUpRight } from 'react-icons/bs';
 const FeatureSingle = ({ feature }) => {
   const { img, title } = feature;
   return (
-    <div className="shadow-lg rounded-lg">
-      <div className="">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={img} alt="image" />
+    <Link href='/gig_search' passHref className='cursor-pointer'>
+      <div className="shadow-lg rounded-lg">
+      <div className=" rounded-lg">
+   
+        <img className='rounded-lg cursor-pointer' src={img} alt="image" />
       </div>
-      <div className="text-left flex justify-between px-2 py-4">
-        <p>{title}</p>
-        <div className="bg-green-200 rounded-full w-8 h-8 flex justify-center items-center ">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            className="w-6/12 cursor-pointer"
-            src="https://img.icons8.com/external-royyan-wijaya-detailed-outline-royyan-wijaya/24/000000/external-arrow-arrow-line-royyan-wijaya-detailed-outline-royyan-wijaya-13.png"
-            alt="arrow"
-          />
+      <div className="text-left flex justify-between items-center px-2 py-4 capitalize">
+        <p className='cursor-pointer'>{title}</p>
+        <div className="bg-blue-200 rounded-full w-8 h-8 flex justify-center items-center cursor-pointer">
+          <BsBoxArrowInUpRight/>
         </div>
       </div>
     </div>
+    </Link>
   );
 };
 
