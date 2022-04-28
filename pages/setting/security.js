@@ -2,22 +2,20 @@ import React, { useState } from "react";
 import Menu from "../../components/Setting/Menu";
 import Securiry from "../../components/Setting/Security/Security";
 
-const security = () => {
+const Security = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [show, setShow] = useState(false);
 
   const getValue = () => {
     setShow(false);
   };
-const Security = () => {
   return (
     <div className="container grid md:grid-cols-4  gap-8 my-10 relative">
       <div
-        className={`${
-          !show
-            ? "hidden   md:block "
-            : " block translate-y-2 duration-1000 md:translate-y-0"
-        }  h-screen md:h-0 lg:h-0 bg-white md:bg-none lg:bg-none z-10 `}
+        className={`${!show
+          ? "hidden   md:block "
+          : " block translate-y-2 duration-1000 md:translate-y-0"
+          }  h-screen md:h-0 lg:h-0 bg-white md:bg-none lg:bg-none z-10 `}
       >
         <Menu getValue={getValue} show={show} />
       </div>

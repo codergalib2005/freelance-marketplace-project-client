@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { useRouter } from "next/router";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
@@ -66,8 +67,8 @@ const BuyPlan = () => {
     <div>
       <Head>
         <title>Buy Plan | {gig?.title}</title>
-        <meta itemprop="title" content={gig?.gig_title} />
-        <meta itemprop="description" content={gig?.description} />
+        <meta name="title" content={gig?.gig_title} />
+        <meta name="description" content={gig?.description} />
       </Head>
       {loading && (
         <div className='min-h-screen flex items-center justify-center w-screen'>

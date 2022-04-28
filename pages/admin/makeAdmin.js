@@ -7,7 +7,7 @@ import Footer from '../../components/Shared/Footer';
 import HeaderTop from '../../components/Shared/HeaderTop';
 
 
-const Admin = () => {
+const MakeAdmin = () => {
     const [email, setEmail] = useState("");
     const { loading } = useAuth();
     const handleONBlur = e => {
@@ -89,4 +89,4 @@ const Admin = () => {
     );
 };
 
-export default Admin;
+export default MakeAdmin;

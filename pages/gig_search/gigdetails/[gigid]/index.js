@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 /* eslint-disable @next/next/link-passhref */
 import axios from "axios";
 import { useRouter } from "next/router";
@@ -141,8 +142,8 @@ const GigDetails = () => {
             </div>
 
             {
-              sellerEmail.map(seller => (
-                <div className="w-[50%] mt-10 mx-10">
+              sellerEmail.map((seller, index) => (
+                <div key={index} className="w-[50%] mt-10 mx-10">
                   <div className="mt-10">
                     <div className="shadow-sm shadow-oraange-700 rounded-md overflow-hidden">
                       <div className="flex">

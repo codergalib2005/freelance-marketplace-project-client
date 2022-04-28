@@ -3,11 +3,7 @@ import React from 'react';
 import { Input } from 'antd';
 import styles from '../../styles/payment.module.css';
 import CheckOutForm from '../../components/Payment/CheckOutForm';
-import { Elements } from '@stripe/react-stripe-js';
-import { loadStripe } from '@stripe/stripe-js';
 
-
-const stripePromise = loadStripe('pk_test_51KtH82GzqOicd3hE8PUDIcGXXipEmmrAwoj4XRp9TTA8zg72EauoFcUDrdwjl3zJiSZpZChoPDPmxWgT53BnLYOq00RGhFTylU');
 const Payment = () => {
     return (
         <div className='bg-white relative'>
@@ -23,9 +19,6 @@ const Payment = () => {
                             <img src="/payment/payment.gif" alt="" />
                         </div>
                         <div>
-                            <Elements stripe={stripePromise}>
-                                <CheckOutForm />
-                            </Elements>
                         </div>
                     </div>
                 </div>
