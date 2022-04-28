@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Menu from "../../components/Setting/Menu";
-import AccountSettingCom from "../../components/Setting/AccountSetting/AccountSetting";
+import AccountSettingCom from "../../components/Setting/AccountSetting/AccountSetting2/AccountSettingCom";
 
-const AccountSetting = () => {
+const AccountSettingw = () => {
   const [show, setShow] = useState(false);
 
   const getValue = () => {
@@ -39,4 +39,4 @@ const AccountSetting = () => {
   );
 };
 
-export default AccountSetting;
+export default AccountSettingw;

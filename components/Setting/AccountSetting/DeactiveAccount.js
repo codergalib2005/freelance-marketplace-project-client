@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 
 const DeactiveAccount = () => {
   const { register, handleSubmit } = useForm();
-  const deactiveAccount = (data) => {
+  const deactiveAccou = (data) => {
     // console.log(data);
   };
   return (
@@ -21,7 +21,7 @@ const DeactiveAccount = () => {
           </ul>
         </div>
       </div>
-      <form onSubmit={handleSubmit(deactiveAccount)}>
+      <form onSubmit={handleSubmit(deactiveAccou)}>
         <div className="flex mt-4 space-x-6">
           <p className="w-2/6">I`m leaving because...</p>
           <select {...register("reason")} className="h-2/4 border-[1px] rounded-md shadow-md px-2 border-blue-700 outline-[1px] py-[3px] outline-blue-700 form_label bg-indigo-100">

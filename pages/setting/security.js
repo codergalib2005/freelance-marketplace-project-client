@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Menu from "../../components/Setting/Menu";
 import Securiry from "../../components/Setting/Security/Security";
 
-const Security = () => {
+const Security2 = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [show, setShow] = useState(false);
 
@@ -35,4 +35,4 @@ const Security = () => {
   );
 };
 
-export default Security;
+export default Security2;

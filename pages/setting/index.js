@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import Menu from "../../components/Setting/Menu";
-import AccountSetting from "../../components/Setting/AccountSetting/AccountSetting";
 import HeaderTop from "../../components/Shared/HeaderTop";
 import Header from "../../components/Shared/Header";
 import Footer from "../../components/Shared/Footer";
+import AccountSettingCom from "../../components/Setting/AccountSetting/AccountSetting2/AccountSettingCom";
 
-const Setting = () => {
+const Settingw = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const [show, setShow] = useState(false);
 
@@ -33,7 +33,7 @@ const Setting = () => {
             alt=""
           />
         </div>
-        <AccountSetting />
+        <AccountSettingCom />
         {/* </div> */}
       </div>
       <div>
@@ -43,4 +43,4 @@ const Setting = () => {
   );
 };
 
-export default Setting;
+export default Settingw;

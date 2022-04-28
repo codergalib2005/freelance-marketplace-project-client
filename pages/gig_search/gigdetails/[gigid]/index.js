@@ -151,7 +151,9 @@ const GigDetails = () => {
                           <img className="rounded-full" src={seller.buyerImage} alt="" />
                         </div>
                         <div className="mt-10 ml-5">
-                          <Rating name="half-rating" defaultValue={seller.rating} readOnly /> <br />
+                          <span className="bg-gray-900  pt-3">
+                            <Rating name="half-rating" defaultValue={seller.rating} readOnly />
+                          </span> <br />
                           <h4 className="text-[#2a3254]">{seller.profession}</h4>
                         </div>
                       </div>
@@ -403,7 +405,9 @@ const GigDetails = () => {
                     Give a Review
                   </strong> <br /> <br />
 
-                  <Rating onChange={e => setRating(e.target.value)} name="half-rating" defaultValue={2.5} precision={0.5} /> <br />
+                  <span className="bg-gray-900 pt-3">
+                    <Rating onChange={e => setRating(e.target.value)} name="half-rating" defaultValue={2.5} precision={0.5} /> <br />
+                  </span>
                   <form onSubmit={handleSubmit(onSubmit)}>
                     <textarea className="py-1 px-2 rounded-2 h-18 border border-[#2a3254] rounded-md shadow-lg" {...register("description")} placeholder='Your Comment' required /> <br /> <br />
                     <input className="py-1 px-2 rounded-2 border border-[#2a3254] rounded-md shadow-lg" {...register("profession")} placeholder='Your profession' type="text" required /> <br /> <br />
