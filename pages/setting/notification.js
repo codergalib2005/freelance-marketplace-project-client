@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Menu from "../../components/Setting/Menu";
-import NotificationCom from "../../components/Setting/Notification/Notification";
+import NotificationCom from "../../components/Setting/Notification";
 
 const Notification2 = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
