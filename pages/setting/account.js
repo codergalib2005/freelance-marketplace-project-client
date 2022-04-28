@@ -30,7 +30,6 @@ const AccountSetting = () => {
               alt=""
             />
           </div>
-          <AccountSetting />
           <div className="col-span-3 shadow-lg p-6">
             <AccountSettingCom />
           </div>
