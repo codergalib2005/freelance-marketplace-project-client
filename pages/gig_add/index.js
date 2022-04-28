@@ -95,7 +95,9 @@ const GigCreation = () => {
             <div>
               {/*======Overview======*/}
               {state.showPage === "MAIN_PAGE" && (
-                <div className="shadow-lg  p-6 rounded-lg lato">
+                <div style={{
+                  boxShadow:"0px 0.5px 2px 0.5px lightgray"
+                }} className=" p-6 rounded-lg lato">
                   <div className="mb-6">
                     <h2 className="text-center text-2xl font-semibold text-gray-800">
                       Create Your Gig Today!
@@ -192,7 +194,9 @@ const GigCreation = () => {
               )}
               {/*======Pricing======*/}
               {state.showPage === "PRICING_PAGE" && (
-                <div className="shadow-lg p-6 rounded-lg lato">
+                <div style={{
+                  boxShadow:"0px 0.5px 2px 0.5px lightgray"
+                }} className=" p-6 rounded-lg lato">
                   <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-4">
                     <div className="">
                       <div className="text-lg py-3 bg-gray-200">Basic</div>
@@ -384,9 +388,11 @@ const GigCreation = () => {
               )}
               {/*======Gallery======*/}
               {state.showPage === "GALLERY_PAGE" && (
-                <div
-                  style={{ minHeight: "100px" }}
-                  className="shadow-lg  p-6 rounded-lg "
+                <div style={{
+                  boxShadow:"0px 0.5px 2px 0.5px lightgray",
+                  minHeight: "100px"
+                }}
+                  className="  p-6 py-8 lg:py-16 rounded-lg "
                 >
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                     <div>
