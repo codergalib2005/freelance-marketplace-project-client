@@ -14,7 +14,7 @@ const Message = ({ own, message }) => {
 
         <p className="messageText">{message.text}</p>
       </div>
-      <div className="messageBottom">
+      <div className="messageBottom text-gray-700">
         <p>{format(message.createdAt)}</p>
       </div>
     </div>
