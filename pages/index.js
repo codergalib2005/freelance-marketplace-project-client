@@ -7,7 +7,7 @@ import Footer from "../components/Shared/Footer";
 import Header from "../components/Shared/Header";
 // import BreakdownFirst from "./Breakdown/BreakdownFirst";
 // import BreakdownSecond from "./Breakdown/BreakdownSecond";
-import HowWeWorks from "../components/HowWeWorks/howweworks";
+import HowWeWorks from "../components/HowWeWorks/Howweworks";
 // import Topseller from "../components/Shared/Topseller";
 // import bg from "../public/Reviews.png";
 import Devices from "../components/Home/Devices";
