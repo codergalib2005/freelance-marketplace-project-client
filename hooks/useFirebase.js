@@ -59,7 +59,6 @@ const useFirebase = () => {
                     .then(res => {
                         message.success("User register successfully!");
                         router.replace("/")
-                        setError('');
                     })
                     .catch(err => console.log(err))
             })
