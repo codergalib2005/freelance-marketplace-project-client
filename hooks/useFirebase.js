@@ -15,6 +15,9 @@ const useFirebase = () => {
     const [userStatus, setUserStatus] = useState("");
     const [loading, setIsLoadind] = useState(true);
     const [error, setError] = useState('');
+      //isopen
+    const [isOpen, setIsOpen] = useState(true);
+  const toggle = () => setIsOpen(!isOpen);
     //for admin
     // const [admin, setAdmin] = useState(false)
 
@@ -55,7 +58,7 @@ const useFirebase = () => {
                     // An error occurred
                     // ...
                 });
-                axios.post(`${process.env.NEXT_PUBLIC_URL}/users, body`)
+                axios.post(`${process.env.NEXT_PUBLIC_API_URL}/users, body`)
                     .then(res => {
                         message.success("User register successfully!");
                         router.replace("/")
@@ -98,7 +101,7 @@ const useFirebase = () => {
 
     //for admin
     // useEffect(() => {
-    //     fetch(${process.env.NEXT_PUBLIC_URL}/users/admin/${user?.email})
+    //     fetch(${process.env.NEXT_PUBLIC_API_URL}/users/admin/${user?.email})
     //     .then(res => res.json())
     //     .then(data => setAdmin(data.admin))
     // },[user?.email])
@@ -152,13 +155,14 @@ const useFirebase = () => {
     // Load Login personal data loader 
     useEffect(() => {
         setIsLoadind(true);
-        fetch(`${process.env.NEXT_PUBLIC_URL}/users/email/${user?.email}`)
+        fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/email/${user?.email}`)
             .then((res) => res.json())
             .then((data) => {
                 setUserStatus(data?.result[0]?.status)
                 setIsLoadind(false)
             })
-            .catch((err) => console.log(err));
+            .catch((err) => console.log(err))
+            .finally(() => setIsLoadind(false));
     }, []);
 
     //logout email and pass
@@ -182,6 +186,9 @@ const useFirebase = () => {
         logInUser,
         signInWithGoogle,
         loading,
+        toggle,
+        isOpen,
+        setIsOpen,
         setIsLoadind,
         logOut,
         error,

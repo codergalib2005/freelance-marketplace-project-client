@@ -32,7 +32,7 @@ const ProfilePicUpload = ({ handleProfileClose, handleOpenProfile, openProfile, 
   const { register, handleSubmit, reset } = useForm();
   const primary = red[500];
   const onSubmit = (data) => {
-    axios.put(`${process.env.NEXT_PUBLIC_URL}/users/avatar/${id}`, data)
+    axios.put(`${process.env.NEXT_PUBLIC_API_URL}/users/avatar/${id}`, data)
       .then(function (response) {
         setOpenProfile(false);
         message.success("Profile Banner Update Successfully!")
