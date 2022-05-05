@@ -9,6 +9,7 @@ import { BsCartCheck } from "react-icons/bs";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import SideBarMenu from "./SideBarMenu";
+import useAuth from "../../hooks/useAuth";
 
 // icon and path distribute
 const routes = [
@@ -150,8 +151,8 @@ const routes = [
 ];
 
 const SideBar = ({ children }) => {
-  const [isOpen, setIsOpen] = useState(true);
-  const toggle = () => setIsOpen(!isOpen);
+  
+  const {toggle, isOpen, setIsOpen } = useAuth();
 
   // animation
   const inputAnimation = {
@@ -201,7 +202,7 @@ const SideBar = ({ children }) => {
               damping: 10,
             },
           }}
-          className={`sidebar h-full`}
+          className={`sidebar min-h-screen fixed top-0 left-0`} style={{zIndex: '500'}}
         >
           <div className="top_section">
             <AnimatePresence>
@@ -227,12 +228,12 @@ const SideBar = ({ children }) => {
           <section className="routes">
             {routes.map((route, index) => {
               if (route.subRoutes) {
-                return <SideBarMenu setIsOpen={setIsOpen} route={route} showAnimation={showAnimation} isOpen={isOpen} />;
+                return <SideBarMenu  key={index} setIsOpen={setIsOpen} route={route} showAnimation={showAnimation} isOpen={isOpen} />;
               }
 
               return (
                 <Link href={route.path} key={index}>
-                  <a className="link" activeClassName="active">
+                  <a className="link" activeclassname="active">
                     <div className="icon">{route.icon}</div>
                     <AnimatePresence>
                       {isOpen && (

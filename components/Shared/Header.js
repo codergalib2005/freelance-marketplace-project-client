@@ -70,16 +70,16 @@ const Header = () => {
                   <Link href="/"><a>Home</a></Link>
                 </li>
                 <li className="text-lg font-medium text-[#2a3254] py-3">
-                  <Link href="/"><a>Profile</a></Link>
+                  <Link href="/profile"><a>Profile</a></Link>
                 </li>
                 <li className="text-lg font-medium text-[#2a3254] py-3">
-                  <Link href="/"><a>Dashboard</a></Link>
+                  <Link href="/dashboard"><a>Dashboard</a></Link>
                 </li>
                 <li className="text-lg font-medium text-[#2a3254] py-3">
-                  <Link href="/"><a>Become A Seller</a></Link>
+                  <Link href="/become&seller"><a>Become A Seller</a></Link>
                 </li>
                 <li className="text-lg font-medium text-[#2a3254] py-3">
-                  <Link href="/"><a>Create A gig</a></Link>
+                  <Link href="/gig_add"><a>Create A gig</a></Link>
                 </li>
               </ul>
             </div>

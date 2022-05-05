@@ -27,7 +27,7 @@ const BannerPicChange = ({ handleBannerClose, handleopenBanner, openBanner, id, 
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
   const primary = red[500];
   const onSubmit = (data) => {
-    axios.put(`${process.env.NEXT_PUBLIC_URL}/users/banner/${id}`, data)
+    axios.put(`${process.env.NEXT_PUBLIC_API_URL}/users/banner/${id}`, data)
       .then(function (response) {
         setOpenBanner(false);
         message.success("Profile Banner Update Successfully!")

@@ -29,7 +29,7 @@ const BuyPlan = () => {
   const onSubmit = data => {
     // post
     axios.post(
-      `${process.env.NEXT_PUBLIC_URL}/task/`,
+      `${process.env.NEXT_PUBLIC_API_URL}/task/`,
       {
         sellerEmail: gig?.email,
         buyerEmail: user?.email,
@@ -54,7 +54,7 @@ const BuyPlan = () => {
     ).catch(err => console.log(message))
   };
   useEffect(() => {
-    const GETURL = `${process.env.NEXT_PUBLIC_URL}/gigs/${id}`;
+    const GETURL = `${process.env.NEXT_PUBLIC_API_URL}/gigs/${id}`;
     axios
       .get(GETURL)
       .then((res) => {
