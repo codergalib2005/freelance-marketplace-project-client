@@ -47,7 +47,7 @@ const About = ({ id, education, skills, aboutt }) => {
       message.error("About field Must need to fill-up!");
       return;
     } else {
-      axios.put(`${process.env.NEXT_PUBLIC_URL}/users/about/${id}`, {
+      axios.put(`${process.env.NEXT_PUBLIC_API_URL}/users/about/${id}`, {
         about: aboutBody,
       })
         .then(function (response) {
@@ -64,7 +64,7 @@ const About = ({ id, education, skills, aboutt }) => {
       message.error("Skills field Must need to fill-up!");
       return;
     } else {
-      axios.put(`${process.env.NEXT_PUBLIC_URL}/users/skills/${id}`, {
+      axios.put(`${process.env.NEXT_PUBLIC_API_URL}/users/skills/${id}`, {
         skills: skillsBody,
       })
         .then(function (response) {
@@ -81,7 +81,7 @@ const About = ({ id, education, skills, aboutt }) => {
       message.error("Education field Must need to fill-up!");
       return;
     } else {
-      axios.put(`${process.env.NEXT_PUBLIC_URL}/users/education/${id}`, {
+      axios.put(`${process.env.NEXT_PUBLIC_API_URL}/users/education/${id}`, {
         education: educationBody,
       })
         .then(function (response) {

@@ -12,16 +12,17 @@ import styles from '../../styles/manageAdmin.module.css';
 import SideBar from "../../components/SideBar/SideBar";
 import SideBarMenu from "../../components/SideBar/SideBarMenu";
 import MainDashboard from "../../components/Dashboard/MainDashboard";
+import useAuth from "../../hooks/useAuth";
 
 
 
 const ManageAdmin = () => {
   const [ourUsers, setOurUsers] = useState([]);
-
+  const { isOpen } = useAuth()
 
 
   useEffect(() => {
-    fetch(`${process.env.NEXT_PUBLIC_URL}/users`)
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/users`)
       .then(res => res.json())
       .then(data => setOurUsers(data.result))
   }, []);
@@ -36,7 +37,7 @@ const ManageAdmin = () => {
             <SideBar />
             <SideBarMenu />
           </div>
-          <div className={styles.table_container}>
+          <div className={` ${styles.table_container} ${isOpen ? "pl-[200px]" : "pl-[45px]"}`}>
             <TableContainer component={Paper} >
               <Table aria-label="simple table">
                 <TableHead>
