@@ -21,7 +21,7 @@ const ManageAdmin = () => {
 
 
   useEffect(() => {
-    fetch(`${process.env.NEXT_PUBLIC_URL}/users`)
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/users`)
       .then(res => res.json())
       .then(data => setOurUsers(data.result))
   }, []);

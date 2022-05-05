@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
 import useAuth from './useAuth';
@@ -12,7 +13,7 @@ export function withPrivate(Component) {
             }, [router])
             return <button type="button" className="bg-indigo-500 ..." disabled>
                 <div className='min-h-screen flex items-center justify-center w-screen'>
-                    <span className="main-loader"></span>
+                    <span className="main-loader"></span> 
                 </div>
             </button>
         }

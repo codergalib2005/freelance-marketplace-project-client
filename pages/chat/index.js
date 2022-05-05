@@ -24,7 +24,7 @@ const socket = io.connect("https://freelance-app-socket-server.herokuapp.com");
 
 function ChatApp() {
   const { user } = useAuth();
-
+  console.log(user);
   const [open, setOpen] = useState(false);
   const [open2, setOpen2] = useState(false);
 

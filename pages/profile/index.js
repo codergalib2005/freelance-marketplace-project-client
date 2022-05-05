@@ -1,12 +1,12 @@
 /* eslint-disable @next/next/no-img-element */
 import { Avatar } from "@mui/material";
-import { Input, message } from "antd";
+import { Input, message, Tooltip } from "antd";
 import TextArea from "antd/lib/input/TextArea";
-import axios from 'axios';
+import axios from "axios";
 import React, { useReducer, useState } from "react";
 import { useForm } from "react-hook-form";
 import { BsCheck2Square } from "react-icons/bs";
-import { FcCameraAddon } from 'react-icons/fc';
+import { FcCameraAddon } from "react-icons/fc";
 import { FiEdit } from "react-icons/fi";
 import { GrUserManager } from "react-icons/gr";
 import { IoMdClose } from "react-icons/io";
@@ -19,7 +19,7 @@ import Footer from "../../components/Shared/Footer";
 import Header from "../../components/Shared/Header";
 import HeaderTop from "../../components/Shared/HeaderTop";
 import { withPrivate } from "../../hooks/PrivateRoute";
-import useAuth from '../../hooks/useAuth';
+import useAuth from "../../hooks/useAuth";
 const editorMood = {
   editor: null,
 };
@@ -47,10 +47,12 @@ const controlReducer = (state, action) => {
 };
 const Profile = () => {
   const [state, dispatch] = useReducer(controlReducer, editorMood);
-  const [thisUser, setThisUser] = useState({})
+  // const [thisUser, setThisUser] = useState({})
   const [tabs, setTabs] = useState("about");
-  const { user, userStatus, loading, setIsLoadind } = useAuth();
-  const [professionText, setProfessionText] = useState(`${thisUser?.profession}`);
+  const { user, thisUser, userStatus, loading, setIsLoadind } = useAuth();
+  const [professionText, setProfessionText] = useState(
+    `${thisUser?.profession}`
+  );
   const [bioText, setBioText] = useState(`${thisUser?.bio}`);
   const [openProfile, setOpenProfile] = useState(false);
   const [openBanner, setOpenBanner] = useState(false);
@@ -66,59 +68,65 @@ const Profile = () => {
     borderTopLeftRadius: "5px",
     borderTopRightRadius: "5px",
   };
-  axios.get(`${process.env.NEXT_PUBLIC_URL}/users/email/${user?.email}`)
-    .then(response => {
-      setThisUser(response?.data?.result[0]);
-    }, error => {
-      console.log(error);
-    });
+  // axios.get(`${process.env.NEXT_PUBLIC_API_URL}/users/email/${user?.email}`)
+  //   .then(response => {
+  //     setThisUser(response?.data?.result[0]);
+  //   }, error => {
+  //     console.log(error);
+  //   });
   // Handle Bio Edit Submit____
   const handleBioSubmit = () => {
     if (!bioText) {
       message.error("Bio field Must need to fill-up!");
       return;
     } else {
-      axios.put(`${process.env.NEXT_PUBLIC_URL}/users/bio/${thisUser?._id}`, {
-        bio: bioText,
-      })
+      axios
+        .put(`${process.env.NEXT_PUBLIC_API_URL}/users/bio/${thisUser?._id}`, {
+          bio: bioText,
+        })
         .then(function (response) {
-          message.success("Bio Update Successfully!")
-          dispatch({ type: "CLOSE_EDITOR" })
+          message.success("Bio Update Successfully!");
+          dispatch({ type: "CLOSE_EDITOR" });
         })
         .catch(function (error) {
           console.log(error);
         });
     }
-  }
-  const handleProfessionSubmit = e => {
+  };
+  const handleProfessionSubmit = (e) => {
     if (!professionText) {
       message.error("Profession field Must need to fill-up!");
       return;
     } else {
-      axios.put(`${process.env.NEXT_PUBLIC_URL}/users/profession/${thisUser?._id}`, {
-        profession: professionText,
-      })
+      axios
+        .put(
+          `${process.env.NEXT_PUBLIC_API_URL}/users/profession/${thisUser?._id}`,
+          {
+            profession: professionText,
+          }
+        )
         .then(function (response) {
-          message.success("Profession Update Successfully!")
-          dispatch({ type: "CLOSE_EDITOR" })
+          message.success("Profession Update Successfully!");
+          dispatch({ type: "CLOSE_EDITOR" });
         })
         .catch(function (error) {
           console.log(error);
         });
     }
-  }
+  };
 
   // ================ Here are all props
   const bioProps = {
     defaultValue: bioText,
-  }
+  };
   const { register, handleSubmit } = useForm();
-  const onSubmit = data => console.log(data);
+  const onSubmit = (data) => console.log(data);
 
   const handleProfileOpen = () => setOpenProfile(true);
   const handleProfileClose = () => setOpenProfile(false);
-  const handleBannerOpen = () => setOpenBanner(true)
+  const handleBannerOpen = () => setOpenBanner(true);
   const handleBannerClose = () => setOpenBanner(false);
+  console.log(thisUser);
   return (
     <div>
       <HeaderTop />
@@ -138,23 +146,29 @@ const Profile = () => {
               <img className="w-6 h-6" src="/profile/select.png" alt="" />
               <div className="w-8 h-8 rounded-full border-4 border-white ">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                {!thisUser?.avatar && <img
-                  className="w-full rounded-full hover:scale-105 h-full transition-all duration-300 ease-linear"
-                  src="https://i.ibb.co/bb4pZNP/boy-avatar.png"
-                  alt=""
-                />}
-                {thisUser?.avatar && <img
-                  className="w-full rounded-full hover:scale-105 h-full transition-all duration-300 ease-linear"
-                  src={thisUser?.avatar}
-                  alt=""
-                />}
+                {!thisUser?.avatar && (
+                  <img
+                    className="w-full rounded-full hover:scale-105 h-full transition-all duration-300 ease-linear"
+                    src="https://i.ibb.co/bb4pZNP/boy-avatar.png"
+                    alt=""
+                  />
+                )}
+                {thisUser?.avatar && (
+                  <img
+                    className="w-full rounded-full hover:scale-105 h-full transition-all duration-300 ease-linear"
+                    src={thisUser?.avatar}
+                    alt=""
+                  />
+                )}
               </div>
             </div>
           </div>
           {/* new section */}
           <div className="mb-8">
             <div className="">
-              <h2 className="text-4xl text-gray-800 font-semibold">Hello ${user?.displayName}</h2>
+              <h2 className="text-4xl text-gray-800 font-semibold">
+                Hello {user?.displayName}
+              </h2>
               <div className="flex  gap-4 items-center">
                 <p className="text-xl text-gray-500 font-medium">
                   Have a nice day at work
@@ -179,7 +193,9 @@ const Profile = () => {
                 <div className="shadow-lg md:shadow-none p-6 md:p-0">
                   <p className="text-3xl text-gray-700">$3553.6</p>
                   <div className="bg-blue-400 w-12 mx-auto h-2 my-4 rounded-lg"></div>
-                  <p className="text-gray-500 font-semibold text-lg">My Funds</p>
+                  <p className="text-gray-500 font-semibold text-lg">
+                    My Funds
+                  </p>
                 </div>
                 <div className="shadow-lg  md:shadow-none p-6 md:p-0">
                   <p className="text-3xl text-gray-700">$5153.60</p>
@@ -201,54 +217,60 @@ const Profile = () => {
               <div className="shadow-md flex">
                 <div
                   style={profileSelectableCard}
-                  className={`w-4/12 flex items-center justify-center flex-col py-2 border-b-2 cursor-pointer ${tabs === "about"
-                    ? "bg-[#c3d9ec] text-[#c3d9ec] border-[#3980c0]"
-                    : "border-gray-500 bg-50"
-                    }`}
+                  className={`w-4/12 flex items-center justify-center flex-col py-2 border-b-2 cursor-pointer ${
+                    tabs === "about"
+                      ? "bg-[#c3d9ec] text-[#c3d9ec] border-[#3980c0]"
+                      : "border-gray-500 bg-50"
+                  }`}
                   onClick={() => setTabs("about")}
                 >
                   <span className="text-xl">
                     <GrUserManager />
                   </span>
                   <span
-                    className={`text-base font-medium ${tabs === "about" ? "text-[#3980c0]" : "text-gray-800"
-                      }`}
+                    className={`text-base font-medium ${
+                      tabs === "about" ? "text-[#3980c0]" : "text-gray-800"
+                    }`}
                   >
                     About
                   </span>
                 </div>
                 <div
                   style={profileSelectableCard}
-                  className={`w-4/12 flex items-center justify-center flex-col py-2 border-b-2 cursor-pointer ${tabs === "task"
-                    ? "bg-[#c3d9ec] text-[#c3d9ec] border-[#3980c0]"
-                    : "border-gray-500 bg-50"
-                    }`}
+                  className={`w-4/12 flex items-center justify-center flex-col py-2 border-b-2 cursor-pointer ${
+                    tabs === "task"
+                      ? "bg-[#c3d9ec] text-[#c3d9ec] border-[#3980c0]"
+                      : "border-gray-500 bg-50"
+                  }`}
                   onClick={() => setTabs("task")}
                 >
                   <span className="text-xl text-gray-800">
                     <GrUserManager />
                   </span>
                   <span
-                    className={`text-base font-medium ${tabs === "task" ? "text-[#3980c0]" : "text-gray-800"
-                      }`}
+                    className={`text-base font-medium ${
+                      tabs === "task" ? "text-[#3980c0]" : "text-gray-800"
+                    }`}
                   >
                     Tasks
                   </span>
                 </div>
                 <div
                   style={profileSelectableCard}
-                  className={`w-4/12 flex items-center justify-center flex-col py-2 border-b-2 cursor-pointer ${tabs === "review"
-                    ? "bg-[#c3d9ec] text-[#c3d9ec] border-[#3980c0]"
-                    : "border-gray-500 bg-50"
-                    }`}
+                  className={`w-4/12 flex items-center justify-center flex-col py-2 border-b-2 cursor-pointer ${
+                    tabs === "review"
+                      ? "bg-[#c3d9ec] text-[#c3d9ec] border-[#3980c0]"
+                      : "border-gray-500 bg-50"
+                  }`}
                   onClick={() => setTabs("review")}
                 >
                   <span className="text-xl text-gray-800">
                     <GrUserManager />
                   </span>
                   <span
-                    className={`text-base font-medium ${tabs === "review" ? "text-[#3980c0]" : "text-gray-800"
-                      }`}
+                    className={`text-base font-medium ${
+                      tabs === "review" ? "text-[#3980c0]" : "text-gray-800"
+                    }`}
                   >
                     Review
                   </span>
@@ -258,7 +280,12 @@ const Profile = () => {
               <div>
                 {tabs === "about" && (
                   <div>
-                    <About id={thisUser?._id} aboutt={thisUser?.about} skills={thisUser?.skills} education={thisUser?.education} />
+                    <About
+                      id={thisUser?._id}
+                      aboutt={thisUser?.about}
+                      skills={thisUser?.skills}
+                      education={thisUser?.education}
+                    />
                   </div>
                 )}
                 {tabs === "task" && (
@@ -281,27 +308,34 @@ const Profile = () => {
                   <span
                     className="text-2xl rounded-md absolute bottom-3 right-3 bg-gray-50 px-2 py-2"
                     onClick={() => setOpenBanner(!openBanner)}
-                  ><FcCameraAddon />
+                  >
+                    <FcCameraAddon />
                   </span>
-                  <BannerPicChange id={thisUser?._id} openBanner={openBanner} handleBannerClose={handleBannerClose} handleBannerOpen={handleBannerOpen} setOpenBanner={setOpenBanner} />
+                  <BannerPicChange
+                    id={thisUser?._id}
+                    openBanner={openBanner}
+                    handleBannerClose={handleBannerClose}
+                    handleBannerOpen={handleBannerOpen}
+                    setOpenBanner={setOpenBanner}
+                  />
                 </div>
                 <div className="p-3">
                   <div className="relative -top-16">
                     <div className="absolute">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <div className="w-20 h-20 rounded-full overflow-hidden">
-                        {(thisUser?.avatar === "") && (
+                        {thisUser?.avatar === "" && (
                           <Avatar
                             alt="Remy Sharp"
                             src="https://i.ibb.co/bb4pZNP/boy-avatar.png"
-                            sx={{ width: '100%', height: '100%' }}
+                            sx={{ width: "100%", height: "100%" }}
                           />
                         )}
                         {thisUser?.avatar && (
                           <Avatar
                             alt={thisUser?.name}
                             src={thisUser?.avatar}
-                            sx={{ width: '100%', height: '100%' }}
+                            sx={{ width: "100%", height: "100%" }}
                           />
                         )}
                       </div>
@@ -309,8 +343,14 @@ const Profile = () => {
                         <span
                           className="text-xl profilePicUploadIcon bg-gray-50 px-2 py-2 rounded-md shadow-lg"
                           onClick={() => setOpenProfile(true)}
-                        ><FcCameraAddon />
-                          <ProfileModal id={thisUser?._id} openProfile={openProfile} handleProfileOpen={handleProfileOpen} setOpenProfile={setOpenProfile} />
+                        >
+                          <FcCameraAddon />
+                          <ProfileModal
+                            id={thisUser?._id}
+                            openProfile={openProfile}
+                            handleProfileOpen={handleProfileOpen}
+                            setOpenProfile={setOpenProfile}
+                          />
                         </span>
                       </div>
                     </div>
@@ -326,6 +366,7 @@ const Profile = () => {
                           maxLength={40}
                           placeholder="input with clear icon"
                           allowClear
+                          defaultValue={thisUser?.profession}
                           onChange={(e) => setProfessionText(e.target.value)}
                         />
                         <div className="py-2">
@@ -335,7 +376,10 @@ const Profile = () => {
                           >
                             <IoMdClose />
                           </button>
-                          <button onClick={handleProfessionSubmit} className="text-xl mr-3 mt-3">
+                          <button
+                            onClick={handleProfessionSubmit}
+                            className="text-xl mr-3 mt-3"
+                          >
                             <BsCheck2Square />
                           </button>
                         </div>
@@ -347,8 +391,12 @@ const Profile = () => {
                           className="text-lg pl-1 flex items-center cursor-pointer text-[#e83a3b]"
                           onClick={() => dispatch({ type: "PROFESSION_EDIT" })}
                         >
-                          <FiEdit />
-                          <span className="ml-2 text-gray-800 font-medium text-md">Edit your Profession</span>
+                          <Tooltip title="Edit profession box and add your profession!">
+                            <FiEdit />
+                          </Tooltip>
+                          <span className="ml-2 text-gray-800 font-medium text-md">
+                            Edit your Profession
+                          </span>
                         </span>
                       </span>
                     )}
@@ -360,7 +408,7 @@ const Profile = () => {
                             maxLength={100}
                             placeholder="input with clear icon"
                             allowClear
-                            {...bioProps}
+                            // {...bioProps}
                             defaultValue={thisUser?.bio}
                             onChange={(e) => setBioText(e.target.value)}
                           />
@@ -371,7 +419,10 @@ const Profile = () => {
                             >
                               <IoMdClose />
                             </button>
-                            <button onClick={handleBioSubmit} className="text-xl mr-3 mt-3">
+                            <button
+                              onClick={handleBioSubmit}
+                              className="text-xl mr-3 mt-3"
+                            >
                               <BsCheck2Square />
                             </button>
                           </div>
@@ -383,8 +434,12 @@ const Profile = () => {
                             className="text-lg pl-1 flex items-center cursor-pointer text-[#e83a3b]"
                             onClick={() => dispatch({ type: "BIO_EDIT" })}
                           >
-                            <FiEdit />
-                            <span className="ml-2 text-gray-800 font-medium text-md">Edit your bio</span>
+                            <Tooltip title="Edit Bio box, add your simple introduction">
+                              <FiEdit />
+                            </Tooltip>
+                            <span className="ml-2 text-gray-800 font-medium text-md">
+                              Edit your bio
+                            </span>
                           </span>
                         </span>
                       )}

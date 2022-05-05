@@ -27,7 +27,7 @@ const ProfileModal = ({ handleProfileClose, handleOpenProfile, openProfile, id, 
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
   const primary = red[500];
   const onSubmit = (data) => {
-    axios.put(`${process.env.NEXT_PUBLIC_URL}/users/avatar/${id}`, data)
+    axios.put(`${process.env.NEXT_PUBLIC_API_URL}/users/avatar/${id}`, data)
       .then(function (response) {
         setOpenProfile(false);
         message.success("Profile Pic Update Successfully!")
@@ -52,7 +52,7 @@ const ProfileModal = ({ handleProfileClose, handleOpenProfile, openProfile, id, 
         <Fade in={openProfile}>
           <Box sx={styles} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', }}>
             <label htmlFor="icon-button-file">
-              <TextField {...register("image", { required: true })} type="text" />
+              <TextField {...register("avatar", { required: true })} type="text" />
               <span className='font-bold text-lg text-gray-50 pr-3'>Upload Banner Image</span>
               <Button type="submit" variant="contained" color="primary" xs={{ background: 'blue', paddingLeft: '1rem' }} endIcon={<SendIcon />}>
                 Send
