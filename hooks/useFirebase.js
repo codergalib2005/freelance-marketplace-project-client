@@ -88,21 +88,11 @@ const useFirebase = () => {
           .post(`${process.env.NEXT_PUBLIC_URL}/users, body`)
           .then((res) => {
             message.success("User register successfully!");
+            sendUserForChat(chatBody);
             router.replace("/");
           })
           .catch((err) => console.log(err));
         // send to database for chat system
-        axios
-          .post(
-            "https://freelancer-chat-app-api.herokuapp.com/api/users",
-            chatBody
-          )
-          .then((res) => {
-            if (res.status === 200) {
-              router.replace("/");
-            }
-          })
-          .catch((err) => console.log(err));
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -110,6 +100,16 @@ const useFirebase = () => {
         message.error(error.message);
       })
       .finally(() => setIsLoadind(false));
+  };
+  const sendUserForChat = (chatBody) => {
+    axios
+      .post("https://freelancer-chat-app-api.herokuapp.com/api/users", chatBody)
+      .then((res) => {
+        if (res.status === 200) {
+          router.replace("/");
+        }
+      })
+      .catch((err) => console.log(err));
   };
 
   //user observe user
