@@ -5,6 +5,7 @@ import useAuth from "../../hooks/useAuth";
 import { CgMenuRight } from "react-icons/cg";
 import { AiOutlineClose } from "react-icons/ai";
 import { GrLogout } from "react-icons/gr";
+import { motion } from "framer-motion";
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [fixedMenu, setFixedMenu] = useState(false);
@@ -20,12 +21,12 @@ const Header = () => {
   };
   const { user, logOut } = useAuth();
   return (
-    <div
-      // initial={{ y: -100, opacity: 0, visibility: "hidden" }}
-      // animate={{ y: 0, opacity: 1, visibility: "visible" }}
-      // transition={{ duration: 0.5 }}
-      className={`bg-[#2a3254] border-t-2 border-white transition-all ease-linear duration-700  py-3 ${
-        fixedMenu ? "fixed w-full left-0 top-0 z-40 border-none" : ""
+    <motion.div
+      initial={{ y: -100, opacity: 0, visibility: "hidden" }}
+      animate={{ y: 0, opacity: 1, visibility: "visible" }}
+      transition={{ duration: 0.5 }}
+      className={`bg-[#2a3254] border-t-2 border-white transition-all ease-linear duration-500  py-3 ${
+        fixedMenu ? "fixed w-full left-0 top-0 z-40 border-none transition-all ease-linear duration-500" : "transition-all ease-linear duration-500"
       }`}
     >
       <div className="container mx-auto px-4">
@@ -193,7 +194,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

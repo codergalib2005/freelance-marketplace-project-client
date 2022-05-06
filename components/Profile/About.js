@@ -44,16 +44,10 @@ const About = ({ id, education, skills, aboutt }) => {
       message.error("About field Must need to fill-up!");
       return;
     } else {
-<<<<<<< HEAD
       axios
         .put(`${process.env.NEXT_PUBLIC_API_URL}/users/about/${id}`, {
           about: aboutBody,
         })
-=======
-      axios.put(`${process.env.NEXT_PUBLIC_API_URL}/users/about/${id}`, {
-        about: aboutBody,
-      })
->>>>>>> 3f97d61394a6ef4bb6108740969fd30862c176d5
         .then(function (response) {
           message.success("About Update Successfully!");
           dispatch({ type: "CLOSE_EDITOR" });
@@ -68,16 +62,10 @@ const About = ({ id, education, skills, aboutt }) => {
       message.error("Skills field Must need to fill-up!");
       return;
     } else {
-<<<<<<< HEAD
       axios
         .put(`${process.env.NEXT_PUBLIC_API_URL}/users/skills/${id}`, {
           skills: skillsBody,
         })
-=======
-      axios.put(`${process.env.NEXT_PUBLIC_API_URL}/users/skills/${id}`, {
-        skills: skillsBody,
-      })
->>>>>>> 3f97d61394a6ef4bb6108740969fd30862c176d5
         .then(function (response) {
           message.success("Skills Update Successfully!");
           dispatch({ type: "CLOSE_EDITOR" });
@@ -92,16 +80,10 @@ const About = ({ id, education, skills, aboutt }) => {
       message.error("Education field Must need to fill-up!");
       return;
     } else {
-<<<<<<< HEAD
       axios
         .put(`${process.env.NEXT_PUBLIC_API_URL}/users/education/${id}`, {
           education: educationBody,
         })
-=======
-      axios.put(`${process.env.NEXT_PUBLIC_API_URL}/users/education/${id}`, {
-        education: educationBody,
-      })
->>>>>>> 3f97d61394a6ef4bb6108740969fd30862c176d5
         .then(function (response) {
           message.success("Education Update Successfully!");
           dispatch({ type: "CLOSE_EDITOR" });
