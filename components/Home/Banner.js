@@ -6,7 +6,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Autoplay } from "swiper";
-
+import Link from "next/link";
+import { motion } from "framer-motion";
 const bannerData = [
   {
     title: " Digital Marketing",
@@ -85,7 +86,12 @@ const Banner = () => {
         {bannerData.map((bd, ind) => (
           <SwiperSlide key={ind} bd={bd}>
             <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-9  overflow-x-hidden py-12 items-center">
-              <div className="col-span-5 pl-0">
+              <motion.div
+                initial={{ scaleX: 0.7, opacity: 0, visibility: "hidden" }}
+                animate={{ scaleX: 1, opacity: 1, visibility: "visible" }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+                className="col-span-5 pl-0"
+              >
                 <div className="text-center lg:text-left ">
                   <h2 className="text-6xl font-bold text-[#2A3254]">
                     {bd?.title}
@@ -94,12 +100,16 @@ const Banner = () => {
                     {bd.desc}
                   </p>
                   <div className="flex gap-4 justify-center lg:justify-start">
-                    <button className="px-8 py-3 rounded bg-pink-500 text-lg  text-white">
-                      Get Started
-                    </button>
-                    <button className="px-8 py-3  rounded border-2 border-pink-400  text-lg">
-                      Try Now
-                    </button>
+                    <Link href="/login">
+                      <button className="px-8 py-3 rounded bg-pink-500 text-lg  text-white">
+                        Get Started
+                      </button>
+                    </Link>
+                    <Link href="/login">
+                      <button className="px-8 py-3  rounded border-2 border-pink-400  text-lg">
+                        Try Now
+                      </button>
+                    </Link>
                   </div>
 
                   <div className="mt-12 flex gap-6 justify-center lg:justify-start">
@@ -117,14 +127,19 @@ const Banner = () => {
                     </div>
                   </div>
                 </div>
-              </div>
-              <div className="flex w-full col-span-4 ">
+              </motion.div>
+              <motion.div
+                initial={{ scaleY: 0.7, opacity: 0, visibility: "hidden" }}
+                animate={{ scaleY: 1, opacity: 1, visibility: "visible" }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+                className="flex w-full col-span-4 "
+              >
                 <img
                   className="w-[80%] max-w-full mx-auto"
                   src={bd.pic}
                   alt=""
                 />
-              </div>
+              </motion.div>
             </div>
           </SwiperSlide>
         ))}

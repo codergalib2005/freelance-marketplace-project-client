@@ -1,5 +1,5 @@
 import { message } from "antd";
-import axios from "axios";
+import axios, { Axios } from "axios";
 import {
   createUserWithEmailAndPassword,
   getAuth,
@@ -22,6 +22,7 @@ const useFirebase = () => {
   const [userStatus, setUserStatus] = useState("");
   const [loading, setIsLoadind] = useState(true);
   const [error, setError] = useState("");
+  const [thisUser, setThisUser] = useState({});
   //for admin
   // const [admin, setAdmin] = useState(false)
 
@@ -65,7 +66,6 @@ const useFirebase = () => {
           education,
           bio,
         };
-        // body for chat database
         const chatBody = {
           name,
           image,
@@ -85,11 +85,11 @@ const useFirebase = () => {
             // ...
           });
         axios
-          .post(`${process.env.NEXT_PUBLIC_URL}/users`, body)
+          .post(`${process.env.NEXT_PUBLIC_API_URL}/users`, body)
           .then((res) => {
             message.success("User register successfully!");
             sendUserForChat(chatBody);
-            router.replace("/");
+            // router.replace("/");
           })
           .catch((err) => console.log(err));
         // send to database for chat system
@@ -192,14 +192,25 @@ const useFirebase = () => {
   // Load Login personal data loader
   useEffect(() => {
     setIsLoadind(true);
-    fetch(`${process.env.NEXT_PUBLIC_URL}/users/email/${user?.email}`)
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/email/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
         setUserStatus(data?.result[0]?.status);
         setIsLoadind(false);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [user?.email]);
+
+  axios
+    .get(`${process.env.NEXT_PUBLIC_API_URL}/users/email/${user?.email}`)
+    .then(
+      (response) => {
+        setThisUser(response?.data?.result[0]);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
 
   //logout email and pass
   const logOut = () => {
@@ -227,6 +238,7 @@ const useFirebase = () => {
     logOut,
     error,
     userStatus,
+    thisUser,
   };
 };
 

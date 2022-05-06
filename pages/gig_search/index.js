@@ -26,7 +26,7 @@ const GigSearch = () => {
   }, 3000);
   // eslint-disable-next-line react-hooks/rules-of-hooks
   axios
-    .get(`${process.env.NEXT_PUBLIC_URL}/gigs`)
+    .get(`${process.env.NEXT_PUBLIC_API_URL}/gigs`)
     .then((res) => {
       setAllGigs(res?.data?.result);
     })

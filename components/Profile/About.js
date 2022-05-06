@@ -7,8 +7,6 @@ import { FiEdit } from "react-icons/fi";
 import { IoMdClose } from "react-icons/io";
 import useAuth from "../../hooks/useAuth";
 
-
-
 const editorMood = {
   editor: null,
 };
@@ -41,58 +39,61 @@ const About = ({ id, education, skills, aboutt }) => {
   const [skillsBody, setSkillsBody] = useState("");
   const [educationBody, setEducationBody] = useState("");
 
-
-  const handleAboutSubmit = e => {
+  const handleAboutSubmit = (e) => {
     if (!aboutBody) {
       message.error("About field Must need to fill-up!");
       return;
     } else {
-      axios.put(`${process.env.NEXT_PUBLIC_URL}/users/about/${id}`, {
-        about: aboutBody,
-      })
+      axios
+        .put(`${process.env.NEXT_PUBLIC_API_URL}/users/about/${id}`, {
+          about: aboutBody,
+        })
         .then(function (response) {
-          message.success("About Update Successfully!")
-          dispatch({ type: "CLOSE_EDITOR" })
+          message.success("About Update Successfully!");
+          dispatch({ type: "CLOSE_EDITOR" });
         })
         .catch(function (error) {
           console.log(error);
         });
     }
-  }
-  const handleSkillsSubmit = e => {
+  };
+  const handleSkillsSubmit = (e) => {
     if (!skillsBody) {
       message.error("Skills field Must need to fill-up!");
       return;
     } else {
-      axios.put(`${process.env.NEXT_PUBLIC_URL}/users/skills/${id}`, {
-        skills: skillsBody,
-      })
+      axios
+        .put(`${process.env.NEXT_PUBLIC_API_URL}/users/skills/${id}`, {
+          skills: skillsBody,
+        })
         .then(function (response) {
-          message.success("Skills Update Successfully!")
-          dispatch({ type: "CLOSE_EDITOR" })
+          message.success("Skills Update Successfully!");
+          dispatch({ type: "CLOSE_EDITOR" });
         })
         .catch(function (error) {
           console.log(error);
         });
     }
-  }
-  const handleEducationSubmit = e => {
+  };
+  const handleEducationSubmit = (e) => {
     if (!educationBody) {
       message.error("Education field Must need to fill-up!");
       return;
     } else {
-      axios.put(`${process.env.NEXT_PUBLIC_URL}/users/education/${id}`, {
-        education: educationBody,
-      })
+      axios
+        .put(`${process.env.NEXT_PUBLIC_API_URL}/users/education/${id}`, {
+          education: educationBody,
+        })
         .then(function (response) {
-          message.success("Education Update Successfully!")
-          dispatch({ type: "CLOSE_EDITOR" })
+          message.success("Education Update Successfully!");
+          dispatch({ type: "CLOSE_EDITOR" });
         })
         .catch(function (error) {
           console.log(error);
         });
     }
-  }
+  };
+  console.log(user);
   return (
     <div className="profile_about mt-4">
       <div>
@@ -105,7 +106,7 @@ const About = ({ id, education, skills, aboutt }) => {
                   className="text-lg pl-3 cursor-pointer text-[#e83a3b]"
                   onClick={() => dispatch({ type: "ABOUT_EDIT" })}
                 >
-                  <Tooltip title="Edit About box, add something you self!">
+                  <Tooltip title="Edit About box, add something your self!">
                     <FiEdit />
                   </Tooltip>
                 </span>
@@ -115,7 +116,12 @@ const About = ({ id, education, skills, aboutt }) => {
               {/* {state.editor === null && (<div>Hello</div>)} */}
               {state.editor === "ABOUT_EDIT" ? (
                 <div className="shadow-md p-4">
-                  <TextArea showCount maxLength={500} onChange={e => setAboutBody(e.target.value)} />
+                  <TextArea
+                    defaultValue={aboutt}
+                    showCount
+                    maxLength={500}
+                    onChange={(e) => setAboutBody(e.target.value)}
+                  />
                   <div>
                     <button
                       className="text-xl mr-3 mt-3"
@@ -123,14 +129,17 @@ const About = ({ id, education, skills, aboutt }) => {
                     >
                       <IoMdClose />
                     </button>
-                    <button onClick={handleAboutSubmit} className="text-xl mr-3 mt-3">
+                    <button
+                      onClick={handleAboutSubmit}
+                      className="text-xl mr-3 mt-3"
+                    >
                       <BsCheck2Square />
                     </button>
                   </div>
                 </div>
               ) : (
                 <div className="pl-3 html_parser_in_profile_about">
-                  {aboutt}
+                  <p>{aboutt}</p>
                 </div>
               )}
             </div>
@@ -143,7 +152,9 @@ const About = ({ id, education, skills, aboutt }) => {
                   className="text-lg pl-3 cursor-pointer text-[#e83a3b]"
                   onClick={() => dispatch({ type: "SKILLS_EDIT" })}
                 >
-                  <FiEdit />
+                  <Tooltip title="Edit Skills box, add something your skills self!">
+                    <FiEdit />
+                  </Tooltip>
                 </span>
               </h3>
             </div>
@@ -154,7 +165,9 @@ const About = ({ id, education, skills, aboutt }) => {
                   <TextArea
                     showCount
                     maxLength={500}
-                    onChange={(e) => setSkillsBody(e.target.value)} />
+                    defaultValue={skills}
+                    onChange={(e) => setSkillsBody(e.target.value)}
+                  />
                   <div>
                     <button
                       className="text-xl mr-3 mt-3"
@@ -162,14 +175,17 @@ const About = ({ id, education, skills, aboutt }) => {
                     >
                       <IoMdClose />
                     </button>
-                    <button onClick={handleSkillsSubmit} className="text-xl mr-3 mt-3">
+                    <button
+                      onClick={handleSkillsSubmit}
+                      className="text-xl mr-3 mt-3"
+                    >
                       <BsCheck2Square />
                     </button>
                   </div>
                 </div>
               ) : (
                 <div className="pl-3 html_parser_in_profile_about">
-                  {skills}
+                  <p>{skills}</p>
                 </div>
               )}
             </div>
@@ -182,7 +198,9 @@ const About = ({ id, education, skills, aboutt }) => {
                   className="text-lg pl-3 cursor-pointer text-[#e83a3b]"
                   onClick={() => dispatch({ type: "EDUCATION_EDIT" })}
                 >
-                  <FiEdit />
+                  <Tooltip title="Edit Education box, add something your eduction background self!">
+                    <FiEdit />
+                  </Tooltip>
                 </span>
               </h3>
             </div>
@@ -193,6 +211,7 @@ const About = ({ id, education, skills, aboutt }) => {
                   <TextArea
                     showCount
                     maxLength={500}
+                    defaultValue={education}
                     onChange={(e) => setEducationBody(e.target.value)}
                   />
                   <div className="shadow-md p-4">
@@ -202,14 +221,17 @@ const About = ({ id, education, skills, aboutt }) => {
                     >
                       <IoMdClose />
                     </button>
-                    <button onClick={handleEducationSubmit} className="text-xl mr-3 mt-3">
+                    <button
+                      onClick={handleEducationSubmit}
+                      className="text-xl mr-3 mt-3"
+                    >
                       <BsCheck2Square />
                     </button>
                   </div>
                 </div>
               ) : (
                 <div className="pl-3 html_parser_in_profile_about">
-                  {education}
+                  <p>{education}</p>
                 </div>
               )}
             </div>
