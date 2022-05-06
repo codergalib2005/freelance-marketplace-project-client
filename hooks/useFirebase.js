@@ -85,7 +85,7 @@ const useFirebase = () => {
             // ...
           });
         axios
-          .post(`${process.env.NEXT_PUBLIC_URL}/users, body`)
+          .post(`${process.env.NEXT_PUBLIC_URL}/users`, body)
           .then((res) => {
             message.success("User register successfully!");
             sendUserForChat(chatBody);
