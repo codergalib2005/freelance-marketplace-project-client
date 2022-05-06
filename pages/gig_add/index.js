@@ -69,24 +69,64 @@ const GigCreation = () => {
       <div className="mt-8 feature-font text-center">
         <div className="flex gap-4 md:gap-8 py-2 text-md mt-8  pl-6 justify-center items-center">
           <div className="flex gap-2 items-center">
-            <div className=" bg-green-500 text-white h-5 w-5 rounded-full flex justify-center items-center">
+            <div
+              className={
+                state.showPage === "MAIN_PAGE"
+                  ? "bg-green-500 text-white h-5 w-5 rounded-full flex justify-center items-center"
+                  : " h-5 w-5 rounded-full flex justify-center items-center border border-gray-500"
+              }
+            >
               <p className="text-xs">1</p>
             </div>
-            <button className="text-green-400 font-bold text-xs md:text-base">
+            <button
+              className={
+                state.showPage === "MAIN_PAGE"
+                  ? "text-green-400 font-semibold text-xs md:text-base cursor-text"
+                  : "  text-xs md:text-base cursor-text text-gray-500"
+              }
+            >
               Gig Info
             </button>
           </div>
           <div className="flex gap-2 items-center">
-            <div className="border-2  h-5 w-5 rounded-full flex justify-center items-center">
+            <div
+              className={
+                state.showPage === "PRICING_PAGE"
+                  ? "bg-green-500 text-white h-5 w-5 rounded-full flex justify-center items-center "
+                  : " h-5 w-5 rounded-full flex justify-center items-center border border-gray-500"
+              }
+            >
               <p className="text-xs">2</p>
             </div>
-            <button>Gig Price</button>
+            <button
+              className={
+                state.showPage === "PRICING_PAGE"
+                  ? "text-green-400 font-semibold text-xs md:text-base cursor-text"
+                  : "  text-xs md:text-base cursor-text text-gray-500"
+              }
+            >
+              Gig Price
+            </button>
           </div>
           <div className="flex gap-2 items-center">
-            <div className="border-2   h-5 w-5 rounded-full flex justify-center items-center">
+            <div
+              className={
+                state.showPage === "GALLERY_PAGE"
+                  ? "bg-green-500 text-white h-5 w-5 rounded-full flex justify-center items-center"
+                  : " h-5 w-5 rounded-full flex justify-center items-center border border-gray-500"
+              }
+            >
               <p className="text-xs">3</p>
             </div>
-            <button>Gig Imgages</button>
+            <button
+              className={
+                state.showPage === "GALLERY_PAGE"
+                  ? "text-green-400 font-semibold text-xs md:text-base cursor-text"
+                  : "  text-xs md:text-base cursor-text text-gray-500"
+              }
+            >
+              Gig Imgages
+            </button>
           </div>
         </div>
         {/*============my Gig info section==============*/}
@@ -95,27 +135,30 @@ const GigCreation = () => {
             <div>
               {/*======Overview======*/}
               {state.showPage === "MAIN_PAGE" && (
-                <div style={{
-                  boxShadow:"0px 0.5px 2px 0.5px lightgray"
-                }} className=" p-6 rounded-lg lato">
+                <div
+                  style={{
+                    boxShadow: "0px 0.5px 2px 0.5px lightgray",
+                  }}
+                  className=" p-6 rounded-lg lato"
+                >
                   <div className="mb-6">
-                    <h2 className="text-center text-2xl font-semibold text-gray-800">
+                    <h2 className="text-center text-2xl font-semibold text-[#2A3254]">
                       Create Your Gig Today!
                     </h2>
-                    <p className="text-center mt-4 text-xs text-gray-500">
+                    <p className="text-center mt-4 text-xs text-[#2A3254]">
                       fill all of the nescessary forms to upload your gigs!
                       Remember, Fill every input.{" "}
                     </p>
                   </div>
                   <div>
                     <div className="flex items-center text-left">
-                      <span className="w-3/12 md:w-3/12 lg:w-2/12 text-md md:text-lg font-bold">
+                      <span className="w-3/12 md:w-3/12  text-md md:text-lg font-bold text-[#222843]">
                         Gig Title
                       </span>
-                      <div className="w-9/12 md:w-9/12 lg:w-10/12">
+                      <div className="w-9/12 md:w-9/12 ">
                         <input
                           placeholder="Write your gig title..!"
-                          className=" border w-full  p-2 border-gray-300 rounded-md"
+                          className=" border w-full  p-2 border-gray-300 rounded-md focus:outline focus:outline-[#2A3254]"
                           {...register("gig_title", {
                             required: true,
                             maxLength: 100,
@@ -130,12 +173,12 @@ const GigCreation = () => {
                     </div>
                     <div>
                       <div className="flex py-6 items-center text-left">
-                        <div className="w-3/12 md:w-3/12 lg:w-2/12 text-md md:text-lg font-bold">
+                        <div className="w-3/12 md:w-3/12  text-md md:text-lg font-bold text-[#2A3254]">
                           Category
                         </div>
-                        <div className="w-9/12 md:w-9/12 lg:w-10/12">
+                        <div className="w-9/12 md:w-9/12 ">
                           <select
-                            className="border border-gray-300 h-12 text-md w-full rounded-md"
+                            className="border border-gray-300 h-12 text-md w-full rounded-md focus:outline focus:outline-[#2A3254]"
                             {...register("category", { required: true })}
                           >
                             <option value="Digital Marketing">
@@ -164,10 +207,10 @@ const GigCreation = () => {
                       </div>
                       {/*  */}
                       <div className="flex text-left">
-                        <span className="w-3/12 md:w-3/12 lg:w-2/12 text-md md:text-lg font-bold">
+                        <span className="w-3/12 md:w-3/12 text-md md:text-lg font-bold text-[#2A3254]">
                           Service Descriptions
                         </span>
-                        <div className="w-9/12 md:w-9/12 lg:w-10/12">
+                        <div className="w-9/12 md:w-9/12  ">
                           <textarea
                             style={{
                               lineHeight: "2rem",
@@ -175,7 +218,7 @@ const GigCreation = () => {
                               height: "8rem",
                             }}
                             placeholder="Write your gig descriptions here..!"
-                            className="block p-2 border w-full   border-gray-300 rounded-md "
+                            className="block p-2 border w-full   border-gray-300 rounded-md focus:outline focus:outline-[#2A3254]"
                             {...register("gig_title", {
                               required: true,
                               maxLength: 100,
@@ -194,9 +237,12 @@ const GigCreation = () => {
               )}
               {/*======Pricing======*/}
               {state.showPage === "PRICING_PAGE" && (
-                <div style={{
-                  boxShadow:"0px 0.5px 2px 0.5px lightgray"
-                }} className=" p-6 rounded-lg lato">
+                <div
+                  style={{
+                    boxShadow: "0px 0.5px 2px 0.5px lightgray",
+                  }}
+                  className=" p-6 rounded-lg lato"
+                >
                   <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-4">
                     <div className="">
                       <div className="text-lg py-3 bg-gray-200">Basic</div>
@@ -388,19 +434,20 @@ const GigCreation = () => {
               )}
               {/*======Gallery======*/}
               {state.showPage === "GALLERY_PAGE" && (
-                <div style={{
-                  boxShadow:"0px 0.5px 2px 0.5px lightgray",
-                  minHeight: "100px"
-                }}
+                <div
+                  style={{
+                    boxShadow: "0px 0.5px 2px 0.5px lightgray",
+                    minHeight: "100px",
+                  }}
                   className="  p-6 py-8 lg:py-16 rounded-lg "
                 >
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                     <div>
-                      <strong className="text-lg text-gray-900 text-bold mb-3 block border">
+                      <strong className="text-lg text-[#2A3254] text-bold mb-3 block border ">
                         Select image One
                       </strong>
                       <input
-                        className="border w-full p-2"
+                        className="border w-full p-2 focus:outline focus:outline-[#2A3254]"
                         placeholder="img-url..."
                         type="text"
                         {...register("image1", { required: true })}
@@ -412,11 +459,11 @@ const GigCreation = () => {
                       )}
                     </div>
                     <div>
-                      <strong className="text-lg text-gray-900 text-bold mb-3 block border">
+                      <strong className="text-lg text-[#2A3254] text-bold mb-3 block border ">
                         Select image Two
                       </strong>
                       <input
-                        className="border w-full p-2"
+                        className="border w-full p-2 focus:outline focus:outline-[#2A3254]"
                         placeholder="img-url..."
                         type="text"
                         {...register("image2", { required: true })}
@@ -428,11 +475,11 @@ const GigCreation = () => {
                       )}
                     </div>
                     <div>
-                      <strong className="text-lg text-gray-900 text-bold mb-3 block border">
-                        Select image Four
+                      <strong className="text-lg text-[#2A3254] text-bold mb-3 block border ">
+                        Select image Three
                       </strong>
                       <input
-                        className="border w-full p-2"
+                        className="border w-full p-2 focus:outline focus:outline-[#2A3254]"
                         placeholder="img-url..."
                         type="text"
                         {...register("image3", { required: true })}
@@ -444,11 +491,11 @@ const GigCreation = () => {
                       )}
                     </div>
                     <div>
-                      <strong className="text-lg text-gray-900 text-bold mb-3 block border">
-                        Select image Five
+                      <strong className="text-lg text-[#2A3254] text-bold mb-3 block border ">
+                        Select image Four
                       </strong>
                       <input
-                        className="border w-full p-2"
+                        className="border w-full p-2 focus:outline focus:outline-[#2A3254]"
                         placeholder="img-url..."
                         type="text"
                         {...register("image4", { required: true })}

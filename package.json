@@ -8,7 +8,6 @@
     "start": "next start",
     "heroku-postbuild": "npm run build",
     "lint": "next lint",
-    
     "dev:test": "env-cmd -f .env.testing next dev -p 4000"
   },
   "dependencies": {
@@ -34,7 +33,7 @@
     "date-fns": "^2.28.0",
     "env-cmd": "^10.1.0",
     "firebase": "^9.6.10",
-    "framer-motion": "^6.2.10",
+    "framer-motion": "^6.3.3",
     "html-react-parser": "^1.4.10",
     "micro": "^9.3.4",
     "next": "^12.1.2",
