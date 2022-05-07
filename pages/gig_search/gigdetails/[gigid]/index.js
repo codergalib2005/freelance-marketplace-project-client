@@ -17,7 +17,7 @@ import HeaderTop from "../../../../components/Shared/HeaderTop";
 import { notification } from "antd";
 
 const GigDetails = () => {
-  const { user } = useAuth();
+  const { user, thisUser } = useAuth();
   const [gig, setSingleGig] = useState({});
   const [gigUser, setGigUser] = useState({});
   const [showPricing, setShowPricing] = useState("beginner");
@@ -50,52 +50,45 @@ const GigDetails = () => {
   }, [gig?.email]);
 
   const { register, handleSubmit, reset } = useForm();
-
-  
-  const onSubmit = data => {
-    data.rating = rating,
-      data.sellerEmail = gig?.email,
-      data.buyerEmail = user?.email,
-      data.buyerName = user?.displayName ? user?.displayName : 'Buyer Name',
-
-      const onSubmit = (data) => {
+  console.log(user);
+  const onSubmit = (data) => {
     (data.rating = rating),
       (data.sellerEmail = gig?.email),
       (data.buyerEmail = user?.email),
       (data.buyerName = user?.displayName ? user?.displayName : "Buyer Name"),
-
       //post
-      axios
-        .post(
-          `${process.env.NEXT_PUBLIC_API_URL}/reviews/`,
-          data,
+      console.log(data);
+    axios
+      .post(
+        `${process.env.NEXT_PUBLIC_API_URL}/reviews/`,
+        data,
 
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        )
-        .then(() => {
-          notification.success({
-            message: "Success",
-            description: "Review Created Successfully!",
-            placement: "top",
-            duration: 2,
-            style: {
-              width: 300,
-              //   marginLeft: "calc(50% - 150px)",
-              //   marginTop: "calc(50vh - 100px)",
-              background: "#ec4899",
-              color: "#2a3254 !important",
-              borderBottom: "6px solid #3a3",
-              boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
-            },
-          });
-          // something
-          reset();
-        })
-        .catch((err) => console.log(err));
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
+      .then(() => {
+        notification.success({
+          message: "Success",
+          description: "Review Created Successfully!",
+          placement: "top",
+          duration: 2,
+          style: {
+            width: 300,
+            //   marginLeft: "calc(50% - 150px)",
+            //   marginTop: "calc(50vh - 100px)",
+            background: "#ec4899",
+            color: "#2a3254 !important",
+            borderBottom: "6px solid #3a3",
+            boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
+          },
+        });
+        // something
+        reset();
+      })
+      .catch((err) => console.log(err));
   };
 
   useEffect(() => {
@@ -109,13 +102,14 @@ const GigDetails = () => {
     .get(`${process.env.NEXT_PUBLIC_API_URL}/users/email/${gig?.email}`)
     .then(
       (response) => {
-        setGigUser(response?.data?.result[0]);
+        setGigUser(response?.data?.result);
       },
       (error) => {
         console.log(error);
       }
     );
 
+  console.log(gig?.email);
   return (
     <div className=" bg-white min-h-screen gig_details_styles">
       <DetailsHeader gig={gig} />
@@ -426,22 +420,14 @@ const GigDetails = () => {
                   </strong>{" "}
                   <br /> <br />
                   <span className="bg-gray-900 pt-3">
-                  <Rating onChange={e => setRating(e.target.value)}  defaultValue={2.5} precision={0.5} /> <br />
-                  </span>
-                  <form onSubmit={handleSubmit(onSubmit)}>
-                    <textarea  className="py-1 px-2 rounded-2 h-18 rounded-md shadow-lg" {...register("description")} placeholder='Your Comment' required /> <br /> <br />
-                    <input className="py-1 px-2 rounded-2 border border-[#2a3254] rounded-md shadow-lg" {...register("profession")} placeholder='Your profession' type="text" required /> <br /> <br />
-                    <input className="py-1 px-2 rounded-2 border border-[#2a3254] rounded-md shadow-lg" {...register("buyerImage")} placeholder='Your image URL' required /> <br /> <br />
-                    <input className="text-white bg-purple-500 px-4 py-2 rounded-md font-bold" type="submit" />
-
                     <Rating
                       onChange={(e) => setRating(e.target.value)}
-                      name="half-rating"
                       defaultValue={2.5}
                       precision={0.5}
                     />{" "}
                     <br />
                   </span>
+                  <br />
                   <form onSubmit={handleSubmit(onSubmit)}>
                     <textarea
                       className="py-1 px-2 rounded-2 h-18 border border-[#2a3254] rounded-md shadow-lg"

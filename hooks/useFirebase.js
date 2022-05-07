@@ -23,10 +23,7 @@ const useFirebase = () => {
   const [loading, setIsLoadind] = useState(true);
   const [error, setError] = useState("");
   const [thisUser, setThisUser] = useState({});
-<<<<<<< HEAD
   const [isOpen, setIsOpen] = useState(false);
-=======
->>>>>>> 1062fc1a0c09e35218fd95e743f146abbba7d6bd
   //for admin
   // const [admin, setAdmin] = useState(false)
 
@@ -91,7 +88,6 @@ const useFirebase = () => {
         axios
           .post(`${process.env.NEXT_PUBLIC_API_URL}/users`, body)
           .then((res) => {
-<<<<<<< HEAD
             notification.success({
               message: "Success",
               description: "User Created Successfully!",
@@ -108,11 +104,6 @@ const useFirebase = () => {
               },
             });
             router.replace("/");
-=======
-            message.success("User register successfully!");
-            sendUserForChat(chatBody);
-            // router.replace("/");
->>>>>>> 1062fc1a0c09e35218fd95e743f146abbba7d6bd
           })
           .catch((err) => console.log(err));
         // send to database for chat system
@@ -360,11 +351,8 @@ const useFirebase = () => {
     error,
     userStatus,
     thisUser,
-<<<<<<< HEAD
     isOpen,
     setIsOpen,
-=======
->>>>>>> 1062fc1a0c09e35218fd95e743f146abbba7d6bd
   };
 };
 
