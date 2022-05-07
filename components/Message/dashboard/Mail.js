@@ -3,15 +3,35 @@ import { RiImageAddFill } from "react-icons/ri";
 import { useForm } from "react-hook-form";
 import { Input } from "antd";
 import { AiOutlineSend } from "react-icons/ai";
+import { notification } from "antd";
+import axios from "axios";
 const { TextArea } = Input;
 const Mail = () => {
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    axios
+      .post(`${process.env.NEXT_PUBLIC_API_URL}/mails`, data)
+      .then((res) => {
+        console.log(res);
+        notification.success({
+          message: "Success",
+          description: "Mail sent successfully",
+          placement: "top",
+          duration: 2,
+          style: {
+            width: 300,
+            //   marginLeft: "calc(50% - 150px)",
+            //   marginTop: "calc(50vh - 100px)",
+          },
+        });
+      })
+      .catch((err) => console.log(err));
+  };
   return (
     <div className="w-full py-3">
       <form onSubmit={handleSubmit(onSubmit)} className="w-full">
         <h1 className="text-xl font-medium text-gray-800 pb-4">
-          For A single user
+          Create a notification For A single user
         </h1>
         <div className="flex flex-col md:flex-row items-center py-2 w-full">
           <div className="w-full md:w-3/12">
@@ -21,7 +41,7 @@ const Mail = () => {
               </div>
             </label>
             <input
-              {...register("image")}
+              {...register("image", { required: true })}
               id="selectImg"
               type="file"
               className="hidden"

@@ -1,27 +1,70 @@
-import React from "react";
+import React, { useState } from "react";
 import { RiImageAddFill } from "react-icons/ri";
 import { useForm } from "react-hook-form";
 import { Input } from "antd";
 import { AiOutlineSend } from "react-icons/ai";
+import { notification } from "antd";
 const { TextArea } = Input;
 import axios from "axios";
 const Notification = () => {
+  const [image, setImage] = useState(null);
   const { register, handleSubmit } = useForm();
+
   const onSubmit = (data) => {
-    console.log(data);
-    data.status = "unread";
+    const formData = new FormData();
+    formData.append("file", image[0]);
+    formData.append("upload_preset", "jsjb2bic");
+    formData.append("upload_preset", "jsjb2bic");
+    const config = {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    };
+    const configJson = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
     axios
-      .post("http://localhost:8000/auth/notifictions", data)
+      .post(
+        "https://api.cloudinary.com/v1_1/gsbsoft/image/upload",
+        formData,
+        config
+      )
       .then((res) => {
         console.log(res);
-        alert("Successfully sent");
+        data.image = res.data.secure_url;
+        console.log(data);
+        axios
+          .post(
+            `${process.env.NEXT_PUBLIC_API_URL}/notifictions`,
+            data,
+            configJson
+          )
+          .then((res) => {
+            console.log(res);
+            notification.success({
+              message: "Success",
+              description: "Notification sent successfully",
+              placement: "top",
+              duration: 2,
+              style: {
+                width: 300,
+                //   marginLeft: "calc(50% - 150px)",
+                //   marginTop: "calc(50vh - 100px)",
+              },
+            });
+          })
+          .catch((err) => console.log(err));
       })
       .catch((err) => console.log(err));
   };
   return (
     <div className="w-full py-3">
       <form onSubmit={handleSubmit(onSubmit)} className="w-full">
-        <h1 className="text-xl font-medium text-gray-800 pb-4">All Users</h1>
+        <h1 className="text-xl font-medium text-gray-800 pb-4">
+          Create a notification For All Users
+        </h1>
         <div className="flex flex-col md:flex-row items-center py-2 w-full">
           <div className="w-full md:w-3/12">
             <label htmlFor="selectImg" className="">
@@ -30,7 +73,8 @@ const Notification = () => {
               </div>
             </label>
             <input
-              {...register("image")}
+              onChange={(e) => setImage(e.target.files)}
+              name="image"
               id="selectImg"
               type="file"
               className="hidden"
@@ -48,7 +92,7 @@ const Notification = () => {
         <div className="mt-2 md:mt-6">
           <textarea
             className="text-gray-800 border-2 border-gray-200 p-2 rounded-md text-lg font-medium w-full min-"
-            {...register("massege")}
+            {...register("massege", { required: true })}
             placeholder="Write your message..."
             rows="4"
             cols="50"

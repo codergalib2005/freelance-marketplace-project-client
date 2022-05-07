@@ -189,7 +189,7 @@ const useFirebase = () => {
     .get(`${process.env.NEXT_PUBLIC_API_URL}/users/email/${user?.email}`)
     .then(
       (response) => {
-        setThisUser(response?.data?.result[0]);
+        setThisUser(response?.result);
       },
       (error) => {
         console.log(error);
