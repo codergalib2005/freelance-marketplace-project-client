@@ -59,7 +59,6 @@ const Notification = () => {
               configJson
             )
             .then((res) => {
-              console.log(res);
               notification.success({
                 message: "Success",
                 description: "Notification sent successfully",

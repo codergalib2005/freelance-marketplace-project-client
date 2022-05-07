@@ -20,6 +20,7 @@ import Header from "../../components/Shared/Header";
 import HeaderTop from "../../components/Shared/HeaderTop";
 import { withPrivate } from "../../hooks/PrivateRoute";
 import useAuth from "../../hooks/useAuth";
+import { notification } from "antd";
 const editorMood = {
   editor: null,
 };
@@ -77,7 +78,21 @@ const Profile = () => {
   // Handle Bio Edit Submit____
   const handleBioSubmit = () => {
     if (!bioText) {
-      message.error("Bio field Must need to fill-up!");
+      notification.error({
+        message: "Error",
+        description: "Please enter your bio",
+        placement: "top",
+        duration: 2,
+        style: {
+          width: 300,
+          //   marginLeft: "calc(50% - 150px)",
+          //   marginTop: "calc(50vh - 100px)",
+          background: "#3a3",
+          color: "#fff !important",
+          borderBottom: "6px solid #e83a3b",
+          boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
+        },
+      });
       return;
     } else {
       axios
@@ -85,7 +100,21 @@ const Profile = () => {
           bio: bioText,
         })
         .then(function (response) {
-          message.success("Bio Update Successfully!");
+          notification.success({
+            message: "Success",
+            description: "Bio Updated Successfully!",
+            placement: "top",
+            duration: 2,
+            style: {
+              width: 300,
+              //   marginLeft: "calc(50% - 150px)",
+              //   marginTop: "calc(50vh - 100px)",
+              background: "#ec4899",
+              color: "#2a3254 !important",
+              borderBottom: "6px solid #3a3",
+              boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
+            },
+          });
           dispatch({ type: "CLOSE_EDITOR" });
         })
         .catch(function (error) {
@@ -95,7 +124,21 @@ const Profile = () => {
   };
   const handleProfessionSubmit = (e) => {
     if (!professionText) {
-      message.error("Profession field Must need to fill-up!");
+      notification.error({
+        message: "Error",
+        description: "Please enter your profession",
+        placement: "top",
+        duration: 2,
+        style: {
+          width: 300,
+          //   marginLeft: "calc(50% - 150px)",
+          //   marginTop: "calc(50vh - 100px)",
+          background: "#3a3",
+          color: "#fff !important",
+          borderBottom: "6px solid #e83a3b",
+          boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
+        },
+      });
       return;
     } else {
       axios
@@ -106,7 +149,21 @@ const Profile = () => {
           }
         )
         .then(function (response) {
-          message.success("Profession Update Successfully!");
+          notification.success({
+            message: "Success",
+            description: "Profession Updated Successfully!",
+            placement: "top",
+            duration: 2,
+            style: {
+              width: 300,
+              //   marginLeft: "calc(50% - 150px)",
+              //   marginTop: "calc(50vh - 100px)",
+              background: "#ec4899",
+              color: "#2a3254 !important",
+              borderBottom: "6px solid #3a3",
+              boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
+            },
+          });
           dispatch({ type: "CLOSE_EDITOR" });
         })
         .catch(function (error) {

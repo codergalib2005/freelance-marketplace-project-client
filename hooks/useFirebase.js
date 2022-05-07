@@ -13,7 +13,7 @@ import {
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import app from "../components/Firebase/firebase.init";
-
+import { notification } from "antd";
 //initialize firebase app
 app();
 
@@ -83,7 +83,21 @@ const useFirebase = () => {
         axios
           .post(`${process.env.NEXT_PUBLIC_API_URL}/users`, body)
           .then((res) => {
-            message.success("User register successfully!");
+            notification.success({
+              message: "Success",
+              description: "User Created Successfully!",
+              placement: "top",
+              duration: 2,
+              style: {
+                width: 300,
+                //   marginLeft: "calc(50% - 150px)",
+                //   marginTop: "calc(50vh - 100px)",
+                background: "#ec4899",
+                color: "#2a3254 !important",
+                borderBottom: "6px solid #3a3",
+                boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
+              },
+            });
             router.replace("/");
           })
           .catch((err) => console.log(err));
@@ -91,7 +105,21 @@ const useFirebase = () => {
       .catch((error) => {
         const errorCode = error.code;
         setError(error.message);
-        message.error(error.message);
+        notification.error({
+          message: "Error",
+          description: `${error.message}`,
+          placement: "top",
+          duration: 2,
+          style: {
+            width: 300,
+            //   marginLeft: "calc(50% - 150px)",
+            //   marginTop: "calc(50vh - 100px)",
+            background: "#3a3",
+            color: "#fff !important",
+            borderBottom: "6px solid #e83a3b",
+            boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
+          },
+        });
       })
       .finally(() => setIsLoadind(false));
   };
@@ -134,13 +162,41 @@ const useFirebase = () => {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        message.success("User login successfully!");
+        notification.success({
+          message: "Success",
+          description: "User Signed In Successfully!",
+          placement: "top",
+          duration: 2,
+          style: {
+            width: 300,
+            //   marginLeft: "calc(50% - 150px)",
+            //   marginTop: "calc(50vh - 100px)",
+            background: "#ec4899",
+            color: "#2a3254 !important",
+            borderBottom: "6px solid #3a3",
+            boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
+          },
+        });
         router.replace("/");
         setError("");
       })
       .catch((error) => {
         setError(error.message);
-        message.error(error.message);
+        notification.error({
+          message: "Error",
+          description: `${error.message}`,
+          placement: "top",
+          duration: 2,
+          style: {
+            width: 300,
+            //   marginLeft: "calc(50% - 150px)",
+            //   marginTop: "calc(50vh - 100px)",
+            background: "#3a3",
+            color: "#fff !important",
+            borderBottom: "6px solid #e83a3b",
+            boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
+          },
+        });
       })
       .finally(() => setIsLoadind(false));
   };
@@ -157,13 +213,41 @@ const useFirebase = () => {
         const user = result.user;
         router.replace("/");
         setError("");
-        message.success("User register successfully!");
+        notification.success({
+          message: "Success",
+          description: "User register successfully!",
+          placement: "top",
+          duration: 2,
+          style: {
+            width: 300,
+            //   marginLeft: "calc(50% - 150px)",
+            //   marginTop: "calc(50vh - 100px)",
+            background: "#ec4899",
+            color: "#2a3254 !important",
+            borderBottom: "6px solid #3a3",
+            boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
+          },
+        });
       })
       .catch((error) => {
         // Handle Errors here.
         const errorCode = error.code;
         setError(error.message);
-        message.error(error.message);
+        notification.error({
+          message: "Error",
+          description: `${error.message}`,
+          placement: "top",
+          duration: 2,
+          style: {
+            width: 300,
+            //   marginLeft: "calc(50% - 150px)",
+            //   marginTop: "calc(50vh - 100px)",
+            background: "#3a3",
+            color: "#fff !important",
+            borderBottom: "6px solid #e83a3b",
+            boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
+          },
+        });
         // The email of the user's account used.
         const email = error.email;
         // The AuthCredential type that was used.
@@ -179,7 +263,7 @@ const useFirebase = () => {
     fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/email/${user?.email}`)
       .then((res) => res.json())
       .then((data) => {
-        setUserStatus(data?.result[0]?.status);
+        setUserStatus(data?.result?.status);
         setIsLoadind(false);
       })
       .catch((err) => console.log(err));
@@ -202,11 +286,39 @@ const useFirebase = () => {
     signOut(auth)
       .then(() => {
         // Sign-out successful.
-        message.success("User sign out successfully!");
+        notification.success({
+          message: "Success",
+          description: "User Signed Out Successfully!",
+          placement: "top",
+          duration: 2,
+          style: {
+            width: 300,
+            //   marginLeft: "calc(50% - 150px)",
+            //   marginTop: "calc(50vh - 100px)",
+            background: "#ec4899",
+            color: "#2a3254 !important",
+            borderBottom: "6px solid #3a3",
+            boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
+          },
+        });
       })
       .catch((error) => {
         // An error happened.
-        message.error(error.message);
+        notification.error({
+          message: "Error",
+          description: `${error.message}`,
+          placement: "top",
+          duration: 2,
+          style: {
+            width: 300,
+            //   marginLeft: "calc(50% - 150px)",
+            //   marginTop: "calc(50vh - 100px)",
+            background: "#3a3",
+            color: "#fff !important",
+            borderBottom: "6px solid #e83a3b",
+            boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
+          },
+        });
       })
       .finally(() => setIsLoadind(false));
   };

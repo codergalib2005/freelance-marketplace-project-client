@@ -3,6 +3,7 @@ import Link from "next/link";
 import React from "react";
 import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
+import { notification } from "antd";
 const Register = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { user, registerUser, signInWithGoogle, loading, error, userStatus } =
@@ -17,7 +18,21 @@ const Register = () => {
   const onSubmit = (data) => {
     // CREATE BLACK OBJECT KAY_
     if (data.password !== data.password2) {
-      message.error("Password did't match!");
+      notification.error({
+        message: "Error",
+        description: "Passwords do not match",
+        placement: "top",
+        duration: 2,
+        style: {
+          width: 300,
+          //   marginLeft: "calc(50% - 150px)",
+          //   marginTop: "calc(50vh - 100px)",
+          background: "#3a3",
+          color: "#fff !important",
+          borderBottom: "6px solid #e83a3b",
+          boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
+        },
+      });
     } else {
       data.skills = "";
       data.profession = "";

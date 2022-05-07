@@ -7,6 +7,7 @@ import React, { useEffect, useReducer, useState } from "react";
 import { useForm } from "react-hook-form";
 import Footer from "../../components/Shared/Footer";
 import Header from "../../components/Shared/Header";
+import { notification } from "antd";
 // import { withPrivate } from "../../hooks/PrivateRoute";
 import useAuth from "../../hooks/useAuth";
 const showPageMood = {
@@ -58,7 +59,21 @@ const GigCreation = () => {
     axios
       .post(`${process.env.NEXT_PUBLIC_API_URL}/gigs`, data)
       .then((res) => {
-        message.success("Gig Creation successfully!");
+        notification.success({
+          message: "Success",
+          description: "Gig Created Successfully!",
+          placement: "top",
+          duration: 2,
+          style: {
+            width: 300,
+            //   marginLeft: "calc(50% - 150px)",
+            //   marginTop: "calc(50vh - 100px)",
+            background: "#ec4899",
+            color: "#2a3254 !important",
+            borderBottom: "6px solid #3a3",
+            boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
+          },
+        });
         router.replace("/profile");
       })
       .catch((err) => console.log(err));
