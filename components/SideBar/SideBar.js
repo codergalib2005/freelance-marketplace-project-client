@@ -187,7 +187,6 @@ const SideBar = ({ children }) => {
       },
     },
   };
-  console.log(isOpen);
   return (
     <>
       <div className="main-container ">

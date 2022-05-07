@@ -21,7 +21,7 @@ const Mail = () => {
               </div>
             </label>
             <input
-              {...register("image", { required: true })}
+              {...register("image")}
               id="selectImg"
               type="file"
               className="hidden"
@@ -39,18 +39,19 @@ const Mail = () => {
         <div className="w-full py-3">
           <input
             className="text-gray-800 border-2 border-gray-200 p-2 rounded-md text-lg font-medium w-full"
-            type="text"
+            type="email"
             {...register("email", { required: true })}
             placeholder="Write user email..."
           />
         </div>
         <div className="mt-2 md:mt-2">
-          <TextArea
+          <textarea
             className="text-gray-800 border-2 border-gray-200 p-2 rounded-md text-lg font-medium w-full"
-            {...register("message", { required: true })}
+            {...register("massege", { required: true })}
             placeholder="Write your message..."
-            autoSize={{ minRows: 3, maxRows: 10 }}
-          />
+            rows="4"
+            cols="50"
+          ></textarea>
         </div>
         <button
           type="submit"

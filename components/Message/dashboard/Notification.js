@@ -19,7 +19,7 @@ const Notification = () => {
               </div>
             </label>
             <input
-              {...register("image", { required: true })}
+              {...register("image")}
               id="selectImg"
               type="file"
               className="hidden"
@@ -35,19 +35,19 @@ const Notification = () => {
           </div>
         </div>
         <div className="mt-2 md:mt-6">
-          <TextArea
-            className="text-gray-800 border-2 border-gray-200 p-2 rounded-md text-lg font-medium w-full"
-            {...register("message", { required: true })}
+          <textarea
+            className="text-gray-800 border-2 border-gray-200 p-2 rounded-md text-lg font-medium w-full min-"
+            {...register("massege")}
             placeholder="Write your message..."
-            autoSize={{ minRows: 3, maxRows: 10 }}
-          />
+            rows="4"
+            cols="50"
+          ></textarea>
         </div>
-        <button
+        <input
           type="submit"
           className="py-2 px-2 bg-[#65ecff] uppercase text-xl text-gray-800 font-medium flex items-center min-w-[130px] justify-around rounded-md mt-3"
-        >
-          Send <AiOutlineSend />
-        </button>
+          value="Send"
+        />
       </form>
     </div>
   );
