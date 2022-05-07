@@ -1,18 +1,17 @@
-import React from 'react';
+import React from "react";
 import { useForm } from "react-hook-form";
 
-
 const SharePartOfRefer = () => {
-    const {
-        register,
-        handleSubmit,
-        watch,
-        formState: { errors },
-        } = useForm();
-       const onSubmit = (data) => console.log(data);
-    return (
-        <div>
-            <div className="container mx-auto bg-white -my-28 shadow-md py-10">
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => console.log(data);
+  return (
+    <div>
+      <div className="container mx-auto bg-white -my-28 shadow-md py-10">
         {" "}
         <div className="mx-8 lg:mx-20">
           {" "}
@@ -100,8 +99,8 @@ const SharePartOfRefer = () => {
           </div>{" "}
         </div>{" "}
       </div>
-        </div>
-    );
+    </div>
+  );
 };
 
 export default SharePartOfRefer;

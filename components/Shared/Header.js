@@ -6,9 +6,12 @@ import { CgMenuRight } from "react-icons/cg";
 import { AiOutlineClose } from "react-icons/ai";
 import { GrLogout } from "react-icons/gr";
 import { motion } from "framer-motion";
+import { io } from "socket.io-client";
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [fixedMenu, setFixedMenu] = useState(false);
+  const { user, logOut } = useAuth();
+  // Scrolling Effect here
   useEffect(() => {
     window.addEventListener("scroll", OnScrollHeader);
   }, []);
@@ -19,14 +22,20 @@ const Header = () => {
       setFixedMenu(false);
     }
   };
-  const { user, logOut } = useAuth();
+  // Soket io call here for notifications
+  // useEffect(() => {
+  //   const socket = io("http://localhost:6000");
+  //   console.log(socket);
+  // }, []);
   return (
     <motion.div
       initial={{ y: -100, opacity: 0, visibility: "hidden" }}
       animate={{ y: 0, opacity: 1, visibility: "visible" }}
       transition={{ duration: 0.5 }}
       className={`bg-[#2a3254] border-t-2 border-white transition-all ease-linear duration-500  py-3 ${
-        fixedMenu ? "fixed w-full left-0 top-0 z-40 border-none transition-all ease-linear duration-500" : "transition-all ease-linear duration-500"
+        fixedMenu
+          ? "fixed w-full left-0 top-0 z-40 border-none transition-all ease-linear duration-500"
+          : "transition-all ease-linear duration-500"
       }`}
     >
       <div className="container mx-auto px-4">

@@ -22,7 +22,8 @@ const useFirebase = () => {
   const [userStatus, setUserStatus] = useState("");
   const [loading, setIsLoadind] = useState(true);
   const [error, setError] = useState("");
-  const [thisUser, setThisUser] = useState({})
+  const [thisUser, setThisUser] = useState({});
+  const [isOpen, setIsOpen] = useState(false);
   //for admin
   // const [admin, setAdmin] = useState(false)
 
@@ -221,7 +222,9 @@ const useFirebase = () => {
     logOut,
     error,
     userStatus,
-    thisUser
+    thisUser,
+    isOpen,
+    setIsOpen,
   };
 };
 

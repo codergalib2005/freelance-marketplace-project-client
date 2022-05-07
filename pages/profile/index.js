@@ -126,7 +126,6 @@ const Profile = () => {
   const handleProfileClose = () => setOpenProfile(false);
   const handleBannerOpen = () => setOpenBanner(true);
   const handleBannerClose = () => setOpenBanner(false);
-  console.log(thisUser);
   return (
     <div>
       <HeaderTop />

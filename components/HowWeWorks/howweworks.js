@@ -42,7 +42,10 @@ const HowWeWorks = () => {
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 mt-10 gap-y-3 md:gap-4">
           {howWeWorks.map((hw, ind) => (
-            <div className="flex shadow-sm shadow-orange-700 rounded-md overflow-hidden" key={ind}>
+            <div
+              className="flex shadow-sm shadow-orange-700 rounded-md overflow-hidden"
+              key={ind}
+            >
               <div className="w-[40%] h-full">
                 <img className="w-full h-full" src={hw.img} alt="" />
               </div>

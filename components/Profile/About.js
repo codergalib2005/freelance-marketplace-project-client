@@ -93,7 +93,6 @@ const About = ({ id, education, skills, aboutt }) => {
         });
     }
   };
-  console.log(user);
   return (
     <div className="profile_about mt-4">
       <div>

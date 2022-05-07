@@ -62,7 +62,6 @@ const BuyPlan = () => {
       })
       .catch((err) => console.log(err));
   }, [id, router.query.gigid]);
-  console.log(gig);
   return (
     <div>
       <Head>

@@ -29,7 +29,6 @@ const GigDetails = () => {
 
 
   //Buyer rivew
-  console.log(sellerEmail)
   useEffect(() => {
     fetch(`${process.env.NEXT_PUBLIC_API_URL}/reviews/sellerEmail/${gig?.email}`)
       .then(res => res.json())
