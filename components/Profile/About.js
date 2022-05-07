@@ -2,6 +2,7 @@ import { Input, message, Tooltip } from "antd";
 import axios from "axios";
 import dynamic from "next/dynamic";
 import React, { useReducer, useState } from "react";
+import { notification } from "antd";
 import { BsCheck2Square } from "react-icons/bs";
 import { FiEdit } from "react-icons/fi";
 import { IoMdClose } from "react-icons/io";
@@ -38,10 +39,23 @@ const About = ({ id, education, skills, aboutt }) => {
   const [aboutBody, setAboutBody] = useState("");
   const [skillsBody, setSkillsBody] = useState("");
   const [educationBody, setEducationBody] = useState("");
-
   const handleAboutSubmit = (e) => {
     if (!aboutBody) {
-      message.error("About field Must need to fill-up!");
+      notification.error({
+        message: "Error",
+        description: "Please field about field",
+        placement: "top",
+        duration: 2,
+        style: {
+          width: 300,
+          //   marginLeft: "calc(50% - 150px)",
+          //   marginTop: "calc(50vh - 100px)",
+          background: "#3a3",
+          color: "#fff !important",
+          borderBottom: "6px solid #e83a3b",
+          boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
+        },
+      });
       return;
     } else {
       axios
@@ -49,7 +63,21 @@ const About = ({ id, education, skills, aboutt }) => {
           about: aboutBody,
         })
         .then(function (response) {
-          message.success("About Update Successfully!");
+          notification.success({
+            message: "Success",
+            description: "About Update successfully!",
+            placement: "top",
+            duration: 2,
+            style: {
+              width: 300,
+              //   marginLeft: "calc(50% - 150px)",
+              //   marginTop: "calc(50vh - 100px)",
+              background: "#ec4899",
+              color: "#2a3254 !important",
+              borderBottom: "6px solid #3a3",
+              boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
+            },
+          });
           dispatch({ type: "CLOSE_EDITOR" });
         })
         .catch(function (error) {
@@ -59,7 +87,21 @@ const About = ({ id, education, skills, aboutt }) => {
   };
   const handleSkillsSubmit = (e) => {
     if (!skillsBody) {
-      message.error("Skills field Must need to fill-up!");
+      notification.error({
+        message: "Error",
+        description: "Please field-up your skills field",
+        placement: "top",
+        duration: 2,
+        style: {
+          width: 300,
+          //   marginLeft: "calc(50% - 150px)",
+          //   marginTop: "calc(50vh - 100px)",
+          background: "#3a3",
+          color: "#fff !important",
+          borderBottom: "6px solid #e83a3b",
+          boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
+        },
+      });
       return;
     } else {
       axios
@@ -67,7 +109,21 @@ const About = ({ id, education, skills, aboutt }) => {
           skills: skillsBody,
         })
         .then(function (response) {
-          message.success("Skills Update Successfully!");
+          notification.success({
+            message: "Success",
+            description: "Skills Update Successfully!",
+            placement: "top",
+            duration: 2,
+            style: {
+              width: 300,
+              //   marginLeft: "calc(50% - 150px)",
+              //   marginTop: "calc(50vh - 100px)",
+              background: "#ec4899",
+              color: "#2a3254 !important",
+              borderBottom: "6px solid #3a3",
+              boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
+            },
+          });
           dispatch({ type: "CLOSE_EDITOR" });
         })
         .catch(function (error) {
@@ -77,7 +133,21 @@ const About = ({ id, education, skills, aboutt }) => {
   };
   const handleEducationSubmit = (e) => {
     if (!educationBody) {
-      message.error("Education field Must need to fill-up!");
+      notification.error({
+        message: "Error",
+        description: "Please field-up your education field",
+        placement: "top",
+        duration: 2,
+        style: {
+          width: 300,
+          //   marginLeft: "calc(50% - 150px)",
+          //   marginTop: "calc(50vh - 100px)",
+          background: "#3a3",
+          color: "#fff !important",
+          borderBottom: "6px solid #e83a3b",
+          boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
+        },
+      });
       return;
     } else {
       axios
@@ -85,7 +155,21 @@ const About = ({ id, education, skills, aboutt }) => {
           education: educationBody,
         })
         .then(function (response) {
-          message.success("Education Update Successfully!");
+          notification.success({
+            message: "Success",
+            description: "Education Update successfully!",
+            placement: "top",
+            duration: 2,
+            style: {
+              width: 300,
+              //   marginLeft: "calc(50% - 150px)",
+              //   marginTop: "calc(50vh - 100px)",
+              background: "#ec4899",
+              color: "#2a3254 !important",
+              borderBottom: "6px solid #3a3",
+              boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
+            },
+          });
           dispatch({ type: "CLOSE_EDITOR" });
         })
         .catch(function (error) {

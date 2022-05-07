@@ -5,7 +5,7 @@ import useAuth from "../../hooks/useAuth";
 import Header from "../../components/Shared/Header";
 import Footer from "../../components/Shared/Footer";
 import HeaderTop from "../../components/Shared/HeaderTop";
-
+import { notification } from "antd";
 const RemoveAdmin = () => {
   const [email, setEmail] = useState("");
   const { loading } = useAuth();
@@ -27,7 +27,21 @@ const RemoveAdmin = () => {
       .then((res) => res.json())
       .then((data) => {
         setEmail(data);
-        message.success("Admin Remove successfully");
+        notification.success({
+          message: "Success",
+          description: "Admin Removed Successfully!",
+          placement: "top",
+          duration: 2,
+          style: {
+            width: 300,
+            //   marginLeft: "calc(50% - 150px)",
+            //   marginTop: "calc(50vh - 100px)",
+            background: "#ec4899",
+            color: "#2a3254 !important",
+            borderBottom: "6px solid #3a3",
+            boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
+          },
+        });
       })
       .catch((err) => {
         console.log(err);

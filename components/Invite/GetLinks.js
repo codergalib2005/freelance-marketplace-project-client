@@ -1,15 +1,27 @@
 import { message } from "antd";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-
-
+import {notification} from "antd";
 const GetLinks = () => {
-  const [copied, setCopied] = useState(false)
+  const [copied, setCopied] = useState(false);
 
   if (copied) {
-    message.success("Copied success")
+    notification.success({
+      message: "Success",
+      description: "Notification sent successfully",
+      placement: "top",
+      duration: 2,
+      style: {
+        width: 300,
+        //   marginLeft: "calc(50% - 150px)",
+        //   marginTop: "calc(50vh - 100px)",
+        background: "#ec4899",
+        color: "#2a3254 !important",
+        borderBottom: "6px solid #3a3",
+        boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
+      },
+    });
   }
-
 
   const {
     register,
@@ -60,11 +72,13 @@ const GetLinks = () => {
                   className="appearance-none py-2 border block w-full md:w-80 lg:w-96  text-gray-700 border-gray-400 rounded px-4 border-r-0 rounded-r-none leading-tight focus:outline-none "
                   type="text"
                   value="http://localhost:3000/"
-
                 />
                 <button
                   className="appearance-none py-2 block w-24 text-gray-700 border rounded-l-none  rounded px-4  leading-tight focus:outline-none bg-gray-200 border-gray-500 focus:bg-gray-300 text-lg font-bold"
-                  onClick={() => { navigator.clipboard.writeText("http://localhost:3000/"); alert("Copied success"); }}
+                  onClick={() => {
+                    navigator.clipboard.writeText("http://localhost:3000/");
+                    alert("Copied success");
+                  }}
                 >
                   Copy
                 </button>
