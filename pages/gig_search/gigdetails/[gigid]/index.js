@@ -23,7 +23,6 @@ const GigDetails = () => {
   const [showPricing, setShowPricing] = useState("beginner");
   const router = useRouter();
   const [rating, setRating] = useState(0);
-
   const [sellerEmail, setSellerEmail] = useState([]);
 
   //Buyer rivew
@@ -51,11 +50,20 @@ const GigDetails = () => {
   }, [gig?.email]);
 
   const { register, handleSubmit, reset } = useForm();
-  const onSubmit = (data) => {
+
+  
+  const onSubmit = data => {
+    data.rating = rating,
+      data.sellerEmail = gig?.email,
+      data.buyerEmail = user?.email,
+      data.buyerName = user?.displayName ? user?.displayName : 'Buyer Name',
+
+      const onSubmit = (data) => {
     (data.rating = rating),
       (data.sellerEmail = gig?.email),
       (data.buyerEmail = user?.email),
       (data.buyerName = user?.displayName ? user?.displayName : "Buyer Name"),
+
       //post
       axios
         .post(
@@ -140,7 +148,7 @@ const GigDetails = () => {
             </div>
 
             <div className="mt-16 text-center">
-              <strong className="text-xl font-bold text-white border-b-2 border-[#a78737] pr-5 mt-6 pb-1 mb-2 online-block">
+              <strong className="text-xl font-bold text-[#2a3254] border-b-2 border-[#a78737] pr-5 mt-6 pb-1 mb-2 online-block">
                 All Review
               </strong>{" "}
               <br /> <br />
@@ -418,6 +426,14 @@ const GigDetails = () => {
                   </strong>{" "}
                   <br /> <br />
                   <span className="bg-gray-900 pt-3">
+                  <Rating onChange={e => setRating(e.target.value)}  defaultValue={2.5} precision={0.5} /> <br />
+                  </span>
+                  <form onSubmit={handleSubmit(onSubmit)}>
+                    <textarea  className="py-1 px-2 rounded-2 h-18 rounded-md shadow-lg" {...register("description")} placeholder='Your Comment' required /> <br /> <br />
+                    <input className="py-1 px-2 rounded-2 border border-[#2a3254] rounded-md shadow-lg" {...register("profession")} placeholder='Your profession' type="text" required /> <br /> <br />
+                    <input className="py-1 px-2 rounded-2 border border-[#2a3254] rounded-md shadow-lg" {...register("buyerImage")} placeholder='Your image URL' required /> <br /> <br />
+                    <input className="text-white bg-purple-500 px-4 py-2 rounded-md font-bold" type="submit" />
+
                     <Rating
                       onChange={(e) => setRating(e.target.value)}
                       name="half-rating"

@@ -40,7 +40,6 @@ const TotalGig = (props) => {
         <div className="img">
           <img src={gallery[0]} alt="" />
         </div>
-
         <h3 className="job">{gig_title}</h3>
         <p className="text-white text-center p-2 mb-12">✅{category}</p>
 
