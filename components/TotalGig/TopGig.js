@@ -21,7 +21,7 @@ const TotalGig = (props) => {
 
 
     return (
-        <div className="card1 relative ">
+        <div className="card1 relative shadow-lg">
         <div className="card2">
             <div className="card-border-top">
             </div>
@@ -30,7 +30,7 @@ const TotalGig = (props) => {
             </div>
 
             <h3 className="job">{gig_title}</h3>
-            <p className="text-white text-center p-2 mb-12">✅{category}</p>
+            <p className="text-[#2a3254] text-center p-2 mb-12">✅{category}</p>
 
             <div className='text-center'>
                 <button onClick={() => handleClick(_id)} className="button">
