@@ -25,8 +25,8 @@ const TotalGigs = () => {
                         <SideBarMenu />
                     </div>
                     <div className={`main_gigs_parent ${isOpen ? "pl-[200px]" : "pl-[45px]"}`}>
-                        <h2 className="text-3xl text-white text-center py-8">TOTAL GIGS</h2>
-                        <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 mx-auto gap-8 container">
+                        <h2 className="text-3xl text-[#2a3254] shadow-lg text-center py-8 ">TOTAL GIGS</h2>
+                        <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 p-10 mx-auto gap-8 container">
 
                             {
                                 gigs.map((gig, i) => (

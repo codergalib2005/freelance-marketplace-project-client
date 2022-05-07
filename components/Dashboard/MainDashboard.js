@@ -3,8 +3,10 @@
 import React from "react";
 import { CgAlignBottom } from "react-icons/cg";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, AreaChart, Area, BarChart, Bar } from "recharts";
+import useAuth from "../../hooks/useAuth";
 
 const MainDashboard = () => {
+  const { isOpen } = useAuth()
   const pdata = [
     {
       name: "Python",
@@ -38,8 +40,8 @@ const MainDashboard = () => {
     },
   ];
   return (
-    <section className="bg-[#F3F4F6] h-full">
-      <div className="bg-[#00073d] w-full px-4">
+    <section className={`bg-[#F3F4F6] h-full ${isOpen ? "pl-[200px]" : "pl-[45px]"}`}>
+      <div className="bg-[#00073d]  px-4">
         <div className="flex justify-between items-center">
           <div>
             <img className="" src="https://i.ibb.co/8Pvs63n/download-removebg-preview.png" alt="" />

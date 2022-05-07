@@ -30,7 +30,7 @@ const TotalGig = (props) => {
     };
 
     return (
-        <div className="card1 relative ">
+        <div className="card1 relative shadow-lg bg-[#fff]">
             <div className="card2">
                 <div className="card-border-top">
                 </div>
@@ -38,11 +38,11 @@ const TotalGig = (props) => {
                     <img src={gallery[0]} alt="" />
                 </div>
 
-                <h3 className="job">{gig_title}</h3>
-                <p className="text-white text-center p-2 mb-12">✅{category}</p>
+                <h3 className="job text-[#2a3254]">{gig_title}</h3>
+                <p className="text-[#2a3254] text-center p-2 mb-12">✅{category}</p>
 
                 <div className='text-center'>
-                    {level === "top" ? <p style={{ display: "inline-block", marginLeft: "10px" }} className='text-white px-2 py-3 rounded ring ring-indigo-700'>Added TOP</p> : <button onClick={() => handleClick(_id)} className="button">
+                    {level === "top" ? <p style={{ display: "inline-block", marginLeft: "10px" }} className='text-[#2a3254] px-2 py-3 rounded ring ring-indigo-700'>Added TOP</p> : <button onClick={() => handleClick(_id)} className="button">
                         Make TOP
                     </button>}
                     <button onClick={() => handleRemove(_id)} className="button">
