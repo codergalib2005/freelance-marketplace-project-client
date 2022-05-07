@@ -24,9 +24,9 @@ const TopGigs = () => {
             <SideBar />
             <SideBarMenu />
           </div>
-          <div className={`main_gigs_parent ${isOpen ? "pl-[200px]" : "pl-[45px]"}`}>
-            <h2 className="text-3xl text-white text-center py-8">TOP LEVEL GIGS</h2>
-            <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 mx-auto gap-8 container pb-10">
+          <div className={`main_gigs_parent mx-auto ${isOpen ? "pl-[200px]" : "pl-[45px]"}`}>
+            <h2 className="text-3xl text-[#2a3254] shadow-md text-center py-8">TOP LEVEL GIGS</h2>
+            <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 mx-auto gap-8 container p-14">
 
               {
                 gigs.map((gig, i) => (
