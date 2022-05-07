@@ -4,9 +4,20 @@ import { useForm } from "react-hook-form";
 import { Input } from "antd";
 import { AiOutlineSend } from "react-icons/ai";
 const { TextArea } = Input;
+import axios from "axios";
 const Notification = () => {
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    console.log(data);
+    data.status = "unread";
+    axios
+      .post("http://localhost:8000/auth/notifictions", data)
+      .then((res) => {
+        console.log(res);
+        alert("Successfully sent");
+      })
+      .catch((err) => console.log(err));
+  };
   return (
     <div className="w-full py-3">
       <form onSubmit={handleSubmit(onSubmit)} className="w-full">
