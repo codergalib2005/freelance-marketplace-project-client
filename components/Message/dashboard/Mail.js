@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { RiImageAddFill } from "react-icons/ri";
 import { useForm } from "react-hook-form";
 import { Input } from "antd";
@@ -7,25 +7,77 @@ import { notification } from "antd";
 import axios from "axios";
 const { TextArea } = Input;
 const Mail = () => {
+  const [image, setImage] = useState(null);
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
-    axios
-      .post(`${process.env.NEXT_PUBLIC_API_URL}/mails`, data)
-      .then((res) => {
-        console.log(res);
-        notification.success({
-          message: "Success",
-          description: "Mail sent successfully",
-          placement: "top",
-          duration: 2,
-          style: {
-            width: 300,
-            //   marginLeft: "calc(50% - 150px)",
-            //   marginTop: "calc(50vh - 100px)",
-          },
-        });
-      })
-      .catch((err) => console.log(err));
+    if (!image) {
+      notification.error({
+        message: "Error",
+        description: "Please select an image",
+        placement: "top",
+        duration: 2,
+        style: {
+          width: 300,
+          //   marginLeft: "calc(50% - 150px)",
+          //   marginTop: "calc(50vh - 100px)",
+          background: "#3a3",
+          color: "#fff !important",
+          borderBottom: "6px solid #e83a3b",
+          boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
+        },
+      });
+      return;
+    } else {
+      const formData = new FormData();
+      formData.append("file", image[0]);
+      formData.append("upload_preset", "jsjb2bic");
+      formData.append("upload_preset", "jsjb2bic");
+      const config = {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      };
+      const configJson = {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      };
+      axios
+        .post(
+          "https://api.cloudinary.com/v1_1/gsbsoft/image/upload",
+          formData,
+          config
+        )
+        .then((res) => {
+          console.log(res);
+          data.image = res.data.secure_url;
+          axios
+            .post(
+              `${process.env.NEXT_PUBLIC_API_URL}/notifictions`,
+              data,
+              configJson
+            )
+            .then((res) => {
+              notification.success({
+                message: "Success",
+                description: "Notification sent successfully",
+                placement: "top",
+                duration: 2,
+                style: {
+                  width: 300,
+                  //   marginLeft: "calc(50% - 150px)",
+                  //   marginTop: "calc(50vh - 100px)",
+                  background: "#ec4899",
+                  color: "#2a3254 !important",
+                  borderBottom: "6px solid #3a3",
+                  boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
+                },
+              });
+            })
+            .catch((err) => console.log(err));
+        })
+        .catch((err) => console.log(err));
+    }
   };
   return (
     <div className="w-full py-3">
@@ -41,7 +93,8 @@ const Mail = () => {
               </div>
             </label>
             <input
-              {...register("image", { required: true })}
+              accept="image/png, image/jpeg, image/jpg"
+              onChange={(e) => setImage(e.target.files)}
               id="selectImg"
               type="file"
               className="hidden"
