@@ -128,18 +128,14 @@ const Banner = () => {
                   </div>
                 </div>
               </motion.div>
-              <motion.div
-                initial={{ scaleY: 0.7, opacity: 0, visibility: "hidden" }}
-                animate={{ scaleY: 1, opacity: 1, visibility: "visible" }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
-                className="flex w-full col-span-4 "
+              <div
               >
                 <img
                   className="w-[80%] max-w-full mx-auto"
                   src={bd.pic}
                   alt=""
                 />
-              </motion.div>
+              </div>
             </div>
           </SwiperSlide>
         ))}

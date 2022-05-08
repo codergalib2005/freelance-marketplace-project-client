@@ -5,7 +5,11 @@ import React, { useEffect, useState } from "react";
 const Conversation = ({ conversation, currentUser }) => {
   const [user, setUser] = useState([]);
   const userInfo = user[0];
-
+  const configJson = {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
   useEffect(() => {
     const friendEmail = conversation?.members?.find(
       (m) => m !== currentUser?.email
