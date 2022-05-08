@@ -24,6 +24,7 @@ const useFirebase = () => {
   const [error, setError] = useState("");
   const [thisUser, setThisUser] = useState({});
   const [isOpen, setIsOpen] = useState(false);
+  const [allGigs, setAllGigs] = useState([]);
   //for admin
   // const [admin, setAdmin] = useState(false)
 
@@ -289,13 +290,23 @@ const useFirebase = () => {
     .get(`${process.env.NEXT_PUBLIC_API_URL}/users/email/${user?.email}`)
     .then(
       (response) => {
-        setThisUser(response?.result);
+        setThisUser(response?.data?.result);
       },
       (error) => {
         console.log(error);
       }
     );
 
+  // LOAD HERE ALL GIGS
+  axios
+    .get(`${process.env.NEXT_PUBLIC_API_URL}/gigs`)
+    .then((res) => {
+      setAllGigs(res?.data?.result);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  
   //logout email and pass
   const logOut = () => {
     setIsLoadind(true);
@@ -353,6 +364,8 @@ const useFirebase = () => {
     thisUser,
     isOpen,
     setIsOpen,
+    allGigs,
+    setAllGigs,
   };
 };
 

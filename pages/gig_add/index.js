@@ -7,12 +7,8 @@ import React, { useEffect, useReducer, useState } from "react";
 import { useForm } from "react-hook-form";
 import Footer from "../../components/Shared/Footer";
 import Header from "../../components/Shared/Header";
-<<<<<<< HEAD
 import { notification } from "antd";
-=======
 import { withPrivate } from "../../hooks/PrivateRoute";
->>>>>>> 1062fc1a0c09e35218fd95e743f146abbba7d6bd
-// import { withPrivate } from "../../hooks/PrivateRoute";
 import useAuth from "../../hooks/useAuth";
 const showPageMood = {
   showPage: "MAIN_PAGE",
