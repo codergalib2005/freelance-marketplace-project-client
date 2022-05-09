@@ -62,18 +62,20 @@ const OurTeamCom = () => {
   
   return (
     <>
-      <div className="container mx-auto">
+      <div className="container mx-auto my-10">
       <div className="  grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-8">
        
        {
          team.map(member=>
-           <div key={member.id} >
-         <div className="flex justify-center">
+           <div key={member.id} className="border-2 border-gray-500 h-96" >
+             <div className="bg-slate-900 px-10 w-full h-40 rounded-bl-full rounded-br-full relative " ></div>
+         <div className="flex justify-center ">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-           <img className="w-56 bg-slate-500 rounded-tl-full rounded-br-full"   src={member.img} alt="" />
+           <img className="w-48 object-top h-40 absolute -mt-32 z-10 bg-amber-300 px-6 py-4 rounded-tr-full rounded-tl-3xl "   src={member.img} alt="" />
          </div>
-         <div>
-
+         <div className="z-20 my-14">
+            <h4>{member.name}</h4>
+            <h4>{member.designation}</h4>
          </div>
        </div>)
        }
