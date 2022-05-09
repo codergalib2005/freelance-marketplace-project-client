@@ -39,7 +39,7 @@ const BannerPicChange = ({
   const primary = red[500];
   const onSubmit = (data) => {
     axios
-      .put(`${process.env.NEXT_PUBLIC_API_URL}/users/banner/${id}`, data)
+      .patch(`${process.env.NEXT_PUBLIC_API_URL}/users/banner/${id}`, data)
       .then(function (response) {
         setOpenBanner(false);
         notification.success({

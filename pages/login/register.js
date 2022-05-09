@@ -47,7 +47,6 @@ const Register = () => {
 
   return (
     <div className="w-full bg-[#fff]">
-      {!loading && (
         <div className="px-4">
           <div
             style={{ minHeight: "90vh" }}
@@ -155,12 +154,6 @@ const Register = () => {
             </div>
           </div>
         </div>
-      )}
-      {loading && (
-        <div className="min-h-screen flex items-center justify-center">
-          <span className="main-loader"></span>
-        </div>
-      )}
     </div>
   );
 };

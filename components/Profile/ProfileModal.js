@@ -40,7 +40,7 @@ const ProfileModal = ({
   const primary = red[500];
   const onSubmit = (data) => {
     axios
-      .put(`${process.env.NEXT_PUBLIC_API_URL}/users/avatar/${id}`, data)
+      .patch(`${process.env.NEXT_PUBLIC_API_URL}/users/avatar/${id}`, data)
       .then(function (response) {
         setOpenProfile(false);
         notification.success({

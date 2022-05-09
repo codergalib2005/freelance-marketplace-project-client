@@ -62,8 +62,8 @@ const About = ({ id, education, skills, aboutt }) => {
       return;
     } else {
       axios
-        .put(`${process.env.NEXT_PUBLIC_API_URL}/users/about/${id}`, {
-          about: aboutBody
+        .patch(`${process.env.NEXT_PUBLIC_API_URL}/users/about/${id}`, {
+          about: aboutBody,
         })
         .then(function (response) {
           notification.success({
@@ -104,7 +104,7 @@ const About = ({ id, education, skills, aboutt }) => {
       return;
     } else {
       axios
-        .put(`${process.env.NEXT_PUBLIC_API_URL}/users/skills/${id}`, {
+        .patch(`${process.env.NEXT_PUBLIC_API_URL}/users/skills/${id}`, {
           skills: skillsBody,
         })
         .then(function (response) {
@@ -146,7 +146,7 @@ const About = ({ id, education, skills, aboutt }) => {
       return;
     } else {
       axios
-        .put(`${process.env.NEXT_PUBLIC_API_URL}/users/education/${id}`, {
+        .patch(`${process.env.NEXT_PUBLIC_API_URL}/users/education/${id}`, {
           education: educationBody,
         })
         .then(function (response) {

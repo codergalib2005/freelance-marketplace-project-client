@@ -94,9 +94,12 @@ const Profile = () => {
       return;
     } else {
       axios
-        .put(`${process.env.NEXT_PUBLIC_API_URL}/users/bio/${thisUser?._id}`, {
-          bio: bioText,
-        })
+        .patch(
+          `${process.env.NEXT_PUBLIC_API_URL}/users/bio/${thisUser?._id}`,
+          {
+            bio: bioText,
+          }
+        )
         .then(function (response) {
           notification.success({
             message: "Success",
@@ -136,7 +139,7 @@ const Profile = () => {
       return;
     } else {
       axios
-        .put(
+        .patch(
           `${process.env.NEXT_PUBLIC_API_URL}/users/profession/${thisUser?._id}`,
           {
             profession: professionText,
