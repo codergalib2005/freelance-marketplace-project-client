@@ -50,7 +50,7 @@ const OurTeamCom = () => {
       id:8,
       name: "Md Alamin Islam",
       img: "https://i.ibb.co/x3dZBfk/almin.png",
-      designation: "This is a sample Text. Insert yuor desired text here.",
+      designation: "Web Developer",
     },
     {
       id:9,
@@ -62,20 +62,23 @@ const OurTeamCom = () => {
   
   return (
     <>
-      <div className="container mx-auto my-10">
+      <div className="container mx-auto px-10 lg:px-0 my-10">
       <div className="  grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-8">
        
        {
          team.map(member=>
-           <div key={member.id} className="border-2 border-gray-500 h-96" >
+           <div key={member.id} className="border-0 border-gray-500 h-[27rem] translate transition-all duration-300 hover:bg-teal-200  bg-white " >
              <div className="bg-slate-900 px-10 w-full h-40 rounded-bl-full rounded-br-full relative " ></div>
          <div className="flex justify-center ">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-           <img className="w-48 object-top h-40 absolute -mt-32 z-10 bg-amber-300 px-6 py-4 rounded-tr-full rounded-tl-3xl "   src={member.img} alt="" />
+           <img className="w-48 object-top h-40 absolute -mt-32 z-10 bg-indigo-500 px-6 py-4 rounded-tr-full  "   src={member.img} alt="" />
          </div>
-         <div className="z-20 my-14">
-            <h4>{member.name}</h4>
-            <h4>{member.designation}</h4>
+         <div className="z-20 my-16">
+            <h4 className="text-center text-2xl font-medium">{member.name}</h4>
+            <h4 className="text-center text-xl font-medium">{member.designation}</h4>
+         </div>
+         <div className="mx-4"> 
+           <button className="text-base font-bold px-6 w-full py-2 text-white bg-indigo-500 border-0 rounded-md active:bg-indigo-700 my-6" >Details</button>
          </div>
        </div>)
        }
