@@ -1,151 +1,88 @@
 import React from "react";
-import Image from "next/image";
-import galib from "../../public/teamPhoto/galib.png";
-import mahmudul from "../../public/teamPhoto/mahmudul.png";
-import prottoy from "../../public/teamPhoto/prottoy.png";
-import minhaj from "../../public/teamPhoto/minhaj.png";
-import alamin from "../../public/teamPhoto/alamin.png";
-import shobuj from "../../public/teamPhoto/shobuj.png";
+
 
 const OurTeamCom = () => {
   const team = [
     {
+      id:1,
+      name: "Jhankar Mahbub",
+      img: "https://i.ibb.co/ZY5YB0V/jhankar.png",
+      designation: "CEO at Programming Hero",
+    },
+    {
+      id:2,
+      name: "Ahmad Tarique Hasan",
+      img: "https://i.ibb.co/6FnMtrS/ahmmed-tarek.png",
+      designation: "Web Developer at Programming Hero",
+    },
+    {
+      id:3,
+      name: "Najmus Sakib",
+      img: "https://i.ibb.co/cTSc8mk/najmus-sakib.png",
+      designation: "Web Developer at Programming Hero",
+    },
+    
+    {
+      id:4,
       name: "Asadullah Hil Galib",
-      img: "https://drive.google.com/file/d/1SNcS0WRmtKAi0ffHQmPHprHALSMBF80n/view?usp=sharing",
-      designation: "This is a sample Text. Insert yuor desired text here.",
+      img: "https://i.ibb.co/YcQTZpY/galib.png",
+      designation: "Web Developer & Team Leader",
     },
     {
+      id:5,
       name: "Prottay Roy Arnob",
-      img: "https://drive.google.com/file/d/1GiETz4SCBrwXpPtfhqaIUqQuhMcKY8uf/view?usp=sharing",
-      designation: "This is a sample Text. Insert yuor desired text here.",
+      img: "https://i.ibb.co/tqPcF3b/prottoy.png",
+      designation: "Web Developer",
     },
     {
+      id:6,
       name: "Mahmudul Haque Qudrati",
-      img: "https://drive.google.com/file/d/1BXtm2R0VevVCLqlV4gnEIBS2ShiLgZK1/view?usp=sharing",
-      designation: "This is a sample Text. Insert yuor desired text here.",
+      img: "https://i.ibb.co/JxmQqSm/mahmudul.png",
+      designation: "Web Developer",
     },
     {
-      name: "Md Minhaj",
-      img: "https://drive.google.com/file/d/1Z3JtxbHItGOhRR0Sb82-EmHRdXnyGFNI/view?usp=sharing",
-      designation: "This is a sample Text. Insert yuor desired text here.",
+      id: 7,
+      name: "Md Minhaz",
+      img: "https://i.ibb.co/bdDzwGN/minhaz.png",
+      designation: "Web Developer",
     },
     {
+      id:8,
       name: "Md Alamin Islam",
-      img: "https://drive.google.com/file/d/1CXuKi0WmEzExXkIEpaYuemfhoQ553bEc/view?usp=sharing",
+      img: "https://i.ibb.co/x3dZBfk/almin.png",
       designation: "This is a sample Text. Insert yuor desired text here.",
     },
     {
+      id:9,
       name: "Md Minhajul Islam",
-      img: "https://drive.google.com/file/d/12644JRPXEnrfV6M_9QyyvQPY1C6JTtXq/view?usp=sharing",
-      designation: "This is a sample Text. Insert yuor desired text here.",
+      img: "https://i.ibb.co/pvTqFt4/sobuj.png",
+      designation: "Web Developer",
     },
   ];
-  const mystyle = {
-    backgroundColor: "#b8b2b2",
-  };
+  
   return (
     <>
-      <div className="container mx-auto p-4 grid lg:grid-cols-3 md:grid-cols-2 gap-8">
-        {/* {team.map((member) => (
-          <div key={member.name} className="flex">
-            <div>
-              <Image layout="fill" style={mystyle} src={member.img} alt="" />
-            </div>
-            <div className="pl-4">
-              <div>
-                <h1 className="text-blue-600 font-bold">Name:{member.name}</h1>
-                <h1>Designation</h1>
-                <br />
-                <hr />
-                <br />
-                <p>{member.designation}</p>
-              </div>
-            </div>
-          </div>
-        ))} */}
-        <div className="flex">
-          <div>
-            <Image style={mystyle} src={galib} alt="" />
-          </div>
-          <div className="pl-4">
-            <div>
-              <h1 className="text-blue-600 font-bold">
-                Name: Asadullah Hil Galib
-              </h1>
-              <h1>Designation</h1>
-              <br />
-              <hr />
-              <p>This is a sample Text. Insert yuor desired text here.</p>
-            </div>
-          </div>
-        </div>
-        <div className="flex">
-          <div>
-            <Image style={mystyle} src={prottoy} alt="" />
-          </div>
-          <div className="pl-4">
-            <h1 className="text-blue-600 font-bold">Name: Prottay Roy Arnob</h1>
-            <h1>Designation</h1>
-            <br />
-            <hr />
-            <br />
-            <p>This is a sample Text. Insert yuor desired text here.</p>
-          </div>
-        </div>
-        <div className="flex">
-          <div>
-            <Image style={mystyle} src={mahmudul} alt="" />
-          </div>
-          <div className="pl-4">
-            <h1 className="text-blue-600 font-bold">
-              Name: Mahmudul Haque Qudrati
-            </h1>
-            <h1>Designation</h1>
-            <br />
-            <hr />
-            <br />
-            <p>This is a sample Text. Insert yuor desired text here.</p>
-          </div>
-        </div>
-        <div className="flex">
-          <div>
-            <Image style={mystyle} src={minhaj} alt="" />
-          </div>
-          <div className="pl-4">
-            <h1 className="text-blue-600 font-bold">Name: Md Minhaj</h1>
-            <h1>Designation</h1>
-            <br />
-            <hr />
-            <br />
-            <p>This is a sample Text. Insert yuor desired text here.</p>
-          </div>
-        </div>
-        <div className="flex">
-          <div>
-            <Image style={mystyle} src={alamin} alt="" />
-          </div>
-          <div className="pl-4">
-            <h1 className="text-blue-600 font-bold">Name: Md Alamin Islam</h1>
-            <h1>Designation</h1>
-            <br />
-            <hr />
-            <br />
-            <p>This is a sample Text. Insert yuor desired text here.</p>
-          </div>
-        </div>
-        <div className="flex">
-          <div>
-            <Image style={mystyle} src={shobuj} alt="" />
-          </div>
-          <div className="pl-4">
-            <h1 className="text-blue-600 font-bold">Name: Md Minhajul Islam</h1>
-            <h1>Designation</h1>
-            <br />
-            <hr />
-            <br />
-            <p>This is a sample Text. Insert yuor desired text here.</p>
-          </div>
-        </div>
+      <div className="container mx-auto">
+      <div className="  grid grid-cols-1 lg:grid-cols-3 md:grid-cols-2 gap-8">
+       
+       {
+         team.map(member=>
+           <div key={member.id} >
+         <div className="flex justify-center">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+           <img className="w-56 bg-slate-500 rounded-tl-full rounded-br-full"   src={member.img} alt="" />
+         </div>
+         <div>
+
+         </div>
+       </div>)
+       }
+       
+        
+       
+      
+       
+     </div>
       </div>
     </>
   );
