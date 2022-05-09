@@ -9,6 +9,7 @@ import { BsCartCheck } from "react-icons/bs";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import SideBarMenu from "./SideBarMenu";
+import useAuth from "../../hooks/useAuth";
 
 // icon and path distribute
 const routes = [
@@ -150,8 +151,7 @@ const routes = [
 ];
 
 const SideBar = ({ children }) => {
-  const [isOpen, setIsOpen] = useState(true);
-  const toggle = () => setIsOpen(!isOpen);
+  const { toggle, isOpen, setIsOpen } = useAuth();
 
   // animation
   const inputAnimation = {
@@ -187,7 +187,6 @@ const SideBar = ({ children }) => {
       },
     },
   };
-
   return (
     <>
       <div className="main-container ">
@@ -201,19 +200,26 @@ const SideBar = ({ children }) => {
               damping: 10,
             },
           }}
-          className={`sidebar h-full`}
+          className={`sidebar min-h-screen fixed top-0 left-0`}
+          style={{ zIndex: "500" }}
         >
           <div className="top_section">
             <AnimatePresence>
               {isOpen && (
-                <motion.h1 variants={showAnimation} initial="hidden" animate="show" exit="hidden" className="logo">
+                <motion.h1
+                  variants={showAnimation}
+                  initial="hidden"
+                  animate="show"
+                  exit="hidden"
+                  className="logo"
+                >
                   <img src="https://i.ibb.co/Ssxh3cj/logo-white.png" alt="" />
                 </motion.h1>
               )}
             </AnimatePresence>
 
             <div className="bars">
-              <FaBars onClick={toggle} />
+              <FaBars onClick={() => setIsOpen(!isOpen)} />
             </div>
           </div>
           {/*  <div className="search">
@@ -227,17 +233,31 @@ const SideBar = ({ children }) => {
           <section className="routes">
             {routes.map((route, index) => {
               if (route.subRoutes) {
-                return <SideBarMenu setIsOpen={setIsOpen} route={route} showAnimation={showAnimation} isOpen={isOpen} />;
+                return (
+                  <SideBarMenu
+                    key={index}
+                    setIsOpen={setIsOpen}
+                    route={route}
+                    showAnimation={showAnimation}
+                    isOpen={isOpen}
+                  />
+                );
               }
 
               return (
-                <Link href={route.path} key={index}>
-                  <a className="link" activeClassName="active">
-                    <div className="icon">{route.icon}</div>
+                <Link href={route?.path} key={index}>
+                  <a className="link" activeclassname="active">
+                    <div className="icon">{route?.icon}</div>
                     <AnimatePresence>
                       {isOpen && (
-                        <motion.div variants={showAnimation} initial="hidden" animate="show" exit="hidden" className="link_text ">
-                          {route.name}
+                        <motion.div
+                          variants={showAnimation}
+                          initial="hidden"
+                          animate="show"
+                          exit="hidden"
+                          className="link_text "
+                        >
+                          {route?.name}
                         </motion.div>
                       )}
                     </AnimatePresence>

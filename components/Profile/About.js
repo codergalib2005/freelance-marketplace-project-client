@@ -2,12 +2,11 @@ import { Input, message, Tooltip } from "antd";
 import axios from "axios";
 import dynamic from "next/dynamic";
 import React, { useReducer, useState } from "react";
+import { notification } from "antd";
 import { BsCheck2Square } from "react-icons/bs";
 import { FiEdit } from "react-icons/fi";
 import { IoMdClose } from "react-icons/io";
 import useAuth from "../../hooks/useAuth";
-
-
 
 const editorMood = {
   editor: null,
@@ -40,59 +39,137 @@ const About = ({ id, education, skills, aboutt }) => {
   const [aboutBody, setAboutBody] = useState("");
   const [skillsBody, setSkillsBody] = useState("");
   const [educationBody, setEducationBody] = useState("");
-
-
-  const handleAboutSubmit = e => {
+  const configJson = {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+  const handleAboutSubmit = (e) => {
     if (!aboutBody) {
-      message.error("About field Must need to fill-up!");
+      notification.error({
+        message: "Error",
+        description: "Please field about field",
+        placement: "top",
+        duration: 2,
+        style: {
+          width: 300,
+          //   marginLeft: "calc(50% - 150px)",
+          //   marginTop: "calc(50vh - 100px)",
+          borderBottom: "6px solid #e83a3b",
+          boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
+        },
+      });
       return;
     } else {
-      axios.put(`${process.env.NEXT_PUBLIC_URL}/users/about/${id}`, {
-        about: aboutBody,
-      })
+      axios
+        .patch(`${process.env.NEXT_PUBLIC_API_URL}/users/about/${id}`, {
+          about: aboutBody,
+        })
         .then(function (response) {
-          message.success("About Update Successfully!")
-          dispatch({ type: "CLOSE_EDITOR" })
+          notification.success({
+            message: "Success",
+            description: "About Update successfully!",
+            placement: "top",
+            duration: 2,
+            style: {
+              width: 300,
+              //   marginLeft: "calc(50% - 150px)",
+              //   marginTop: "calc(50vh - 100px)",
+              borderBottom: "6px solid #3a3",
+              boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
+            },
+          });
+          dispatch({ type: "CLOSE_EDITOR" });
         })
         .catch(function (error) {
           console.log(error);
         });
     }
-  }
-  const handleSkillsSubmit = e => {
+  };
+  const handleSkillsSubmit = (e) => {
     if (!skillsBody) {
-      message.error("Skills field Must need to fill-up!");
+      notification.error({
+        message: "Error",
+        description: "Please field-up your skills field",
+        placement: "top",
+        duration: 2,
+        style: {
+          width: 300,
+          //   marginLeft: "calc(50% - 150px)",
+          //   marginTop: "calc(50vh - 100px)",
+          borderBottom: "6px solid #e83a3b",
+          boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
+        },
+      });
       return;
     } else {
-      axios.put(`${process.env.NEXT_PUBLIC_URL}/users/skills/${id}`, {
-        skills: skillsBody,
-      })
+      axios
+        .patch(`${process.env.NEXT_PUBLIC_API_URL}/users/skills/${id}`, {
+          skills: skillsBody,
+        })
         .then(function (response) {
-          message.success("Skills Update Successfully!")
-          dispatch({ type: "CLOSE_EDITOR" })
+          notification.success({
+            message: "Success",
+            description: "Skills Update Successfully!",
+            placement: "top",
+            duration: 2,
+            style: {
+              width: 300,
+              //   marginLeft: "calc(50% - 150px)",
+              //   marginTop: "calc(50vh - 100px)",
+              borderBottom: "6px solid #3a3",
+              boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
+            },
+          });
+          dispatch({ type: "CLOSE_EDITOR" });
         })
         .catch(function (error) {
           console.log(error);
         });
     }
-  }
-  const handleEducationSubmit = e => {
+  };
+  const handleEducationSubmit = (e) => {
     if (!educationBody) {
-      message.error("Education field Must need to fill-up!");
+      notification.error({
+        message: "Error",
+        description: "Please field-up your education field",
+        placement: "top",
+        duration: 2,
+        style: {
+          width: 300,
+          //   marginLeft: "calc(50% - 150px)",
+          //   marginTop: "calc(50vh - 100px)",
+          borderBottom: "6px solid #e83a3b",
+          boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
+        },
+      });
       return;
     } else {
-      axios.put(`${process.env.NEXT_PUBLIC_URL}/users/education/${id}`, {
-        education: educationBody,
-      })
+      axios
+        .patch(`${process.env.NEXT_PUBLIC_API_URL}/users/education/${id}`, {
+          education: educationBody,
+        })
         .then(function (response) {
-          message.success("Education Update Successfully!")
-          dispatch({ type: "CLOSE_EDITOR" })
+          notification.success({
+            message: "Success",
+            description: "Education Update successfully!",
+            placement: "top",
+            duration: 2,
+            style: {
+              width: 300,
+              //   marginLeft: "calc(50% - 150px)",
+              //   marginTop: "calc(50vh - 100px)",
+              borderBottom: "6px solid #3a3",
+              boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
+            },
+          });
+          dispatch({ type: "CLOSE_EDITOR" });
         })
         .catch(function (error) {
           console.log(error);
         });
     }
-  }
+  };
   return (
     <div className="profile_about mt-4">
       <div>
@@ -105,7 +182,7 @@ const About = ({ id, education, skills, aboutt }) => {
                   className="text-lg pl-3 cursor-pointer text-[#e83a3b]"
                   onClick={() => dispatch({ type: "ABOUT_EDIT" })}
                 >
-                  <Tooltip title="Edit About box, add something you self!">
+                  <Tooltip title="Edit About box, add something your self!">
                     <FiEdit />
                   </Tooltip>
                 </span>
@@ -115,7 +192,12 @@ const About = ({ id, education, skills, aboutt }) => {
               {/* {state.editor === null && (<div>Hello</div>)} */}
               {state.editor === "ABOUT_EDIT" ? (
                 <div className="shadow-md p-4">
-                  <TextArea showCount maxLength={500} onChange={e => setAboutBody(e.target.value)} />
+                  <TextArea
+                    defaultValue={aboutt}
+                    showCount
+                    maxLength={500}
+                    onChange={(e) => setAboutBody(e.target.value)}
+                  />
                   <div>
                     <button
                       className="text-xl mr-3 mt-3"
@@ -123,14 +205,17 @@ const About = ({ id, education, skills, aboutt }) => {
                     >
                       <IoMdClose />
                     </button>
-                    <button onClick={handleAboutSubmit} className="text-xl mr-3 mt-3">
+                    <button
+                      onClick={handleAboutSubmit}
+                      className="text-xl mr-3 mt-3"
+                    >
                       <BsCheck2Square />
                     </button>
                   </div>
                 </div>
               ) : (
                 <div className="pl-3 html_parser_in_profile_about">
-                  {aboutt}
+                  <p>{aboutt}</p>
                 </div>
               )}
             </div>
@@ -143,7 +228,9 @@ const About = ({ id, education, skills, aboutt }) => {
                   className="text-lg pl-3 cursor-pointer text-[#e83a3b]"
                   onClick={() => dispatch({ type: "SKILLS_EDIT" })}
                 >
-                  <FiEdit />
+                  <Tooltip title="Edit Skills box, add something your skills self!">
+                    <FiEdit />
+                  </Tooltip>
                 </span>
               </h3>
             </div>
@@ -154,7 +241,9 @@ const About = ({ id, education, skills, aboutt }) => {
                   <TextArea
                     showCount
                     maxLength={500}
-                    onChange={(e) => setSkillsBody(e.target.value)} />
+                    defaultValue={skills}
+                    onChange={(e) => setSkillsBody(e.target.value)}
+                  />
                   <div>
                     <button
                       className="text-xl mr-3 mt-3"
@@ -162,14 +251,17 @@ const About = ({ id, education, skills, aboutt }) => {
                     >
                       <IoMdClose />
                     </button>
-                    <button onClick={handleSkillsSubmit} className="text-xl mr-3 mt-3">
+                    <button
+                      onClick={handleSkillsSubmit}
+                      className="text-xl mr-3 mt-3"
+                    >
                       <BsCheck2Square />
                     </button>
                   </div>
                 </div>
               ) : (
                 <div className="pl-3 html_parser_in_profile_about">
-                  {skills}
+                  <p>{skills}</p>
                 </div>
               )}
             </div>
@@ -182,7 +274,9 @@ const About = ({ id, education, skills, aboutt }) => {
                   className="text-lg pl-3 cursor-pointer text-[#e83a3b]"
                   onClick={() => dispatch({ type: "EDUCATION_EDIT" })}
                 >
-                  <FiEdit />
+                  <Tooltip title="Edit Education box, add something your eduction background self!">
+                    <FiEdit />
+                  </Tooltip>
                 </span>
               </h3>
             </div>
@@ -193,6 +287,7 @@ const About = ({ id, education, skills, aboutt }) => {
                   <TextArea
                     showCount
                     maxLength={500}
+                    defaultValue={education}
                     onChange={(e) => setEducationBody(e.target.value)}
                   />
                   <div className="shadow-md p-4">
@@ -202,14 +297,17 @@ const About = ({ id, education, skills, aboutt }) => {
                     >
                       <IoMdClose />
                     </button>
-                    <button onClick={handleEducationSubmit} className="text-xl mr-3 mt-3">
+                    <button
+                      onClick={handleEducationSubmit}
+                      className="text-xl mr-3 mt-3"
+                    >
                       <BsCheck2Square />
                     </button>
                   </div>
                 </div>
               ) : (
                 <div className="pl-3 html_parser_in_profile_about">
-                  {education}
+                  <p>{education}</p>
                 </div>
               )}
             </div>

@@ -3,7 +3,7 @@ import React from 'react';
 const Topseller = () => {
   return (
     <div>
-       Top seller section
+      Top seller section
     </div>
   );
 };

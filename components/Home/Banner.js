@@ -7,7 +7,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Autoplay } from "swiper";
 import Link from "next/link";
-
+import { motion } from "framer-motion";
 const bannerData = [
   {
     title: " Digital Marketing",
@@ -85,45 +85,52 @@ const Banner = () => {
       >
         {bannerData.map((bd, ind) => (
           <SwiperSlide key={ind} bd={bd}>
-            <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-9  overflow-x-hidden py-12 items-center">
-              <div className="col-span-5 pl-0">
-                <div className="text-center lg:text-left ">
-                  <h2 className="text-6xl font-bold text-[#2A3254]">
-                    {bd?.title}
-                  </h2>
-                  <p className="text-gray-500 text-sm my-3 w-96 mx-auto lg:mx-0">
-                    {bd.desc}
-                  </p>
-                  <div className="flex gap-4 justify-center lg:justify-start">
-                    <Link href="/login">
-                      <button className="px-8 py-3 rounded bg-pink-500 text-lg  text-white">
-                        Get Started
-                      </button>
-                    </Link>
-                    <Link href="/login">
-                      <button className="px-8 py-3  rounded border-2 border-pink-400  text-lg">
-                        Try Now
-                      </button>
-                    </Link>
-                  </div>
+            <div className="grid grid-cols-1 lg:grid-cols-2  overflow-x-hidden py-12 items-center">
+              <div>
+                <motion.div
+                  initial={{ scaleX: 0.7, opacity: 0, visibility: "hidden" }}
+                  animate={{ scaleX: 1, opacity: 1, visibility: "visible" }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                  className="col-span-5 pl-0"
+                >
+                  <div className="text-center lg:text-left ">
+                    <h2 className="text-6xl font-bold text-[#2A3254]">
+                      {bd?.title}
+                    </h2>
+                    <p className="text-gray-500 text-sm my-3 w-96 mx-auto lg:mx-0">
+                      {bd.desc}
+                    </p>
+                    <div className="flex gap-4 justify-center lg:justify-start">
+                      <Link passHref href="/login">
+                        <button className="px-8 py-3 rounded bg-pink-500 text-lg  text-white">
+                          Get Started
+                        </button>
+                      </Link>
+                      <Link passHref href="/login">
+                        <button className="px-8 py-3  rounded border-2 border-pink-400  text-lg">
+                          Try Now
+                        </button>
+                      </Link>
+                    </div>
 
-                  <div className="mt-12 flex gap-6 justify-center lg:justify-start">
-                    <div className="">
-                      <p className="font-bold text-3xl">{bd.year}</p>
-                      <p className="w-[80%] text-sm">Years of experiences</p>
-                    </div>
-                    <div className="">
-                      <p className="font-bold text-3xl">{bd.specalist}</p>
-                      <p className="w-[80%] text-sm">Specialist available</p>
-                    </div>
-                    <div className="">
-                      <p className="font-bold text-3xl">{bd.client}</p>
-                      <p className="w-[80%] text-sm">Client Satisfaction</p>
+                    <div className="mt-12 flex gap-6 justify-center lg:justify-start">
+                      <div className="">
+                        <p className="font-bold text-3xl">{bd.year}</p>
+                        <p className="w-[80%] text-sm">Years of experiences</p>
+                      </div>
+                      <div className="">
+                        <p className="font-bold text-3xl">{bd.specalist}</p>
+                        <p className="w-[80%] text-sm">Specialist available</p>
+                      </div>
+                      <div className="">
+                        <p className="font-bold text-3xl">{bd.client}</p>
+                        <p className="w-[80%] text-sm">Client Satisfaction</p>
+                      </div>
                     </div>
                   </div>
-                </div>
+                </motion.div>
               </div>
-              <div className="flex w-full col-span-4 ">
+              <div>
                 <img
                   className="w-[80%] max-w-full mx-auto"
                   src={bd.pic}

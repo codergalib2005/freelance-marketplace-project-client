@@ -7,7 +7,7 @@ import Footer from "../components/Shared/Footer";
 import Header from "../components/Shared/Header";
 // import BreakdownFirst from "./Breakdown/BreakdownFirst";
 // import BreakdownSecond from "./Breakdown/BreakdownSecond";
-import HowWeWorks from "../components/HowWeWorks/howweworks";
+import HowWeWorks from "../components/HowWeWorks/Howweworks";
 // import Topseller from "../components/Shared/Topseller";
 // import bg from "../public/Reviews.png";
 import Devices from "../components/Home/Devices";
@@ -18,15 +18,15 @@ import HowItWorks from "../components/Home/HowItWorks";
 import TryIt from "../components/Home/TryIt";
 import Growing from "../components/Home/Growing";
 import HeaderBottom from "../components/Shared/HeaderBottom";
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 3000)
-  }, [])
+    }, 3000);
+  }, []);
   return (
     <div className="feature-font">
       <Head>
@@ -43,7 +43,10 @@ export default function Home() {
         </div>
       </header>
       {loading && (
-        <div style={{ minHeight: '90vh' }} className='flex items-center justify-center'>
+        <div
+          style={{ minHeight: "90vh" }}
+          className="flex items-center justify-center"
+        >
           <span className="main-loader"></span>
         </div>
       )}
@@ -60,7 +63,6 @@ export default function Home() {
             <Counter />
             <HowItWorks />
             <TryIt />
-
           </div>
           <div>
             {/* <HomeServicesSlider />s */}

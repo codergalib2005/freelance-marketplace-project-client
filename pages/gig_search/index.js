@@ -14,30 +14,24 @@ import SingleGig from "../../components/gigs/SingleGig";
 import Footer from "../../components/Shared/Footer";
 import Header from "../../components/Shared/Header";
 import HeaderTop from "../../components/Shared/HeaderTop";
+import useAuth from "../../hooks/useAuth";
 const GigSearch = () => {
   const [value, setValue] = useState("");
   const [search, setSearch] = useState("");
   const [showSidebar, setShowSidebar] = useState(true);
-  const [allGigs, setAllGigs] = useState([]);
+  const { allGigs } = useAuth();
   const [loading, setLoading] = useState(true);
   const [gridColumn, setGridColumn] = useState("grid_column");
   setTimeout(() => {
     setLoading(false);
   }, 3000);
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  axios
-    .get(`${process.env.NEXT_PUBLIC_URL}/gigs`)
-    .then((res) => {
-      setAllGigs(res?.data?.result);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
   const handleChange = (event) => {
     setValue(event.target.value);
   };
+  console.log(allGigs)
   return (
-    <>
+    <div>
       <HeaderTop />
       <Header />
       <div className="border-b-2 border-gray-50">
@@ -82,8 +76,9 @@ const GigSearch = () => {
           <div className="flex justify-between gap-4 relative">
             {/* This s the menu show sidebar */}
             <div
-              className={`transition-all duration-300 ease-linear w-full px-2 min-h-screen bg-[#0a1929] absolute top-0 ${showSidebar ? "left-0" : " -left-80"
-                }`}
+              className={`transition-all duration-300 ease-linear w-full px-2 min-h-screen bg-[#0a1929] absolute top-0 ${
+                showSidebar ? "left-0" : " -left-80"
+              }`}
               style={{ maxWidth: "19rem" }}
             >
               <div
@@ -172,8 +167,9 @@ const GigSearch = () => {
             {/* Show All contents Here */}
             <div
               style={{ overflowY: "scroll", maxWidth: "1100px" }}
-              className={`content_scrollbar transition-all duration-300 py-10 ease-linear w-full bg-[#fff] h-4 min-h-screen text-white mx-auto px-6 ${showSidebar ? "pl-80" : "pl-6"
-                }`}
+              className={`content_scrollbar transition-all duration-300 py-10 ease-linear w-full bg-[#fff] h-4 min-h-screen text-white mx-auto px-6 ${
+                showSidebar ? "pl-80" : "pl-6"
+              }`}
             >
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 px-2  sm:px-5">
                 {loading &&
@@ -203,15 +199,18 @@ const GigSearch = () => {
               </div>
               {!loading && (
                 <div
-                  className={`${gridColumn === "grid_column" && "gig_wrapper_column"
-                    }`}
+                  className={`${
+                    gridColumn === "grid_column" && "gig_wrapper_column"
+                  }`}
                 >
                   {allGigs
                     ?.filter((gig) => {
                       if (search === "") {
                         return gig;
                       } else if (
-                        gig.category.toLowerCase().includes(search?.toLowerCase())
+                        gig.category
+                          .toLowerCase()
+                          .includes(search?.toLowerCase())
                       ) {
                         return gig;
                       }
@@ -230,7 +229,7 @@ const GigSearch = () => {
         </div>
       </div>
       <Footer />
-    </>
+    </div>
   );
 };
 

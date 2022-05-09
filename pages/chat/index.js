@@ -24,7 +24,6 @@ const socket = io.connect("https://freelance-app-socket-server.herokuapp.com");
 
 function ChatApp() {
   const { user } = useAuth();
-
   const [open, setOpen] = useState(false);
   const [open2, setOpen2] = useState(false);
 
@@ -94,7 +93,6 @@ function ChatApp() {
           "https://freelancer-chat-app-api.herokuapp.com/api/conversations/" +
             user?.email
         );
-        console.log(user);
         setCoversation(res.data);
       } catch (error) {
         console.log(error);
@@ -195,7 +193,7 @@ function ChatApp() {
     setCurrentChat(value);
     setOpen(false);
   };
-  /* 
+  /*
   HiMenuAlt2
   */
   return (

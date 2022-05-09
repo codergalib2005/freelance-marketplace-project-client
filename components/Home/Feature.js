@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-
+import { motion } from "framer-motion";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
@@ -23,9 +23,9 @@ export default function Feature() {
       <div className=" flex justify-between flex-col md:flex-row mb-8 items-center">
         <div className="w-full md:w-10/12 lg:w-8/12">
           <h2 className="text-3xl font-bold mb-2 capitalize text-gray-700">
-            Expolre popular<span className="text-blue-600"> services</span>
+            Expolre popular<span className="text-[#ec4899]"> services</span>
           </h2>
-          <p className="w-full md:w-10/12 lg:w-8/12 text-gray-600 text">
+          <p className="w-full md:w-10/12 lg:w-8/12 text-gray-600 text-base">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit
             aliquid sapiente placeat laudantium culpa voluptate repellendus
             accusantium odit repellat suscipit?
@@ -33,10 +33,12 @@ export default function Feature() {
         </div>
 
         <div className="mt-6 md:mt-0 lg:mt-0">
-          <Link href='/gig_search'>
-          <a className="border-2 border-blue-500  rounded-md py-3 px-6">
-            Explore Now
-          </a>
+          <Link href="/gig_search">
+            <a
+              className="border-2 border-[#ec4899] text-gray-800  rounded-md py-4 px-6 hover:scale-105 hover:text-[#ec4899] transition-all duration-300 ease-linear text-lg font-medium"
+            >
+              Explore Now
+            </a>
           </Link>
         </div>
       </div>

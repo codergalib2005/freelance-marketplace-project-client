@@ -11,7 +11,7 @@ const Growing = () => {
                         <h1 className='text-2xl sm:text-4xl font-bold text-[#2a3254]'>
                             Find the talent needed to get your business growing.</h1>
                         <p className='text-lg py-3 text-[#2a3254] font-medium'>Advertise your jobs to millions of monthly users and search 15.8 million CVs</p>
-                        <Link href="/gig_search">
+                        <Link passHref href="/gig_search">
                             <button className='text-lg font-bold text-white bg-[#2a3254] py-2 px-5 rounded-full'>Explore all jobs</button>
                         </Link>
                     </div>
