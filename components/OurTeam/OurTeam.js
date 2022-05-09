@@ -71,7 +71,7 @@ const OurTeamCom = () => {
              <div className="bg-slate-900 px-10 w-full h-40 rounded-bl-full rounded-br-full relative " ></div>
          <div className="flex justify-center ">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-           <img className="w-48 object-top h-40 absolute -mt-32 z-10 bg-indigo-500 px-6 py-4 rounded-tr-full  "   src={member.img} alt="" />
+           <img className="w-48 object-top h-40 absolute -mt-32 z-10 bg-indigo-500 px-6 py-4 rounded-tr-full pb-0 "   src={member.img} alt="" />
          </div>
          <div className="z-20 my-16">
             <h4 className="text-center text-2xl font-medium">{member.name}</h4>
