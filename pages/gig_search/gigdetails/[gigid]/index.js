@@ -443,7 +443,7 @@ const GigDetails = () => {
                     <form onSubmit={handleSubmit(onSubmit)}>
                       <textarea
                         className="py-1 px-2 rounded-2 h-18 border border-[#2a3254] rounded-md shadow-lg"
-                        {...register("description")}
+                        {...register("description", {maxLength: 300})}
                         placeholder="Your Comment"
                         required
                       />{" "}
