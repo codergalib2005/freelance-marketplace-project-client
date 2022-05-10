@@ -39,7 +39,7 @@ const ProfilePicUpload = ({
   const primary = red[500];
   const onSubmit = (data) => {
     axios
-      .put(`${process.env.NEXT_PUBLIC_API_URL}/users/avatar/${id}`, data)
+      .patch(`${process.env.NEXT_PUBLIC_API_URL}/users/avatar/${id}`, data)
       .then(function (response) {
         setOpenProfile(false);
         notification.success({
@@ -51,8 +51,6 @@ const ProfilePicUpload = ({
             width: 300,
             //   marginLeft: "calc(50% - 150px)",
             //   marginTop: "calc(50vh - 100px)",
-            background: "#ec4899",
-            color: "#2a3254 !important",
             borderBottom: "6px solid #3a3",
             boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
           },

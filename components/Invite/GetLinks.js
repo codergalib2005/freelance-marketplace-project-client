@@ -15,8 +15,6 @@ const GetLinks = () => {
         width: 300,
         //   marginLeft: "calc(50% - 150px)",
         //   marginTop: "calc(50vh - 100px)",
-        background: "#ec4899",
-        color: "#2a3254 !important",
         borderBottom: "6px solid #3a3",
         boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
       },

@@ -31,6 +31,11 @@ const useFirebase = () => {
   const router = useRouter();
 
   const auth = getAuth();
+  const configJson = {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
 
   //rgister user with email and pass
   const registerUser = (data) => {
@@ -70,7 +75,7 @@ const useFirebase = () => {
         };
         const chatBody = {
           name,
-          image,
+          avatar,
           email,
         };
         //update profile
@@ -78,17 +83,13 @@ const useFirebase = () => {
           displayName: name,
           photoURL: avatar,
         })
-          .then(() => {
-            // Profile updated!
-            // ...
-          })
-          .catch((error) => {
-            // An error occurred
-            // ...
-          });
+          .then(() => {})
+          .catch((error) => {});
         axios
-          .post(`${process.env.NEXT_PUBLIC_API_URL}/users`, body)
+          .post(`${process.env.NEXT_PUBLIC_API_URL}/users`, body, configJson)
           .then((res) => {
+            //save Chatbox user data in Database
+            sendUserForChat(chatBody);
             notification.success({
               message: "Success",
               description: "User Created Successfully!",
@@ -98,13 +99,11 @@ const useFirebase = () => {
                 width: 300,
                 //   marginLeft: "calc(50% - 150px)",
                 //   marginTop: "calc(50vh - 100px)",
-                background: "#ec4899",
-                color: "#2a3254 !important",
                 borderBottom: "6px solid #3a3",
                 boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
               },
             });
-            router.replace("/");
+            router.replace("/profile");
           })
           .catch((err) => console.log(err));
         // send to database for chat system
@@ -121,8 +120,6 @@ const useFirebase = () => {
             width: 300,
             //   marginLeft: "calc(50% - 150px)",
             //   marginTop: "calc(50vh - 100px)",
-            background: "#3a3",
-            color: "#fff !important",
             borderBottom: "6px solid #e83a3b",
             boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
           },
@@ -132,10 +129,14 @@ const useFirebase = () => {
   };
   const sendUserForChat = (chatBody) => {
     axios
-      .post("https://freelancer-chat-app-api.herokuapp.com/api/users", chatBody)
+      .post(
+        "https://freelancer-chat-app-api.herokuapp.com/api/users",
+        chatBody,
+        configJson
+      )
       .then((res) => {
         if (res.status === 200) {
-          router.replace("/");
+          router.replace("/profile");
         }
       })
       .catch((err) => console.log(err));
@@ -188,8 +189,6 @@ const useFirebase = () => {
             width: 300,
             //   marginLeft: "calc(50% - 150px)",
             //   marginTop: "calc(50vh - 100px)",
-            background: "#ec4899",
-            color: "#2a3254 !important",
             borderBottom: "6px solid #3a3",
             boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
           },
@@ -208,8 +207,6 @@ const useFirebase = () => {
             width: 300,
             //   marginLeft: "calc(50% - 150px)",
             //   marginTop: "calc(50vh - 100px)",
-            background: "#3a3",
-            color: "#fff !important",
             borderBottom: "6px solid #e83a3b",
             boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
           },
@@ -239,8 +236,6 @@ const useFirebase = () => {
             width: 300,
             //   marginLeft: "calc(50% - 150px)",
             //   marginTop: "calc(50vh - 100px)",
-            background: "#ec4899",
-            color: "#2a3254 !important",
             borderBottom: "6px solid #3a3",
             boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
           },
@@ -259,8 +254,6 @@ const useFirebase = () => {
             width: 300,
             //   marginLeft: "calc(50% - 150px)",
             //   marginTop: "calc(50vh - 100px)",
-            background: "#3a3",
-            color: "#fff !important",
             borderBottom: "6px solid #e83a3b",
             boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
           },
@@ -277,7 +270,12 @@ const useFirebase = () => {
   // Load Login personal data loader
   useEffect(() => {
     setIsLoadind(true);
-    fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/email/${user?.email}`)
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/email/${user?.email}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
       .then((res) => res.json())
       .then((data) => {
         setUserStatus(data?.result?.status);
@@ -286,27 +284,34 @@ const useFirebase = () => {
       .catch((err) => console.log(err));
   }, [user?.email]);
 
-  axios
-    .get(`${process.env.NEXT_PUBLIC_API_URL}/users/email/${user?.email}`)
-    .then(
-      (response) => {
-        setThisUser(response?.data?.result);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+  useEffect(() => {
+    axios
+      .get(
+        `${process.env.NEXT_PUBLIC_API_URL}/users/email/${user?.email}`,
+        configJson
+      )
+      .then(
+        (response) => {
+          setThisUser(response?.data?.result);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+  }, [configJson, user?.email]);
 
   // LOAD HERE ALL GIGS
-  axios
-    .get(`${process.env.NEXT_PUBLIC_API_URL}/gigs`)
-    .then((res) => {
-      setAllGigs(res?.data?.result);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-  
+  useEffect(() => {
+    axios
+      .get(`${process.env.NEXT_PUBLIC_API_URL}/gigs`, configJson)
+      .then((res) => {
+        setAllGigs(res?.data?.result);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [configJson]);
+
   //logout email and pass
   const logOut = () => {
     setIsLoadind(true);
@@ -322,8 +327,6 @@ const useFirebase = () => {
             width: 300,
             //   marginLeft: "calc(50% - 150px)",
             //   marginTop: "calc(50vh - 100px)",
-            background: "#ec4899",
-            color: "#2a3254 !important",
             borderBottom: "6px solid #3a3",
             boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
           },
@@ -340,8 +343,6 @@ const useFirebase = () => {
             width: 300,
             //   marginLeft: "calc(50% - 150px)",
             //   marginTop: "calc(50vh - 100px)",
-            background: "#3a3",
-            color: "#fff !important",
             borderBottom: "6px solid #e83a3b",
             boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
           },

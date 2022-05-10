@@ -87,8 +87,6 @@ const Profile = () => {
           width: 300,
           //   marginLeft: "calc(50% - 150px)",
           //   marginTop: "calc(50vh - 100px)",
-          background: "#3a3",
-          color: "#fff !important",
           borderBottom: "6px solid #e83a3b",
           boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
         },
@@ -96,9 +94,12 @@ const Profile = () => {
       return;
     } else {
       axios
-        .put(`${process.env.NEXT_PUBLIC_API_URL}/users/bio/${thisUser?._id}`, {
-          bio: bioText,
-        })
+        .patch(
+          `${process.env.NEXT_PUBLIC_API_URL}/users/bio/${thisUser?._id}`,
+          {
+            bio: bioText,
+          }
+        )
         .then(function (response) {
           notification.success({
             message: "Success",
@@ -109,8 +110,6 @@ const Profile = () => {
               width: 300,
               //   marginLeft: "calc(50% - 150px)",
               //   marginTop: "calc(50vh - 100px)",
-              background: "#ec4899",
-              color: "#2a3254 !important",
               borderBottom: "6px solid #3a3",
               boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
             },
@@ -133,8 +132,6 @@ const Profile = () => {
           width: 300,
           //   marginLeft: "calc(50% - 150px)",
           //   marginTop: "calc(50vh - 100px)",
-          background: "#3a3",
-          color: "#fff !important",
           borderBottom: "6px solid #e83a3b",
           boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
         },
@@ -142,7 +139,7 @@ const Profile = () => {
       return;
     } else {
       axios
-        .put(
+        .patch(
           `${process.env.NEXT_PUBLIC_API_URL}/users/profession/${thisUser?._id}`,
           {
             profession: professionText,
@@ -158,8 +155,6 @@ const Profile = () => {
               width: 300,
               //   marginLeft: "calc(50% - 150px)",
               //   marginTop: "calc(50vh - 100px)",
-              background: "#ec4899",
-              color: "#2a3254 !important",
               borderBottom: "6px solid #3a3",
               boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
             },

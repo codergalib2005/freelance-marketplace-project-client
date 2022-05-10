@@ -5,8 +5,8 @@
 /* @import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&family=PT+Sans:wght@400;700&family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,600;0,700;1,500&family=Red+Hat+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600&family=Yellowtail&display=swap"); */
 
 @import url("http://fonts.cdnfonts.com/css/cubano");
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital@1&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital@1&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600&display=swap');
 /* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap"); */
 *,
 *::after,
@@ -21,21 +21,23 @@ body {
   padding: 0;
   margin: 0;
   /* font-family: "Poppins", sans-serif !important; */
-  font-family: "Cubano", sans-serif;
+  /* font-family: "Cubano", sans-serif; */
+  font-family: 'Poppins', sans-serif;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 a {
   color: inherit;
   text-decoration: none;
 }
-.lato{
-  font-family: 'Lato', sans-serif;
+.lato {
+  /* font-family: "Lato", sans-serif; */
+  font-family: 'Poppins', sans-serif;
 }
-/* .cubano {
-  font-family: "Cubano", sans-serif;
-} */
-
 * {
   box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 .custom-font-1 {
   font-family: "PT Sans", sans-serif;

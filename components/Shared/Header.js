@@ -6,11 +6,13 @@ import { CgMenuRight } from "react-icons/cg";
 import { AiOutlineClose } from "react-icons/ai";
 import { GrLogout } from "react-icons/gr";
 import { motion } from "framer-motion";
-import { io } from "socket.io-client";
+import { RiMessage2Fill } from "react-icons/ri";
+
 const Header = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [fixedMenu, setFixedMenu] = useState(false);
   const { user, logOut } = useAuth();
+  const gigs_button = "Gig's";
   // Scrolling Effect here
   useEffect(() => {
     window.addEventListener("scroll", OnScrollHeader);
@@ -66,25 +68,45 @@ const Header = () => {
                 </Link>
               </li>
               <li className="text-lg font-medium text-[white] ml-5">
-                <Link href="/profile">
-                  <a>Profile</a>
+                <Link href="/gig_search">
+                  <a>{gigs_button}</a>
                 </Link>
               </li>
-              <li className="text-lg font-medium text-[white] ml-5">
-                <Link href="/dashboard">
-                  <a>Dashboard</a>
-                </Link>
-              </li>
+              {user?.email && (
+                <li className="text-lg font-medium text-[white] ml-5">
+                  <Link href="/profile">
+                    <a>Profile</a>
+                  </Link>
+                </li>
+              )}
+              {user?.email && (
+                <li className="text-lg font-medium text-[white] ml-5">
+                  <Link href="/dashboard">
+                    <a>Dashboard</a>
+                  </Link>
+                </li>
+              )}
               <li className="text-lg font-medium text-[white] ml-5">
                 <Link href="/become&seller">
                   <a>Become A Seller</a>
                 </Link>
               </li>
-              <li className="text-lg font-medium text-[white] ml-5">
-                <Link href="/gig_add">
-                  <a>Create A gig</a>
-                </Link>
-              </li>
+              {user?.email && (
+                <li className="text-lg font-medium text-[white] ml-5">
+                  <Link href="/gig_add">
+                    <a>Create A gig</a>
+                  </Link>
+                </li>
+              )}
+              {user?.email && (
+                <li className="text-2xl font-medium text-[white] ml-5">
+                  <Link href="/chat">
+                    <a>
+                      <RiMessage2Fill />
+                    </a>
+                  </Link>
+                </li>
+              )}
               {user?.email ? (
                 <li className=" ml-5">
                   <button
@@ -140,38 +162,58 @@ const Header = () => {
                 onClick={() => setShowMenu(!showMenu)}
                 className="flex items-center flex-col"
               >
+                {user?.email && (
+                  <li className="text-2xl font-medium text-[#2a3254] py-3">
+                    <Link href="/chat">
+                      <a>
+                        <RiMessage2Fill />
+                      </a>
+                    </Link>
+                  </li>
+                )}
                 <li className="text-lg font-medium text-[#2a3254] py-3">
                   <Link href="/">
                     <a>Home</a>
                   </Link>
                 </li>
                 <li className="text-lg font-medium text-[#2a3254] py-3">
-                  <Link href="/profile">
-                    <a>Profile</a>
+                  <Link href="/gig_search">
+                    <a>{gigs_button}</a>
                   </Link>
                 </li>
-                <li className="text-lg font-medium text-[#2a3254] py-3">
-                  <Link href="/dashboard">
-                    <a>Dashboard</a>
-                  </Link>
-                </li>
+                {user?.email && (
+                  <li className="text-lg font-medium text-[#2a3254] py-3">
+                    <Link href="/profile">
+                      <a>Profile</a>
+                    </Link>
+                  </li>
+                )}
+                {user?.email && (
+                  <li className="text-lg font-medium text-[#2a3254] py-3">
+                    <Link href="/dashboard">
+                      <a>Dashboard</a>
+                    </Link>
+                  </li>
+                )}
                 <li className="text-lg font-medium text-[#2a3254] py-3">
                   <Link href="/become&seller">
                     <a>Become A Seller</a>
                   </Link>
                 </li>
-                <li className="text-lg font-medium text-[#2a3254] py-3">
-                  <Link href="/gig_add">
-                    <a>Create A gig</a>
-                  </Link>
-                </li>
+                {user?.email && (
+                  <li className="text-lg font-medium text-[#2a3254] py-3">
+                    <Link href="/gig_add">
+                      <a>Create A gig</a>
+                    </Link>
+                  </li>
+                )}
               </ul>
             </div>
             <div className="border-t-2 border-[#2a3254] hover:border-[#ec4899] mt-2 pt-5 flex items-center justify-center flex-col text-center">
               {user?.email ? (
                 <div>
                   <button
-                    className="text-lg font-bold text-[#2a3254] flex items-center uppercase"
+                    className="text-lg mx-auto font-bold text-[#2a3254] flex items-center uppercase"
                     onClick={logOut}
                   >
                     Logout{" "}

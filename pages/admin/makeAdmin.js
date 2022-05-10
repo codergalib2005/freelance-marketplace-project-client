@@ -18,7 +18,7 @@ const MakeAdmin = () => {
     const User = { email };
     if (!email) {
       notification.warning({
-        message: "Error",
+        message: "Warning",
         description: "Please enter your email",
         placement: "top",
         duration: 2,
@@ -26,6 +26,7 @@ const MakeAdmin = () => {
           width: 300,
           //   marginLeft: "calc(50% - 150px)",
           //   marginTop: "calc(50vh - 100px)",
+          borderBottom: "6px solid #FFFF00",
         },
       });
       return;
@@ -49,6 +50,7 @@ const MakeAdmin = () => {
               width: 300,
               //   marginLeft: "calc(50% - 150px)",
               //   marginTop: "calc(50vh - 100px)",
+              borderBottom: "6px solid #3a3",
             },
           });
         })
@@ -63,6 +65,7 @@ const MakeAdmin = () => {
               width: 300,
               //   marginLeft: "calc(50% - 150px)",
               //   marginTop: "calc(50vh - 100px)",
+              borderBottom: "6px solid #e83a3b",
             },
           });
         });
