@@ -362,6 +362,9 @@
   top: 220px;
   left: -37px;
 }
+.img_main_parent{
+  max-width: 100%;;
+}
 .img_main {
   margin-top: 0%;
 }

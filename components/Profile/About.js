@@ -39,6 +39,11 @@ const About = ({ id, education, skills, aboutt }) => {
   const [aboutBody, setAboutBody] = useState("");
   const [skillsBody, setSkillsBody] = useState("");
   const [educationBody, setEducationBody] = useState("");
+  const configJson = {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
   const handleAboutSubmit = (e) => {
     if (!aboutBody) {
       notification.error({
@@ -50,8 +55,6 @@ const About = ({ id, education, skills, aboutt }) => {
           width: 300,
           //   marginLeft: "calc(50% - 150px)",
           //   marginTop: "calc(50vh - 100px)",
-          background: "#3a3",
-          color: "#fff !important",
           borderBottom: "6px solid #e83a3b",
           boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
         },
@@ -59,7 +62,7 @@ const About = ({ id, education, skills, aboutt }) => {
       return;
     } else {
       axios
-        .put(`${process.env.NEXT_PUBLIC_API_URL}/users/about/${id}`, {
+        .patch(`${process.env.NEXT_PUBLIC_API_URL}/users/about/${id}`, {
           about: aboutBody,
         })
         .then(function (response) {
@@ -72,8 +75,6 @@ const About = ({ id, education, skills, aboutt }) => {
               width: 300,
               //   marginLeft: "calc(50% - 150px)",
               //   marginTop: "calc(50vh - 100px)",
-              background: "#ec4899",
-              color: "#2a3254 !important",
               borderBottom: "6px solid #3a3",
               boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
             },
@@ -96,8 +97,6 @@ const About = ({ id, education, skills, aboutt }) => {
           width: 300,
           //   marginLeft: "calc(50% - 150px)",
           //   marginTop: "calc(50vh - 100px)",
-          background: "#3a3",
-          color: "#fff !important",
           borderBottom: "6px solid #e83a3b",
           boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
         },
@@ -105,7 +104,7 @@ const About = ({ id, education, skills, aboutt }) => {
       return;
     } else {
       axios
-        .put(`${process.env.NEXT_PUBLIC_API_URL}/users/skills/${id}`, {
+        .patch(`${process.env.NEXT_PUBLIC_API_URL}/users/skills/${id}`, {
           skills: skillsBody,
         })
         .then(function (response) {
@@ -118,8 +117,6 @@ const About = ({ id, education, skills, aboutt }) => {
               width: 300,
               //   marginLeft: "calc(50% - 150px)",
               //   marginTop: "calc(50vh - 100px)",
-              background: "#ec4899",
-              color: "#2a3254 !important",
               borderBottom: "6px solid #3a3",
               boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
             },
@@ -142,8 +139,6 @@ const About = ({ id, education, skills, aboutt }) => {
           width: 300,
           //   marginLeft: "calc(50% - 150px)",
           //   marginTop: "calc(50vh - 100px)",
-          background: "#3a3",
-          color: "#fff !important",
           borderBottom: "6px solid #e83a3b",
           boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
         },
@@ -151,7 +146,7 @@ const About = ({ id, education, skills, aboutt }) => {
       return;
     } else {
       axios
-        .put(`${process.env.NEXT_PUBLIC_API_URL}/users/education/${id}`, {
+        .patch(`${process.env.NEXT_PUBLIC_API_URL}/users/education/${id}`, {
           education: educationBody,
         })
         .then(function (response) {
@@ -164,8 +159,6 @@ const About = ({ id, education, skills, aboutt }) => {
               width: 300,
               //   marginLeft: "calc(50% - 150px)",
               //   marginTop: "calc(50vh - 100px)",
-              background: "#ec4899",
-              color: "#2a3254 !important",
               borderBottom: "6px solid #3a3",
               boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
             },

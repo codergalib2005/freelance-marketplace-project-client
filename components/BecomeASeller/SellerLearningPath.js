@@ -46,7 +46,7 @@ const SellerLearningPath = () => {
             <button type="submit" className="btn_learning_path2">
               AUTOMATION
             </button>
-            <div>
+            <div className="img_main_parent">
               <div className="img_main">
                 <img src="https://i.ibb.co/hBLz7XR/basic-top.png" alt="" />
               </div>
