@@ -103,7 +103,7 @@ const useFirebase = () => {
                 boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
               },
             });
-            router.replace("/");
+            router.replace("/profile");
           })
           .catch((err) => console.log(err));
         // send to database for chat system
@@ -136,7 +136,7 @@ const useFirebase = () => {
       )
       .then((res) => {
         if (res.status === 200) {
-          router.replace("/");
+          router.replace("/profile");
         }
       })
       .catch((err) => console.log(err));

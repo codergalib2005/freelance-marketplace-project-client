@@ -134,7 +134,7 @@ const Banner = () => {
                 <img
                   className="w-[80%] max-w-full mx-auto"
                   src={bd.pic}
-                  alt=""
+                  alt={bd?.title}
                 />
               </div>
             </div>
