@@ -77,12 +77,11 @@ const index = () => {
                             </div>
                         </div> <br /> <br />
 
-
                         <div className='grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 '>
                             <div>
                             <div className='grid grid-cols-12 gap-2'>
                             <div className='col-span-2 '>
-                                <h4 className='text-base inline-block font-semibold'>Your First Name:</h4>
+                                <h4 className='text-base inline-block font-semibold'>Your First Name: </h4>
                             </div>
                             <div className='col-span-10 '>
                                 <input type="text" className='py-1 px-2 rounded-2 border-[1px] focus:outline-none border-[#2a3254] rounded-md shadow-xl w-[90%] ml-8' {...register("firstName")} required />
@@ -128,8 +127,7 @@ const index = () => {
 
                         </div>
                 </section>
-
-               
+           
                 <section className='border-2 border-zinc-400 border-dotted'>
                 <div className='px-5 py-10'>
                     <h2 className='text-lg text-black font-semibold text-left mb-4'> Responsibilities: </h2>
@@ -163,7 +161,6 @@ const index = () => {
 
                 </div>
                 </section>
-
 
                 <section className='border-2 border-zinc-400 border-dotted'>
                 <div className='px-5 py-10'>
@@ -248,8 +245,7 @@ const index = () => {
                 <section className='border-2 border-zinc-400 border-dotted'>
                 <div className='px-5 py-10'>
                         <h2 className='text-lg text-black font-semibold text-left mb-4'>  Qualifications: </h2>
-
-                        
+                      
                         <div className='grid grid-cols-12 gap-2'>
                             <div className='col-span-2 '>
                                 <h4 className='text-base inline-block font-semibold'>Qualification1:</h4>
@@ -299,7 +295,6 @@ const index = () => {
                     
                 </section>
 
-
                 <section className='border-2 border-zinc-400 border-dotted'>
                 <div className='px-5 py-10'>
                     <h2 className='text-lg text-black font-semibold text-left mb-4'> Highlighted Techonology: </h2>
@@ -340,7 +335,6 @@ const index = () => {
                             </div>
 
                         </div>
-
                         <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 mt-6'>
                             <div>
                             <div className='grid grid-cols-12 gap-2'>
@@ -377,8 +371,7 @@ const index = () => {
 
                         </div>
 
-                    </div>
-                
+                    </div>        
                 </section>
                 <input className="text-white bg-purple-500 px-8 py-2 rounded-md font-bold text-center" type="submit" />
             </form>
