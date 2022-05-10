@@ -452,6 +452,37 @@ const GigDetails = () => {
                       precision={0.5}
                     />{" "}
                     <br />
+
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                      <textarea
+                        className="py-1 px-2 rounded-2 h-18 border border-[#2a3254] rounded-md shadow-lg"
+                        {...register("description", {maxLength: 300})}
+                        placeholder="Your Comment"
+                        required
+                      />{" "}
+                      <br /> <br />
+                      <input
+                        className="py-1 px-2 rounded-2 border border-[#2a3254] rounded-md shadow-lg"
+                        {...register("profession")}
+                        placeholder="Your profession"
+                        type="text"
+                        required
+                      />{" "}
+                      <br /> <br />
+                      <input
+                        className="py-1 px-2 rounded-2 border border-[#2a3254] rounded-md shadow-lg"
+                        {...register("buyerImage")}
+                        placeholder="Your image URL"
+                        required
+                      />{" "}
+                      <br /> <br />
+                      <input
+                        className="text-white bg-purple-500 px-4 py-2 rounded-md font-bold"
+                        type="submit"
+                      />
+                    </form>
+                  </div>
+
                   </span>
                   <br />
                   <form onSubmit={handleSubmit(onSubmit)}>
@@ -482,6 +513,7 @@ const GigDetails = () => {
                       type="submit"
                     />
                   </form>
+
                 </div>
               </div>
             </div>
