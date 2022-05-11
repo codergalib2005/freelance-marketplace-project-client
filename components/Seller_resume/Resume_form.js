@@ -97,7 +97,7 @@ const Resume_form = () => {
                   className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500 md:w-96 md:ml-[56px] ml-[52px]  "
                   {...register("familiar")}
                   required
-                  
+                  type="text"
                 >
                   <option selected disabled >--select--</option>
                   <option>Yes</option>
@@ -112,6 +112,7 @@ const Resume_form = () => {
                   className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500 md:w-96 md:ml-[56px] ml-[52px]  "
                   {...register("referredName")}
                   required
+                  type="text"
                />
              </div>
             </div>
@@ -122,6 +123,7 @@ const Resume_form = () => {
                   className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500 md:w-96 md:ml-[56px] ml-[52px]  "
                   {...register("salaryExpect")}
                   required
+                  type="text"
                />
              </div>
             </div>
@@ -131,8 +133,54 @@ const Resume_form = () => {
              
             
             </div>
+            <div className=" flex justify-center my-6">
+             <div className="md:-ml-12">
+             <p className="must">What is your Gender?(select one)</p>
+              <input
+                  className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500  md:ml-[56px] ml-[52px]  "
+                  {...register("gender")}
+                  required
+                  type="radio"
+               />
+               <label>Male</label>
+              <input
+                  className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500  md:ml-[56px] ml-[52px]  "
+                  {...register("gender")}
+                  required
+                  type="radio"
+               />
+               <label>Female</label>
+              <input
+                  className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500  md:ml-[56px] ml-[52px]  "
+                  {...register("gender")}
+                  required
+                  type="radio"
+               />
+               <label>Non-binary</label>
+              <input
+                  className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500  md:ml-[56px] ml-[52px]  "
+                  {...register("gender")}
+                  required
+                  type="radio"
+               />
+               <label>Decline to disclose</label>
+             </div>
+            </div>
+            <div className=" flex justify-center my-6">
+             <div className="md:-ml-12">
+             <p className="must">CV/Resume</p>
+              <textarea
+                  className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500 md:w-96 md:ml-[56px] ml-[52px]  "
+                  {...register("salaryExpect")}
+                  required
+                  type="text"
+               />
+             </div>
+            </div>
 
-          <input type="submit" />
+        <div className="flex justify-center my-6">
+        <input className="text-white hover:text-sky-600 bg-sky-600 hover:bg-transparent  border-2 border-sky-600 active:bg-indigo-700  px-8 py-1 " type="submit" />
+        </div>
         </form>
       </div>
     </div>
