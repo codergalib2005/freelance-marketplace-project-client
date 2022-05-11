@@ -749,3 +749,13 @@
 .MuiPickerStaticWrapper-root {
   background: none !important;
 }
+
+/* -----------------------------
+Resume_form page
+--------------------------------*/
+
+ 
+  .must:after {
+    content:" *";
+    color: red;
+  }
