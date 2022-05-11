@@ -6,12 +6,21 @@ import styles from "../../styles/about-Banner.module.css";
 const Banner = () => {
   return (
     <div className={` ${styles.header_container}`}>
-      <div className={styles.header_section}>
-        <div className="container-fluid m-auto flex justify-between items-center text-gray-700">
+      <div className={`${styles.header_section} min-h-screen px-4`}>
+        <div className="p-4 md:p-0 container text-center md:text-left m-auto flex justify-between items-center text-gray-700">
           <div>
             {/* eslint-disable-next-line @next/next/no-img-element */}
 
             <img src="/navbar/image/logo-white.png" alt="" />
+          </div>
+          <div className="flex md:hidden">
+            <ul className="flex items-center">
+              <Link href="/">
+                <a className="text-gray-300 hover:text-green-400 text-lg font-bold py-4 px-6">
+                  Home
+                </a>
+              </Link>
+            </ul>
           </div>
           <ul className="hidden md:flex items-center  text-base font-semibold text-white cursor-pointer">
             <Link href="/">
@@ -20,7 +29,7 @@ const Banner = () => {
               </a>
             </Link>
             <Link href="/profile">
-              <a className="hover:text-green-400 text-lg font-bold py-4 px-6">
+              <a className="hover:text-green-400 text-lg font-bold py-4">
                 Profile
               </a>
             </Link>
@@ -31,9 +40,9 @@ const Banner = () => {
             </Link>
           </ul>
         </div>
-        <div className="px-8 py-24">
+        <div className="container mx-auto flex items-center min-h-screen md:min-h-[500px]">
           <div>
-            <h2 className="sx:text-3xl text-5xl font-bold  text-white">
+            <h2 className="text-3xl md:text-5xl font-bold  text-white">
               About Workfleek
               <br /> Why We Are Best?
             </h2>

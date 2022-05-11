@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import { Avatar } from "@mui/material";
 import { Input, message, Tooltip } from "antd";
 import TextArea from "antd/lib/input/TextArea";
@@ -507,4 +506,4 @@ const Profile = () => {
   );
 };
 
-export default withPrivate(Profile);
+export default Profile;

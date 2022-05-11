@@ -27,7 +27,6 @@ const GigDetails = () => {
   const router = useRouter();
   const [rating, setRating] = useState(0);
   const [sellerEmail, setSellerEmail] = useState([]);
-  console.log(loading);
   //Buyer rivew
   useEffect(() => {
     fetch(
@@ -46,7 +45,7 @@ const GigDetails = () => {
   }, [gig?.email]);
 
   //hook from
-
+  console.log(thisUser);
   //Buyer rivew
   useEffect(() => {
     fetch(
@@ -425,65 +424,78 @@ const GigDetails = () => {
                     </div>
                   )}
                 </div>
-                <Link href={`/gig_search/buy_plan/${gig?._id}`}>
-                  <button className="button_gradient absolute -mt-6 flat_gradient">
-                    Buy Plan
-                  </button>
-                </Link>
+                {/* end of pricing */}
+                {user?.email && (
+                  <Link href={`/gig_search/buy_plan/${gig?._id}`}>
+                    <button className="button_gradient absolute -mt-6 flat_gradient">
+                      Buy Plan
+                    </button>
+                  </Link>
+                )}
+                {!user?.email && (
+                  <Link href={`/login/register`}>
+                    <button className="button_gradient absolute -mt-6 flat_gradient">
+                      Buy Plan
+                    </button>
+                  </Link>
+                )}
               </div>
-
-              <div>
-                <Rating
-                  onChange={(e) => setRating(e.target.value)}
-                  name="half-rating"
-                  defaultValue={2.5}
-                  precision={0.5}
-                  className="text-orange-600"
-                />
-                <div className={`mt-10 ${styles.review_contaner}`}>
-                  <strong className="text-2xl font-bold text-[#2a3254] border-b-2 border-[#a78737] pr-5 mt-6 pb-1 mb-2 online-block">
-                    Give a Review
-                  </strong>{" "}
-                  <br /> <br />
-                  <span className="bg-gray-900 pt-3">
-                    <Rating
-                      onChange={(e) => setRating(e.target.value)}
-                      defaultValue={2.5}
-                      precision={0.5}
-                    />{" "}
+              {/* end of gig_details */}
+              {/* Start Review */}
+              {thisUser?.status === "buyer" && (
+                <div>
+                  <Rating
+                    onChange={(e) => setRating(e.target.value)}
+                    name="half-rating"
+                    defaultValue={2.5}
+                    precision={0.5}
+                    className="text-orange-600"
+                  />
+                  <div className={`mt-10 ${styles.review_contaner}`}>
+                    <strong className="text-2xl font-bold text-[#2a3254] border-b-2 border-[#a78737] pr-5 mt-6 pb-1 mb-2 online-block">
+                      Give a Review
+                    </strong>{" "}
+                    <br /> <br />
+                    <span className="bg-gray-900 pt-3">
+                      <Rating
+                        onChange={(e) => setRating(e.target.value)}
+                        defaultValue={2.5}
+                        precision={0.5}
+                      />{" "}
+                      <br />
+                    </span>
                     <br />
-                  </span>
-                  <br />
-                  <form onSubmit={handleSubmit(onSubmit)}>
-                    <textarea
-                      className="py-1 px-2 rounded-2 h-18 border border-[#2a3254] rounded-md shadow-lg"
-                      {...register("description")}
-                      placeholder="Your Comment"
-                      required
-                    />{" "}
-                    <br /> <br />
-                    <input
-                      className="py-1 px-2 rounded-2 border border-[#2a3254] rounded-md shadow-lg"
-                      {...register("profession")}
-                      placeholder="Your profession"
-                      type="text"
-                      required
-                    />{" "}
-                    <br /> <br />
-                    <input
-                      className="py-1 px-2 rounded-2 border border-[#2a3254] rounded-md shadow-lg"
-                      {...register("buyerImage")}
-                      placeholder="Your image URL"
-                      required
-                    />{" "}
-                    <br /> <br />
-                    <input
-                      className="text-white bg-purple-500 px-4 py-2 rounded-md font-bold"
-                      type="submit"
-                    />
-                  </form>
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                      <textarea
+                        className="py-1 px-2 rounded-2 h-18 border border-[#2a3254] rounded-md shadow-lg"
+                        {...register("description")}
+                        placeholder="Your Comment"
+                        required
+                      />{" "}
+                      <br /> <br />
+                      <input
+                        className="py-1 px-2 rounded-2 border border-[#2a3254] rounded-md shadow-lg"
+                        {...register("profession")}
+                        placeholder="Your profession"
+                        type="text"
+                        required
+                      />{" "}
+                      <br /> <br />
+                      <input
+                        className="py-1 px-2 rounded-2 border border-[#2a3254] rounded-md shadow-lg"
+                        {...register("buyerImage")}
+                        placeholder="Your image URL"
+                        required
+                      />{" "}
+                      <br /> <br />
+                      <input
+                        className="text-white bg-purple-500 px-4 py-2 rounded-md font-bold"
+                        type="submit"
+                      />
+                    </form>
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
         </div>

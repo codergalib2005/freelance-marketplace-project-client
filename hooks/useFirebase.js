@@ -1,5 +1,5 @@
 import { message } from "antd";
-import axios, { Axios } from "axios";
+import axios from "axios";
 import {
   createUserWithEmailAndPassword,
   getAuth,
