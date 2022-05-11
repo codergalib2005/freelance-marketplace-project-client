@@ -1,4 +1,3 @@
-import { placeholder } from "@babel/types";
 import React from "react";
 import { useForm } from "react-hook-form";
 
@@ -32,7 +31,7 @@ const Resume_form = () => {
               <div className="md:flex mt-4">
                 <label className="must text-sky-600 ">last Name</label>
                 <input
-                  className="border-[1px] shadow-md  border-sky-500 outline-pink-500 md:w-96 md:ml-[33px] ml-[18px]    "
+                  className="border-[1px] shadow-md  border-sky-500 outline-pink-500 md:w-96 md:ml-[33px] ml-[28px]    "
                   {...register("lastName")}
                   required
                   type="text"
@@ -41,7 +40,7 @@ const Resume_form = () => {
               <div className="flex mt-4">
                 <label className="must text-sky-600 ">Email</label>
                 <input
-                  className="border-[1px] shadow-md  border-sky-500 outline-pink-500 md:w-96 md:ml-[61px] ml-[18px]  "
+                  className="border-[1px] shadow-md  border-sky-500 outline-pink-500 md:w-96 md:ml-[61px] ml-[56px]  "
                   {...register("email")}
                   required
                   type="text"
@@ -50,14 +49,88 @@ const Resume_form = () => {
               <div className="flex mt-4">
                 <label className="must text-sky-600 ">Phone</label>
                 <input
-                  className="border-[1px] shadow-md  border-sky-500 outline-pink-500 md:w-96 md:ml-[56px] ml-[18px]  "
+                  className="border-[1px] shadow-md  border-sky-500 outline-pink-500 md:w-96 md:ml-[56px] ml-[52px]  "
                   {...register("phone")}
                   required
                   type="number"
                 />
               </div>
             </div>
+           
           </div>
+          <div className=" flex justify-center md:mt-14 my-6">
+             <div className="md:-ml-12">
+             <p>Linkedin Profile Link</p>
+              <input
+                  className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500 md:w-96 md:ml-[56px] ml-[52px]  "
+                  {...register("linkedinLink")}
+                   
+                  type="text"
+                />
+             </div>
+            </div>
+          <div className=" flex justify-center my-6">
+             <div className="md:-ml-12">
+             <p>Github Profile Link</p>
+              <input
+                  className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500 md:w-96 md:ml-[56px] ml-[52px]  "
+                  {...register("githubLink")}
+                   
+                  type="text"
+                />
+             </div>
+            </div>
+          <div className=" flex justify-center my-6">
+             <div className="md:-ml-12">
+             <p>Portfolio Link</p>
+              <input
+                  className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500 md:w-96 md:ml-[56px] ml-[52px]  "
+                  {...register("portfolioLink")}
+                  type="text"
+                />
+             </div>
+            </div>
+          <div className=" flex justify-center my-6">
+             <div className="md:-ml-12">
+             <p className="must">Have you worked for our team before?</p>
+              <select
+                  className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500 md:w-96 md:ml-[56px] ml-[52px]  "
+                  {...register("familiar")}
+                  required
+                  
+                >
+                  <option selected disabled >--select--</option>
+                  <option>Yes</option>
+                  <option>No</option>
+                  </select>
+             </div>
+            </div>
+          <div className=" flex justify-center my-6">
+             <div className="md:-ml-12">
+             <p className="must">If referred, Please provide the name to your referred.</p>
+              <input
+                  className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500 md:w-96 md:ml-[56px] ml-[52px]  "
+                  {...register("referredName")}
+                  required
+               />
+             </div>
+            </div>
+          <div className=" flex justify-center my-6">
+             <div className="md:-ml-12">
+             <p className="must">What is your salary expectation?</p>
+              <input
+                  className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500 md:w-96 md:ml-[56px] ml-[52px]  "
+                  {...register("salaryExpect")}
+                  required
+               />
+             </div>
+            </div>
+          
+             <div className="text-center  md:ml-16">
+             <p className="">Any information you provide will kept confidential  and will only  be reported  in aggregate form your employment Equity purposes. In other words, the reported data will not contain and personal information.</p>
+             
+            
+            </div>
 
           <input type="submit" />
         </form>
