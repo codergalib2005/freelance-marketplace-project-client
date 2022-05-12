@@ -1,8 +1,20 @@
-.review_contaner form input{
-    width: 100%;
-    font-size: 16px;
+.review_container form input {
+  width: 100%;
+  font-size: 16px;
+
+  border: none;
+  box-shadow: -2px 3px 15px rgba(0, 0, 0, 0.05);
+  padding: 10px;
 }
-.review_contaner form textarea{
-    width: 100%;
-    font-size: 16px;
+.review_container form textarea {
+  width: 100%;
+  font-size: 16px;
+  border: none;
+  box-shadow: -2px 3px 15px rgba(0, 0, 0, 0.05);
+  padding: 10px;
+}
+
+.review_container form input:focus,
+.review_container form textarea:focus {
+  outline: 1px solid green;
 }
