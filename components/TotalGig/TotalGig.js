@@ -54,21 +54,21 @@ const TotalGig = (props) => {
   };
 
   return (
-    <div className="card1 relative shadow-lg bg-[#fff]">
+    <div className="card1 relative shadow-lg p-5 bg-[#fff]">
       <div className="card2">
         <div className="card-border-top"></div>
         <div className="img">
           <img src={gallery[0]} alt="" />
         </div>
 
-        <h3 className="job text-[#2a3254]">{gig_title}</h3>
-        <p className="text-[#2a3254] text-center p-2 mb-12">✅{category}</p>
+        <h3 className="job text-lg mt-2 text-[#2a3254]">{gig_title}</h3>
+        <p className="text-[#2a3254] text-base text-center mt-4 mb-10">✅{category}</p>
 
         <div className="text-center">
           {level === "top" ? (
             <p
               style={{ display: "inline-block", marginLeft: "10px" }}
-              className="text-[#2a3254] px-2 py-3 rounded ring ring-indigo-700"
+              className="text-[#2a3254] px-2 py-3 font-semibold rounded ring ring-pink-400"
             >
               Added TOP
             </p>
