@@ -54,7 +54,7 @@ const TotalGig = (props) => {
   };
 
   return (
-    <div className="card1 relative shadow-lg p-5 bg-[#fff]">
+    <div className="card1 relative shadow-xl p-5 bg-[#fff]">
       <div className="card2">
         <div className="card-border-top"></div>
         <div className="img">

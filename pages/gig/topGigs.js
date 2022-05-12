@@ -26,7 +26,7 @@ const TopGigs = () => {
           </div>
           <div className={`main_gigs_parent mx-auto ${isOpen ? "pl-[200px]" : "pl-[45px]"}`}>
             <h2 className="text-3xl text-[#2a3254] shadow-md text-center py-8">TOP LEVEL GIGS</h2>
-            <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 mx-auto gap-8 container p-14">
+            <div className="grid lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 mx-auto gap-6 container md:p-12 sm:p-5">
 
               {
                 gigs.map((gig, i) => (
