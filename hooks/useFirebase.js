@@ -25,6 +25,7 @@ const useFirebase = () => {
   const [thisUser, setThisUser] = useState({});
   const [isOpen, setIsOpen] = useState(false);
   const [allGigs, setAllGigs] = useState([]);
+  const [reviews, setReviews] = useState([]);
   //for admin
   // const [admin, setAdmin] = useState(false)
 
@@ -311,6 +312,20 @@ const useFirebase = () => {
         console.log(err);
       });
   }, [configJson]);
+  // GET ALL REVIEWS LOGGIN USER BASED ON EMAIL
+  useEffect(() => {
+    axios
+      .get(
+        `${process.env.NEXT_PUBLIC_API_URL}/reviews/sellerEmail/${user?.email}`,
+        configJson
+      )
+      .then((res) => {
+        setReviews(res?.data?.result);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [configJson]);
 
   //logout email and pass
   const logOut = () => {
@@ -367,6 +382,7 @@ const useFirebase = () => {
     setIsOpen,
     allGigs,
     setAllGigs,
+    reviews,
   };
 };
 
