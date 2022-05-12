@@ -32,14 +32,14 @@ const TotalGig = (props) => {
   };
 
   return (
-    <div className="card1 relative ">
+    <div className="card1 p-5 shadow-xl relative ">
       <div className="card2">
         <div className="card-border-top"></div>
         <div className="img">
           <img src={gallery[0]} alt="" />
         </div>
-        <h3 className="job">{gig_title}</h3>
-        <p className="text-white text-center p-2 mb-12">✅{category}</p>
+        <h3 className="job text-lg mt-2">{gig_title}</h3>
+        <p className="text-[#2a3254] text-base text-center mt-4 mb-10">✅{category}</p>
 
         <div className="text-center">
           <button onClick={() => handleClick(_id)} className="button">
