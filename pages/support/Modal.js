@@ -2,14 +2,28 @@
 import { Fragment, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { message, Button } from "antd";
+import { useForm } from "react-hook-form";
+import axios from "axios";
 
 export default function Modal({ open, setOpen, name }) {
-  //   const cancelButtonRef = useRef(null);
+  const { register, handleSubmit, reset } = useForm();
+  const onSubmit = (data) => {
+    data.receiver = name;
+    // sending data to backend
+    axios
+      .post(`${process.env.NEXT_PUBLIC_API_URL}/support`, data)
+      .then((res) => {
+        if (res.data._id) {
+          message.success("Message was successfully sent!", 5);
+          setOpen(false);
+          reset();
+        } else {
+          message.warning("There was an error!", 5);
+        }
+      });
+  };
   const sendMessage = (e) => {
     e.preventDefault();
-
-    message.success("Message was successfully sent!", 5);
-    setOpen(false);
   };
 
   return (
@@ -52,7 +66,7 @@ export default function Modal({ open, setOpen, name }) {
             >
               <Dialog.Panel className="relative inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
                 <div className="bg-white px-4 pt-5 pb-4  sm:pb-2">
-                  <form className="pr-4" onSubmit={sendMessage}>
+                  <form className="pr-4" onSubmit={handleSubmit(onSubmit)}>
                     <div className="sm:flex sm:items-start">
                       <div className="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-blue-100 sm:mx-0 sm:h-10 sm:w-10">
                         <svg
@@ -80,12 +94,14 @@ export default function Modal({ open, setOpen, name }) {
                         <div className="mt-8 ">
                           <div className="flex gap-4">
                             <input
+                              {...register("sender")}
                               required
                               className="border border-gray-500 rounded-lg py-2 px-3 w-6/12 outline-none"
                               type="text"
                               placeholder="Name.."
                             />
                             <input
+                              {...register("email")}
                               required
                               className="border border-gray-500 rounded-lg py-2 px-3 w-6/12 outline-none"
                               type="email"
@@ -93,12 +109,14 @@ export default function Modal({ open, setOpen, name }) {
                             />
                           </div>
                           <input
+                            {...register("title")}
                             required
                             className="border border-gray-500 rounded-lg w-full mt-4 py-2 px-3 outline-none"
                             type="text"
                             placeholder="Title.."
                           />
                           <input
+                            {...register("subject")}
                             required
                             className="border border-gray-500 mt-4 py-2 px-3 rounded-lg w-full outline-none"
                             type="text"
@@ -106,6 +124,7 @@ export default function Modal({ open, setOpen, name }) {
                           />
 
                           <textarea
+                            {...register("message")}
                             required
                             className="border border-gray-500 mt-4 py-2 px-3 rounded-lg w-full h-24 outline-none"
                             placeholder="Message"
