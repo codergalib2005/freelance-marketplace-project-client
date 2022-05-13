@@ -147,7 +147,7 @@ const GigDetails = () => {
             {/* Gig Slider */}
             <SliderBannerImage gig={gig} />
             {/* Gig Description */}
-            <div>
+            <div style={{ boxShadow: "-2px 3px 15px rgba(0,0,0,0.1)", }} className="p-8 mt-8 rounded-lg">
               {!(gig?.gig_title === "") && (
                 <div className="mt-4">
                   <strong className="text-xl font-bold  border-b-2 border-orange-200 pr-5 mt-6 pb-1 mb-2 online-block">
@@ -166,27 +166,27 @@ const GigDetails = () => {
               )}
             </div>
 
-            <div className="mt-16 text-center">
-              <strong className="text-xl font-bold text-[#2a3254] border-b-2 border-[#a78737] pr-5 mt-6 pb-1 mb-2 online-block">
-                All Review
+            <div className="mt-16">
+              <strong className="text-2xl font-bold text-[#2a3254]  border-b-2 border-orange-200 pr-5 mt-6 pb-1 online-block mb-2">
+                Reviews
               </strong>{" "}
               <br /> <br />
             </div>
 
             {sellerEmail.map((seller, index) => (
-              <div key={index} className="w-[50%] mt-10 mx-10">
+              <div key={index} className="w-[95%] mt-10 mx-10">
                 <div className="mt-10">
-                  <div className="shadow-sm shadow-oraange-700 rounded-md overflow-hidden">
+                  <div style={{ boxShadow: "-2px 3px 15px rgba(0,0,0,0.1)", }} className=" rounded-md overflow-hidden p-6">
                     <div className="flex">
                       <div>
                         <img
-                          className="rounded-full"
+                          className="rounded-full w-[200px]"
                           src={seller.buyerImage}
                           alt=""
                         />
                       </div>
                       <div className="mt-10 ml-5">
-                        <span className="bg-gray-900  pt-3">
+                        <span className="bg-orange-400 pt-3">
                           <Rating
                             name="half-rating"
                             defaultValue={seller.rating}
@@ -199,10 +199,10 @@ const GigDetails = () => {
                     </div>
 
                     <div className="ml-2 mt-4">
-                      <h1 className="text-[#2a3254]">{seller.buyerName}</h1>
-                      <p className="text-[#2a3254]">{seller.description}</p>
-                      <h2 className="text-[#2a3254]">{seller.buyerEmail}</h2>
-                      <h5 className="text-[#2a3254]">{seller.date}</h5>
+                      <h1 className="text-[#2a3254] text-2xl capitalize">{seller?.buyerName}</h1>
+                      <p className="text-[#2a3254]">{seller?.description.slice(0, 200)}...</p>
+                      <h2 className="text-[#2a3254] text-xl">{seller?.buyerEmail}</h2>
+                      <h5 className="text-[#2a3254]">{seller?.date}</h5>
                     </div>
                   </div>
                 </div>
@@ -216,21 +216,21 @@ const GigDetails = () => {
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img className="mx-w-full" src={gigUser?.avatar} alt="" />
               </div>
-              <div className="pl-3 col-span-6">
-                <strong className="border-b-2 border-orange-200 pb-2 mb-4 font-bold text-2xl ">
+              <div className="col-span-6">
+                <strong className="border-b-2 border-orange-200 pb-2 mb-4 font-bold text-2xl  capitalize">
                   {gigUser?.name}
                 </strong>
-                <p className="pt-3   text-lg">{gigUser?.bio}</p>
+                <p className="pt-3 capitalize">{gigUser?.bio}</p>
               </div>
             </div>
             <div className="grid grid-cols-5 gap-4 items-center justify-between  font-bold text-md mt-1 text-center mb-5">
-              <strong className="border-y-2   border-orange-200 py-1">
+              <strong className="border-y-2   border-orange-200 py-1 capitalize">
                 {gigUser?.gender}
               </strong>
               <strong className="border-y-2 col-span-3 border-orange-200 py-1">
                 {gigUser?.email}
               </strong>
-              <strong className="border-y-2 border-orange-200 py-1">
+              <strong className="border-y-2 border-orange-200 py-1 capitalize">
                 <Moment fromNow ago>
                   {gigUser?.date}
                 </Moment>
@@ -238,10 +238,10 @@ const GigDetails = () => {
             </div>
             {!(gigUser?.about === "") && (
               <div>
-                <strong className="text-xl font-bold text-white bg-green-500 px-3 py-2   mt-6  mb-2 online-block">
+                <strong className="text-xl font-bold  border-b-2 border-orange-200 pr-5 mt-6 pb-1 mb-2 online-block">
                   About
                 </strong>
-                <p className="text-md  mt-2">{gigUser?.about}</p>
+                <p className="text-md capitalize mt-4">{gigUser?.about}</p>
               </div>
             )}
             {!(gigUser?.skills === "") && (
@@ -249,15 +249,15 @@ const GigDetails = () => {
                 <strong className="text-xl font-bold  border-b-2 border-orange-200 pr-5 mt-6 pb-1 mb-2 online-block">
                   Skills
                 </strong>
-                <p className="text-md  mt-2">{gigUser?.skills}</p>
+                <p className="text-md capitalize mt-2">{gigUser?.skills}</p>
               </div>
             )}
             {!(gigUser?.education === "") && (
               <div className="mt-5">
-                <strong className="text-xl font-bold  border-b-2 border-orange-200 pr-5 mt-6 pb-1 mb-2 online-block">
+                <strong className="text-xl  font-bold  border-b-2 border-orange-200 pr-5 mt-6 pb-1 mb-2 online-block">
                   Education
                 </strong>
-                <p className="text-md text-gray-400 mt-2">
+                <p className="text-md capitalize mt-2">
                   {gigUser?.education}
                 </p>
               </div>
@@ -269,26 +269,23 @@ const GigDetails = () => {
                 <div className="">
                   <div className="grid grid-cols-3 bg-white rounded-t-md border-2 border-[#7b92f7] border-b-0 ">
                     <div
-                      className={`text-center cursor-pointer py-2 text-lg font-bold ${
-                        showPricing === "beginner" && "bg-[#8537ed] text-white"
-                      }`}
+                      className={`text-center cursor-pointer py-2 text-lg font-bold ${showPricing === "beginner" && "bg-[#8537ed] text-white"
+                        }`}
                       onClick={() => setShowPricing("beginner")}
                     >
                       Beginner
                     </div>
                     <div
-                      className={`text-center cursor-pointer py-2 text-lg font-bold ${
-                        showPricing === "expert" && "bg-[#8537ed] text-white"
-                      }`}
+                      className={`text-center cursor-pointer py-2 text-lg font-bold ${showPricing === "expert" && "bg-[#8537ed] text-white"
+                        }`}
                       onClick={() => setShowPricing("expert")}
                     >
                       Expert
                     </div>
                     <div
-                      className={`text-center cursor-pointer py-2 text-lg font-bold ${
-                        showPricing === "experience" &&
+                      className={`text-center cursor-pointer py-2 text-lg font-bold ${showPricing === "experience" &&
                         "bg-[#8537ed] text-white"
-                      }`}
+                        }`}
                       onClick={() => setShowPricing("experience")}
                     >
                       Experience
@@ -296,7 +293,7 @@ const GigDetails = () => {
                   </div>
                 </div>
                 {/* body */}
-                <div className=" pb-8 relative bg-white shadow-2xl rounded-b-lg">
+                <div style={{ boxShadow: "-2px 3px 15px rgba(0,0,0,0.1)", }} className=" pb-8 relative bg-white rounded-b-lg">
                   {showPricing === "beginner" && (
                     <div>
                       <div className="h-56 flat_gradient pricing_card flex items-center justify-center flex-col">
@@ -451,12 +448,12 @@ const GigDetails = () => {
                     precision={0.5}
                     className="text-orange-600"
                   />
-                  <div className={`mt-10 ${styles.review_contaner}`}>
-                    <strong className="text-2xl font-bold text-[#2a3254] border-b-2 border-[#a78737] pr-5 mt-6 pb-1 mb-2 online-block">
+                  <div className={`mt-10 ${styles.review_container}`}>
+                    <strong className="text-2xl font-bold text-[#2a3254] border-b-2 border-orange-200 pr-5 mt-6 pb-1 mb-2 online-block">
                       Give a Review
                     </strong>{" "}
                     <br /> <br />
-                    <span className="bg-gray-900 pt-3">
+                    <span className="bg-orange-400 pt-3">
                       <Rating
                         onChange={(e) => setRating(e.target.value)}
                         defaultValue={2.5}
@@ -476,7 +473,7 @@ const GigDetails = () => {
                       <input
                         className="py-1 px-2 rounded-2 border border-[#2a3254] rounded-md shadow-lg"
                         {...register("profession")}
-                        placeholder="Your profession"
+                        placeholder="Your profession*"
                         type="text"
                         required
                       />{" "}
@@ -484,7 +481,7 @@ const GigDetails = () => {
                       <input
                         className="py-1 px-2 rounded-2 border border-[#2a3254] rounded-md shadow-lg"
                         {...register("buyerImage")}
-                        placeholder="Your image URL"
+                        placeholder="Your image URL*"
                         required
                       />{" "}
                       <br /> <br />
@@ -496,14 +493,14 @@ const GigDetails = () => {
                   </div>
                 </div>
               )}
-            </div>
-          </div>
-        </div>
-      </div>
+            </div >
+          </div >
+        </div >
+      </div >
       {/* )}
       {loading && <Loader />} */}
-      <Footer />
-    </div>
+      < Footer />
+    </div >
   );
 };
 

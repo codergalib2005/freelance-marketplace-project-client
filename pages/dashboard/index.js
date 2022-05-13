@@ -6,16 +6,9 @@ import useAuth from "../../hooks/useAuth";
 import axios from "axios";
 
 const Dashboard = () => {
-  const [admin, setAdmin] = useState();
+  const [admin, setAdmin] = useState(false);
   const [email, setEmail] = useState();
   const { user, setIsOpen, isOpen } = useAuth();
-
-  // useEffect(() =>{
-  //   fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/admin/${email}`)
-  //   .then(res => res.json())
-  //   .then(data => console.log(data))
-
-  // },[email])
 
   //   function getUrl(admin) {
   //     console.log(admin)
@@ -26,19 +19,19 @@ const Dashboard = () => {
   //   .then(data => getUrl(data))
   // },1000)
 
-  // useEffect(()=>{
-  //   fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/admin/${user?.email}`)
-  //   .then(res => res.json())
-  //   .then(data => console.log(data))
-  // },[user?.email])
+  useEffect(()=>{
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/admin/${user?.email}`)
+    .then(res => res.json())
+    .then(data => setAdmin(data.access))
+  },[user?.email])
   return (
     <section>
       <main>
         <div className="dashboard_position bg-[#00073d]">
           <div>
             {" "}
-            <SideBar />
-            <SideBarMenu />
+            { admin && <div> <SideBar />
+            <SideBarMenu /> </div>}
           </div>
           <div>
             <MainDashboard />
