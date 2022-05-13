@@ -465,18 +465,10 @@ const GigDetails = () => {
                       <br />
                     </span>
                     <br />
-<<<<<<< HEAD
                     <form onSubmit={handleSubmit(onSubmit)}>
                       <textarea
                         className="py-1 px-2 rounded-2 h-18 border border-[#2a3254] rounded-md shadow-lg"
                         {...register("description")}
-=======
-
-                    <form onSubmit={handleSubmit(onSubmit)}>
-                      <textarea
-                        className="py-1 px-2 rounded-2 h-18 border border-[#2a3254] rounded-md shadow-lg"
-                        {...register("description", {maxLength: 300})}
->>>>>>> 2e2878dda4d2778316a09c687af3c110ca1c5a20
                         placeholder="Your Comment"
                         required
                       />{" "}
@@ -502,41 +494,6 @@ const GigDetails = () => {
                       />
                     </form>
                   </div>
-<<<<<<< HEAD
-=======
-
-                  </span>
-                  <br />
-                  <form onSubmit={handleSubmit(onSubmit)}>
-                    <textarea
-                      className="py-1 px-2 rounded-2 h-18 border border-[#2a3254] rounded-md shadow-lg"
-                      {...register("description")}
-                      placeholder="Your Comment"
-                      required
-                    />{" "}
-                    <br /> <br />
-                    <input
-                      className="py-1 px-2 rounded-2 border border-[#2a3254] rounded-md shadow-lg"
-                      {...register("profession")}
-                      placeholder="Your profession"
-                      type="text"
-                      required
-                    />{" "}
-                    <br /> <br />
-                    <input
-                      className="py-1 px-2 rounded-2 border border-[#2a3254] rounded-md shadow-lg"
-                      {...register("buyerImage")}
-                      placeholder="Your image URL"
-                      required
-                    />{" "}
-                    <br /> <br />
-                    <input
-                      className="text-white bg-purple-500 px-4 py-2 rounded-md font-bold"
-                      type="submit"
-                    />
-                  </form>
-
->>>>>>> 2e2878dda4d2778316a09c687af3c110ca1c5a20
                 </div>
               )}
             </div>
