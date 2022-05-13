@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { Navigation, Thumbs } from 'swiper';
+import { Navigation, Thumbs, Autoplay } from 'swiper';
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import { Swiper, SwiperSlide } from 'swiper/react';
 const SliderBannerImage = ({ gig }) => {
-  const [activeThumb, setActiveThumb] = useState()
+  const [activeThumb, setActiveThumb] = useState();
   return (
     <>
       <div>
@@ -28,13 +28,17 @@ const SliderBannerImage = ({ gig }) => {
             ))
           }
         </Swiper>
-        <div>
+        <div className="mt-4 cursor-pointer">
           <Swiper
             // onSwiper={setActiveThumb}
             loop={true}
             spaceBetween={10}
             slidesPerView={4}
-            modules={[Navigation, Thumbs]}
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
+            }}
+            modules={[Navigation, Thumbs, Autoplay]}
           >
             {
               gig?.gallery?.map((item, index) => (

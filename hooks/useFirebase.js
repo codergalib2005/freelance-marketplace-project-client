@@ -1,5 +1,5 @@
 import { message } from "antd";
-import axios, { Axios } from "axios";
+import axios from "axios";
 import {
   createUserWithEmailAndPassword,
   getAuth,
@@ -26,6 +26,10 @@ const useFirebase = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [allGigs, setAllGigs] = useState([]);
   const [admin, setAdmin] = useState(false);
+  const [reviews, setReviews] = useState([]);
+  //for admin
+  // const [admin, setAdmin] = useState(false)
+
 
   const router = useRouter();
 
@@ -303,6 +307,20 @@ const useFirebase = () => {
         console.log(err);
       });
   }, [configJson]);
+  // GET ALL REVIEWS LOGGIN USER BASED ON EMAIL
+  useEffect(() => {
+    axios
+      .get(
+        `${process.env.NEXT_PUBLIC_API_URL}/reviews/sellerEmail/${user?.email}`,
+        configJson
+      )
+      .then((res) => {
+        setReviews(res?.data?.result);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [configJson]);
 
   //logout email and pass
   const logOut = () => {
@@ -359,6 +377,7 @@ const useFirebase = () => {
     setIsOpen,
     allGigs,
     setAllGigs,
+    reviews,
   };
 };
 
