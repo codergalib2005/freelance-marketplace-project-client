@@ -652,8 +652,8 @@
   user-select: none;
 }
 .how_it_work_component .ant-collapse-content-box {
-  background: #c2410c;
-  color: #fff !important;
+  background: #fff;
+  color: #2a3254 !important;
 }
 .how_it_work_component .ant-collapse-item {
   margin-bottom: 1rem;

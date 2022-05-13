@@ -93,7 +93,7 @@ const MakeAdmin = () => {
                 <SideBarMenu />
               </div>
             </div>
-            <div className={`${isOpen ? "pl-[215px]" : "pl-[60px]"}`}>
+            <div className={`${isOpen ? "pl-[200px]" : "pl-[50px]"}`}>
               <div className="mx-auto py-10 min-h-screen">
                 <div className="grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 gap-12  pr-5 lg:pr-0">
                   <div className="flex justify-center bg-white shadow-[#ec4892] items-center shadow-lg rounded-lg ">

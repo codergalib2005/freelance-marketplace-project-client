@@ -19,7 +19,7 @@ import { notification } from "antd";
 const BuyPlan = () => {
   const [calenderValue, setCalenderValue] = React.useState(new Date());
   const [gig, setSingleGig] = useState({});
-  const { loading } = useAuth();
+  const { loading, thisUser } = useAuth();
   const router = useRouter();
   const id = router?.query?.chooseid;
   const { user } = useAuth();
@@ -74,6 +74,26 @@ const BuyPlan = () => {
       })
       .catch((err) => console.log(err));
   }, [id, router.query.gigid]);
+  const handleBuyPlan = () => {
+    notification.error({
+      message: "Error",
+      description: "Only Buyer Can Create A task!",
+      placement: "top",
+      duration: 2,
+      style: {
+        width: 300,
+        //   marginLeft: "calc(50% - 150px)",
+        //   marginTop: "calc(50vh - 100px)",
+        borderBottom: "6px solid #e83a3b",
+        boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
+      },
+    });
+  };
+
+  const handleBack = () => {
+    router.back();
+  };
+
   return (
     <div>
       <Head>
@@ -110,8 +130,14 @@ const BuyPlan = () => {
                     elevation={5}
                     style={{ background: "none", minHeight: "100%" }}
                   >
-                    <div className="grid items-center grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="grid items-center grid-cols-1 md:grid-cols-2 gap-4 relative">
                       <div>
+                        <button
+                          onClick={handleBack}
+                          className="bg-[#1cc7c1] text-lg text-white font-bold py-2 px-8 absolute top-3 left-3 rounded-full"
+                        >
+                          Back
+                        </button>
                         <img src="/buy_plan/agenda.gif" alt="" />
                       </div>
                       <div>
@@ -150,18 +176,27 @@ const BuyPlan = () => {
                         </h2>
                         <div>
                           <form onSubmit={handleSubmit(onSubmit)}>
-                            <div className="grid grid-cols-1 sm:grid-cols-2">
+                            <div className="grid grid-cols-1 sm:grid-cols-2 pt-2">
                               <input
                                 className="buy_task_glass outline w-full outline-[#c2410c]"
                                 type="number"
                                 {...register("budge", { required: true })}
                                 placeholder="$ Price / budge"
                               />
-                              <input
-                                className="mt-1 sm:mt-0 sm:ml-3 text-lg font-medium uppercase bg-[#c2410c] text-gray-50 text-center w-full sm:w-32 py-2 shadow-md rounded-full cursor-pointer"
-                                type="submit"
-                                value="Submit"
-                              />
+                              {thisUser?.status === "buyer" && (
+                                <input
+                                  className="mt-1 sm:mt-0 sm:ml-3 text-lg font-medium uppercase bg-[#c2410c] text-gray-50 text-center w-full py-2 shadow-md rounded-full cursor-pointer no-select"
+                                  type="submit"
+                                  value="Confirm Order"
+                                />
+                              )}
+                              {thisUser?.status === "seller" && (
+                                <input
+                                  onClick={handleBuyPlan}
+                                  className="mt-1 sm:mt-0 sm:ml-3 text-lg font-medium uppercase bg-[#c2410c] text-gray-50 text-center w-full py-2 shadow-md rounded-full cursor-pointer no-select"
+                                  value="Confirm Order"
+                                />
+                              )}
                             </div>
                           </form>
                         </div>
