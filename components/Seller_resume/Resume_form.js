@@ -9,7 +9,11 @@ const Resume_form = () => {
     reset,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    if(data){
+      alert("Resume post successfully")
+    }
+  };
   return (
     <div>
       <div></div>
