@@ -6,181 +6,240 @@ const Resume_form = () => {
     register,
     handleSubmit,
     watch,
+    reset,
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => console.log(data);
   return (
     <div>
+     <div>
+    
+     </div>
       <h4 className="text-center font-medium text-2xl my-6 border-b-2 border-gray-500 pb-6">
         {" "}
         Submit A Resume
       </h4>
       <div>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="flex justify-center">
-            <div className=" md:text-justify">
-              <div className="md:flex mt-4">
-                <label className="must text-sky-600 ">First Name</label>
+          <div className="w-[80%] mx-auto">
+            <div className="md:flex mt-4">
+                <p className="must text-sky-600 md:w-[20%] ">First Name</p>
                 <input
-                  className="border-[1px] shadow-md  border-sky-500 outline-pink-500 md:w-96 md:ml-[28px] ml-[24px]  "
+                  className="border-[1px] shadow-md px-2 py-1 border-sky-500 outline-pink-500 md:w-[80%]  "
                   {...register("firstName")}
                   required
                   type="text"
                 />
               </div>
               <div className="md:flex mt-4">
-                <label className="must text-sky-600 ">last Name</label>
+                <p className="must text-sky-600 md:w-[20%]  ">last Name</p>
                 <input
-                  className="border-[1px] shadow-md  border-sky-500 outline-pink-500 md:w-96 md:ml-[33px] ml-[28px]    "
+                  className="border-[1px] shadow-md px-2 py-1 border-sky-500 outline-pink-500 md:w-[80%]  "
                   {...register("lastName")}
                   required
                   type="text"
                 />
               </div>
               <div className="flex mt-4">
-                <label className="must text-sky-600 ">Email</label>
+                <p className="must text-sky-600 md:w-[20%]  ">Email</p>
                 <input
-                  className="border-[1px] shadow-md  border-sky-500 outline-pink-500 md:w-96 md:ml-[61px] ml-[56px]  "
+                  className="border-[1px] shadow-md px-2 py-1 border-sky-500 outline-pink-500 md:w-[80%] "
                   {...register("email")}
                   required
                   type="text"
                 />
               </div>
               <div className="flex mt-4">
-                <label className="must text-sky-600 ">Phone</label>
+                <p className="must text-sky-600 md:w-[20%]  ">Phone</p>
                 <input
-                  className="border-[1px] shadow-md  border-sky-500 outline-pink-500 md:w-96 md:ml-[56px] ml-[52px]  "
+                  className="border-[1px] shadow-md px-2 py-1 border-sky-500 outline-pink-500  md:w-[80%]"
                   {...register("phone")}
                   required
                   type="number"
                 />
               </div>
-            </div>
-           
+              <div className="md:flex gap-8">
+              <div className="md:flex mt-4 md:w-[50%]">
+                <p className="must text-sky-600 w-[41%] ">Address</p>
+                <input
+                  className="border-[1px] shadow-md  border-sky-500 outline-pink-500 md:w-[59%] "
+                  {...register("address")}
+                  required
+                  type="text"
+                />
+              </div>
+              <div className="md:flex mt-4 w-[50%]">
+                <p className="must text-sky-600 w-[20%] ">Zip code</p>
+                <input
+                  className="border-[1px] shadow-md  border-sky-500 outline-pink-500 md:w-[80%]  "
+                  {...register("zip")}
+                  required
+                  type="text"
+                />
+              </div>
+              </div>
+              <div className="md:flex gap-8">
+              <div className="md:flex mt-4 w-[50%]">
+                <p className="must text-sky-600 w-[41%] ">City</p>
+                <input
+                  className="border-[1px] shadow-md  border-sky-500 outline-pink-500 md:w-[59%]  "
+                  {...register("city")}
+                  required
+                  type="text"
+                />
+              </div>
+              <div className="md:flex mt-4 w-[50%]">
+                <label className="must text-sky-600 w-[20%]">Country</label>
+                <input
+                  className="border-[1px] shadow-md  border-sky-500 outline-pink-500 md:w-[80%] "
+                  {...register("country")}
+                  required
+                  type="text"
+                />
+              </div>
+              </div>
+          
           </div>
           <div className=" flex justify-center md:mt-14 my-6">
-             <div className="md:-ml-12">
-             <p>Linkedin Profile Link</p>
+            <div className="md:-ml-12">
+              <p>Linkedin Profile Link</p>
               <input
-                  className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500 md:w-96 md:ml-[56px] ml-[52px]  "
-                  {...register("linkedinLink")}
-                   
-                  type="text"
-                />
-             </div>
+                className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500 md:w-96 md:ml-[56px] ml-[52px]  "
+                {...register("linkedinLink")}
+                type="text"
+              />
             </div>
+          </div>
           <div className=" flex justify-center my-6">
-             <div className="md:-ml-12">
-             <p>Github Profile Link</p>
+            <div className="md:-ml-12">
+              <p>Github Profile Link</p>
               <input
-                  className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500 md:w-96 md:ml-[56px] ml-[52px]  "
-                  {...register("githubLink")}
-                   
-                  type="text"
-                />
-             </div>
+                className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500 md:w-96 md:ml-[56px] ml-[52px]  "
+                {...register("githubLink")}
+                type="text"
+              />
             </div>
+          </div>
           <div className=" flex justify-center my-6">
-             <div className="md:-ml-12">
-             <p>Portfolio Link</p>
+            <div className="md:-ml-12">
+              <p>Portfolio Link</p>
               <input
-                  className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500 md:w-96 md:ml-[56px] ml-[52px]  "
-                  {...register("portfolioLink")}
-                  type="text"
-                />
-             </div>
+                className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500 md:w-96 md:ml-[56px] ml-[52px]  "
+                {...register("portfolioLink")}
+                type="text"
+              />
             </div>
+          </div>
           <div className=" flex justify-center my-6">
-             <div className="md:-ml-12">
-             <p className="must">Have you worked for our team before?</p>
+            <div className="md:-ml-12">
+              <p className="must">Have you worked for our team before?</p>
               <select
-                  className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500 md:w-96 md:ml-[56px] ml-[52px]  "
-                  {...register("familiar")}
-                  required
-                  type="text"
-                >
-                  <option selected disabled >--select--</option>
-                  <option>Yes</option>
-                  <option>No</option>
-                  </select>
-             </div>
+                className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500 md:w-96 md:ml-[56px] ml-[52px]  "
+                {...register("familiar")}
+                required
+                type="text"
+              >
+                <option defaultValue disabled>
+                  --select--
+                </option>
+                <option>Yes</option>
+                <option>No</option>
+              </select>
             </div>
+          </div>
           <div className=" flex justify-center my-6">
-             <div className="md:-ml-12">
-             <p className="must">If referred, Please provide the name to your referred.</p>
+            <div className="md:-ml-12">
+              <p className="must">
+                If referred, Please provide the name to your referred.
+              </p>
               <input
-                  className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500 md:w-96 md:ml-[56px] ml-[52px]  "
-                  {...register("referredName")}
-                  required
-                  type="text"
-               />
-             </div>
+                className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500 md:w-96 md:ml-[56px] ml-[52px]  "
+                {...register("referredName")}
+                required
+                type="text"
+              />
             </div>
+          </div>
           <div className=" flex justify-center my-6">
-             <div className="md:-ml-12">
-             <p className="must">What is your salary expectation?</p>
+            <div className="md:-ml-12">
+              <p className="must">What is your salary expectation?</p>
               <input
-                  className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500 md:w-96 md:ml-[56px] ml-[52px]  "
-                  {...register("salaryExpect")}
-                  required
-                  type="text"
-               />
-             </div>
+                className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500 md:w-96 md:ml-[56px] ml-[52px]  "
+                {...register("salaryExpect")}
+                required
+                type="text"
+              />
             </div>
-          
-             <div className="text-center  md:ml-16">
-             <p className="">Any information you provide will kept confidential  and will only  be reported  in aggregate form your employment Equity purposes. In other words, the reported data will not contain and personal information.</p>
-             
-            
-            </div>
-            <div className=" flex justify-center my-6">
-             <div className="md:-ml-12">
-             <p className="must">What is your Gender?(select one)</p>
-              <input
-                  className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500  md:ml-[56px] ml-[52px]  "
-                  {...register("gender")}
-                  value="Male"
-                  type="radio"
-               />
-               <label>Male</label>
-              <input
-                  className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500  md:ml-[56px] ml-[52px]  "
-                  {...register("gender")}
-                  value="Female"
-                  type="radio"
-               />
-               <label>Female</label>
-              <input
-                  className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500  md:ml-[56px] ml-[52px]  "
-                  {...register("gender")}
-                  value="Non-binary"
-                  type="radio"
-               />
-               <label>Non-binary</label>
-              <input
-                  className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500  md:ml-[56px] ml-[52px]  "
-                  {...register("gender")}
-                  value="Decline to disclose"
-                  type="radio"
-               />
-               <label>Decline to disclose</label>
-             </div>
-            </div>
-            <div className=" flex justify-center my-6">
-             <div className="md:-ml-12">
-             <p className="must">CV/Resume</p>
-              <textarea
-                  className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500 md:w-96 md:ml-[56px] ml-[52px]  "
-                  {...register("salaryExpect")}
-                  
-                  type="text"
-               />
-             </div>
-            </div>
+          </div>
 
-        <div className="flex justify-center my-6">
-        <input className="text-white hover:text-sky-600 bg-sky-600 hover:bg-transparent  border-2 border-sky-600 active:bg-indigo-700  px-8 py-1 " type="submit" />
-        </div>
+          <div className="text-center  ">
+            <p className="text-center text-xl ">
+              Any information you provide will kept confidential and will only
+               <br/> be reported in aggregate form your employment  Equity purposes.<br/> In
+              other words, the reported data will not contain and personal
+              information.
+            </p>
+          </div>
+          <div className=" flex justify-center my-6">
+            <div className="md:-ml-12">
+              <p className="must">What is your Gender?(select one)</p>
+             <div className="md:text-start">
+             <div>
+              <input
+                className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500  md:ml-[56px] ml-[52px]  "
+                {...register("gender")}
+                value="Male"
+                type="radio"
+              />
+              <label className="ml-2">Male</label>
+              </div>
+              <div>
+              <input
+                className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500  md:ml-[56px] ml-[52px]  "
+                {...register("gender")}
+                value="Female"
+                type="radio"
+              />
+              <label className="ml-2">Female</label>
+              </div>
+              <div>
+              <input
+                className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500  md:ml-[56px] ml-[52px]  "
+                {...register("gender")}
+                value="Non-binary"
+                type="radio"
+              />
+              <label className="ml-2">Non-binary</label>
+              </div>
+             </div>
+             <div>
+             <input
+                className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500  md:ml-[56px] ml-[52px]  "
+                {...register("gender")}
+                value="Decline to disclose"
+                type="radio"
+              />
+              <label className="ml-2">Decline to disclose</label>
+             </div>
+            </div>
+          </div>
+          <div className=" flex justify-center my-6">
+            <div className="md:-ml-12">
+              <p className="must">CV/Resume</p>
+              <textarea
+                className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500 md:w-96 md:ml-[56px] ml-[52px]  "
+                {...register("cv")}
+                type="text"
+              />
+            </div>
+          </div>
+
+          <div className="flex justify-center my-6">
+            <input
+              className="text-white hover:text-sky-600 bg-sky-600 hover:bg-transparent  border-2 border-sky-600 active:bg-indigo-700  px-8 py-1 "
+              type="submit"
+            />
+          </div>
         </form>
       </div>
     </div>
