@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React, { useState } from "react";
 import Footer from "../../components/Shared/Footer";
 import Header from "../../components/Shared/Header";
@@ -53,17 +54,19 @@ const index = () => {
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-6 text-center py-8 px-16 md:px-3 lg:px-0">
           {popularsupport.map((ps) => (
-            <div
-              key={ps.name}
-              className="shadow-md rounded-md flex items-center justify-center flex-col"
-            >
-              <img
-                className="w-12 flex justify-center my-8"
-                src={ps.img}
-                alt=""
-              />
-              <p className="font-medium text-lg mb-6">{ps.name}</p>
-            </div>
+            <Link href={`/support/${ps.name}`}>
+              <div
+                key={ps.id}
+                className="shadow-md rounded-md flex items-center justify-center flex-col"
+              >
+                <img
+                  className="w-12 flex justify-center my-8"
+                  src={ps.img}
+                  alt=""
+                />
+                <p className="font-medium text-lg mb-6">{ps.name}</p>
+              </div>
+            </Link>
           ))}
         </div>
       </div>
