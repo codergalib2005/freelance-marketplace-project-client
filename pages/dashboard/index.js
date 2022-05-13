@@ -10,13 +10,6 @@ const Dashboard = () => {
   const [email, setEmail] = useState();
   const { user, setIsOpen, isOpen } = useAuth();
 
-  // useEffect(() =>{
-  //   fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/admin/${email}`)
-  //   .then(res => res.json())
-  //   .then(data => console.log(data))
-
-  // },[email])
-
   //   function getUrl(admin) {
   //     console.log(admin)
   // }
