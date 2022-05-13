@@ -11,6 +11,7 @@ const Resume_form = () => {
   } = useForm();
   const onSubmit = (data) => {
     if(data){
+      reset()
       alert("Resume post successfully")
     }
   };
