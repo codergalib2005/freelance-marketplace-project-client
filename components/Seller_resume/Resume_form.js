@@ -139,28 +139,28 @@ const Resume_form = () => {
               <input
                   className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500  md:ml-[56px] ml-[52px]  "
                   {...register("gender")}
-                  required
+                  value="Male"
                   type="radio"
                />
                <label>Male</label>
               <input
                   className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500  md:ml-[56px] ml-[52px]  "
                   {...register("gender")}
-                  required
+                  value="Female"
                   type="radio"
                />
                <label>Female</label>
               <input
                   className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500  md:ml-[56px] ml-[52px]  "
                   {...register("gender")}
-                  required
+                  value="Non-binary"
                   type="radio"
                />
                <label>Non-binary</label>
               <input
                   className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500  md:ml-[56px] ml-[52px]  "
                   {...register("gender")}
-                  required
+                  value="Decline to disclose"
                   type="radio"
                />
                <label>Decline to disclose</label>
@@ -172,7 +172,7 @@ const Resume_form = () => {
               <textarea
                   className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500 md:w-96 md:ml-[56px] ml-[52px]  "
                   {...register("salaryExpect")}
-                  required
+                  
                   type="text"
                />
              </div>
