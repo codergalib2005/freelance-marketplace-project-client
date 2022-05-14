@@ -263,7 +263,7 @@ const GigDetails = () => {
                     <div
                       className={`text-center cursor-pointer py-2 text-lg font-bold ${showPricing === "expert" && "bg-[#8537ed] text-white"
                         }`}
-                      onClick={() => setShowPrtexticing("expert")}
+                      onClick={() => setShowPricing("expert")}
                     >
                       Expert
                     </div>
