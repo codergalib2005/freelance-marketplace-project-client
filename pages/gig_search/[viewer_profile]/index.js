@@ -88,7 +88,7 @@ const ViewerProfile = () => {
                     </div>
                     <div className="py-6 px-4 bg-green-50">
 
-                        <h2 className="capitalize text-xl"><span className="font-semibold">Personal Information</span></h2>
+                        <h2 className="capitalize text-xl"><span className="font-semibold">Personal Information:</span></h2>
                         <h2 className="capitalize text-xl"><span className="font-semibold">✅ About Me: </span>{userProfile?.about}</h2>
                         <h2 className="text-xl capitalize"><span className="font-semibold">✅ My Core Skills: </span>{userProfile?.skills}.</h2>
                         <h2 className="text-xl capitalize"><span className="font-semibold">✅ Gender: </span>{userProfile?.gender}</h2>

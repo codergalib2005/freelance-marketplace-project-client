@@ -127,7 +127,7 @@ const GigDetails = () => {
       <Header />
       {/* {!loading && ( */}
       <div className="container-fluid mx-auto px-3 py-10">
-        <div className="grid grid-cols-1 lg:grid-cols-8 gap-4">
+        <div className="grid grid-cols-1 lg:grid-cols-8 lg:gap-4 md:gap-0">
           <div className="col-span-5">
             {/* Gig Slider */}
             <SliderBannerImage gig={gig} />
@@ -138,7 +138,7 @@ const GigDetails = () => {
                   <strong className="text-xl font-bold  border-b-2 border-orange-200 pr-5 mt-6 pb-1 mb-2 online-block">
                     Gig Title
                   </strong>
-                  <p className="text-lg  mt-2">{gig?.gig_title}</p>
+                  <p className="text-lg font-normal mt-2">{gig?.gig_title}</p>
                 </div>
               )}
               {!(gig?.description === "") && (
@@ -247,12 +247,12 @@ const GigDetails = () => {
                 </p>
               </div>
             )} */}
-            <div>
+            <div className="lg:fixed md:block">
               {/* Gig Pricing cards */}
               <div className="bg-white rounded-md pb-8 relative">
                 {/* Header */}
                 <div className="">
-                  <div className="grid grid-cols-3 bg-white rounded-t-md border-2 border-[#7b92f7] border-b-0 ">
+                  <div className="grid grid-cols-3 bg-white rounded-t-md border-2 border-[#7b92f7] border-b-0">
                     <div
                       className={`text-center cursor-pointer py-2 text-lg font-bold ${showPricing === "beginner" && "bg-[#8537ed] text-white"
                         }`}
@@ -263,7 +263,7 @@ const GigDetails = () => {
                     <div
                       className={`text-center cursor-pointer py-2 text-lg font-bold ${showPricing === "expert" && "bg-[#8537ed] text-white"
                         }`}
-                      onClick={() => setShowPricing("expert")}
+                      onClick={() => setShowPrtexticing("expert")}
                     >
                       Expert
                     </div>
@@ -278,7 +278,7 @@ const GigDetails = () => {
                   </div>
                 </div>
                 {/* body */}
-                <div style={{ boxShadow: "-2px 3px 15px rgba(0,0,0,0.1)", }} className=" pb-8 relative bg-white rounded-b-lg">
+                <div style={{ boxShadow: "-2px 3px 15px rgba(0,0,0,0.1)", }} className=" pb-8 relative bg-white rounded-b-lg lg:w-[450px] md:w-full">
                   {showPricing === "beginner" && (
                     <div>
                       <div className="h-56 flat_gradient pricing_card flex items-center justify-center flex-col">
@@ -304,7 +304,7 @@ const GigDetails = () => {
                       <div className="grid grid-cols-6 mx-4 pl-2  border-b border-[#2a3254] py-2 rounded-2xl">
                         <div className="col-span-2">
                           <strong className="text-lg font-bold text-[#2a3254]">
-                            Title
+                            Title:
                           </strong>
                         </div>
                         <div className="col-span-4 self-center">
@@ -314,7 +314,7 @@ const GigDetails = () => {
                       <div className="grid grid-cols-6 mx-4 pl-2  border-b border-[#2a3254] py-2 rounded-2xl">
                         <div className="col-span-2">
                           <strong className="text-lg font-bold text-[#2a3254]">
-                            Description
+                            Package:
                           </strong>
                         </div>
                         <div className="col-span-4 self-center">
@@ -356,7 +356,7 @@ const GigDetails = () => {
                       <div className="grid grid-cols-6 pl-3 mx-3  border-b border-[#2a3254] py-2 rounded-2xl">
                         <div className="col-span-2">
                           <strong className="text-lg font-bold ">
-                            Description
+                            Package:
                           </strong>
                         </div>
                         <div className="col-span-4 self-center">
@@ -396,7 +396,7 @@ const GigDetails = () => {
                       <div className="grid grid-cols-6 pl-3 mx-3  border-b border-[#2a3254]  py-2 rounded-2xl">
                         <div className="col-span-2">
                           <strong className="text-lg font-bold ">
-                            Description
+                            Package:
                           </strong>
                         </div>
                         <div className="col-span-4 self-center">
