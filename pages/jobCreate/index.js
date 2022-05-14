@@ -4,7 +4,7 @@ import Footer from '../../components/Shared/Footer';
 import Header from '../../components/Shared/Header';
 import HeaderTop from '../../components/Shared/HeaderTop';
 
-const index = () => {
+const JobCreate = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = data => console.log(data);
     return (
@@ -381,4 +381,4 @@ const index = () => {
     );
 };
 
-export default index;
+export default JobCreate;

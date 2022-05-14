@@ -452,13 +452,11 @@ const GigDetails = () => {
                       <br />
                     </span>
                     <br />
-
                     <form onSubmit={handleSubmit(onSubmit)}>
                       <textarea
                         className="py-1 px-2 rounded-2 h-18 border border-[#2a3254] rounded-md shadow-lg"
-                        {...register("description", { maxLength: 300 })}
-                        placeholder="Your Comment*"
-                        rows={4}
+                        {...register("description")}
+                        placeholder="Your Comment"
                         required
                       />{" "}
                       <br /> <br />
@@ -483,7 +481,7 @@ const GigDetails = () => {
                       />
                     </form>
                   </div>
-                </div >
+                </div>
               )}
             </div >
           </div >

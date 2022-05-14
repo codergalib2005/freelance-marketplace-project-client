@@ -75,8 +75,8 @@ const HeaderBottom = () => {
                     </Link>
                   </li>
                   <li className="py-2 border-b border-gray-500 px-6 hover:bg-[#ec4899]">
-                    <Link href="/">
-                      <a className="block">Learning 3</a>
+                    <Link href="/support">
+                      <a className="block">Support center</a>
                     </Link>
                   </li>
                   <li className="py-2 px-6 hover:bg-[#ec4899]">

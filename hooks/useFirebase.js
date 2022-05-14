@@ -25,9 +25,11 @@ const useFirebase = () => {
   const [thisUser, setThisUser] = useState({});
   const [isOpen, setIsOpen] = useState(false);
   const [allGigs, setAllGigs] = useState([]);
+  const [admin, setAdmin] = useState(false);
   const [reviews, setReviews] = useState([]);
   //for admin
   // const [admin, setAdmin] = useState(false)
+
 
   const router = useRouter();
 
@@ -159,20 +161,13 @@ const useFirebase = () => {
   }, [auth]);
 
   //for admin
-  // axios.get(`${process.env.NEXT_PUBLIC_API_URL}/users/admin/${user?.email}}`)
-  // .then(res => setAdmin(res.data.admin))
-  // useEffect(() => {
-  //     fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/admin/${user?.email}}`)
-  //     .then(res => res.json())
-  //     .then(data => setAdmin(data?.access))
-  // },[user?.email])
+  useEffect(()=>{
+    setIsLoadind(true);
+    fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/admin/${user?.email}`)
+    .then(res => res.json())
+    .then(data => setAdmin(data.access))
+  },[user?.email])
 
-  //for admin
-  // useEffect(() => {
-  //     fetch(${process.env.NEXT_PUBLIC_URL}/users/admin/${user?.email})
-  //     .then(res => res.json())
-  //     .then(data => setAdmin(data.admin))
-  // },[user?.email])
 
   //signIn user email and pass
   const logInUser = (email, password) => {
@@ -368,7 +363,7 @@ const useFirebase = () => {
 
   return {
     user,
-    // admin,
+    admin,
     registerUser,
     logInUser,
     signInWithGoogle,
