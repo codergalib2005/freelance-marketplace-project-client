@@ -6,7 +6,41 @@ import HeaderTop from '../../components/Shared/HeaderTop';
 
 const JobCreate = () => {
     const { register, handleSubmit } = useForm();
-    const onSubmit = data => console.log(data);
+    const onSubmit = data => {
+        // Responsibilities
+        let responsibilities = new Array();
+        responsibilities.push(data.responsibility1);
+        responsibilities.push(data.responsibility2);
+        responsibilities.push(data.responsibility3);
+
+        // Requirements
+        let requirements = new Array();
+        requirements.push(data.requirement1);
+        requirements.push(data.requirement2);
+        requirements.push(data.requirement3);
+        requirements.push(data.requirement4);
+        requirements.push(data.requirement5);
+        requirements.push(data.requirement6);
+        requirements.push(data.requirement7);
+        requirements.push(data.requirement8);
+
+        // Qualifications
+        let qualifications = new Array();
+        qualifications.push(data.qualification1);
+        qualifications.push(data.qualification2);
+        qualifications.push(data.qualification3);
+        qualifications.push(data.qualification4);
+        qualifications.push(data.qualification5);
+
+        // Technologies
+        let technologies = new Array();
+        technologies.push(data.technology1);
+        technologies.push(data.technology2);
+        technologies.push(data.technology3);
+        technologies.push(data.technology4);
+        technologies.push(data.technology5);
+        technologies.push(data.technology6);
+    }
     return (
         <>
             <HeaderTop />
@@ -298,17 +332,17 @@ const JobCreate = () => {
 
                     <section className='border-2 border-zinc-400 border-dotted'>
                         <div className='px-5 py-10'>
-                            <h2 className='text-lg text-black font-semibold text-left mb-4'> Highlighted Techonology: </h2>
+                            <h2 className='text-lg text-black font-semibold text-left mb-4'> Highlighted Technologies: </h2>
 
 
                             <div className='grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 '>
                                 <div>
                                     <div className='grid grid-cols-12 gap-2'>
                                         <div className='col-span-2 '>
-                                            <h4 className='text-base inline-block font-semibold'>Techonology1:</h4>
+                                            <h4 className='text-base inline-block font-semibold'>Technologies1:</h4>
                                         </div>
                                         <div className='col-span-10 ml-3'>
-                                            <input type="text" className='py-1 px-2 rounded-2 border-[1px] focus:outline-none border-[#2a3254] rounded-md shadow-xl w-[80%] ml-8' {...register("techonology1")} required />
+                                            <input type="text" className='py-1 px-2 rounded-2 border-[1px] focus:outline-none border-[#2a3254] rounded-md shadow-xl w-[80%] ml-8' {...register("technology1")} required />
                                         </div>
                                     </div>
                                 </div>
@@ -316,10 +350,10 @@ const JobCreate = () => {
                                 <div>
                                     <div className='grid grid-cols-12 gap-2'>
                                         <div className='col-span-2 '>
-                                            <h4 className='text-base inline-block font-semibold'>Techonology2:</h4>
+                                            <h4 className='text-base inline-block font-semibold'>Technologies2:</h4>
                                         </div>
                                         <div className='col-span-10 ml-3'>
-                                            <input type="text" className='py-1 px-2 rounded-2 border-[1px] focus:outline-none border-[#2a3254] rounded-md shadow-xl w-[80%] ml-8' {...register("techonology2")} required />
+                                            <input type="text" className='py-1 px-2 rounded-2 border-[1px] focus:outline-none border-[#2a3254] rounded-md shadow-xl w-[80%] ml-8' {...register("technology2")} required />
                                         </div>
                                     </div>
                                 </div>
@@ -327,10 +361,10 @@ const JobCreate = () => {
                                 <div>
                                     <div className='grid grid-cols-12 gap-2'>
                                         <div className='col-span-2 '>
-                                            <h4 className='text-base inline-block font-semibold'>Techonology3:</h4>
+                                            <h4 className='text-base inline-block font-semibold'>Technologies3:</h4>
                                         </div>
                                         <div className='col-span-10 ml-3'>
-                                            <input type="text" className='py-1 px-2 rounded-2 border-[1px] focus:outline-none border-[#2a3254] rounded-md shadow-xl w-[80%] ml-8' {...register("techonology3")} required />
+                                            <input type="text" className='py-1 px-2 rounded-2 border-[1px] focus:outline-none border-[#2a3254] rounded-md shadow-xl w-[80%] ml-8' {...register("technology3")} required />
                                         </div>
                                     </div>
                                 </div>
@@ -340,10 +374,10 @@ const JobCreate = () => {
                                 <div>
                                     <div className='grid grid-cols-12 gap-2'>
                                         <div className='col-span-2 '>
-                                            <h4 className='text-base inline-block font-semibold'>Techonology4:</h4>
+                                            <h4 className='text-base inline-block font-semibold'>Technologies4:</h4>
                                         </div>
                                         <div className='col-span-10 ml-3'>
-                                            <input type="text" className='py-1 px-2 rounded-2 border-[1px] focus:outline-none border-[#2a3254] rounded-md shadow-xl w-[80%] ml-8' {...register("techonology4")} required />
+                                            <input type="text" className='py-1 px-2 rounded-2 border-[1px] focus:outline-none border-[#2a3254] rounded-md shadow-xl w-[80%] ml-8' {...register("technology4")} required />
                                         </div>
                                     </div>
                                 </div>
@@ -351,10 +385,10 @@ const JobCreate = () => {
                                 <div>
                                     <div className='grid grid-cols-12 gap-2'>
                                         <div className='col-span-2 '>
-                                            <h4 className='text-base inline-block font-semibold'>Techonology5:</h4>
+                                            <h4 className='text-base inline-block font-semibold'>Technologies5:</h4>
                                         </div>
                                         <div className='col-span-10 ml-3'>
-                                            <input type="text" className='py-1 px-2 rounded-2 border-[1px] focus:outline-none border-[#2a3254] rounded-md shadow-xl w-[80%] ml-8' {...register("techonology5")} />
+                                            <input type="text" className='py-1 px-2 rounded-2 border-[1px] focus:outline-none border-[#2a3254] rounded-md shadow-xl w-[80%] ml-8' {...register("technology5")} />
                                         </div>
                                     </div>
                                 </div>
@@ -362,10 +396,10 @@ const JobCreate = () => {
                                 <div>
                                     <div className='grid grid-cols-12 gap-2'>
                                         <div className='col-span-2 '>
-                                            <h4 className='text-base inline-block font-semibold'>Techonology6:</h4>
+                                            <h4 className='text-base inline-block font-semibold'>Technologies6:</h4>
                                         </div>
                                         <div className='col-span-10 ml-3'>
-                                            <input type="text" className='py-1 px-2 rounded-2 border-[1px] focus:outline-none border-[#2a3254] rounded-md shadow-xl w-[80%] ml-8' {...register("techonology6")} />
+                                            <input type="text" className='py-1 px-2 rounded-2 border-[1px] focus:outline-none border-[#2a3254] rounded-md shadow-xl w-[80%] ml-8' {...register("technology6")} />
                                         </div>
                                     </div>
                                 </div>
@@ -376,8 +410,9 @@ const JobCreate = () => {
                     </section>
                     <input className="text-white bg-purple-500 px-8 py-2 rounded-md font-bold text-center" type="submit" />
                 </form>
-                <Footer />
-            </div></>
+            </div>
+            <Footer />
+        </>
     );
 };
 

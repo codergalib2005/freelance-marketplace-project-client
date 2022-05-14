@@ -185,7 +185,7 @@ const GigDetails = () => {
 
                     <div className="ml-2 mt-4">
                       <h1 className="text-[#2a3254] text-2xl capitalize">{seller?.buyerName}</h1>
-                      <p className="text-[#2a3254]">{seller?.description.slice(0, 200)}...</p>
+                      <p className="text-[#2a3254] capitalize">{seller?.description.slice(0, 200)}...</p>
                       <h2 className="text-[#2a3254] text-xl">{seller?.buyerEmail}</h2>
                       <h5 className="text-[#2a3254]">{seller?.date}</h5>
                     </div>
@@ -425,7 +425,7 @@ const GigDetails = () => {
               {/* end of gig_details */}
               <div className="">
                 <Link href={`/gig_search/${gig?.email}`} >
-                  <button className="py-4 px-5 ring mt-4 w-full">Contact Me</button>
+                  <button className="py-4 px-5 rounded-lg text-xl bg-[#0a1929] text-white hover:bg-[#8537ed] border mt-4 w-full duration-300 shadow">Contact Me</button>
                 </Link>
               </div>
               {/* Start Review */}

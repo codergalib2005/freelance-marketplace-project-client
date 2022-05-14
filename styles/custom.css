@@ -1,6 +1,54 @@
 /* ==============================
       Banner Component styles
 =============================== */
+.profile_banner {
+  background-image: url(https://i.ibb.co/qksQWjQ/background-1.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+}
+.content_profile_banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.content_1 {
+  font-size: 48px;
+  text-align: left;
+}
+.content_2 {
+  font-size: 20px;
+  text-align: left;
+}
+@media screen and (max-width: 768px) {
+  .profile_banner {
+    background-image: url(https://i.ibb.co/qksQWjQ/background-1.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+  }
+  .content_profile_banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+  .content_1 {
+    font-size: 30px;
+    text-align: center;
+    margin-top: 25px;
+  }
+  .content_2 {
+    font-size: 18px;
+    text-align: center;
+    width: 75%;
+    margin: 0 auto;
+  }
+}
 .banner_main_parent_box {
   position: relative;
   background: navy;
@@ -617,7 +665,6 @@
     flex: 0;
   }
   .chatBox {
-   
     /* border: 1px solid #000; */
     flex: 10;
   }
@@ -754,8 +801,7 @@
 Resume_form page
 --------------------------------*/
 
- 
-  .must:after {
-    content:" *";
-    color: red;
-  }
+.must:after {
+  content: " *";
+  color: red;
+}
