@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React, { useEffect, useState } from "react";
 import { format } from "timeago.js";
 import axios from "axios";
@@ -30,8 +31,9 @@ const Notification = () => {
   return (
     <div className="flex">
       <div>
-        {notifications.map((notification) => (
+        {notifications.map((notification, index) => (
           <div
+            key={index}
             onClick={() => setPreview(notification)}
             className="my-4 shadow-md hover:shadow-xl p-1 transition-all duration-200 cursor-pointer"
           >

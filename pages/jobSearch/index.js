@@ -1,6 +1,6 @@
 import React from 'react';
 
-const index = () => {
+const JobSearch = () => {
     return (
         <div>
             <h2>hi</h2>
@@ -8,4 +8,4 @@ const index = () => {
     );
 };
 
-export default index;
+export default JobSearch;

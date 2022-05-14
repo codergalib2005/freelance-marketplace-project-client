@@ -1,14 +1,15 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import React, { useState } from "react";
 import Footer from "../../components/Shared/Footer";
 import Header from "../../components/Shared/Header";
 import HeaderBottom from "../../components/Shared/HeaderBottom";
 import HeaderTop from "../../components/Shared/HeaderTop";
-import { popularsupport } from "../../components/support/Support";
-import { supportTeam } from "../../components/support/SupportTeam";
-import Modal from "./Modal";
+import { popularsupport } from "../../components/Support/Support";
+import { supportTeam } from "../../components/Support/SupportTeam";
+import Modal from "../../components/Support/Modal";
 
-const index = () => {
+const SupportPage = () => {
   const [open, setOpen] = useState(false);
   const [supporter, setSupporter] = useState("");
 
@@ -53,8 +54,8 @@ const index = () => {
           Popular topics
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-6 text-center py-8 px-16 md:px-3 lg:px-0">
-          {popularsupport.map((ps) => (
-            <Link href={`/support/${ps.name}`}>
+          {popularsupport.map((ps, index) => (
+            <Link passHref key={index} href={`/support/${ps.name}`}>
               <div
                 key={ps.id}
                 className="shadow-md rounded-md flex items-center justify-center flex-col"
@@ -108,4 +109,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default SupportPage;

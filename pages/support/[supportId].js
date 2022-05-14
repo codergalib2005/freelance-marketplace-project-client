@@ -4,7 +4,7 @@ import Footer from "../../components/Shared/Footer";
 import Header from "../../components/Shared/Header";
 import HeaderBottom from "../../components/Shared/HeaderBottom";
 import HeaderTop from "../../components/Shared/HeaderTop";
-import { popularsupport } from "../../components/support/Support";
+import { popularsupport } from "../../components/Support/Support";
 
 console.log(popularsupport);
 
