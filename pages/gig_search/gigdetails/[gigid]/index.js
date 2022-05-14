@@ -117,21 +117,6 @@ const GigDetails = () => {
       .then((res) => setSingleGig(res?.data?.result[0]))
       .catch((err) => console.log(err));
   }, [router?.query?.gigid]);
-  useEffect(() => {
-    axios
-      .get(
-        `${process.env.NEXT_PUBLIC_API_URL}/users/email/${gig?.email}`,
-        configJson
-      )
-      .then(
-        (response) => {
-          setGigUser(response?.data?.result);
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
-  }, [gig?.email]);
 
   console.log(thisUser);
   return (
@@ -210,10 +195,10 @@ const GigDetails = () => {
             ))}
           </div>
           <div className="col-span-3">
-            <div className="grid grid-cols-8">
-              {/* About gig seller */}
+            {/* <div className="grid grid-cols-8">
+    
               <div className="rounded-full col-span-2 w-20 h-20 overflow-hidden">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
+              
                 <img className="mx-w-full" src={gigUser?.avatar} alt="" />
               </div>
               <div className="col-span-6">
@@ -222,8 +207,8 @@ const GigDetails = () => {
                 </strong>
                 <p className="pt-3 capitalize">{gigUser?.bio}</p>
               </div>
-            </div>
-            <div className="grid grid-cols-5 gap-4 items-center justify-between  font-bold text-md mt-1 text-center mb-5">
+            </div> */}
+            {/*  <div className="grid grid-cols-5 gap-4 items-center justify-between  font-bold text-md mt-1 text-center mb-5">
               <strong className="border-y-2   border-orange-200 py-1 capitalize">
                 {gigUser?.gender}
               </strong>
@@ -235,8 +220,8 @@ const GigDetails = () => {
                   {gigUser?.date}
                 </Moment>
               </strong>
-            </div>
-            {!(gigUser?.about === "") && (
+            </div> */}
+            {/*  {!(gigUser?.about === "") && (
               <div>
                 <strong className="text-xl font-bold  border-b-2 border-orange-200 pr-5 mt-6 pb-1 mb-2 online-block">
                   About
@@ -261,10 +246,10 @@ const GigDetails = () => {
                   {gigUser?.education}
                 </p>
               </div>
-            )}
+            )} */}
             <div>
               {/* Gig Pricing cards */}
-              <div className="mt-6 bg-white rounded-md pb-8 relative">
+              <div className="bg-white rounded-md pb-8 relative">
                 {/* Header */}
                 <div className="">
                   <div className="grid grid-cols-3 bg-white rounded-t-md border-2 border-[#7b92f7] border-b-0 ">
@@ -438,6 +423,11 @@ const GigDetails = () => {
                 )}
               </div>
               {/* end of gig_details */}
+              <div className="">
+                <Link href={`/gig_search/${gig?.email}`} >
+                  <button className="py-4 px-5 ring mt-4 w-full">Contact Me</button>
+                </Link>
+              </div>
               {/* Start Review */}
               {thisUser?.status === "buyer" && (
                 <div>
