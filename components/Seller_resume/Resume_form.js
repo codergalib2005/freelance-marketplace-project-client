@@ -111,7 +111,7 @@ const Resume_form = () => {
                 Linkedin Profile Link
               </p>
               <input
-                className="border-[1px] shadow-md py-1 mt-2 border-sky-500 outline-pink-500 w-[100%] md:w-[80%] "
+                className="border-[1px] shadow-md px-2 py-1 mt-2 border-sky-500 outline-pink-500 w-[100%] md:w-[80%] "
                 {...register("linkedinLink")}
                 type="text"
               />
@@ -122,7 +122,7 @@ const Resume_form = () => {
                 Github Profile Link
               </p>
               <input
-                className="border-[1px] shadow-md py-1 mt-2 w-[100%] md:w-[80%] border-sky-500 outline-pink-500   "
+                className="border-[1px] shadow-md px-2 py-1 mt-2 w-[100%] md:w-[80%] border-sky-500 outline-pink-500   "
                 {...register("githubLink")}
                 type="text"
                 required
@@ -134,7 +134,7 @@ const Resume_form = () => {
                 Portfolio Link
               </p>
               <input
-                className="border-[1px] shadow-md py-1 mt-2 border-sky-500 outline-pink-500 w-[100%] md:w-[80%]  "
+                className="border-[1px] shadow-md px-2 py-1 mt-2 border-sky-500 outline-pink-500 w-[100%] md:w-[80%]  "
                 {...register("portfolioLink")}
                 type="text"
               />
@@ -146,7 +146,7 @@ const Resume_form = () => {
                 Have you worked for our team before?
               </p>
               <select
-                className="border-[1px] shadow-md mt-2 py-1 border-sky-500 outline-pink-500 w-[100%] "
+                className="border-[1px] shadow-md px-2 mt-2 py-1 border-sky-500 outline-pink-500 w-[100%] "
                 {...register("familiar")}
                 required
                 type="text"
@@ -165,7 +165,7 @@ const Resume_form = () => {
                   If referred, Please provide the name to your referred.
                 </p>
                 <input
-                  className="border-[1px] py-1 shadow-md mt-2 border-sky-500 outline-pink-500 w-[100%] "
+                  className="border-[1px] px-2 py-1 shadow-md mt-2 border-sky-500 outline-pink-500 w-[100%] "
                   {...register("referredName")}
                   required
                   type="text"
@@ -200,7 +200,7 @@ const Resume_form = () => {
                 Educations
                 </p>
                 <textarea
-                  className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500 w-[100%] "
+                  className="border-[1px] px-2 shadow-md mt-2 border-sky-500 outline-pink-500 w-[100%] "
                   {...register("education")}
                   required
                   type="text"
@@ -216,7 +216,7 @@ const Resume_form = () => {
                 Company Name
                 </p>
                 <input
-                  className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500 w-[100%] "
+                  className="border-[1px] shadow-md py-1 px-2 mt-2 border-sky-500 outline-pink-500 w-[100%] "
                   {...register("companyName")}
                   required
                   type="text"
@@ -228,7 +228,7 @@ const Resume_form = () => {
                 That was the role in the company
                 </p>
                 <input
-                  className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500 w-[100%] "
+                  className="border-[1px] shadow-md py-1 px-2 mt-2 border-sky-500 outline-pink-500 w-[100%] "
                   {...register("roleOfCompany")}
                   required
                   type="text"
@@ -243,13 +243,13 @@ const Resume_form = () => {
                 Experience of Technologies
                 </p>
 
-               <div className="border-[1px] shadow-md py-1 mt-2 border-sky-500 outline-pink-500 w-[100%]">
+               <div className="border-[1px] px-2 shadow-md py-1 mt-2 border-sky-500 outline-pink-500 w-[100%]">
                 {/* <div className=" p-2 bg-slate-300 py-[1px] inline-block rounded-3xl ">
                 <span className="">Hello</span>
                  <span className="close bg-black ml-1 text-white p-[2px] px-2 rounded-full">&times;</span>
                 </div> */}
                <input
-                  className="border-0 outline-none w-[100%] "
+                  className="border-0 px-2 py-1 outline-none w-[100%] "
                   {...register("experience")}
                   placeholder="text here"
                   
@@ -263,7 +263,7 @@ const Resume_form = () => {
                 How many years expe do you have?
                 </p>
                 <input
-                  className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500 w-[100%] "
+                  className="border-[1px] px-2 py-1 shadow-md mt-2 border-sky-500 outline-pink-500 w-[100%] "
                   {...register("experienceOfYears")}
                   required
                   type="number"
@@ -278,7 +278,7 @@ const Resume_form = () => {
                 <div className="md:text-start">
                   <div>
                     <input
-                      className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500  md:ml-[56px] ml-[52px]  "
+                      className="border-[1px] px-2 shadow-md mt-2 border-sky-500 outline-pink-500  md:ml-[56px] ml-[52px]  "
                       {...register("gender")}
                       value="Male"
                       type="radio"
@@ -287,7 +287,7 @@ const Resume_form = () => {
                   </div>
                   <div>
                     <input
-                      className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500  md:ml-[56px] ml-[52px]  "
+                      className="border-[1px] px-2 shadow-md mt-2 border-sky-500 outline-pink-500  md:ml-[56px] ml-[52px]  "
                       {...register("gender")}
                       value="Female"
                       type="radio"
@@ -296,7 +296,7 @@ const Resume_form = () => {
                   </div>
                   <div>
                     <input
-                      className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500  md:ml-[56px] ml-[52px]  "
+                      className="border-[1px] px-2 shadow-md mt-2 border-sky-500 outline-pink-500  md:ml-[56px] ml-[52px]  "
                       {...register("gender")}
                       value="Non-binary"
                       type="radio"
@@ -306,7 +306,7 @@ const Resume_form = () => {
                 </div>
                 <div>
                   <input
-                    className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500  md:ml-[56px] ml-[52px]  "
+                    className="border-[1px] px-2 shadow-md mt-2 border-sky-500 outline-pink-500  md:ml-[56px] ml-[52px]  "
                     {...register("gender")}
                     value="Decline to disclose"
                     type="radio"
@@ -321,7 +321,7 @@ const Resume_form = () => {
                 <div className="md:text-start">
                   <div>
                     <input
-                      className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500  md:ml-[56px] ml-[52px]  "
+                      className="border-[1px] px-2 shadow-md mt-2 border-sky-500 outline-pink-500  md:ml-[56px] ml-[52px]  "
                       {...register("veteran")}
                       value="Yes"
                       type="radio"
@@ -330,7 +330,7 @@ const Resume_form = () => {
                   </div>
                   <div>
                     <input
-                      className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500  md:ml-[56px] ml-[52px]  "
+                      className="border-[1px] px-2 shadow-md mt-2 border-sky-500 outline-pink-500  md:ml-[56px] ml-[52px]  "
                       {...register("veteran")}
                       value="No"
                       type="radio"
@@ -339,7 +339,7 @@ const Resume_form = () => {
                   </div>
                   <div>
                     <input
-                      className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500  md:ml-[56px] ml-[52px]  "
+                      className="border-[1px] px-2 shadow-md mt-2 border-sky-500 outline-pink-500  md:ml-[56px] ml-[52px]  "
                       {...register("veteran")}
                       value="Decline to disclose"
                       type="radio"
@@ -356,7 +356,7 @@ const Resume_form = () => {
                 <div className="md:text-start">
                   <div>
                     <input
-                      className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500  md:ml-[56px] ml-[52px]  "
+                      className="border-[1px] px-2 shadow-md mt-2 border-sky-500 outline-pink-500  md:ml-[56px] ml-[52px]  "
                       {...register("region")}
                       value="Black or african american"
                       type="radio"
@@ -365,7 +365,7 @@ const Resume_form = () => {
                   </div>
                   <div>
                     <input
-                      className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500  md:ml-[56px] ml-[52px]  "
+                      className="border-[1px] px-2 shadow-md mt-2 border-sky-500 outline-pink-500  md:ml-[56px] ml-[52px]  "
                       {...register("region")}
                       value="Hispanic or Latino"
                       type="radio"
