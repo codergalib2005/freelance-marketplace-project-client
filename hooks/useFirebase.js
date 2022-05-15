@@ -209,58 +209,6 @@ const useFirebase = () => {
       .finally(() => setIsLoadind(false));
   };
 
-  // google signIN
-  const signInWithGoogle = () => {
-    setIsLoadind(true);
-    const googleProvider = new GoogleAuthProvider();
-    signInWithPopup(auth, googleProvider)
-      .then((result) => {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
-        const user = result.user;
-        router.replace("/");
-        setError("");
-        notification.success({
-          message: "Success",
-          description: "User register successfully!",
-          placement: "top",
-          duration: 2,
-          style: {
-            width: 300,
-            //   marginLeft: "calc(50% - 150px)",
-            //   marginTop: "calc(50vh - 100px)",
-            borderBottom: "6px solid #3a3",
-            boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
-          },
-        });
-      })
-      .catch((error) => {
-        // Handle Errors here.
-        const errorCode = error.code;
-        setError(error.message);
-        notification.error({
-          message: "Error",
-          description: `${error.message}`,
-          placement: "top",
-          duration: 2,
-          style: {
-            width: 300,
-            //   marginLeft: "calc(50% - 150px)",
-            //   marginTop: "calc(50vh - 100px)",
-            borderBottom: "6px solid #e83a3b",
-            boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
-          },
-        });
-        // The email of the user's account used.
-        const email = error.email;
-        // The AuthCredential type that was used.
-        const credential = GoogleAuthProvider.credentialFromError(error);
-        // ...
-      })
-      .finally(() => setIsLoadind(false));
-  };
-
   // Load Login personal data loader
   useEffect(() => {
     setIsLoadind(true);
@@ -292,7 +240,7 @@ const useFirebase = () => {
           console.log(error);
         }
       );
-  }, [configJson, user?.email]);
+  }, []);
 
   // LOAD HERE ALL GIGS
   useEffect(() => {
@@ -308,7 +256,7 @@ const useFirebase = () => {
       }
     };
     getAllGigs();
-  }, [configJson]);
+  }, []);
   // GET ALL REVIEWS LOGGIN USER BASED ON EMAIL
   useEffect(() => {
     const getAllReviews = async () => {
@@ -323,7 +271,7 @@ const useFirebase = () => {
       }
     };
     getAllReviews();
-  }, [configJson, user?.email]);
+  }, []);
 
   //logout email and pass
   const logOut = () => {
@@ -369,7 +317,6 @@ const useFirebase = () => {
     admin,
     registerUser,
     logInUser,
-    signInWithGoogle,
     loading,
     setIsLoadind,
     logOut,

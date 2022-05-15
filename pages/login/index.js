@@ -5,7 +5,7 @@ import React from 'react';
 import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
 const Login = () => {
-  const { user, logInUser, signInWithGoogle, loading, error, userStatus } = useAuth();
+  const { user, logInUser, loading, error, userStatus } = useAuth();
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
   const onSubmit = data => {
     logInUser(data.email, data.password)

@@ -80,8 +80,8 @@ const HeaderBottom = () => {
                     </Link>
                   </li>
                   <li className="py-2 px-6 hover:bg-[#ec4899]">
-                    <Link href="/">
-                      <a className="block">Learning 4</a>
+                    <Link href="/search_job">
+                      <a className="block">Job Search</a>
                     </Link>
                   </li>
                 </ul>
