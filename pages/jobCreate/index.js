@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import Footer from "../../components/Shared/Footer";
 import Header from "../../components/Shared/Header";
 import HeaderTop from "../../components/Shared/HeaderTop";
-
+import axios from "axios";
 const JobCreate = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
@@ -52,9 +52,22 @@ const JobCreate = () => {
     body.jobType = data.jobType;
     body.lastName = data.lastName;
     body.role = data.role;
-    body.salary = data.salary
+    body.salary = data.salary;
     console.log(body);
     console.log(data);
+    axios
+      .post(`${process.env.NEXT_PUBLIC_API_URL}/jobs/jobs`, body, {
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+        },
+      })
+      .then(() => {
+        alert("Job Created Successfully");
+      })
+      .catch(() => {
+        alert("Job Creation Failed");
+      });
   };
   return (
     <>
