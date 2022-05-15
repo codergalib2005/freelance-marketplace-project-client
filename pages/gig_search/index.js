@@ -22,14 +22,11 @@ const GigSearch = () => {
   const { allGigs } = useAuth();
   const [loading, setLoading] = useState(true);
   const [gridColumn, setGridColumn] = useState("grid_column");
-  setTimeout(() => {
-    setLoading(false);
-  }, 3000);
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const handleChange = (event) => {
     setValue(event.target.value);
   };
-  console.log(allGigs)
+  console.log(allGigs);
   return (
     <div>
       <HeaderTop />
@@ -172,7 +169,7 @@ const GigSearch = () => {
               }`}
             >
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 px-2  sm:px-5">
-                {loading &&
+                {allGigs.length <= 0 &&
                   [0, 1, 2, 3, 4, 5, 6].map((item) => (
                     <div key={item}>
                       <div>
@@ -197,7 +194,7 @@ const GigSearch = () => {
                     </div>
                   ))}
               </div>
-              {!loading && (
+              {allGigs.length >= 0 && (
                 <div
                   className={`${
                     gridColumn === "grid_column" && "gig_wrapper_column"

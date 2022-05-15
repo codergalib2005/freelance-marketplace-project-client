@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { Avatar } from "@mui/material";
 import { Input, message, Tooltip } from "antd";
 import TextArea from "antd/lib/input/TextArea";

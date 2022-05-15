@@ -30,7 +30,6 @@ const useFirebase = () => {
   //for admin
   // const [admin, setAdmin] = useState(false)
 
-
   const router = useRouter();
 
   const auth = getAuth();
@@ -161,13 +160,12 @@ const useFirebase = () => {
   }, [auth]);
 
   //for admin
-  useEffect(()=>{
+  useEffect(() => {
     setIsLoadind(true);
     fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/admin/${user?.email}`)
-    .then(res => res.json())
-    .then(data => setAdmin(data.access))
-  },[user?.email])
-
+      .then((res) => res.json())
+      .then((data) => setAdmin(data.access));
+  }, [user?.email]);
 
   //signIn user email and pass
   const logInUser = (email, password) => {
@@ -298,29 +296,34 @@ const useFirebase = () => {
 
   // LOAD HERE ALL GIGS
   useEffect(() => {
-    axios
-      .get(`${process.env.NEXT_PUBLIC_API_URL}/gigs`, configJson)
-      .then((res) => {
+    const getAllGigs = async () => {
+      try {
+        const res = await axios.get(
+          `${process.env.NEXT_PUBLIC_API_URL}/gigs`,
+          configJson
+        );
         setAllGigs(res?.data?.result);
-      })
-      .catch((err) => {
+      } catch (err) {
         console.log(err);
-      });
+      }
+    };
+    getAllGigs();
   }, [configJson]);
   // GET ALL REVIEWS LOGGIN USER BASED ON EMAIL
   useEffect(() => {
-    axios
-      .get(
-        `${process.env.NEXT_PUBLIC_API_URL}/reviews/sellerEmail/${user?.email}`,
-        configJson
-      )
-      .then((res) => {
+    const getAllReviews = async () => {
+      try {
+        const res = await axios.get(
+          `${process.env.NEXT_PUBLIC_API_URL}/reviews/sellerEmail/${user?.email}`,
+          configJson
+        );
         setReviews(res?.data?.result);
-      })
-      .catch((err) => {
+      } catch (err) {
         console.log(err);
-      });
-  }, [configJson]);
+      }
+    };
+    getAllReviews();
+  }, [configJson, user?.email]);
 
   //logout email and pass
   const logOut = () => {

@@ -4,7 +4,7 @@ import Moment from 'react-moment';
 const SingleGig = ({ gig, gridColumn }) => {
   return (
     <>
-      <Link passHref href={`/gig_search/gigdetails/${gig?._id}`}>
+      <Link passHref href={`/gig_search/gigdetails/${gig?._id}+++${gig?.email}`}>
         <div style={{ boxShadow: "-2px 3px 15px rgba(0,0,0,0.2)" }} className={`mb-3 rounded-lg overflow-hidden cursor-pointer ${gridColumn === "grid_row" && "gig_card_row"}`}>
           <div className={`${gridColumn === "grid_row" && "col-span-1"}`}>
             {/* eslint-disable-next-line @next/next/no-img-element */}

@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import useAuth from "../../../../hooks/useAuth";
-import DetailsHeader from "../../../../components/gigs/DetailsHeader";
 import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
 import { useForm } from "react-hook-form";
 import { message } from "antd";

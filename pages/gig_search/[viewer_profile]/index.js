@@ -48,10 +48,10 @@ const ViewerProfile = () => {
                     </div>
                 </div>
             </div>
-            <div className=" bg-yellow-50 py-10">
-                <div style={{ boxShadow: "-2px 3px 15px rgba(0,0,0,0.05)", }} className="container mx-auto p-4 cursor-pointer bg-white rounded-lg">
-                    <div className="grid lg:grid-cols-3 md:grid-cols-1 gap-4 bg-green-50 shadow p-8 rounded items-center">
-                        <div className="w-[200px] mx-auto">
+            <div className=" bg-white py-10 px-4">
+                <div style={{ boxShadow: "-2px 3px 15px rgba(0,0,0,0.2)", }} className="container mx-auto p-4 cursor-pointer bg-white rounded-lg">
+                    <div  style={{ boxShadow: "-2px 3px 15px rgba(0,0,0,0.2)", }} className="grid lg:grid-cols-3 md:grid-cols-1 gap-4 bg-green-50 p-8 rounded items-center">
+                        <div className="w-full max-w-[200px] mx-auto">
                             <div>
                                 <img className="w-full rounded-full" src={userProfile?.avatar} alt="" />
                             </div>
