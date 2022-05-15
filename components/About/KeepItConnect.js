@@ -4,7 +4,7 @@ import { FaRegCommentDots, FaRegIdBadge } from "react-icons/fa";
 const KeepItConnect = () => {
     return (
         <div>
-            <div className='container-fluid mx-auto grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 gap-12'>
+            <div className='container px-4 mx-auto grid lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 gap-12'>
                 <div className='p-10'>
                     {/* eslint-disable-next-line @next/next/no-img-element */}
                     <img src="https://i.ibb.co/pb3Vdf8/4077407.jpg" alt="" />

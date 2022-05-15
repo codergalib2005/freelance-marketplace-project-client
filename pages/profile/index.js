@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import { Avatar } from "@mui/material";
 import { Input, message, Tooltip } from "antd";
 import TextArea from "antd/lib/input/TextArea";
@@ -7,12 +6,14 @@ import React, { useReducer, useState } from "react";
 import { useForm } from "react-hook-form";
 import { BsCheck2Square } from "react-icons/bs";
 import { FcCameraAddon } from "react-icons/fc";
+import { AiOutlineMail } from "react-icons/ai";
 import { FiEdit } from "react-icons/fi";
 import { GrUserManager } from "react-icons/gr";
 import { IoMdClose } from "react-icons/io";
 import About from "../../components/Profile/About";
 import BannerPicChange from "../../components/Profile/BannerPicChange";
 import ProfileModal from "../../components/Profile/ProfileModal";
+import Notifications from "../../components/Profile/Notification";
 import Review from "../../components/Profile/Review";
 import Task from "../../components/Profile/Task";
 import Footer from "../../components/Shared/Footer";
@@ -28,22 +29,16 @@ const controlReducer = (state, action) => {
   switch (action.type) {
     case "PROFESSION_EDIT":
       return { editor: (state.editor = "PROFESSION_EDIT") };
-      break;
     case "SKILLS_EDIT":
       return { editor: (state.editor = "SKILLS_EDIT") };
-      break;
     case "EDUCATION_EDIT":
       return { editor: (state.editor = "EDUCATION_EDIT") };
-      break;
     case "BIO_EDIT":
       return { editor: (state.editor = "BIO_EDIT") };
-      break;
     case "CLOSE_EDITOR":
       return { editor: (state.editor = null) };
-      break;
     default:
       return state;
-      break;
   }
 };
 const Profile = () => {
@@ -326,6 +321,28 @@ const Profile = () => {
                     Review
                   </span>
                 </div>
+                <div
+                  style={profileSelectableCard}
+                  className={`w-4/12 flex items-center justify-center flex-col py-2 border-b-2 cursor-pointer ${
+                    tabs === "notification"
+                      ? "bg-[#c3d9ec] text-[#c3d9ec] border-[#3980c0]"
+                      : "border-gray-500 bg-50"
+                  }`}
+                  onClick={() => setTabs("notification")}
+                >
+                  <span className="text-xl text-gray-800">
+                    <AiOutlineMail />
+                  </span>
+                  <span
+                    className={`text-base font-medium ${
+                      tabs === "notification"
+                        ? "text-[#3980c0]"
+                        : "text-gray-800"
+                    }`}
+                  >
+                    Mails
+                  </span>
+                </div>
               </div>
               {/* Left side Bdy */}
               <div>
@@ -347,6 +364,11 @@ const Profile = () => {
                 {tabs === "review" && (
                   <div>
                     <Review />
+                  </div>
+                )}
+                {tabs === "notification" && (
+                  <div className="bg-white min-h-[50vh]">
+                    <Notifications />
                   </div>
                 )}
               </div>
@@ -507,4 +529,4 @@ const Profile = () => {
   );
 };
 
-export default withPrivate(Profile);
+export default Profile;

@@ -58,7 +58,7 @@ const HeaderBottom = () => {
               </li>
               <li className="mx-2 relative main_button">
                 <span className="flex items-center font-medium">
-                  Learning
+                  Spacial
                   <span className="pl-3 text-lg">
                     <MdKeyboardArrowDown />
                   </span>
@@ -70,13 +70,13 @@ const HeaderBottom = () => {
                     </Link>
                   </li>
                   <li className="py-2 border-b border-gray-500 px-6 hover:bg-[#ec4899]">
-                    <Link href="/">
-                      <a className="block">Learning 2</a>
+                    <Link href="/jobCreate">
+                      <a className="block">Make a Job</a>
                     </Link>
                   </li>
                   <li className="py-2 border-b border-gray-500 px-6 hover:bg-[#ec4899]">
-                    <Link href="/">
-                      <a className="block">Learning 3</a>
+                    <Link href="/support">
+                      <a className="block">Support center</a>
                     </Link>
                   </li>
                   <li className="py-2 px-6 hover:bg-[#ec4899]">

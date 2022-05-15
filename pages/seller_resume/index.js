@@ -1,7 +1,7 @@
 import React from 'react';
 import Resume_form from '../../components/Seller_resume/Resume_form';
 
-const index = () => {
+const ResumeSend = () => {
     return (
         <div>
             
@@ -12,4 +12,4 @@ const index = () => {
     );
 };
 
-export default index;
+export default ResumeSend;
