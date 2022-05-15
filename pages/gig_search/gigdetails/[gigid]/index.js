@@ -117,21 +117,6 @@ const GigDetails = () => {
       .then((res) => setSingleGig(res?.data?.result[0]))
       .catch((err) => console.log(err));
   }, [router?.query?.gigid]);
-  useEffect(() => {
-    axios
-      .get(
-        `${process.env.NEXT_PUBLIC_API_URL}/users/email/${gig?.email}`,
-        configJson
-      )
-      .then(
-        (response) => {
-          setGigUser(response?.data?.result);
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
-  }, [gig?.email]);
 
   console.log(thisUser);
   return (
@@ -142,7 +127,7 @@ const GigDetails = () => {
       <Header />
       {/* {!loading && ( */}
       <div className="container-fluid mx-auto px-3 py-10">
-        <div className="grid grid-cols-1 lg:grid-cols-8 gap-4">
+        <div className="grid grid-cols-1 lg:grid-cols-8 lg:gap-4 md:gap-0">
           <div className="col-span-5">
             {/* Gig Slider */}
             <SliderBannerImage gig={gig} />
@@ -153,7 +138,7 @@ const GigDetails = () => {
                   <strong className="text-xl font-bold  border-b-2 border-orange-200 pr-5 mt-6 pb-1 mb-2 online-block">
                     Gig Title
                   </strong>
-                  <p className="text-lg  mt-2">{gig?.gig_title}</p>
+                  <p className="text-lg font-normal mt-2">{gig?.gig_title}</p>
                 </div>
               )}
               {!(gig?.description === "") && (
@@ -200,7 +185,7 @@ const GigDetails = () => {
 
                     <div className="ml-2 mt-4">
                       <h1 className="text-[#2a3254] text-2xl capitalize">{seller?.buyerName}</h1>
-                      <p className="text-[#2a3254]">{seller?.description.slice(0, 200)}...</p>
+                      <p className="text-[#2a3254] capitalize">{seller?.description.slice(0, 200)}...</p>
                       <h2 className="text-[#2a3254] text-xl">{seller?.buyerEmail}</h2>
                       <h5 className="text-[#2a3254]">{seller?.date}</h5>
                     </div>
@@ -210,10 +195,10 @@ const GigDetails = () => {
             ))}
           </div>
           <div className="col-span-3">
-            <div className="grid grid-cols-8">
-              {/* About gig seller */}
+            {/* <div className="grid grid-cols-8">
+    
               <div className="rounded-full col-span-2 w-20 h-20 overflow-hidden">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
+              
                 <img className="mx-w-full" src={gigUser?.avatar} alt="" />
               </div>
               <div className="col-span-6">
@@ -222,8 +207,8 @@ const GigDetails = () => {
                 </strong>
                 <p className="pt-3 capitalize">{gigUser?.bio}</p>
               </div>
-            </div>
-            <div className="grid grid-cols-5 gap-4 items-center justify-between  font-bold text-md mt-1 text-center mb-5">
+            </div> */}
+            {/*  <div className="grid grid-cols-5 gap-4 items-center justify-between  font-bold text-md mt-1 text-center mb-5">
               <strong className="border-y-2   border-orange-200 py-1 capitalize">
                 {gigUser?.gender}
               </strong>
@@ -235,8 +220,8 @@ const GigDetails = () => {
                   {gigUser?.date}
                 </Moment>
               </strong>
-            </div>
-            {!(gigUser?.about === "") && (
+            </div> */}
+            {/*  {!(gigUser?.about === "") && (
               <div>
                 <strong className="text-xl font-bold  border-b-2 border-orange-200 pr-5 mt-6 pb-1 mb-2 online-block">
                   About
@@ -261,13 +246,13 @@ const GigDetails = () => {
                   {gigUser?.education}
                 </p>
               </div>
-            )}
-            <div>
+            )} */}
+            <div className="lg:fixed md:block">
               {/* Gig Pricing cards */}
-              <div className="mt-6 bg-white rounded-md pb-8 relative">
+              <div className="bg-white rounded-md pb-8 relative">
                 {/* Header */}
                 <div className="">
-                  <div className="grid grid-cols-3 bg-white rounded-t-md border-2 border-[#7b92f7] border-b-0 ">
+                  <div className="grid grid-cols-3 bg-white rounded-t-md border-2 border-[#7b92f7] border-b-0">
                     <div
                       className={`text-center cursor-pointer py-2 text-lg font-bold ${showPricing === "beginner" && "bg-[#8537ed] text-white"
                         }`}
@@ -293,7 +278,7 @@ const GigDetails = () => {
                   </div>
                 </div>
                 {/* body */}
-                <div style={{ boxShadow: "-2px 3px 15px rgba(0,0,0,0.1)", }} className=" pb-8 relative bg-white rounded-b-lg">
+                <div style={{ boxShadow: "-2px 3px 15px rgba(0,0,0,0.1)", }} className=" pb-8 relative bg-white rounded-b-lg lg:w-[450px] md:w-full">
                   {showPricing === "beginner" && (
                     <div>
                       <div className="h-56 flat_gradient pricing_card flex items-center justify-center flex-col">
@@ -319,7 +304,7 @@ const GigDetails = () => {
                       <div className="grid grid-cols-6 mx-4 pl-2  border-b border-[#2a3254] py-2 rounded-2xl">
                         <div className="col-span-2">
                           <strong className="text-lg font-bold text-[#2a3254]">
-                            Title
+                            Title:
                           </strong>
                         </div>
                         <div className="col-span-4 self-center">
@@ -329,7 +314,7 @@ const GigDetails = () => {
                       <div className="grid grid-cols-6 mx-4 pl-2  border-b border-[#2a3254] py-2 rounded-2xl">
                         <div className="col-span-2">
                           <strong className="text-lg font-bold text-[#2a3254]">
-                            Description
+                            Package:
                           </strong>
                         </div>
                         <div className="col-span-4 self-center">
@@ -371,7 +356,7 @@ const GigDetails = () => {
                       <div className="grid grid-cols-6 pl-3 mx-3  border-b border-[#2a3254] py-2 rounded-2xl">
                         <div className="col-span-2">
                           <strong className="text-lg font-bold ">
-                            Description
+                            Package:
                           </strong>
                         </div>
                         <div className="col-span-4 self-center">
@@ -411,7 +396,7 @@ const GigDetails = () => {
                       <div className="grid grid-cols-6 pl-3 mx-3  border-b border-[#2a3254]  py-2 rounded-2xl">
                         <div className="col-span-2">
                           <strong className="text-lg font-bold ">
-                            Description
+                            Package:
                           </strong>
                         </div>
                         <div className="col-span-4 self-center">
@@ -438,6 +423,11 @@ const GigDetails = () => {
                 )}
               </div>
               {/* end of gig_details */}
+              <div className="">
+                <Link href={`/gig_search/${gig?.email}`} >
+                  <button className="py-4 px-5 rounded-lg text-xl bg-[#0a1929] text-white hover:bg-[#8537ed] border mt-4 w-full duration-300 shadow">Contact Me</button>
+                </Link>
+              </div>
               {/* Start Review */}
               {thisUser?.status === "buyer" && (
                 <div>
