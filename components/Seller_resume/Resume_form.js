@@ -110,12 +110,7 @@ const Resume_form = () => {
                 Linkedin Profile Link
               </p>
               <input
-                className="border-[1px] shadow-md py-1 mt-2 border-sky-500 outline-pink-500 w-[100%] md:w-[80%] "
-          <div className=" flex justify-center md:mt-14 my-6">
-            <div className="md:-ml-12">
-              <p>Linkedin Profile Link</p>
-              <input
-                className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500 md:w-96 md:ml-[56px] ml-[52px]  "
+                className="border-[1px] shadow-md px-2 py-1 mt-2 border-sky-500 outline-pink-500 w-[100%] md:w-[80%] "
                 {...register("linkedinLink")}
                 type="text"
               />
@@ -125,7 +120,7 @@ const Resume_form = () => {
                 Github Profile Link
               </p>
               <input
-                className="border-[1px] shadow-md py-1 mt-2 w-[100%] md:w-[80%] border-sky-500 outline-pink-500   "
+                className="border-[1px] shadow-md px-2 py-1 mt-2 w-[100%] md:w-[80%] border-sky-500 outline-pink-500   "
                 {...register("githubLink")}
                 type="text"
                 required
@@ -137,23 +132,7 @@ const Resume_form = () => {
                 Portfolio Link
               </p>
               <input
-                className="border-[1px] shadow-md py-1 mt-2 border-sky-500 outline-pink-500 w-[100%] md:w-[80%]  "
-          </div>
-          <div className=" flex justify-center my-6">
-            <div className="md:-ml-12">
-              <p>Github Profile Link</p>
-              <input
-                className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500 md:w-96 md:ml-[56px] ml-[52px]  "
-                {...register("githubLink")}
-                type="text"
-              />
-            </div>
-          </div>
-          <div className=" flex justify-center my-6">
-            <div className="md:-ml-12">
-              <p>Portfolio Link</p>
-              <input
-                className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500 md:w-96 md:ml-[56px] ml-[52px]  "
+                className="border-[1px] shadow-md px-2 py-1 mt-2 border-sky-500 outline-pink-500 w-[100%] md:w-[80%]  "
                 {...register("portfolioLink")}
                 type="text"
               />
@@ -164,20 +143,13 @@ const Resume_form = () => {
                 Have you worked for our team before?
               </p>
               <select
-                className="border-[1px] shadow-md mt-2 py-1 border-sky-500 outline-pink-500 w-[100%] "
-          </div>
-          <div className=" flex justify-center my-6">
-            <div className="md:-ml-12">
-              <p className="must">Have you worked for our team before?</p>
-              <select
-                className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500 md:w-96 md:ml-[56px] ml-[52px]  "
-
+                className="border-[1px] shadow-md px-2 mt-2 py-1 border-sky-500 outline-pink-500 w-[100%] "
                 {...register("familiar")}
                 required
                 type="text"
               >
 
-                <option defaultValue disabled>
+                
                 <option selected disabled>
 
                   --select--
@@ -193,7 +165,7 @@ const Resume_form = () => {
                   If referred, Please provide the name to your referred.
                 </p>
                 <input
-                  className="border-[1px] py-1 shadow-md mt-2 border-sky-500 outline-pink-500 w-[100%] "
+                  className="border-[1px] px-2 py-1 shadow-md mt-2 border-sky-500 outline-pink-500 w-[100%] "
                   {...register("referredName")}
                   required
                   type="text"
@@ -202,17 +174,7 @@ const Resume_form = () => {
             </div>
             
            </div>
-            {/* <div className=" flex justify-center my-6">
-              <div className="md:-ml-12">
-                <p className="must">What is your salary expectation?</p>
-                <input
-                  className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500 md:w-96 md:ml-[56px] ml-[52px]  "
-                  {...register("salaryExpect")}
-                  required
-                  type="text"
-                />
-              </div>
-            </div> */}
+          
 
             <div className="text-center  ">
               <p className="text-center text-xl text-indigo-300 ">
@@ -228,7 +190,7 @@ const Resume_form = () => {
                 Educations
                 </p>
                 <textarea
-                  className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500 w-[100%] "
+                  className="border-[1px] px-2 shadow-md mt-2 border-sky-500 outline-pink-500 w-[100%] "
                   {...register("education")}
                   required
                   type="text"
@@ -242,7 +204,7 @@ const Resume_form = () => {
                 Company Name
                 </p>
                 <input
-                  className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500 w-[100%] "
+                  className="border-[1px] shadow-md py-1 px-2 mt-2 border-sky-500 outline-pink-500 w-[100%] "
                   {...register("companyName")}
                   required
                   type="text"
@@ -253,7 +215,7 @@ const Resume_form = () => {
                 That was the role in the company
                 </p>
                 <input
-                  className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500 w-[100%] "
+                  className="border-[1px] shadow-md py-1 px-2 mt-2 border-sky-500 outline-pink-500 w-[100%] "
                   {...register("roleOfCompany")}
                   required
                   type="text"
@@ -265,13 +227,14 @@ const Resume_form = () => {
                 <p className="text-xl text-pink-300  must">
                 Experience of Technologies
                 </p>
-               <div className="border-[1px] shadow-md py-1 mt-2 border-sky-500 outline-pink-500 w-[100%]">
+
+               <div className="border-[1px] px-2 shadow-md py-1 mt-2 border-sky-500 outline-pink-500 w-[100%]">
                 {/* <div className=" p-2 bg-slate-300 py-[1px] inline-block rounded-3xl ">
                 <span className="">Hello</span>
                  <span className="close bg-black ml-1 text-white p-[2px] px-2 rounded-full">&times;</span>
                 </div> */}
                <input
-                  className="border-0 outline-none w-[100%] "
+                  className="border-0 px-2 py-1 outline-none w-[100%] "
                   {...register("experience")}
                   placeholder="text here"
                   type="text"
@@ -283,7 +246,7 @@ const Resume_form = () => {
                 How many years expe do you have?
                 </p>
                 <input
-                  className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500 w-[100%] "
+                  className="border-[1px] px-2 py-1 shadow-md mt-2 border-sky-500 outline-pink-500 w-[100%] "
                   {...register("experienceOfYears")}
                   required
                   type="number"
@@ -297,7 +260,7 @@ const Resume_form = () => {
                 <div className="md:text-start">
                   <div>
                     <input
-                      className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500  md:ml-[56px] ml-[52px]  "
+                      className="border-[1px] px-2 shadow-md mt-2 border-sky-500 outline-pink-500  md:ml-[56px] ml-[52px]  "
                       {...register("gender")}
                       value="Male"
                       type="radio"
@@ -306,7 +269,7 @@ const Resume_form = () => {
                   </div>
                   <div>
                     <input
-                      className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500  md:ml-[56px] ml-[52px]  "
+                      className="border-[1px] px-2 shadow-md mt-2 border-sky-500 outline-pink-500  md:ml-[56px] ml-[52px]  "
                       {...register("gender")}
                       value="Female"
                       type="radio"
@@ -315,7 +278,7 @@ const Resume_form = () => {
                   </div>
                   <div>
                     <input
-                      className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500  md:ml-[56px] ml-[52px]  "
+                      className="border-[1px] px-2 shadow-md mt-2 border-sky-500 outline-pink-500  md:ml-[56px] ml-[52px]  "
                       {...register("gender")}
                       value="Non-binary"
                       type="radio"
@@ -325,7 +288,7 @@ const Resume_form = () => {
                 </div>
                 <div>
                   <input
-                    className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500  md:ml-[56px] ml-[52px]  "
+                    className="border-[1px] px-2 shadow-md mt-2 border-sky-500 outline-pink-500  md:ml-[56px] ml-[52px]  "
                     {...register("gender")}
                     value="Decline to disclose"
                     type="radio"
@@ -340,7 +303,7 @@ const Resume_form = () => {
                 <div className="md:text-start">
                   <div>
                     <input
-                      className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500  md:ml-[56px] ml-[52px]  "
+                      className="border-[1px] px-2 shadow-md mt-2 border-sky-500 outline-pink-500  md:ml-[56px] ml-[52px]  "
                       {...register("veteran")}
                       value="Yes"
                       type="radio"
@@ -349,7 +312,7 @@ const Resume_form = () => {
                   </div>
                   <div>
                     <input
-                      className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500  md:ml-[56px] ml-[52px]  "
+                      className="border-[1px] px-2 shadow-md mt-2 border-sky-500 outline-pink-500  md:ml-[56px] ml-[52px]  "
                       {...register("veteran")}
                       value="No"
                       type="radio"
@@ -358,7 +321,7 @@ const Resume_form = () => {
                   </div>
                   <div>
                     <input
-                      className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500  md:ml-[56px] ml-[52px]  "
+                      className="border-[1px] px-2 shadow-md mt-2 border-sky-500 outline-pink-500  md:ml-[56px] ml-[52px]  "
                       {...register("veteran")}
                       value="Decline to disclose"
                       type="radio"
@@ -375,7 +338,7 @@ const Resume_form = () => {
                 <div className="md:text-start">
                   <div>
                     <input
-                      className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500  md:ml-[56px] ml-[52px]  "
+                      className="border-[1px] px-2 shadow-md mt-2 border-sky-500 outline-pink-500  md:ml-[56px] ml-[52px]  "
                       {...register("region")}
                       value="Black or african american"
                       type="radio"
@@ -384,7 +347,7 @@ const Resume_form = () => {
                   </div>
                   <div>
                     <input
-                      className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500  md:ml-[56px] ml-[52px]  "
+                      className="border-[1px] px-2 shadow-md mt-2 border-sky-500 outline-pink-500  md:ml-[56px] ml-[52px]  "
                       {...register("region")}
                       value="Hispanic or Latino"
                       type="radio"
@@ -431,88 +394,16 @@ const Resume_form = () => {
                   style={{height:"7rem"}}
                 />
           </div>
-          <div className=" flex justify-center my-6">
-            <div className="md:-ml-12">
-              <p className="must">
-                If referred, Please provide the name to your referred.
-              </p>
-              <input
-                className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500 md:w-96 md:ml-[56px] ml-[52px]  "
-                {...register("referredName")}
-                required
-                type="text"
-              />
-            </div>
-          </div>
-          <div className=" flex justify-center my-6">
-            <div className="md:-ml-12">
-              <p className="must">What is your salary expectation?</p>
-              <input
-                className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500 md:w-96 md:ml-[56px] ml-[52px]  "
-                {...register("salaryExpect")}
-                required
-                type="text"
-              />
-            </div>
-          </div>
+        
+        
 
-          <div className="text-center  md:ml-16">
-            <p className="">
-              Any information you provide will kept confidential and will only
-              be reported in aggregate form your employment Equity purposes. In
-              other words, the reported data will not contain and personal
-              information.
-            </p>
-          </div>
-          <div className=" flex justify-center my-6">
-            <div className="md:-ml-12">
-              <p className="must">What is your Gender?(select one)</p>
-              <input
-                className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500  md:ml-[56px] ml-[52px]  "
-                {...register("gender")}
-                required
-                type="radio"
-              />
-              <label>Male</label>
-              <input
-                className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500  md:ml-[56px] ml-[52px]  "
-                {...register("gender")}
-                required
-                type="radio"
-              />
-              <label>Female</label>
-              <input
-                className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500  md:ml-[56px] ml-[52px]  "
-                {...register("gender")}
-                required
-                type="radio"
-              />
-              <label>Non-binary</label>
-              <input
-                className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500  md:ml-[56px] ml-[52px]  "
-                {...register("gender")}
-                required
-                type="radio"
-              />
-              <label>Decline to disclose</label>
-            </div>
-          </div>
-          <div className=" flex justify-center my-6">
-            <div className="md:-ml-12">
-              <p className="must">CV/Resume</p>
-              <textarea
-                className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500 md:w-96 md:ml-[56px] ml-[52px]  "
-                {...register("salaryExpect")}
-                required
-                type="text"
-              />
-            </div>
-          </div>
+        
+         
 
           <div className="flex justify-center my-6">
             <input
               className="text-white hover:text-sky-600 w-[25%] bg-sky-600 hover:bg-transparent  border-2 border-sky-600 active:bg-indigo-700  px-8 py-1 "
-              className="text-white hover:text-sky-600 bg-sky-600 hover:bg-transparent  border-2 border-sky-600 active:bg-indigo-700  px-8 py-1 "
+             
               type="submit"
             />
           </div>
@@ -523,4 +414,4 @@ const Resume_form = () => {
 };
 
 export default Resume_form;
-4;
+
