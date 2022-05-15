@@ -29,8 +29,8 @@ const GigDetails = () => {
 
   // EMAIL FROM QUERY
   let queryEm = router?.query?.gigid;
-  let email = queryEm.slice(queryEm.indexOf("+++"), queryEm.length);
-  email = email.substring(3);
+  let email = queryEm?.slice(queryEm?.indexOf("+++"), queryEm?.length);
+  email = email?.substring(3);
   console.log(email);
   //Buyer rivew
   useEffect(() => {
@@ -110,7 +110,7 @@ const GigDetails = () => {
   };
   // SINGLE GIG LOAD
   let query = router?.query?.gigid;
-  let id = query.slice(0, query.indexOf("+++"));
+  let id = query?.slice(0, query?.indexOf("+++"));
   useEffect(() => {
     const getSingleGig = async () => {
       try {
@@ -200,7 +200,7 @@ const GigDetails = () => {
                         {seller?.buyerName}
                       </h1>
                       <p className="text-[#2a3254] capitalize">
-                        {seller?.description.slice(0, 200)}...
+                        {seller?.description?.slice(0, 200)}...
                       </p>
                       <h2 className="text-[#2a3254] text-xl">
                         {seller?.buyerEmail}
