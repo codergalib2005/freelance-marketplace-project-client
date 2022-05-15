@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import Footer from "../../components/Shared/Footer";
 import Header from "../../components/Shared/Header";
 import HeaderTop from "../../components/Shared/HeaderTop";
+import { notification } from "antd";
 import axios from "axios";
 const JobCreate = () => {
   const { register, handleSubmit } = useForm();
@@ -63,10 +64,34 @@ const JobCreate = () => {
         },
       })
       .then(() => {
-        alert("Job Created Successfully");
+        notification.success({
+          message: "Success",
+          description: "Jobs Created Successfully!",
+          placement: "top",
+          duration: 2,
+          style: {
+            width: 300,
+            //   marginLeft: "calc(50% - 150px)",
+            //   marginTop: "calc(50vh - 100px)",
+            borderBottom: "6px solid #3a3",
+            boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
+          },
+        });
       })
       .catch(() => {
-        alert("Job Creation Failed");
+        nitifiction.error({
+          message: "Error",
+          description: "Jobs Not Created!",
+          placement: "top",
+          duration: 2,
+          style: {
+            width: 300,
+            //   marginLeft: "calc(50% - 150px)",
+            //   marginTop: "calc(50vh - 100px)",
+            borderBottom: "6px solid #e73a3b",
+            boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
+          },
+        });
       });
   };
   return (
