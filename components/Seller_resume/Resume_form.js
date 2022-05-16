@@ -150,7 +150,7 @@ const Resume_form = () => {
               >
 
                 
-                <option selected disabled>
+                <option defaultValue disabled>
 
                   --select--
                 </option>
