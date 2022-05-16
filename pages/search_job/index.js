@@ -162,7 +162,7 @@ const localJobs = [
     _id: "23jkj343kf",
   },
   {
-    title: "The Shawshank Redemption",
+    title: "Al Amin Jobs",
     desctiption:
       "Two imprisoned, innocent, and very close friends find a way to escape from the prison.",
     logo: "https://corporate.bdjobs.com/logos/81446_0.jpg",
@@ -195,6 +195,9 @@ const JobSearch = () => {
   const [jobs, setJobs] = useState(localJobs);
   const [preview, setPreview] = useState();
   const [column, setColumn] = useState(4);
+
+  const [searchTerm, setSearchTerm] = useState("");
+
   // GET ALL JOBS FROM HERE
   // useEffect(()=>{
   //     const getAllJobs = async () => {
@@ -220,6 +223,7 @@ const JobSearch = () => {
                 <div className="grid grid-cols-8 items-center py-2 gap-5">
                   <div className="col-span-8 sm:col-span-5">
                     <input
+                      onChange={event => (setSearchTerm(event.target.value))}
                       className="w-full text-lg font-medium text-gray-800 border border-gray-800 py-1 px-3 rounded-md"
                       type="text"
                       placeholder="Search your keyword"
@@ -230,9 +234,8 @@ const JobSearch = () => {
                       {buttons.map((btn, index) => (
                         <button
                           onClick={() => setColumn(btn?.number)}
-                          className={`text-2xl w-10 h-10 shadow-md bg-white text-gray-900 flex items-center justify-center hover:shadow-xl ${
-                            column === btn.number ? "" : "shadow-current"
-                          }`}
+                          className={`text-2xl w-10 h-10 shadow-md bg-white text-gray-900 flex items-center justify-center hover:shadow-xl ${column === btn.number ? "" : "shadow-current"
+                            }`}
                           key={index}
                         >
                           {btn.icon}
@@ -246,14 +249,19 @@ const JobSearch = () => {
             {/* Job Shower */}
             <section className="container mx-auto px-4 py-8 min-h-[60vh]">
               <div
-                className={`grid grid-cols-1 sm:grid-cols-${
-                  column - 2
-                } md:grid-cols-${column - 1} lg:grid-cols-${column} gap-4`}
+                className={`grid grid-cols-1 sm:grid-cols-${column - 2
+                  } md:grid-cols-${column - 1} lg:grid-cols-${column} gap-4`}
               >
-                {jobs.map((job, index) => (
+                {jobs.filter(value => {
+                  if (searchTerm === "") {
+                    return value;
+                  } else if (value.title.toLowerCase().includes(searchTerm.toLowerCase())) {
+                    return value;
+                  }
+                }).map((job, i) => (
                   <div
                     onClick={() => setPreview(job)}
-                    key={index}
+                    key={i}
                     className={`shadow-lg hover:shadow-xl p-4 rounded-md`}
                   >
                     <div>
