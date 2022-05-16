@@ -4,7 +4,8 @@ import { useForm } from "react-hook-form";
 import Footer from "../../components/Shared/Footer";
 import Header from "../../components/Shared/Header";
 import HeaderTop from "../../components/Shared/HeaderTop";
-
+import { notification } from "antd";
+import axios from "axios";
 const JobCreate = () => {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
@@ -42,8 +43,8 @@ const JobCreate = () => {
     technologies.push(data.technology4);
     technologies.push(data.technology5);
     technologies.push(data.technology6);
-    body.technologies = data.technologies;
-    body.companyDescription = data.JobCreatecompanyDescription;
+    body.technologies = technologies;
+    body.companyDescription = data.companyDescription;
     body.companyName = data.companyName;
     body.email = data.email;
     body.firstName = data.firstName;
@@ -52,7 +53,46 @@ const JobCreate = () => {
     body.jobType = data.jobType;
     body.lastName = data.lastName;
     body.role = data.role;
+    body.salary = data.salary;
     console.log(body);
+    console.log(data);
+    axios
+      .post(`${process.env.NEXT_PUBLIC_API_URL}/jobs/jobs`, body, {
+        headers: {
+          "Content-Type": "application/json",
+          "Access-Control-Allow-Origin": "*",
+        },
+      })
+      .then(() => {
+        notification.success({
+          message: "Success",
+          description: "Jobs Created Successfully!",
+          placement: "top",
+          duration: 2,
+          style: {
+            width: 300,
+            //   marginLeft: "calc(50% - 150px)",
+            //   marginTop: "calc(50vh - 100px)",
+            borderBottom: "6px solid #3a3",
+            boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
+          },
+        });
+      })
+      .catch(() => {
+        nitifiction.error({
+          message: "Error",
+          description: "Jobs Not Created!",
+          placement: "top",
+          duration: 2,
+          style: {
+            width: 300,
+            //   marginLeft: "calc(50% - 150px)",
+            //   marginTop: "calc(50vh - 100px)",
+            borderBottom: "6px solid #e73a3b",
+            boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
+          },
+        });
+      });
   };
   return (
     <>
@@ -240,13 +280,13 @@ const JobCreate = () => {
                     style={{ boxShadow: "-2px 3px 15px rgba(0,0,0,0.05)" }}
                     type="text"
                     className="border-[2px] px-2 rounded-2 py-2 focus:outline-none rounded-md w-[90%] ml-8"
-                    {...register("jobTitle")}
+                    {...register("salary")}
                   >
                     <option value=""></option>
-                    <option value="A">Under 15k</option>
-                    <option value="B">20k - 30k</option>
-                    <option value="C">30k - 40k</option>
-                    <option value="D">40k +</option>
+                    <option value="Under 15k">Under 15k</option>
+                    <option value="20k - 30k">20k - 30k</option>
+                    <option value="30k - 40k">30k - 40k</option>
+                    <option value="40k +">40k +</option>
                   </select>
                 </div>
               </div>{" "}
