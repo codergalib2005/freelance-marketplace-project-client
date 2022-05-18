@@ -18,10 +18,10 @@ import { notification } from "antd";
 const BuyPlan = () => {
   const [calenderValue, setCalenderValue] = React.useState(new Date());
   const [gig, setSingleGig] = useState({});
-  const { loading, thisUser } = useAuth();
+  const [thisUser, setThisUser] = useState({});
+  const { loading, user } = useAuth();
   const router = useRouter();
   const id = router?.query?.chooseid;
-  const { user } = useAuth();
   //hook from function
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
@@ -64,6 +64,22 @@ const BuyPlan = () => {
       })
       .catch((err) => console.log(message));
   };
+  useEffect(() => {
+    axios
+      .get(
+        `${process.env.NEXT_PUBLIC_API_URL}/users/email/${user?.email}`,
+        configJson
+      )
+      .then(
+        (response) => {
+          setThisUser(response?.data?.result);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+  }, []);
+  console.log(thisUser);
   useEffect(() => {
     const GETURL = `${process.env.NEXT_PUBLIC_API_URL}/gigs/${id}`;
     axios

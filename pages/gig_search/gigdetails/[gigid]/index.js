@@ -50,20 +50,6 @@ const GigDetails = () => {
 
   //hook from
 
-  //Buyer rivew
-  useEffect(() => {
-    fetch(`${process.env.NEXT_PUBLIC_API_URL}/reviews/sellerEmail/${email}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setSellerEmail(data.result);
-      });
-  }, []);
-
   const { register, handleSubmit, reset } = useForm();
   console.log(user);
   const onSubmit = (data) => {
@@ -124,7 +110,7 @@ const GigDetails = () => {
       }
     };
     getSingleGig();
-  }, [router?.query?.gigid]);
+  }, [id]);
 
   console.log(sellerEmail);
   return (

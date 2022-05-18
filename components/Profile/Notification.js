@@ -24,10 +24,8 @@ const Notification = () => {
     };
     getNotifictions();
   }, []);
-  const handlePreview = (data) => {
+  const handlePreview = (data) => {}
     // setPreview(data);
-  };
-  console.log(preview);
   return (
     <div className="flex">
       <div>
