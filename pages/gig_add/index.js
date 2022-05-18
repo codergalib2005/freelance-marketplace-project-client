@@ -17,16 +17,12 @@ const controlReducer = (state, action) => {
   switch (action.type) {
     case "MAIN_PAGE":
       return { showPage: (state.showPage = "MAIN_PAGE") };
-      break;
     case "PRICING_PAGE":
       return { showPage: (state.showPage = "PRICING_PAGE") };
-      break;
     case "GALLERY_PAGE":
       return { showPage: (state.showPage = "GALLERY_PAGE") };
-      break;
     default:
       return state;
-      break;
   }
 };
 const GigCreation = () => {

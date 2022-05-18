@@ -23,14 +23,11 @@ const useFirebase = () => {
   const [userStatus, setUserStatus] = useState("");
   const [loading, setIsLoadind] = useState(true);
   const [error, setError] = useState("");
-  const [thisUser, setThisUser] = useState({});
   const [isOpen, setIsOpen] = useState(false);
-  const [allGigs, setAllGigs] = useState([]);
   const [admin, setAdmin] = useState(false);
   const [reviews, setReviews] = useState([]);
   //for admin
   // const [admin, setAdmin] = useState(false)
-
 
   const router = useRouter();
 
@@ -181,6 +178,11 @@ const useFirebase = () => {
       .then(data => setAdmin(data.access))
   }, [user?.email])
 
+      .then((res) => res.json())
+      .then((data) => setAdmin(data.access));
+  }, [user?.email]);
+
+
   //signIn user email and pass
   const logInUser = (email, password) => {
     setIsLoadind(true);
@@ -223,58 +225,6 @@ const useFirebase = () => {
       .finally(() => setIsLoadind(false));
   };
 
-  // google signIN
-  const signInWithGoogle = () => {
-    setIsLoadind(true);
-    const googleProvider = new GoogleAuthProvider();
-    signInWithPopup(auth, googleProvider)
-      .then((result) => {
-        // This gives you a Google Access Token. You can use it to access the Google API.
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
-        const user = result.user;
-        router.replace("/");
-        setError("");
-        notification.success({
-          message: "Success",
-          description: "User register successfully!",
-          placement: "top",
-          duration: 2,
-          style: {
-            width: 300,
-            //   marginLeft: "calc(50% - 150px)",
-            //   marginTop: "calc(50vh - 100px)",
-            borderBottom: "6px solid #3a3",
-            boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
-          },
-        });
-      })
-      .catch((error) => {
-        // Handle Errors here.
-        const errorCode = error.code;
-        setError(error.message);
-        notification.error({
-          message: "Error",
-          description: `${error.message}`,
-          placement: "top",
-          duration: 2,
-          style: {
-            width: 300,
-            //   marginLeft: "calc(50% - 150px)",
-            //   marginTop: "calc(50vh - 100px)",
-            borderBottom: "6px solid #e83a3b",
-            boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
-          },
-        });
-        // The email of the user's account used.
-        const email = error.email;
-        // The AuthCredential type that was used.
-        const credential = GoogleAuthProvider.credentialFromError(error);
-        // ...
-      })
-      .finally(() => setIsLoadind(false));
-  };
-
   // Load Login personal data loader
   useEffect(() => {
     setIsLoadind(true);
@@ -292,47 +242,21 @@ const useFirebase = () => {
       .catch((err) => console.log(err));
   }, [user?.email]);
 
-  useEffect(() => {
-    axios
-      .get(
-        `${process.env.NEXT_PUBLIC_API_URL}/users/email/${user?.email}`,
-        configJson
-      )
-      .then(
-        (response) => {
-          setThisUser(response?.data?.result);
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
-  }, [configJson, user?.email]);
-
-  // LOAD HERE ALL GIGS
-  useEffect(() => {
-    axios
-      .get(`${process.env.NEXT_PUBLIC_API_URL}/gigs`, configJson)
-      .then((res) => {
-        setAllGigs(res?.data?.result);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, [configJson]);
   // GET ALL REVIEWS LOGGIN USER BASED ON EMAIL
   useEffect(() => {
-    axios
-      .get(
-        `${process.env.NEXT_PUBLIC_API_URL}/reviews/sellerEmail/${user?.email}`,
-        configJson
-      )
-      .then((res) => {
+    const getAllReviews = async () => {
+      try {
+        const res = await axios.get(
+          `${process.env.NEXT_PUBLIC_API_URL}/reviews/sellerEmail/${user?.email}`,
+          configJson
+        );
         setReviews(res?.data?.result);
-      })
-      .catch((err) => {
+      } catch (err) {
         console.log(err);
-      });
-  }, [configJson]);
+      }
+    };
+    getAllReviews();
+  }, []);
 
   //logout email and pass
   const logOut = () => {
@@ -378,17 +302,13 @@ const useFirebase = () => {
     admin,
     registerUser,
     logInUser,
-    signInWithGoogle,
     loading,
     setIsLoadind,
     logOut,
     error,
     userStatus,
-    thisUser,
     isOpen,
     setIsOpen,
-    allGigs,
-    setAllGigs,
     reviews,
   };
 };
