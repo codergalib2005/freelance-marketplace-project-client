@@ -67,9 +67,7 @@ const BuyPlan = () => {
   useEffect(() => {
     axios
       .get(
-        `${process.env.NEXT_PUBLIC_API_URL}/users/email/${user?.email}`,
-        configJson
-      )
+        `${process.env.NEXT_PUBLIC_API_URL}/users/email/${user?.email}`)
       .then(
         (response) => {
           setThisUser(response?.data?.result);

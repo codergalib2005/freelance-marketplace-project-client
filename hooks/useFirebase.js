@@ -25,7 +25,7 @@ const useFirebase = () => {
   const [loading, setIsLoadind] = useState(true);
   const [error, setError] = useState("");
   const [isOpen, setIsOpen] = useState(false);
-
+  const [thisUser, setThisUser] = useState()
   const [allGigs, setAllGigs] = useState([]);
   const [admin, setAdmin] = useState(true);
   const [reviews, setReviews] = useState([]);
@@ -198,24 +198,15 @@ const useFirebase = () => {
         console.log(err);
       }
         }
-      
-      
     };
     adminLoad();
   //  fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/admin/${user?.email}`)
   //     .then((res) => res.json())
   //     .then((data) => setAdmin(data.access));
-      
-  }, [user.email]);
-    setIsLoadind(true);
-    fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/admin/${user?.email}`)
-      .then(res => res.json())
-      .then(data => setAdmin(data.access))
-  }, [user?.email])
-
-      .then((res) => res.json())
-      .then((data) => setAdmin(data.access));
   }, [user?.email]);
+
+
+
   //signIn user email and pass
   const logInUser = (email, password) => {
     setIsLoadind(true);
