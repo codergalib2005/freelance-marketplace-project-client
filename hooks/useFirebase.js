@@ -22,9 +22,7 @@ const useFirebase = () => {
   const [userStatus, setUserStatus] = useState("");
   const [loading, setIsLoadind] = useState(true);
   const [error, setError] = useState("");
-  const [thisUser, setThisUser] = useState({});
   const [isOpen, setIsOpen] = useState(false);
-  const [allGigs, setAllGigs] = useState([]);
   const [admin, setAdmin] = useState(false);
   const [reviews, setReviews] = useState([]);
   //for admin
@@ -226,37 +224,6 @@ const useFirebase = () => {
       .catch((err) => console.log(err));
   }, [user?.email]);
 
-  useEffect(() => {
-    axios
-      .get(
-        `${process.env.NEXT_PUBLIC_API_URL}/users/email/${user?.email}`,
-        configJson
-      )
-      .then(
-        (response) => {
-          setThisUser(response?.data?.result);
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
-  }, []);
-
-  // LOAD HERE ALL GIGS
-  useEffect(() => {
-    const getAllGigs = async () => {
-      try {
-        const res = await axios.get(
-          `${process.env.NEXT_PUBLIC_API_URL}/gigs`,
-          configJson
-        );
-        setAllGigs(res?.data?.result);
-      } catch (err) {
-        console.log(err);
-      }
-    };
-    getAllGigs();
-  }, []);
   // GET ALL REVIEWS LOGGIN USER BASED ON EMAIL
   useEffect(() => {
     const getAllReviews = async () => {
@@ -322,11 +289,8 @@ const useFirebase = () => {
     logOut,
     error,
     userStatus,
-    thisUser,
     isOpen,
     setIsOpen,
-    allGigs,
-    setAllGigs,
     reviews,
   };
 };

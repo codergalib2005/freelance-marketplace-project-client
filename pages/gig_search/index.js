@@ -6,7 +6,7 @@ import RadioGroup from "@mui/material/RadioGroup";
 import Skeleton from "@mui/material/Skeleton";
 import axios from "axios";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { AiOutlineBars } from "react-icons/ai";
 import { BiSearchAlt2 } from "react-icons/bi";
 import { BsFillGrid3X3GapFill, BsFilterLeft } from "react-icons/bs";
@@ -19,14 +19,34 @@ const GigSearch = () => {
   const [value, setValue] = useState("");
   const [search, setSearch] = useState("");
   const [showSidebar, setShowSidebar] = useState(true);
-  const { allGigs } = useAuth();
   const [loading, setLoading] = useState(true);
   const [gridColumn, setGridColumn] = useState("grid_column");
+  const [allGigs, setAllGigs] = useState([]);
+
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const handleChange = (event) => {
     setValue(event.target.value);
   };
-  console.log(allGigs);
+  const configJson = {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  };
+  // LOAD HERE ALL GIGS
+  useEffect(() => {
+    const getAllGigs = async () => {
+      try {
+        const res = await axios.get(
+          `${process.env.NEXT_PUBLIC_API_URL}/gigs`,
+          configJson
+        );
+        setAllGigs(res?.data?.result);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getAllGigs();
+  }, []);
   return (
     <div>
       <HeaderTop />

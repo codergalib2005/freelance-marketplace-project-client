@@ -54,13 +54,10 @@ const JobCreate = () => {
     body.lastName = data.lastName;
     body.role = data.role;
     body.salary = data.salary;
-    console.log(body);
-    console.log(data);
     axios
       .post(`${process.env.NEXT_PUBLIC_API_URL}/jobs/jobs`, body, {
         headers: {
           "Content-Type": "application/json",
-          "Access-Control-Allow-Origin": "*",
         },
       })
       .then(() => {
@@ -79,7 +76,7 @@ const JobCreate = () => {
         });
       })
       .catch(() => {
-        nitifiction.error({
+        notification.error({
           message: "Error",
           description: "Jobs Not Created!",
           placement: "top",
