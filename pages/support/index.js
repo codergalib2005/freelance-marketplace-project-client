@@ -7,16 +7,24 @@ import HeaderBottom from "../../components/Shared/HeaderBottom";
 import HeaderTop from "../../components/Shared/HeaderTop";
 import { popularsupport } from "../../components/Support/Support";
 import { supportTeam } from "../../components/Support/SupportTeam";
-import Modal from "../../components/Support/Modal";
+import ModalSupport from "../../components/Support/Modal";
 
 const SupportPage = () => {
-  const [open, setOpen] = useState(false);
   const [supporter, setSupporter] = useState("");
-
-  const messageFunc = (name) => {
-    setOpen(true);
-    setSupporter(name);
+  const [isModalVisible, setIsModalVisible] = useState(false);
+   const showModal = (name) => {
+    setIsModalVisible(true);
+     setSupporter(name);
   };
+
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+
   return (
     <div>
       <header>
@@ -91,7 +99,7 @@ const SupportPage = () => {
               </p>
               <div className="flex justify-center">
                 <button
-                  onClick={() => messageFunc(st.name)}
+                  onClick={() => showModal(st.name)}
                   className="px-12 py-3 rounded-full bg-blue-500 text-white mb-4"
                 >
                   Message
@@ -104,7 +112,7 @@ const SupportPage = () => {
       <footer>
         <Footer />
       </footer>
-      <Modal open={open} setOpen={setOpen} name={supporter} />
+      <ModalSupport isModalVisible={isModalVisible} handleOk={handleOk} handleCancel={handleCancel} setIsModalVisible={setIsModalVisible} name={supporter} />
     </div>
   );
 };
