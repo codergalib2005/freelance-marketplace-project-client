@@ -87,6 +87,22 @@ body::-webkit-scrollbar-thumb {
   background-color: #1a2747;
   border-left: 2px solid rgb(24, 113, 203);
 }
+
+@media only screen and (max-width: 568px) {
+  body::-webkit-scrollbar {
+    width: 0px;
+  }
+  
+  body::-webkit-scrollbar-track {
+    box-shadow: none;
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    background-color: none;
+    border-left: none;
+  }
+}
+
 ul {
   list-style: none;
 }
