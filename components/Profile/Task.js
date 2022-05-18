@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
-import React from "react";
-
+import React, { useEffect, useState } from "react";
+import axios from "axios"
+import useAuth from "../../hooks/useAuth"
 const arrInfo = [
   {
     id: 1,
@@ -26,6 +27,53 @@ const arrInfo = [
 ];
 
 const Task = () => {
+  const {user}=useAuth()
+  const [tasks,setTasks]=useState([])
+  console.log(tasks);
+  const [timerDays,setTimerDays]=useState()
+  const [timerHour,setTimerHour]=useState()
+  const [timerMinutes,setTimerMinutes]=useState()
+  const [timerSecond,setTimerSecond]=useState()
+  const [countDown,setCountDown]=useState({})
+   
+
+
+
+  let interval;
+  const startTimer = ()=>{
+      const countDown = new Date("May 17, 2022 1:50:25").getTime() 
+      interval=setInterval= ()=>{
+        const startDate = new Date().getTime() 
+        const distance = countDown-startDate;
+        const days = Math.floor(distance/(24*60*60*1000))
+        const hours = Math.floor((distance%(24*60*60*1000))/(1000*60*60))
+        const minutes = Math.floor((distance%(60*60*1000))/(1000*60))
+        const seconds = Math.floor((distance%(60*1000))/(1000))
+        if(distance<0){
+          // stop timer
+          clearInterval(interval.current)
+        }
+        else{
+          // update timer
+          setTimerDays(days)
+          setTimerHour(hours)
+          setTimerMinutes(minutes)
+          setTimerSecond(seconds)
+        }
+      }
+  }
+
+  useEffect(()=>{
+    startTimer()
+  })
+
+  axios.get(`${process.env.NEXT_PUBLIC_API_URL}/task/sellerEmail/${user?.email}`)
+      .then(res => {
+        setTasks(res.data.result) ;
+      })
+      .catch((error)=>console.log(error))
+
+     
   return (
     <div className="my-12">
       <p>Here is all of the task items</p>
@@ -52,6 +100,12 @@ const Task = () => {
               </div>
             </div>
           ))}
+          
+
+<p>{timerDays}</p>
+          <p>{timerHour}</p>
+          <p>{timerMinutes}</p>
+          <p>{timerSecond}</p>
         </div>
 
         {/*  */}
