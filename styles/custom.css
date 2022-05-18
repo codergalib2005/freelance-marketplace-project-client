@@ -441,6 +441,16 @@
   color: #fff !important;
 }
 
+.support_modal{
+   width: 50% !important;
+   margin-top:-50px;
+}
+@media only screen and (max-width: 920px) {
+ .support_modal{
+   width: 90% !important;
+ }
+}
+
 /* * chat started */
 /* * main container */
 

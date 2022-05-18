@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { message } from "antd";
 import axios from "axios";
 import {
@@ -25,7 +26,7 @@ const useFirebase = () => {
   const [thisUser, setThisUser] = useState({});
   const [isOpen, setIsOpen] = useState(false);
   const [allGigs, setAllGigs] = useState([]);
-  const [admin, setAdmin] = useState(false);
+  const [admin, setAdmin] = useState(true);
   const [reviews, setReviews] = useState([]);
   //for admin
   // const [admin, setAdmin] = useState(false)
@@ -60,6 +61,7 @@ const useFirebase = () => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
+        setUser(user)
         //  User data save in database
         let body = {
           thumbnail,
@@ -150,6 +152,7 @@ const useFirebase = () => {
     const unSubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
+        console.log(user)
         // ...
       } else {
         setUser({});
@@ -161,11 +164,37 @@ const useFirebase = () => {
 
   //for admin
   useEffect(() => {
-    setIsLoadind(true);
-    fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/admin/${user?.email}`)
-      .then((res) => res.json())
-      .then((data) => setAdmin(data.access));
-  }, [user?.email]);
+    
+     const adminLoad =  () => {
+        setIsLoadind(true);
+        if(user.email){
+          try {
+        const res = axios.get(
+          `${process.env.NEXT_PUBLIC_API_URL}/users/admin/${user.email}`,
+          configJson
+        )
+        .then(res=>{
+         if( res.status ===200){
+          setAdmin(res.data?.access);
+          console.log(user)
+          console.log(res.data?.access);
+          setIsLoadind(false)
+         }
+          
+        })
+      } catch (err) {
+        console.log(err);
+      }
+        }
+      
+      
+    };
+    adminLoad();
+  //  fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/admin/${user?.email}`)
+  //     .then((res) => res.json())
+  //     .then((data) => setAdmin(data.access));
+      
+  }, [user.email]);
 
   //signIn user email and pass
   const logInUser = (email, password) => {
@@ -174,6 +203,7 @@ const useFirebase = () => {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
+        setUser(user)
         notification.success({
           message: "Success",
           description: "User Signed In Successfully!",
@@ -292,7 +322,7 @@ const useFirebase = () => {
           console.log(error);
         }
       );
-  }, [configJson, user?.email]);
+  }, [user?.email]);
 
   // LOAD HERE ALL GIGS
   useEffect(() => {
@@ -308,7 +338,7 @@ const useFirebase = () => {
       }
     };
     getAllGigs();
-  }, [configJson]);
+  }, []);
   // GET ALL REVIEWS LOGGIN USER BASED ON EMAIL
   useEffect(() => {
     const getAllReviews = async () => {
@@ -323,7 +353,7 @@ const useFirebase = () => {
       }
     };
     getAllReviews();
-  }, [configJson, user?.email]);
+  }, [ user?.email]);
 
   //logout email and pass
   const logOut = () => {
@@ -367,6 +397,7 @@ const useFirebase = () => {
   return {
     user,
     admin,
+    setAdmin,
     registerUser,
     logInUser,
     signInWithGoogle,

@@ -101,12 +101,12 @@ const Banner = () => {
                       {bd.desc}
                     </p>
                     <div className="flex gap-4 justify-center lg:justify-start">
-                      <Link passHref href="/login">
+                      <Link passHref href="/gig_search">
                         <button className="px-8 py-3 rounded bg-pink-500 text-lg  text-white">
                           Get Started
                         </button>
                       </Link>
-                      <Link passHref href="/login">
+                      <Link passHref href="/gig_search">
                         <button className="px-8 py-3  rounded border-2 border-pink-400  text-lg">
                           Try Now
                         </button>
