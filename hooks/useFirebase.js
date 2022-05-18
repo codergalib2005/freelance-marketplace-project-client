@@ -8,6 +8,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
+  sendEmailVerification,
   updateProfile,
 } from "firebase/auth";
 import { useRouter } from "next/router";
@@ -61,6 +62,8 @@ const useFirebase = () => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
+        //emial veriifecation
+        verifyEmail()
         //  User data save in database
         let body = {
           thumbnail,
@@ -81,13 +84,14 @@ const useFirebase = () => {
           avatar,
           email,
         };
+
         //update profile
         updateProfile(auth.currentUser, {
           displayName: name,
           photoURL: avatar,
         })
-          .then(() => {})
-          .catch((error) => {});
+          .then(() => { })
+          .catch((error) => { });
         axios
           .post(`${process.env.NEXT_PUBLIC_API_URL}/users`, body, configJson)
           .then((res) => {
@@ -130,6 +134,14 @@ const useFirebase = () => {
       })
       .finally(() => setIsLoadind(false));
   };
+
+  //emial veriifecation
+  const verifyEmail = () => {
+    sendEmailVerification(auth.currentUser)
+      .then(res => {
+        console.log(res)
+      })
+  }
   const sendUserForChat = (chatBody) => {
     axios
       .post(
@@ -160,13 +172,15 @@ const useFirebase = () => {
     return () => unSubscribe;
   }, [auth]);
 
+
+
   //for admin
-  useEffect(()=>{
+  useEffect(() => {
     setIsLoadind(true);
     fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/admin/${user?.email}`)
-    .then(res => res.json())
-    .then(data => setAdmin(data.access))
-  },[user?.email])
+      .then(res => res.json())
+      .then(data => setAdmin(data.access))
+  }, [user?.email])
 
 
   //signIn user email and pass
