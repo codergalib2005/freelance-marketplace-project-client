@@ -34,8 +34,6 @@ const RemoveAdmin = () => {
           duration: 2,
           style: {
             width: 300,
-            //   marginLeft: "calc(50% - 150px)",
-            //   marginTop: "calc(50vh - 100px)",
             borderBottom: "6px solid #3a3",
             boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
           },

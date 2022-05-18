@@ -173,7 +173,6 @@ const useFirebase = () => {
   }, [auth]);
 
 
-
   //for admin
   useEffect(() => {
     setIsLoadind(true);
@@ -181,7 +180,6 @@ const useFirebase = () => {
       .then(res => res.json())
       .then(data => setAdmin(data.access))
   }, [user?.email])
-
 
   //signIn user email and pass
   const logInUser = (email, password) => {
