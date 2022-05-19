@@ -61,7 +61,7 @@ const JobSearch = () => {
         Swal.fire({
           position: 'top-center',
           icon: 'success',
-          title: 'Your work has been saved',
+          title: 'Your apply has been pending',
           showConfirmButton: false,
           timer: 1500
         })
@@ -216,6 +216,16 @@ const JobSearch = () => {
                 </ul>
               </div>
               <div>
+                <h2 className="text-xl ">Qualifications:</h2>
+                <ul className="p-4">
+                  <li className="list-disc">{preview?.qualifications[0]}</li>
+                  <li className="list-disc">{preview?.qualifications[1]}</li>
+                  <li className="list-disc">{preview?.qualifications[2]}</li>
+                  <li className="list-disc">{preview?.qualifications[3]}</li>
+                  <li className="list-disc">{preview?.qualifications[4]}</li>
+                </ul>
+              </div>
+              <div>
                 <h2 className="text-xl ">Requirements:</h2>
                 <ul className="p-4">
                   <li className="list-disc">{preview?.requirements[0]}</li>
@@ -228,6 +238,7 @@ const JobSearch = () => {
                 </ul>
               </div>
               <div>
+                <h2 className="p-4"><span className="font-bold">Salary range:</span> {preview?.salary} </h2>
                 <p className="py-4 text-justify"><span className="text-red-600 font-sans font-bold">NOTE</span>: If you’re interested in pursuing an engaging career working on full-time freelance jobs for exclusive clients, take the next step by clicking apply and filling out the short form to get started.</p>
               </div>
             </section>
