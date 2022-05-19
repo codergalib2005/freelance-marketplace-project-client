@@ -48,11 +48,6 @@ const routes = [
     ],
   },
   {
-    path: "/analytics/earning",
-    name: "Earning",
-    icon: <BiAnalyse />,
-  },
-  {
     path: "/admin",
     name: "Admin",
     icon: <AiTwotoneFileExclamation />,
@@ -113,11 +108,6 @@ const routes = [
         icon: <FaMoneyBill />,
       },
     ],
-  },
-  {
-    path: "/saved",
-    name: "Saved",
-    icon: <AiFillHeart />,
   },
   {
     path: "/sellers",
