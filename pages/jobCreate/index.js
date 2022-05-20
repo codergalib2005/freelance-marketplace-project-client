@@ -252,16 +252,14 @@ const JobCreate = () => {
                   >
                     <option value=""></option>
                     <option value="Programming & Tech">
-                      Programming & Tech
+                      Remote
                     </option>
-                    <option value="WordPress">WordPress</option>
+                    <option value="WordPress">On Site</option>
                     <option value="Website Builders & CMS">
-                      Website Builders & CMS
+                      In Office
                     </option>
-                    <option value="Digital Marketing">Digital Marketing</option>
-                    <option value="Video & Animation">Video & Animation</option>
-                    <option value="Graphics Design">Graphics Design</option>
-                    <option value="Music & Audio">Music & Audio</option>
+                    <option value="Digital Marketing">Part Time</option>
+                    <option value="Video & Animation">Full Time</option>
                   </select>
                 </div>
               </div>{" "}
