@@ -10,9 +10,9 @@ const Resume_form = () => {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    if(data){
-      reset()
-      alert("Resume post successfully")
+    if (data) {
+      reset();
+      alert("Resume post successfully");
     }
   };
   return (
@@ -94,7 +94,9 @@ const Resume_form = () => {
                 />
               </div>
               <div className="md:flex mt-4 md:w-[50%]">
-                <label className="must text-sky-600 w-[100%] md:w-[20%]">Country</label>
+                <label className="must text-sky-600 w-[100%] md:w-[20%]">
+                  Country
+                </label>
                 <input
                   className="border-[1px] shadow-md px-2 py-1 border-sky-500 outline-pink-500 w-[100%] md:w-[80%] "
                   {...register("country")}
@@ -137,29 +139,25 @@ const Resume_form = () => {
                 type="text"
               />
             </div>
-           <div className="my-14">
-           <div className=" mt-4">
-              <p className="text-xl text-pink-300  must">
-                Have you worked for our team before?
-              </p>
-              <select
-                className="border-[1px] shadow-md px-2 mt-2 py-1 border-sky-500 outline-pink-500 w-[100%] "
-                {...register("familiar")}
-                required
-                type="text"
-              >
+            <div className="my-14">
+              <div className=" mt-4">
+                <p className="text-xl text-pink-300  must">
+                  Have you worked for our team before?
+                </p>
+                <select
+                  className="border-[1px] shadow-md px-2 mt-2 py-1 border-sky-500 outline-pink-500 w-[100%] "
+                  {...register("familiar")}
+                  required
+                  type="text"
+                >
+                  <option defaultValue disabled>
+                    --select--
+                  </option>
+                  <option>Yes</option>
+                  <option>No</option>
+                </select>
+              </div>
 
-                
-                <option defaultValue disabled>
-
-                  --select--
-                </option>
-                <option>Yes</option>
-                <option>No</option>
-              </select>
-            </div>
-
-           
               <div className="mt-4">
                 <p className="text-xl text-pink-300  must">
                   If referred, Please provide the name to your referred.
@@ -170,11 +168,8 @@ const Resume_form = () => {
                   required
                   type="text"
                 />
-              
+              </div>
             </div>
-            
-           </div>
-          
 
             <div className="text-center  ">
               <p className="text-center text-xl text-indigo-300 ">
@@ -186,74 +181,70 @@ const Resume_form = () => {
               </p>
             </div>
             <div className="mt-4">
-                <p className="text-xl text-pink-300  must">
-                Educations
-                </p>
-                <textarea
-                  className="border-[1px] px-2 shadow-md mt-2 border-sky-500 outline-pink-500 w-[100%] "
-                  {...register("education")}
-                  required
-                  type="text"
-                />
+              <p className="text-xl text-pink-300  must">Educations</p>
+              <textarea
+                className="border-[1px] px-2 shadow-md mt-2 border-sky-500 outline-pink-500 w-[100%] "
+                {...register("education")}
+                required
+                type="text"
+              />
             </div>
-          <div className=" shadow-md p-8 my-8">
-            <p className=" text-xl"> Skills</p>
-         <div className="md:flex gap-6 ">
-         <div className="mt-4 md:w-[50%]">
-                <p className="text-xl text-pink-300  must">
-                Company Name
-                </p>
-                <input
-                  className="border-[1px] shadow-md py-1 px-2 mt-2 border-sky-500 outline-pink-500 w-[100%] "
-                  {...register("companyName")}
-                  required
-                  type="text"
-                />
-            </div>
-          <div className="mt-4 md:w-[50%]">
-                <p className="text-xl text-pink-300  must">
-                That was the role in the company
-                </p>
-                <input
-                  className="border-[1px] shadow-md py-1 px-2 mt-2 border-sky-500 outline-pink-500 w-[100%] "
-                  {...register("roleOfCompany")}
-                  required
-                  type="text"
-                />
-            </div>
-         </div>
-        <div className="md:flex gap-6">
-        <div className="mt-4 md:w-[50%]">
-                <p className="text-xl text-pink-300  must">
-                Experience of Technologies
-                </p>
+            <div className=" shadow-md p-8 my-8">
+              <p className=" text-xl"> Skills</p>
+              <div className="md:flex gap-6 ">
+                <div className="mt-4 md:w-[50%]">
+                  <p className="text-xl text-pink-300  must">Company Name</p>
+                  <input
+                    className="border-[1px] shadow-md py-1 px-2 mt-2 border-sky-500 outline-pink-500 w-[100%] "
+                    {...register("companyName")}
+                    required
+                    type="text"
+                  />
+                </div>
+                <div className="mt-4 md:w-[50%]">
+                  <p className="text-xl text-pink-300  must">
+                    That was the role in the company
+                  </p>
+                  <input
+                    className="border-[1px] shadow-md py-1 px-2 mt-2 border-sky-500 outline-pink-500 w-[100%] "
+                    {...register("roleOfCompany")}
+                    required
+                    type="text"
+                  />
+                </div>
+              </div>
+              <div className="md:flex gap-6">
+                <div className="mt-4 md:w-[50%]">
+                  <p className="text-xl text-pink-300  must">
+                    Experience of Technologies
+                  </p>
 
-               <div className="border-[1px] px-2 shadow-md py-1 mt-2 border-sky-500 outline-pink-500 w-[100%]">
-                {/* <div className=" p-2 bg-slate-300 py-[1px] inline-block rounded-3xl ">
+                  <div className="border-[1px] px-2 shadow-md py-1 mt-2 border-sky-500 outline-pink-500 w-[100%]">
+                    {/* <div className=" p-2 bg-slate-300 py-[1px] inline-block rounded-3xl ">
                 <span className="">Hello</span>
                  <span className="close bg-black ml-1 text-white p-[2px] px-2 rounded-full">&times;</span>
                 </div> */}
-               <input
-                  className="border-0 px-2 py-1 outline-none w-[100%] "
-                  {...register("experience")}
-                  placeholder="text here"
-                  type="text"
-                />
-               </div>
+                    <input
+                      className="border-0 px-2 py-1 outline-none w-[100%] "
+                      {...register("experience")}
+                      placeholder="text here"
+                      type="text"
+                    />
+                  </div>
+                </div>
+                <div className="mt-4 md:w-[50%]">
+                  <p className="text-xl text-pink-300  must">
+                    How many years expe do you have?
+                  </p>
+                  <input
+                    className="border-[1px] px-2 py-1 shadow-md mt-2 border-sky-500 outline-pink-500 w-[100%] "
+                    {...register("experienceOfYears")}
+                    required
+                    type="number"
+                  />
+                </div>
+              </div>
             </div>
-            <div className="mt-4 md:w-[50%]">
-                <p className="text-xl text-pink-300  must">
-                How many years expe do you have?
-                </p>
-                <input
-                  className="border-[1px] px-2 py-1 shadow-md mt-2 border-sky-500 outline-pink-500 w-[100%] "
-                  {...register("experienceOfYears")}
-                  required
-                  type="number"
-                />
-            </div>
-        </div>
-          </div>
             <div className=" flex justify-center my-6">
               <div className="md:-ml-12">
                 <p className="must text-xl">What is your Gender?(select one)</p>
@@ -329,12 +320,13 @@ const Resume_form = () => {
                     <label className="ml-2">Decline to disclose</label>
                   </div>
                 </div>
-                
               </div>
             </div>
             <div className=" flex justify-center my-6">
               <div className="md:-ml-12">
-                <p className="must text-xl">Do you Identify yourself as one the following:(select one)</p>
+                <p className="must text-xl">
+                  Do you Identify yourself as one the following:(select one)
+                </p>
                 <div className="md:text-start">
                   <div>
                     <input
@@ -382,28 +374,21 @@ const Resume_form = () => {
                     <label className="ml-2">Others</label>
                   </div>
                 </div>
-                
               </div>
-            </div>  
-                <p className="text-xl must">Write about your self of 150 words.</p>
-                <textarea
-                  className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500 w-[100%] "
-                  {...register("roleOfCompany")}
-                  required
-                  type="text"
-                  style={{height:"7rem"}}
-                />
+            </div>
+            <p className="text-xl must">Write about your self of 150 words.</p>
+            <textarea
+              className="border-[1px] shadow-md mt-2 border-sky-500 outline-pink-500 w-[100%] "
+              {...register("roleOfCompany")}
+              required
+              type="text"
+              style={{ height: "7rem" }}
+            />
           </div>
-        
-        
-
-        
-         
 
           <div className="flex justify-center my-6">
             <input
               className="text-white hover:text-sky-600 w-[25%] bg-sky-600 hover:bg-transparent  border-2 border-sky-600 active:bg-indigo-700  px-8 py-1 "
-             
               type="submit"
             />
           </div>
@@ -414,4 +399,3 @@ const Resume_form = () => {
 };
 
 export default Resume_form;
-
