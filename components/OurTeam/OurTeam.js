@@ -6,19 +6,19 @@ const OurTeamCom = () => {
       id: 1,
       name: "Jhankar Mahbub",
       img: "https://i.ibb.co/ZY5YB0V/jhankar.png",
-      designation: "CEO at Programming Hero",
+      designation: "CEO & Founder- Programming Hero",
     },
     {
       id: 2,
       name: "Ahmad Tarique Hasan",
       img: "https://i.ibb.co/6FnMtrS/ahmmed-tarek.png",
-      designation: "Web Developer at Programming Hero",
+      designation: "Job Placement Executive",
     },
     {
       id: 3,
       name: "Najmus Sakib",
       img: "https://i.ibb.co/cTSc8mk/najmus-sakib.png",
-      designation: "Web Developer at Programming Hero",
+      designation: "Associate Manager, Job Placement",
     },
 
     {
@@ -47,9 +47,9 @@ const OurTeamCom = () => {
     },
     {
       id: 8,
-      name: "Md Alamin Islam",
-      img: "https://i.ibb.co/x3dZBfk/almin.png",
-      designation: "Web Developer",
+      name: "Al Amin",
+      img: "https://i.ibb.co/tH7dv8Q/IMG-20210516-191956-removebg-preview.png",
+      designation: "Front-End Developer (MERN)",
     },
     {
       id: 9,
@@ -72,7 +72,7 @@ const OurTeamCom = () => {
               <div className="flex justify-center ">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  className="w-48 object-top h-40 absolute -mt-32 z-10 bg-indigo-500 px-6 py-4 rounded-tr-full pb-0 "
+                  className="w-48 object-top h-40 absolute -mt-32 z-10 bg-indigo-500 pr-6 py-4 rounded-tr-full pb-0 "
                   src={member.img}
                   alt=""
                 />
