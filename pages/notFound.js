@@ -7,7 +7,7 @@ import HeaderTop from "../components/Shared/HeaderTop";
 
 const ErrorPage = () => {
   return (
-    <>
+    <div>
       <div>
         <HeaderTop />
         <Header></Header>
@@ -18,7 +18,7 @@ const ErrorPage = () => {
       <div>
         <Footer />
       </div>
-    </>
+    </div>
   );
 };
 
