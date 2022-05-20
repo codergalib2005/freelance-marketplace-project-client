@@ -28,6 +28,7 @@ const controlReducer = (state, action) => {
 const GigCreation = () => {
   const [state, dispatch] = useReducer(controlReducer, showPageMood);
   const [thisUser, setThisUser] = useState({});
+  console.log(thisUser)
   const {
     register,
     handleSubmit,
@@ -43,15 +44,16 @@ const GigCreation = () => {
   }, [user?.email]);
   const onSubmit = (data) => {
     data.email = user.email;
-    data.name = thisUser.name;
+    data.name=user.displayName
+    // data.name = thisUser.displayName;
     let gallery = new Array();
     gallery.push(data.image1);
     gallery.push(data.image2);
     gallery.push(data.image3);
     gallery.push(data.image4);
     data.gallery = gallery;
-    data.name = thisUser?.name;
-    data.email = thisUser?.email;
+    // data.name = thisUser?.name;
+    // data.email = thisUser?.email;
     axios
       .post(`${process.env.NEXT_PUBLIC_API_URL}/gigs`, data)
       .then((res) => {
