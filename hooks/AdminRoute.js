@@ -23,7 +23,7 @@ export function withAdmin(Component) {
             <span className="main-loader"></span>
           </div>
         </button>
-      router.push('/notFound.js')
+      router.push('/404.js')
     }
     else if
     (!loading && admin ===true && user.email){
