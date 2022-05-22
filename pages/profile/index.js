@@ -3,7 +3,7 @@ import { Avatar } from "@mui/material";
 import { Input, message, Tooltip } from "antd";
 import TextArea from "antd/lib/input/TextArea";
 import axios from "axios";
-import React, { useReducer, useState } from "react";
+import React, { useReducer, useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { BsCheck2Square } from "react-icons/bs";
 import { FcCameraAddon } from "react-icons/fc";
@@ -43,10 +43,11 @@ const controlReducer = (state, action) => {
   }
 };
 const Profile = () => {
+  const [thisUser, setThisUser] = useState({});
   const [state, dispatch] = useReducer(controlReducer, editorMood);
   // const [thisUser, setThisUser] = useState({})
   const [tabs, setTabs] = useState("about");
-  const { user, thisUser, userStatus, loading, setIsLoadind } = useAuth();
+  const { user, userStatus, loading, setIsLoadind } = useAuth();
   const [professionText, setProfessionText] = useState(
     `${thisUser?.profession}`
   );
@@ -163,6 +164,19 @@ const Profile = () => {
     }
   };
 
+  // Loadded Loggined User Data
+  useEffect(() => {
+    axios
+      .get(`${process.env.NEXT_PUBLIC_API_URL}/users/email/${user?.email}`)
+      .then(
+        (response) => {
+          setThisUser(response?.data?.result);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+  }, [user?.email]);
   // ================ Here are all props
   const bioProps = {
     defaultValue: bioText,
@@ -530,4 +544,4 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default withPrivate(Profile);

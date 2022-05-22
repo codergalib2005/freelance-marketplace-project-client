@@ -25,7 +25,6 @@ const useFirebase = () => {
   const [loading, setIsLoadind] = useState(true);
   const [error, setError] = useState("");
   const [isOpen, setIsOpen] = useState(false);
-  const [thisUser, setThisUser] = useState()
   const [allGigs, setAllGigs] = useState([]);
   const [admin, setAdmin] = useState(true);
   const [reviews, setReviews] = useState([]);
@@ -62,9 +61,9 @@ const useFirebase = () => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        setUser(user)
+        setUser(user);
         //emial veriifecation
-        verifyEmail()
+        verifyEmail();
         //  User data save in database
         let body = {
           thumbnail,
@@ -91,8 +90,8 @@ const useFirebase = () => {
           displayName: name,
           photoURL: avatar,
         })
-          .then(() => { })
-          .catch((error) => { });
+          .then(() => {})
+          .catch((error) => {});
         axios
           .post(`${process.env.NEXT_PUBLIC_API_URL}/users`, body, configJson)
           .then((res) => {
@@ -138,11 +137,10 @@ const useFirebase = () => {
 
   //emial veriifecation
   const verifyEmail = () => {
-    sendEmailVerification(auth.currentUser)
-      .then(res => {
-        console.log(res)
-      })
-  }
+    sendEmailVerification(auth.currentUser).then((res) => {
+      console.log(res);
+    });
+  };
   const sendUserForChat = (chatBody) => {
     axios
       .post(
@@ -164,7 +162,7 @@ const useFirebase = () => {
     const unSubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         setUser(user);
-        console.log(user)
+        console.log(user);
         // ...
       } else {
         setUser({});
@@ -174,38 +172,35 @@ const useFirebase = () => {
     return () => unSubscribe;
   }, [auth]);
 
-
   //for admin
   useEffect(() => {
-     const adminLoad =  () => {
-        setIsLoadind(true);
-        if(user.email){
-          try {
-        const res = axios.get(
-          `${process.env.NEXT_PUBLIC_API_URL}/users/admin/${user.email}`,
-          configJson
-        )
-        .then(res=>{
-         if( res.status ===200){
-          setAdmin(res.data?.access);
-          console.log(user)
-          console.log(res.data?.access);
-          setIsLoadind(false)
-         }
-          
-        })
-      } catch (err) {
-        console.log(err);
-      }
+    const adminLoad = () => {
+      setIsLoadind(true);
+      if (user.email) {
+        try {
+          const res = axios
+            .get(
+              `${process.env.NEXT_PUBLIC_API_URL}/users/admin/${user.email}`,
+              configJson
+            )
+            .then((res) => {
+              if (res.status === 200) {
+                setAdmin(res.data?.access);
+                console.log(user);
+                console.log(res.data?.access);
+                setIsLoadind(false);
+              }
+            });
+        } catch (err) {
+          console.log(err);
         }
+      }
     };
     adminLoad();
-  //  fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/admin/${user?.email}`)
-  //     .then((res) => res.json())
-  //     .then((data) => setAdmin(data.access));
+    //  fetch(`${process.env.NEXT_PUBLIC_API_URL}/users/admin/${user?.email}`)
+    //     .then((res) => res.json())
+    //     .then((data) => setAdmin(data.access));
   }, [user?.email]);
-
-
 
   //signIn user email and pass
   const logInUser = (email, password) => {
@@ -214,7 +209,7 @@ const useFirebase = () => {
       .then((userCredential) => {
         // Signed in
         const user = userCredential.user;
-        setUser(user)
+        setUser(user);
         notification.success({
           message: "Success",
           description: "User Signed In Successfully!",
@@ -267,22 +262,6 @@ const useFirebase = () => {
       .catch((err) => console.log(err));
   }, [user?.email]);
 
-  useEffect(() => {
-    axios
-      .get(
-        `${process.env.NEXT_PUBLIC_API_URL}/users/email/${user?.email}`,
-        configJson
-      )
-      .then(
-        (response) => {
-          setThisUser(response?.data?.result);
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
-  }, [user?.email]);
-
   // LOAD HERE ALL GIGS
   useEffect(() => {
     const getAllGigs = async () => {
@@ -313,8 +292,7 @@ const useFirebase = () => {
       }
     };
     getAllReviews();
-  }, [ user?.email]);
-
+  }, [user?.email]);
 
   //logout email and pass
   const logOut = () => {
