@@ -37,3 +37,4 @@ const NotFound = () => {
 };
 
 export default NotFound;
+// Complete not found page
