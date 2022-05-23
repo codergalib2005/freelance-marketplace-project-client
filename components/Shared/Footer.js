@@ -25,59 +25,59 @@ const Footer = () => {
               <strong className="text-white font-medium text-2xl border-b border-[#e83a3b]pb-2 mb-4">Categories</strong>
               <ul>
                 <li className="block pb-2">
-                  <Link href="/"><a className="no-underline hover:underline hover:text-[#e83a3b] text-lg font-medium text-gray-400">Business</a></Link>
+                  <Link href="/become&seller"><a className="no-underline hover:underline hover:text-[#6787fe] text-lg font-medium text-gray-400">Become a Seller</a></Link>
                 </li>
                 <li className="block pb-2">
-                  <Link href="/"><a className="no-underline hover:underline hover:text-[#e83a3b] text-lg font-medium text-gray-400">Programming & Tech</a></Link>
+                  <Link href="/"><a className="no-underline hover:underline hover:text-[#6787fe] text-lg font-medium text-gray-400">Programming & Tech</a></Link>
                 </li>
                 <li className="block pb-2">
-                  <Link href="/"><a className="no-underline hover:underline hover:text-[#e83a3b] text-lg font-medium text-gray-400">Graphics & Design</a></Link>
+                  <Link href="/"><a className="no-underline hover:underline hover:text-[#6787fe] text-lg font-medium text-gray-400">Graphics & Design</a></Link>
                 </li>
                 <li className="block pb-2">
-                  <Link href="/"><a className="no-underline hover:underline hover:text-[#e83a3b] text-lg font-medium text-gray-400">Video & Animation</a></Link>
+                  <Link href="/"><a className="no-underline hover:underline hover:text-[#6787fe] text-lg font-medium text-gray-400">Video & Animation</a></Link>
                 </li>
                 <li className="block pb-2">
-                  <Link href="/"><a className="no-underline hover:underline hover:text-[#e83a3b] text-lg font-medium text-gray-400">Digital Marketing</a></Link>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <strong className="text-white font-medium text-2xl border-b border-[#e83a3b]pb-2 mb-4">Community</strong>
-              <ul>
-                <li className="block pb-2">
-                  <Link href="/"><a className="no-underline hover:underline hover:text-[#e83a3b] text-lg font-medium text-gray-400">Business</a></Link>
-                </li>
-                <li className="block pb-2">
-                  <Link href="/"><a className="no-underline hover:underline hover:text-[#e83a3b] text-lg font-medium text-gray-400">Programming & Tech</a></Link>
-                </li>
-                <li className="block pb-2">
-                  <Link href="/"><a className="no-underline hover:underline hover:text-[#e83a3b] text-lg font-medium text-gray-400">Graphics & Design</a></Link>
-                </li>
-                <li className="block pb-2">
-                  <Link href="/"><a className="no-underline hover:underline hover:text-[#e83a3b] text-lg font-medium text-gray-400">Video & Animation</a></Link>
-                </li>
-                <li className="block pb-2">
-                  <Link href="/"><a className="no-underline hover:underline hover:text-[#e83a3b] text-lg font-medium text-gray-400">Digital Marketing</a></Link>
+                  <Link href="/"><a className="no-underline hover:underline hover:text-[#6787fe] text-lg font-medium text-gray-400">Digital Marketing</a></Link>
                 </li>
               </ul>
             </div>
             <div>
-              <strong className="text-white font-medium text-2xl border-b border-[#e83a3b]pb-2 mb-4">Support</strong>
+              <strong className="text-white font-medium text-2xl border-b border-[#6787fe]pb-2 mb-4">Community</strong>
               <ul>
                 <li className="block pb-2">
-                  <Link href="/"><a className="no-underline hover:underline hover:text-[#e83a3b] text-lg font-medium text-gray-400">Business</a></Link>
+                  <Link href="/"><a className="no-underline hover:underline hover:text-[#6787fe] text-lg font-medium text-gray-400">Business</a></Link>
                 </li>
                 <li className="block pb-2">
-                  <Link href="/"><a className="no-underline hover:underline hover:text-[#e83a3b] text-lg font-medium text-gray-400">Programming & Tech</a></Link>
+                  <Link href="/"><a className="no-underline hover:underline hover:text-[#6787fe] text-lg font-medium text-gray-400">Programming & Tech</a></Link>
                 </li>
                 <li className="block pb-2">
-                  <Link href="/"><a className="no-underline hover:underline hover:text-[#e83a3b] text-lg font-medium text-gray-400">Graphics & Design</a></Link>
+                  <Link href="/"><a className="no-underline hover:underline hover:text-[#6787fe] text-lg font-medium text-gray-400">Graphics & Design</a></Link>
                 </li>
                 <li className="block pb-2">
-                  <Link href="/"><a className="no-underline hover:underline hover:text-[#e83a3b] text-lg font-medium text-gray-400">Video & Animation</a></Link>
+                  <Link href="/"><a className="no-underline hover:underline hover:text-[#6787fe] text-lg font-medium text-gray-400">Video & Animation</a></Link>
                 </li>
                 <li className="block pb-2">
-                  <Link href="/"><a className="no-underline hover:underline hover:text-[#e83a3b] text-lg font-medium text-gray-400">Digital Marketing</a></Link>
+                  <Link href="/"><a className="no-underline hover:underline hover:text-[#6787fe] text-lg font-medium text-gray-400">Digital Marketing</a></Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <strong className="text-white font-medium text-2xl border-b border-[#6787fe]pb-2 mb-4">Support</strong>
+              <ul>
+                <li className="block pb-2">
+                  <Link href="/"><a className="no-underline hover:underline hover:text-[#6787fe] text-lg font-medium text-gray-400">Business</a></Link>
+                </li>
+                <li className="block pb-2">
+                  <Link href="/"><a className="no-underline hover:underline hover:text-[#6787fe] text-lg font-medium text-gray-400">Programming & Tech</a></Link>
+                </li>
+                <li className="block pb-2">
+                  <Link href="/"><a className="no-underline hover:underline hover:text-[#6787fe] text-lg font-medium text-gray-400">Graphics & Design</a></Link>
+                </li>
+                <li className="block pb-2">
+                  <Link href="/"><a className="no-underline hover:underline hover:text-[#6787fe] text-lg font-medium text-gray-400">Video & Animation</a></Link>
+                </li>
+                <li className="block pb-2">
+                  <Link href="/"><a className="no-underline hover:underline hover:text-[#6787fe] text-lg font-medium text-gray-400">Digital Marketing</a></Link>
                 </li>
               </ul>
             </div>
@@ -88,7 +88,7 @@ const Footer = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between flex-wrap">
             <div>
-              <p className="text-[#e83a3b]">Copyright © 2022 || All Rights Reserved by Team Unique gamer.</p>
+              <p className="text-[#6787fe]">Copyright © 2022 || All Rights Reserved by Team Unique gamer.</p>
             </div>
             <div className="text-right">
               <img src="/footer/paypal.png" alt="" />
