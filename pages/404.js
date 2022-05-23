@@ -1,10 +1,15 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
+import { useRouter } from "next/router";
 const NotFound = () => {
+  const router = useRouter();
   const cry = "Awww...Don't Cry.";
   const error = "It's just a 404 error.";
   const look = "What you are looking for may have been misplaced";
   const memory = "in long-term memory.";
+  const handleBack = () => {
+    router.back();
+  };
   return (
     <div>
       <div className="container px-4 mx-auto">
@@ -29,6 +34,12 @@ const NotFound = () => {
             <p className="text-lg font-medium text-gray-800 text-center">
               {memory}
             </p>
+            <button
+              className="text-xl font-medium py-1 px-4 bg-red-400 rounded-md "
+              onClick={handleBack}
+            >
+              Home
+            </button>
           </div>
         </div>
       </div>

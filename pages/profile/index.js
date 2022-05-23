@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { Avatar } from "@mui/material";
-import { Input, message, Tooltip } from "antd";
+import { Input, Tooltip } from "antd";
 import TextArea from "antd/lib/input/TextArea";
 import axios from "axios";
 import React, { useReducer, useState, useEffect } from "react";
@@ -12,8 +12,6 @@ import { FiEdit } from "react-icons/fi";
 import { GrUserManager } from "react-icons/gr";
 import { IoMdClose } from "react-icons/io";
 import About from "../../components/Profile/About";
-import BannerPicChange from "../../components/Profile/BannerPicChange";
-import ProfileModal from "../../components/Profile/ProfileModal";
 import Notifications from "../../components/Profile/Notification";
 import Review from "../../components/Profile/Review";
 import Task from "../../components/Profile/Task";
@@ -23,6 +21,10 @@ import HeaderTop from "../../components/Shared/HeaderTop";
 import { withPrivate } from "../../hooks/PrivateRoute";
 import useAuth from "../../hooks/useAuth";
 import { notification } from "antd";
+import { AiOutlineCloseCircle } from "react-icons/ai";
+import { RiImageAddLine } from "react-icons/ri";
+import { ImCheckboxChecked } from "react-icons/im";
+import Head from "next/head";
 const editorMood = {
   editor: null,
 };
@@ -52,8 +54,97 @@ const Profile = () => {
     `${thisUser?.profession}`
   );
   const [bioText, setBioText] = useState(`${thisUser?.bio}`);
-  const [openProfile, setOpenProfile] = useState(false);
+  // const [openProfile, setOpenProfile] = useState(false);
   const [openBanner, setOpenBanner] = useState(false);
+
+  // Profile Image Upload
+  const [profilePicture, setProfilePicture] = useState(null);
+  const [bannerPicture, setBannerPicture] = useState(null);
+  const [profilePopup, setProfilePopup] = useState(false);
+  const [bannerPopup, setBannerPopup] = useState(false);
+  const handlePopup1 = () => {
+    setProfilePopup(!profilePopup);
+  };
+  const handlePopup2 = () => {
+    setBannerPopup(!bannerPopup);
+  };
+  const handleUploadProfile = () => {
+    if (profilePicture) {
+      const formData = new FormData();
+      formData.append("file", profilePicture[0]);
+      formData.append("upload_preset", "jsjb2bic");
+      formData.append("upload_preset", "jsjb2bic");
+      axios
+        .post("https://api.cloudinary.com/v1_1/gsbsoft/image/upload", formData)
+        .then((res) => {
+          axios
+            .patch(
+              `${process.env.NEXT_PUBLIC_API_URL}/users/avatar/${thisUser?._id}`,
+              {
+                avatar: res.data.secure_url,
+              }
+            )
+            .then((response) => {
+              if (response.statusText === "OK") {
+                setThisUser(response?.data?.result);
+                setProfilePopup(false);
+                notification.success({
+                  message: "Success",
+                  description: "Profile Image Update successfully",
+                  placement: "top",
+                  duration: 2,
+                  style: {
+                    width: 300,
+                    borderBottom: "6px solid #3a3",
+                    boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
+                  },
+                });
+              }
+            });
+        })
+        .catch((err) => console.log(err));
+    }
+  };
+  const handleUploadBanner = () => {
+    if (bannerPicture) {
+      const formData2 = new FormData();
+      formData2.append("file", bannerPicture[0]);
+      formData2.append("upload_preset", "jsjb2bic");
+      formData2.append("upload_preset", "jsjb2bic");
+      axios
+        .post("https://api.cloudinary.com/v1_1/gsbsoft/image/upload", formData2)
+        .then((res) => {
+          axios
+            .patch(
+              `${process.env.NEXT_PUBLIC_API_URL}/users/banner/${thisUser?._id}`,
+              {
+                image: res.data.secure_url,
+              }
+            )
+            .then((response) => {
+              if (response.statusText === "OK") {
+                setThisUser(response?.data?.result);
+                console.log();
+                setBannerPopup(false);
+                notification.success({
+                  message: "Success",
+                  description: "Banner Image Update successfully",
+                  placement: "top",
+                  duration: 2,
+                  style: {
+                    width: 300,
+                    //   marginLeft: "calc(50% - 150px)",
+                    //   marginTop: "calc(50vh - 100px)",
+                    borderBottom: "6px solid #3a3",
+                    boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
+                  },
+                });
+              }
+            });
+        })
+        .catch((err) => console.log(err));
+    }
+  };
 
   const profileBanner = {
     background: `radial-gradient(#3981c06d, #e83a3a6d),url(${thisUser?.image}) no-repeat center center`,
@@ -66,13 +157,6 @@ const Profile = () => {
     borderTopLeftRadius: "5px",
     borderTopRightRadius: "5px",
   };
-  // axios.get(`${process.env.NEXT_PUBLIC_API_URL}/users/email/${user?.email}`)
-  //   .then(response => {
-  //     setThisUser(response?.data?.result[0]);
-  //   }, error => {
-  //     console.log(error);
-  //   });
-  // Handle Bio Edit Submit____
   const handleBioSubmit = () => {
     if (!bioText) {
       notification.error({
@@ -82,8 +166,6 @@ const Profile = () => {
         duration: 2,
         style: {
           width: 300,
-          //   marginLeft: "calc(50% - 150px)",
-          //   marginTop: "calc(50vh - 100px)",
           borderBottom: "6px solid #e83a3b",
           boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
         },
@@ -98,20 +180,21 @@ const Profile = () => {
           }
         )
         .then(function (response) {
-          notification.success({
-            message: "Success",
-            description: "Bio Updated Successfully!",
-            placement: "top",
-            duration: 2,
-            style: {
-              width: 300,
-              //   marginLeft: "calc(50% - 150px)",
-              //   marginTop: "calc(50vh - 100px)",
-              borderBottom: "6px solid #3a3",
-              boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
-            },
-          });
-          dispatch({ type: "CLOSE_EDITOR" });
+          if (response.statusText === "OK") {
+            setThisUser(response?.data?.result);
+            notification.success({
+              message: "Success",
+              description: "Bio Update successfully",
+              placement: "top",
+              duration: 2,
+              style: {
+                width: 300,
+                borderBottom: "6px solid #3a3",
+                boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
+              },
+            });
+            dispatch({ type: "CLOSE_EDITOR" });
+          }
         })
         .catch(function (error) {
           console.log(error);
@@ -127,8 +210,6 @@ const Profile = () => {
         duration: 2,
         style: {
           width: 300,
-          //   marginLeft: "calc(50% - 150px)",
-          //   marginTop: "calc(50vh - 100px)",
           borderBottom: "6px solid #e83a3b",
           boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
         },
@@ -143,27 +224,27 @@ const Profile = () => {
           }
         )
         .then(function (response) {
-          notification.success({
-            message: "Success",
-            description: "Profession Updated Successfully!",
-            placement: "top",
-            duration: 2,
-            style: {
-              width: 300,
-              //   marginLeft: "calc(50% - 150px)",
-              //   marginTop: "calc(50vh - 100px)",
-              borderBottom: "6px solid #3a3",
-              boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
-            },
-          });
-          dispatch({ type: "CLOSE_EDITOR" });
+          if (response.statusText === "OK") {
+            setThisUser(response?.data?.result);
+            notification.success({
+              message: "Success",
+              description: "Bio Update successfully",
+              placement: "top",
+              duration: 2,
+              style: {
+                width: 300,
+                borderBottom: "6px solid #3a3",
+                boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
+              },
+            });
+            dispatch({ type: "CLOSE_EDITOR" });
+          }
         })
         .catch(function (error) {
           console.log(error);
         });
     }
   };
-
   // Loadded Loggined User Data
   useEffect(() => {
     axios
@@ -183,13 +264,15 @@ const Profile = () => {
   };
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => console.log(data);
-
   const handleProfileOpen = () => setOpenProfile(true);
   const handleProfileClose = () => setOpenProfile(false);
   const handleBannerOpen = () => setOpenBanner(true);
   const handleBannerClose = () => setOpenBanner(false);
   return (
     <div>
+      <Head>
+        <title>Profile {user?.displayName}</title>
+      </Head>
       <HeaderTop />
       <Header />
       <div className="single_user_profile_section text_no_select px-8 feature-font bg-[#F5F7FB]">
@@ -368,6 +451,7 @@ const Profile = () => {
                       aboutt={thisUser?.about}
                       skills={thisUser?.skills}
                       education={thisUser?.education}
+                      setThisUser={setThisUser}
                     />
                   </div>
                 )}
@@ -395,17 +479,10 @@ const Profile = () => {
                 <div className="relative" style={profileBanner}>
                   <span
                     className="text-2xl rounded-md absolute bottom-3 right-3 bg-gray-50 px-2 py-2"
-                    onClick={() => setOpenBanner(!openBanner)}
+                    onClick={handlePopup2}
                   >
                     <FcCameraAddon />
                   </span>
-                  <BannerPicChange
-                    id={thisUser?._id}
-                    openBanner={openBanner}
-                    handleBannerClose={handleBannerClose}
-                    handleBannerOpen={handleBannerOpen}
-                    setOpenBanner={setOpenBanner}
-                  />
                 </div>
                 <div className="p-3">
                   <div className="relative -top-16">
@@ -430,15 +507,9 @@ const Profile = () => {
                       <div className="position ">
                         <span
                           className="text-xl profilePicUploadIcon bg-gray-50 px-2 py-2 rounded-md shadow-lg"
-                          onClick={() => setOpenProfile(true)}
+                          onClick={handlePopup1}
                         >
                           <FcCameraAddon />
-                          <ProfileModal
-                            id={thisUser?._id}
-                            openProfile={openProfile}
-                            handleProfileOpen={handleProfileOpen}
-                            setOpenProfile={setOpenProfile}
-                          />
                         </span>
                       </div>
                     </div>
@@ -538,6 +609,129 @@ const Profile = () => {
             </div>
           </div>
         </div>
+      </div>
+      <div>
+        {profilePopup && (
+          <div className="animated-popup fixed transition-all duration-500 bg-[#0000007e] h-screen left-0 top-0 w-screen flex items-center justify-center p-4 select-none">
+            <div className="w-full max-w-sm min-h-[400px] bg-white rounded-lg flex justify-between flex-col">
+              <div className="flex items-center justify-between p-3 border-b-2">
+                <strong className="text-gray-800 font-medium text-lg">
+                  Upload Profile Image
+                </strong>
+                <span
+                  className="text-red-400 font-medium text-xl cursor-pointer"
+                  onClick={handlePopup1}
+                >
+                  <AiOutlineCloseCircle />
+                </span>
+              </div>
+              <div className="p-3">
+                <div className="bg-[#c6cad2] min-h-[260px] rounded-lg flex items-center justify-center">
+                  <label htmlFor="profile-picture">
+                    {!profilePicture && (
+                      <div className="min-w-[150px] h-full max-w-[150px] min-h-[150px] rounded-full border-2 border-white  text-4xl text-white flex items-center justify-center">
+                        <RiImageAddLine />
+                      </div>
+                    )}
+                    {profilePicture && (
+                      <div className="min-w-[150px] h-full max-w-[150px] min-h-[150px] rounded-full border-2 border-white  text-4xl text-white flex items-center justify-center">
+                        <ImCheckboxChecked />
+                      </div>
+                    )}
+                  </label>
+                  <input
+                    onChange={(e) => setProfilePicture(e.target.files)}
+                    className="hidden"
+                    type="file"
+                    id="profile-picture"
+                    accept="image/png, image/jpeg, image/jpg"
+                  />
+                </div>
+              </div>
+              <div className="flex items-center justify-between p-3">
+                <span className="text-gray-800 font-medium text-lg">
+                  {profilePicture ? "Image Selected" : "Select jpg png or jpeg"}
+                </span>
+                <div>
+                  {profilePicture ? (
+                    <button
+                      onClick={handleUploadProfile}
+                      className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+                    >
+                      Upload
+                    </button>
+                  ) : (
+                    <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full">
+                      Upload
+                    </button>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+        {/* End Profile Picture Upload Popup */}
+        {/* Start Banner Picture Upload Popup */}
+        {bannerPopup && (
+          <div className="animated-popup fixed transition-all duration-500 bg-[#00000070] h-screen left-0 top-0 w-screen flex items-center justify-center p-4 select-none">
+            <div className="w-full max-w-sm min-h-[400px] bg-white rounded-lg flex justify-between flex-col">
+              <div className="flex items-center justify-between p-3 border-b-2">
+                <strong className="text-gray-800 font-medium text-lg">
+                  Upload Banner Image
+                </strong>
+                <span
+                  className="text-red-400 font-medium text-xl cursor-pointer"
+                  onClick={handlePopup2}
+                >
+                  <AiOutlineCloseCircle />
+                </span>
+              </div>
+              <div className="p-3">
+                <div className="bg-[#c6cad2] min-h-[260px] rounded-lg flex items-center justify-center">
+                  <label htmlFor="profile-picture">
+                    {!bannerPicture && (
+                      <div className="min-w-[220px] h-full max-w-[220px] min-h-[150px] rounded-2xl border-2 border-white  text-4xl text-white flex items-center justify-center">
+                        <RiImageAddLine />
+                      </div>
+                    )}
+                    {bannerPicture && (
+                      <div className="min-w-[220px] h-full max-w-[220px] min-h-[150px] rounded-2xl border-2 border-white  text-4xl text-white flex items-center justify-center">
+                        <ImCheckboxChecked />
+                      </div>
+                    )}
+                  </label>
+                  <input
+                    onChange={(e) => setBannerPicture(e.target.files)}
+                    className="hidden"
+                    type="file"
+                    id="profile-picture"
+                    accept="image/png, image/jpeg, image/jpg"
+                  />
+                </div>
+              </div>
+              <div className="flex items-center justify-between p-3">
+                <span className="text-gray-800 font-medium text-lg">
+                  {bannerPicture ? "Image Selected" : "Select jpg png or jpeg"}
+                </span>
+                <div>
+                  {bannerPicture ? (
+                    <button
+                      onClick={handleUploadBanner}
+                      className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+                    >
+                      Upload
+                    </button>
+                  ) : (
+                    <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full">
+                      Upload
+                    </button>
+                  )}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+        {/* End Banner Picture Upload Popup */}
       </div>
       <Footer />
     </div>

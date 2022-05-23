@@ -165,12 +165,12 @@ const Modal = () => {
                 <div className="bg-[#c6cad2] min-h-[260px] rounded-lg flex items-center justify-center">
                   <label htmlFor="profile-picture">
                     {!bannerPicture && (
-                      <div className="min-w-[150px] h-full max-w-[150px] min-h-[150px] rounded-full border-2 border-white  text-4xl text-white flex items-center justify-center">
+                      <div className="min-w-[220px] h-full max-w-[220px] min-h-[150px] rounded-2xl border-2 border-white  text-4xl text-white flex items-center justify-center">
                         <RiImageAddLine />
                       </div>
                     )}
                     {bannerPicture && (
-                      <div className="min-w-[150px] h-full max-w-[150px] min-h-[150px] rounded-full border-2 border-white  text-4xl text-white flex items-center justify-center">
+                      <div className="min-w-[220px] h-full max-w-[220px] min-h-[150px] rounded-2xl border-2 border-white  text-4xl text-white flex items-center justify-center">
                         <ImCheckboxChecked />
                       </div>
                     )}

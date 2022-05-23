@@ -33,7 +33,7 @@ const controlReducer = (state, action) => {
 // this is text area for input
 const { TextArea } = Input;
 
-const About = ({ id, education, skills, aboutt }) => {
+const About = ({ id, education, skills, aboutt, setThisUser }) => {
   const { user } = useAuth();
   const [state, dispatch] = useReducer(controlReducer, editorMood);
   const [aboutBody, setAboutBody] = useState("");
@@ -66,20 +66,23 @@ const About = ({ id, education, skills, aboutt }) => {
           about: aboutBody,
         })
         .then(function (response) {
-          notification.success({
-            message: "Success",
-            description: "About Update successfully!",
-            placement: "top",
-            duration: 2,
-            style: {
-              width: 300,
-              //   marginLeft: "calc(50% - 150px)",
-              //   marginTop: "calc(50vh - 100px)",
-              borderBottom: "6px solid #3a3",
-              boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
-            },
-          });
-          dispatch({ type: "CLOSE_EDITOR" });
+          if (response.statusText === "OK") {
+            setThisUser(response.data.result);
+            notification.success({
+              message: "Success",
+              description: "About Update successfully!",
+              placement: "top",
+              duration: 2,
+              style: {
+                width: 300,
+                //   marginLeft: "calc(50% - 150px)",
+                //   marginTop: "calc(50vh - 100px)",
+                borderBottom: "6px solid #3a3",
+                boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
+              },
+            });
+            dispatch({ type: "CLOSE_EDITOR" });
+          }
         })
         .catch(function (error) {
           console.log(error);
@@ -95,8 +98,6 @@ const About = ({ id, education, skills, aboutt }) => {
         duration: 2,
         style: {
           width: 300,
-          //   marginLeft: "calc(50% - 150px)",
-          //   marginTop: "calc(50vh - 100px)",
           borderBottom: "6px solid #e83a3b",
           boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
         },
@@ -108,20 +109,21 @@ const About = ({ id, education, skills, aboutt }) => {
           skills: skillsBody,
         })
         .then(function (response) {
-          notification.success({
-            message: "Success",
-            description: "Skills Update Successfully!",
-            placement: "top",
-            duration: 2,
-            style: {
-              width: 300,
-              //   marginLeft: "calc(50% - 150px)",
-              //   marginTop: "calc(50vh - 100px)",
-              borderBottom: "6px solid #3a3",
-              boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
-            },
-          });
-          dispatch({ type: "CLOSE_EDITOR" });
+          if (response.statusText === "OK") {
+            setThisUser(response.data.result);
+            notification.success({
+              message: "Success",
+              description: "Skills Update Successfully!",
+              placement: "top",
+              duration: 2,
+              style: {
+                width: 300,
+                borderBottom: "6px solid #3a3",
+                boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
+              },
+            });
+            dispatch({ type: "CLOSE_EDITOR" });
+          }
         })
         .catch(function (error) {
           console.log(error);
@@ -150,20 +152,21 @@ const About = ({ id, education, skills, aboutt }) => {
           education: educationBody,
         })
         .then(function (response) {
-          notification.success({
-            message: "Success",
-            description: "Education Update successfully!",
-            placement: "top",
-            duration: 2,
-            style: {
-              width: 300,
-              //   marginLeft: "calc(50% - 150px)",
-              //   marginTop: "calc(50vh - 100px)",
-              borderBottom: "6px solid #3a3",
-              boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
-            },
-          });
-          dispatch({ type: "CLOSE_EDITOR" });
+          if (response.statusText === "OK") {
+            setThisUser(response.data.result);
+            notification.success({
+              message: "Success",
+              description: "Education Update successfully!",
+              placement: "top",
+              duration: 2,
+              style: {
+                width: 300,
+                borderBottom: "6px solid #3a3",
+                boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
+              },
+            });
+            dispatch({ type: "CLOSE_EDITOR" });
+          }
         })
         .catch(function (error) {
           console.log(error);

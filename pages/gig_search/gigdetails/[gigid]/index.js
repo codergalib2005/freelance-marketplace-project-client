@@ -31,7 +31,6 @@ const GigDetails = () => {
   let queryEm = router?.query?.gigid;
   let email = queryEm?.slice(queryEm?.indexOf("+++"), queryEm?.length);
   email = email?.substring(3);
-  console.log(email);
   //Buyer rivew
   useEffect(() => {
     const getAllReview = async () => {
@@ -45,7 +44,7 @@ const GigDetails = () => {
         console.log(err);
       }
     };
-    getAllReview()
+    getAllReview();
   }, [email]);
 
   //hook from
@@ -78,8 +77,6 @@ const GigDetails = () => {
           duration: 2,
           style: {
             width: 300,
-            //   marginLeft: "calc(50% - 150px)",
-            //   marginTop: "calc(50vh - 100px)",
             borderBottom: "6px solid #3a3",
             boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
           },
