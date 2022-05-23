@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <section className="bg-gray-900 py-3">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-7 gap-4 py-6">
+        <div className="grid grid-cols-1 md:grid-cols-7 gap-8 py-6">
           <div className="md:col-span-3">
             <div>
               <img className="w-40" src="/navbar/image/logo-white.png" alt="" />
@@ -21,12 +21,12 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div className="col-span-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 mx-auto">
+          <div className="col-span-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mx-auto">
             <div>
               <strong className="text-white font-medium text-2xl border-b border-[#e83a3b]pb-2 mb-4">Services</strong>
               <ul>
                 <li className="block pb-2">
-                  <Link href="/become&seller"><a className="no-underline hover:underline hover:text-[#6787fe] text-lg font-medium text-gray-400">Become a Seller</a></Link>
+                  <Link href="/become&seller"><a className="no-underline hover:underline hover:text-[#6787fe] text-lg mt-4 font-medium text-gray-400">Become a Seller</a></Link>
                 </li>
                 <li className="block pb-2">
                   <Link href="/gig_add"><a className="no-underline hover:underline hover:text-[#6787fe] text-lg font-medium text-gray-400">Create a Gig</a></Link>
@@ -46,7 +46,7 @@ const Footer = () => {
               <strong className="text-white font-medium text-2xl border-b border-[#6787fe]pb-2 mb-4">Community</strong>
               <ul>
                 <li className="block pb-2">
-                  <Link href="/community"><a className="no-underline hover:underline hover:text-[#6787fe] text-lg font-medium text-gray-400">Community</a></Link>
+                  <Link href="/community"><a className="no-underline hover:underline hover:text-[#6787fe] text-lg mt-4 font-medium text-gray-400">Community</a></Link>
                 </li>
                 <li className="block pb-2">
                   <Link href="/support"><a className="no-underline hover:underline hover:text-[#6787fe] text-lg font-medium text-gray-400">Support</a></Link>
@@ -60,26 +60,9 @@ const Footer = () => {
                 
               </ul>
             </div>
-            {/* <div>
-              <strong className="text-white font-medium text-2xl border-b border-[#6787fe]pb-2 mb-4">Blogs & Comment</strong>
-              <ul>
-                <li className="block pb-2">
-                  <Link href="/"><a className="no-underline hover:underline hover:text-[#6787fe] text-lg font-medium text-gray-400">Business</a></Link>
-                </li>
-                <li className="block pb-2">
-                  <Link href="/"><a className="no-underline hover:underline hover:text-[#6787fe] text-lg font-medium text-gray-400">Programming & Tech</a></Link>
-                </li>
-                <li className="block pb-2">
-                  <Link href="/"><a className="no-underline hover:underline hover:text-[#6787fe] text-lg font-medium text-gray-400">Graphics & Design</a></Link>
-                </li>
-                <li className="block pb-2">
-                  <Link href="/"><a className="no-underline hover:underline hover:text-[#6787fe] text-lg font-medium text-gray-400">Video & Animation</a></Link>
-                </li>
-                <li className="block pb-2">
-                  <Link href="/"><a className="no-underline hover:underline hover:text-[#6787fe] text-lg font-medium text-gray-400">Digital Marketing</a></Link>
-                </li>
-              </ul>
-            </div> */}
+           <div>
+             <img className="border-2 rounded-lg" src="https://i.ibb.co/ryn5btD/flat-customer-support-illustration-23-2148899114.png" alt="pic" />
+             </div>
           </div>
         </div>
       </div>
@@ -90,7 +73,7 @@ const Footer = () => {
               <p className="text-[#6787fe]">Copyright © 2022 || All Rights Reserved by Team Unique gamer.</p>
             </div>
             <div className="text-right">
-              <img src="/footer/paypal.png" alt="" />
+              <img className="rounded-md" src="/footer/paypal.png" alt="" />
             </div>
           </div>
         </div>
