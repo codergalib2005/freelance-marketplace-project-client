@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import React from "react";
+import About from './../../pages/about/index';
 
 const Footer = () => {
   return (
@@ -22,22 +23,22 @@ const Footer = () => {
           </div>
           <div className="col-span-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
             <div>
-              <strong className="text-white font-medium text-2xl border-b border-[#e83a3b]pb-2 mb-4">Categories</strong>
+              <strong className="text-white font-medium text-2xl border-b border-[#e83a3b]pb-2 mb-4">Services</strong>
               <ul>
                 <li className="block pb-2">
                   <Link href="/become&seller"><a className="no-underline hover:underline hover:text-[#6787fe] text-lg font-medium text-gray-400">Become a Seller</a></Link>
                 </li>
                 <li className="block pb-2">
-                  <Link href="/"><a className="no-underline hover:underline hover:text-[#6787fe] text-lg font-medium text-gray-400">Programming & Tech</a></Link>
+                  <Link href="/gig_add"><a className="no-underline hover:underline hover:text-[#6787fe] text-lg font-medium text-gray-400">Create a Gig</a></Link>
                 </li>
                 <li className="block pb-2">
-                  <Link href="/"><a className="no-underline hover:underline hover:text-[#6787fe] text-lg font-medium text-gray-400">Graphics & Design</a></Link>
+                  <Link href="/profile"><a className="no-underline hover:underline hover:text-[#6787fe] text-lg font-medium text-gray-400">Your Profile</a></Link>
                 </li>
                 <li className="block pb-2">
-                  <Link href="/"><a className="no-underline hover:underline hover:text-[#6787fe] text-lg font-medium text-gray-400">Video & Animation</a></Link>
+                  <Link href="/jobCreate"><a className="no-underline hover:underline hover:text-[#6787fe] text-lg font-medium text-gray-400">Make a Job</a></Link>
                 </li>
                 <li className="block pb-2">
-                  <Link href="/"><a className="no-underline hover:underline hover:text-[#6787fe] text-lg font-medium text-gray-400">Digital Marketing</a></Link>
+                  <Link href="/search_job"><a className="no-underline hover:underline hover:text-[#6787fe] text-lg font-medium text-gray-400">Job Searcing</a></Link>
                 </li>
               </ul>
             </div>
@@ -45,24 +46,22 @@ const Footer = () => {
               <strong className="text-white font-medium text-2xl border-b border-[#6787fe]pb-2 mb-4">Community</strong>
               <ul>
                 <li className="block pb-2">
-                  <Link href="/"><a className="no-underline hover:underline hover:text-[#6787fe] text-lg font-medium text-gray-400">Business</a></Link>
+                  <Link href="/community"><a className="no-underline hover:underline hover:text-[#6787fe] text-lg font-medium text-gray-400">Community</a></Link>
                 </li>
                 <li className="block pb-2">
-                  <Link href="/"><a className="no-underline hover:underline hover:text-[#6787fe] text-lg font-medium text-gray-400">Programming & Tech</a></Link>
+                  <Link href="/support"><a className="no-underline hover:underline hover:text-[#6787fe] text-lg font-medium text-gray-400">Support</a></Link>
                 </li>
                 <li className="block pb-2">
-                  <Link href="/"><a className="no-underline hover:underline hover:text-[#6787fe] text-lg font-medium text-gray-400">Graphics & Design</a></Link>
+                  <Link href="/about"><a className="no-underline hover:underline hover:text-[#6787fe] text-lg font-medium text-gray-400">About</a></Link>
                 </li>
                 <li className="block pb-2">
-                  <Link href="/"><a className="no-underline hover:underline hover:text-[#6787fe] text-lg font-medium text-gray-400">Video & Animation</a></Link>
+                  <Link href="/ourTeam"><a className="no-underline hover:underline hover:text-[#6787fe] text-lg font-medium text-gray-400">Our Team</a></Link>
                 </li>
-                <li className="block pb-2">
-                  <Link href="/"><a className="no-underline hover:underline hover:text-[#6787fe] text-lg font-medium text-gray-400">Digital Marketing</a></Link>
-                </li>
+                
               </ul>
             </div>
             <div>
-              <strong className="text-white font-medium text-2xl border-b border-[#6787fe]pb-2 mb-4">Support</strong>
+              <strong className="text-white font-medium text-2xl border-b border-[#6787fe]pb-2 mb-4">Blogs & Comment</strong>
               <ul>
                 <li className="block pb-2">
                   <Link href="/"><a className="no-underline hover:underline hover:text-[#6787fe] text-lg font-medium text-gray-400">Business</a></Link>
