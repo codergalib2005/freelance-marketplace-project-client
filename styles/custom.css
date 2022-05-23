@@ -441,14 +441,14 @@
   color: #fff !important;
 }
 
-.support_modal{
-   width: 50% !important;
-   margin-top:-50px;
+.support_modal {
+  width: 50% !important;
+  margin-top: -50px;
 }
 @media only screen and (max-width: 920px) {
- .support_modal{
-   width: 90% !important;
- }
+  .support_modal {
+    width: 90% !important;
+  }
 }
 
 /* * chat started */
@@ -830,4 +830,31 @@ Resume_form page
 .must:after {
   content: " *";
   color: red;
+}
+
+/*---------------------------
+   Popup Animations
+--------------------------- */
+.animated-popup {
+  animation: animatedPopup 0.7s ease-in-out;
+}
+@keyframes animatedPopup {
+  0% {
+    scale: 0.6;
+    opacity: 0;
+    visibility: hidden;
+    top: 50%;
+    left: 50%;
+    right: 50%;
+    bottom: 50%;
+  }
+  100% {
+    scale: 1;
+    opacity: 0;
+    visibility: visible;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
 }
