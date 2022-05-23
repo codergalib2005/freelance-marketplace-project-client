@@ -21,7 +21,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div className="col-span-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+          <div className="col-span-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10 mx-auto">
             <div>
               <strong className="text-white font-medium text-2xl border-b border-[#e83a3b]pb-2 mb-4">Services</strong>
               <ul>
@@ -60,7 +60,7 @@ const Footer = () => {
                 
               </ul>
             </div>
-            <div>
+            {/* <div>
               <strong className="text-white font-medium text-2xl border-b border-[#6787fe]pb-2 mb-4">Blogs & Comment</strong>
               <ul>
                 <li className="block pb-2">
@@ -79,7 +79,7 @@ const Footer = () => {
                   <Link href="/"><a className="no-underline hover:underline hover:text-[#6787fe] text-lg font-medium text-gray-400">Digital Marketing</a></Link>
                 </li>
               </ul>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
