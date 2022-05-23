@@ -21,7 +21,7 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div className="col-span-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mx-auto">
+          <div className="col-span-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 mx-auto">
             <div>
               <strong className="text-white font-medium text-2xl border-b border-[#e83a3b]pb-2 mb-4">Services</strong>
               <ul>
