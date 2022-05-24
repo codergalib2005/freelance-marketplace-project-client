@@ -510,6 +510,9 @@ const Profile = () => {
                     <strong className="block text-xl text-gray-700">
                       {thisUser?.name}
                     </strong>
+                    <p className="block text-xs text-gray-700">
+                      {thisUser?.email} 
+                    </p>
                     {state.editor === "PROFESSION_EDIT" ? (
                       <div className="mt-2">
                         <Input
