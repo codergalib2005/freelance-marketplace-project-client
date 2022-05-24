@@ -258,26 +258,23 @@ const GigDetails = () => {
                 <div className="">
                   <div className="grid grid-cols-3 bg-white rounded-t-md border-2 border-[#7b92f7] border-b-0">
                     <div
-                      className={`text-center cursor-pointer py-2 text-lg font-bold ${
-                        showPricing === "beginner" && "bg-[#8537ed] text-white"
-                      }`}
+                      className={`text-center cursor-pointer py-2 text-lg font-bold ${showPricing === "beginner" && "bg-[#8537ed] text-white"
+                        }`}
                       onClick={() => setShowPricing("beginner")}
                     >
                       Beginner
                     </div>
                     <div
-                      className={`text-center cursor-pointer py-2 text-lg font-bold ${
-                        showPricing === "expert" && "bg-[#8537ed] text-white"
-                      }`}
+                      className={`text-center cursor-pointer py-2 text-lg font-bold ${showPricing === "expert" && "bg-[#8537ed] text-white"
+                        }`}
                       onClick={() => setShowPricing("expert")}
                     >
                       Expert
                     </div>
                     <div
-                      className={`text-center cursor-pointer py-2 text-lg font-bold ${
-                        showPricing === "experience" &&
+                      className={`text-center cursor-pointer py-2 text-lg font-bold ${showPricing === "experience" &&
                         "bg-[#8537ed] text-white"
-                      }`}
+                        }`}
                       onClick={() => setShowPricing("experience")}
                     >
                       Experience
@@ -287,7 +284,7 @@ const GigDetails = () => {
                 {/* body */}
                 <div
                   style={{ boxShadow: "-2px 3px 15px rgba(0,0,0,0.1)" }}
-                  className=" pb-8 relative bg-white rounded-b-lg lg:w-[450px] md:w-full"
+                  className=" pb-8 relative bg-white rounded-b-lg lg:w-[467px] md:w-full"
                 >
                   {showPricing === "beginner" && (
                     <div>
