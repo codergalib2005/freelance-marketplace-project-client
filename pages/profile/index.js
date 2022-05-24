@@ -194,9 +194,9 @@ const Profile = () => {
       <Header />
       <div className="single_user_profile_section text_no_select px-8 feature-font bg-[#F5F7FB]">
         <div className="container px-4  mx-auto py-12">
-          <div className="mb-8 flex justify-end">
+          {/* <div className="mb-8 flex justify-end">
             <div className="flex gap-4 md:gap-8 lg:gap-16  items-center">
-              <input
+               <input
                 type="text"
                 placeholder="search here!"
                 className="border border-blue-300 pl-2 py-2 rounded-lg outline-none"
@@ -206,7 +206,7 @@ const Profile = () => {
               </button>
               <img className="w-6 h-6" src="/profile/select.png" alt="" />
               <div className="w-8 h-8 rounded-full border-4 border-white ">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
+               
                 {!thisUser?.avatar && (
                   <img
                     className="w-full rounded-full hover:scale-105 h-full transition-all duration-300 ease-linear"
@@ -223,7 +223,7 @@ const Profile = () => {
                 )}
               </div>
             </div>
-          </div>
+          </div> */}
           {/* new section */}
           <div className="mb-8">
             <div className="">
@@ -278,82 +278,74 @@ const Profile = () => {
               <div className="shadow-md flex">
                 <div
                   style={profileSelectableCard}
-                  className={`w-4/12 flex items-center justify-center flex-col py-2 border-b-2 cursor-pointer ${
-                    tabs === "about"
-                      ? "bg-[#c3d9ec] text-[#c3d9ec] border-[#3980c0]"
-                      : "border-gray-500 bg-50"
-                  }`}
+                  className={`w-4/12 flex items-center justify-center flex-col py-2 border-b-2 cursor-pointer ${tabs === "about"
+                    ? "bg-[#c3d9ec] text-[#c3d9ec] border-[#3980c0]"
+                    : "border-gray-500 bg-50"
+                    }`}
                   onClick={() => setTabs("about")}
                 >
                   <span className="text-xl">
                     <GrUserManager />
                   </span>
                   <span
-                    className={`text-base font-medium ${
-                      tabs === "about" ? "text-[#3980c0]" : "text-gray-800"
-                    }`}
+                    className={`text-base font-medium ${tabs === "about" ? "text-[#3980c0]" : "text-gray-800"
+                      }`}
                   >
                     About
                   </span>
                 </div>
                 <div
                   style={profileSelectableCard}
-                  className={`w-4/12 flex items-center justify-center flex-col py-2 border-b-2 cursor-pointer ${
-                    tabs === "task"
-                      ? "bg-[#c3d9ec] text-[#c3d9ec] border-[#3980c0]"
-                      : "border-gray-500 bg-50"
-                  }`}
+                  className={`w-4/12 flex items-center justify-center flex-col py-2 border-b-2 cursor-pointer ${tabs === "task"
+                    ? "bg-[#c3d9ec] text-[#c3d9ec] border-[#3980c0]"
+                    : "border-gray-500 bg-50"
+                    }`}
                   onClick={() => setTabs("task")}
                 >
                   <span className="text-xl text-gray-800">
                     <GrUserManager />
                   </span>
                   <span
-                    className={`text-base font-medium ${
-                      tabs === "task" ? "text-[#3980c0]" : "text-gray-800"
-                    }`}
+                    className={`text-base font-medium ${tabs === "task" ? "text-[#3980c0]" : "text-gray-800"
+                      }`}
                   >
                     Tasks
                   </span>
                 </div>
                 <div
                   style={profileSelectableCard}
-                  className={`w-4/12 flex items-center justify-center flex-col py-2 border-b-2 cursor-pointer ${
-                    tabs === "review"
-                      ? "bg-[#c3d9ec] text-[#c3d9ec] border-[#3980c0]"
-                      : "border-gray-500 bg-50"
-                  }`}
+                  className={`w-4/12 flex items-center justify-center flex-col py-2 border-b-2 cursor-pointer ${tabs === "review"
+                    ? "bg-[#c3d9ec] text-[#c3d9ec] border-[#3980c0]"
+                    : "border-gray-500 bg-50"
+                    }`}
                   onClick={() => setTabs("review")}
                 >
                   <span className="text-xl text-gray-800">
                     <GrUserManager />
                   </span>
                   <span
-                    className={`text-base font-medium ${
-                      tabs === "review" ? "text-[#3980c0]" : "text-gray-800"
-                    }`}
+                    className={`text-base font-medium ${tabs === "review" ? "text-[#3980c0]" : "text-gray-800"
+                      }`}
                   >
                     Review
                   </span>
                 </div>
                 <div
                   style={profileSelectableCard}
-                  className={`w-4/12 flex items-center justify-center flex-col py-2 border-b-2 cursor-pointer ${
-                    tabs === "notification"
-                      ? "bg-[#c3d9ec] text-[#c3d9ec] border-[#3980c0]"
-                      : "border-gray-500 bg-50"
-                  }`}
+                  className={`w-4/12 flex items-center justify-center flex-col py-2 border-b-2 cursor-pointer ${tabs === "notification"
+                    ? "bg-[#c3d9ec] text-[#c3d9ec] border-[#3980c0]"
+                    : "border-gray-500 bg-50"
+                    }`}
                   onClick={() => setTabs("notification")}
                 >
                   <span className="text-xl text-gray-800">
                     <AiOutlineMail />
                   </span>
                   <span
-                    className={`text-base font-medium ${
-                      tabs === "notification"
-                        ? "text-[#3980c0]"
-                        : "text-gray-800"
-                    }`}
+                    className={`text-base font-medium ${tabs === "notification"
+                      ? "text-[#3980c0]"
+                      : "text-gray-800"
+                      }`}
                   >
                     Mails
                   </span>
