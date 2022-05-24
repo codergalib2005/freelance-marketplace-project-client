@@ -23,8 +23,8 @@ export default function ModalSupport({handleCancel,handleOk, name, isModalVisibl
 
   return (
     <div>
-      <Modal  title="Support" okText='Send Message' visible={isModalVisible} onOk={handleSubmit(onSubmit)} onCancel={handleCancel} className='support_modal' >
-        <div className="bg-white px-4 pt-5 pb-4  sm:pb-2">
+      <Modal  title="Support" okType="success" okText='Send Message' visible={isModalVisible} onOk={handleSubmit(onSubmit)} onCancel={handleCancel} className='support_modal' >
+        <div className=" px-4 pt-5 pb-4  sm:pb-2">
 <form className="pr-4" onSubmit={handleSubmit(onSubmit)}>
 <div className="sm:flex sm:items-start">
 <div className="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-blue-100 sm:mx-0 sm:h-10 sm:w-10">
