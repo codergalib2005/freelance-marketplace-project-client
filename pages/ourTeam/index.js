@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import HeaderTop from "../../components/Shared/HeaderTop";
 import Header from "../../components/Shared/Header";
 import Footer from "../../components/Shared/Footer";
+import Head from "next/head";
 
 const OurTeam = () => {
   const container = {
@@ -26,6 +27,9 @@ const OurTeam = () => {
   };
   return (
     <div>
+      <Head>
+        <title>Our Team</title>
+      </Head>
       <header>
         <HeaderTop />
         <Header />
@@ -39,7 +43,7 @@ const OurTeam = () => {
         <Footer />
       </footer>
     </div>
-  )
+  );
 };
 
 export default OurTeam;

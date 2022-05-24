@@ -4,6 +4,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import useAuth from "../../hooks/useAuth";
 import { notification } from "antd";
+import Head from "next/head";
 const Register = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const { user, registerUser, loading, error, userStatus } = useAuth();
@@ -46,6 +47,9 @@ const Register = () => {
 
   return (
     <div className="w-full bg-[#fff]">
+      <Head>
+        <title>Register</title>
+      </Head>
       <div className="px-4">
         <div
           style={{ minHeight: "90vh" }}

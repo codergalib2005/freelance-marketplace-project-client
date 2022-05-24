@@ -5,6 +5,7 @@ import Footer from "../../components/Shared/Footer";
 import Header from "../../components/Shared/Header";
 import HeaderTop from "../../components/Shared/HeaderTop";
 import { notification } from "antd";
+import Head from "next/head";
 import axios from "axios";
 const JobCreate = () => {
   const { register, handleSubmit } = useForm();
@@ -93,6 +94,9 @@ const JobCreate = () => {
   };
   return (
     <>
+      <Head>
+        <title>Make a Job Create</title>
+      </Head>
       <HeaderTop />
       <Header />
       <div className="profile_banner2">
@@ -251,13 +255,9 @@ const JobCreate = () => {
                     {...register("jobType")}
                   >
                     <option value=""></option>
-                    <option value="Programming & Tech">
-                      Remote
-                    </option>
+                    <option value="Programming & Tech">Remote</option>
                     <option value="WordPress">On Site</option>
-                    <option value="Website Builders & CMS">
-                      In Office
-                    </option>
+                    <option value="Website Builders & CMS">In Office</option>
                     <option value="Digital Marketing">Part Time</option>
                     <option value="Video & Animation">Full Time</option>
                   </select>

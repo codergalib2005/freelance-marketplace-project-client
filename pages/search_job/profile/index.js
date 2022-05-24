@@ -1,10 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 import React, { useState } from "react";
-
+import Head from "next/head";
 const JobProfile = () => {
   const [show, setShow] = useState("about");
   return (
     <div>
+      <Head>
+        <title>HR. Profile</title>
+      </Head>
       <div className="container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-6 ga-6">
           <div className="col-span-2 text-center bg-gray-200 border-white rounded-lg px-4 py-8 border-4 shadow-lg">

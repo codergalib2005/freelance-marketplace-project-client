@@ -19,13 +19,14 @@ import { notification } from "antd";
 import Footer from "../../../../components/Shared/Footer";
 
 const GigDetails = () => {
-  const { user, thisUser, loading } = useAuth();
+  const { user, loading } = useAuth();
   const [gig, setSingleGig] = useState({});
   const [gigUser, setGigUser] = useState({});
   const [showPricing, setShowPricing] = useState("beginner");
   const router = useRouter();
   const [rating, setRating] = useState(0);
   const [sellerEmail, setSellerEmail] = useState([]);
+  const [thisUser, setThisUser] = useState({});
 
   // EMAIL FROM QUERY
   let queryEm = router?.query?.gigid;
@@ -48,6 +49,18 @@ const GigDetails = () => {
   }, [email]);
 
   //hook from
+  useEffect(() => {
+    axios
+      .get(`${process.env.NEXT_PUBLIC_API_URL}/users/email/${user?.email}`)
+      .then(
+        (response) => {
+          setThisUser(response?.data?.result);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+  }, [user?.email]);
 
   const { register, handleSubmit, reset } = useForm();
   console.log(user);
@@ -69,20 +82,23 @@ const GigDetails = () => {
           },
         }
       )
-      .then(() => {
-        notification.success({
-          message: "Success",
-          description: "Review Created Successfully!",
-          placement: "top",
-          duration: 2,
-          style: {
-            width: 300,
-            borderBottom: "6px solid #3a3",
-            boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
-          },
-        });
-        // something
-        reset();
+      .then((response) => {
+        if (response.statusText === "OK") {
+          setSellerEmail(sellerEmail);
+          notification.success({
+            message: "Success",
+            description: "Review Created Successfully!",
+            placement: "top",
+            duration: 2,
+            style: {
+              width: 300,
+              borderBottom: "6px solid #3a3",
+              boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
+            },
+          });
+          // something
+          reset();
+        }
       })
       .catch((err) => console.log(err));
   };
@@ -255,23 +271,26 @@ const GigDetails = () => {
                 <div className="">
                   <div className="grid grid-cols-3 bg-white rounded-t-md border-2 border-[#7b92f7] border-b-0">
                     <div
-                      className={`text-center cursor-pointer py-2 text-lg font-bold ${showPricing === "beginner" && "bg-[#8537ed] text-white"
-                        }`}
+                      className={`text-center cursor-pointer py-2 text-lg font-bold ${
+                        showPricing === "beginner" && "bg-[#8537ed] text-white"
+                      }`}
                       onClick={() => setShowPricing("beginner")}
                     >
                       Beginner
                     </div>
                     <div
-                      className={`text-center cursor-pointer py-2 text-lg font-bold ${showPricing === "expert" && "bg-[#8537ed] text-white"
-                        }`}
+                      className={`text-center cursor-pointer py-2 text-lg font-bold ${
+                        showPricing === "expert" && "bg-[#8537ed] text-white"
+                      }`}
                       onClick={() => setShowPricing("expert")}
                     >
                       Expert
                     </div>
                     <div
-                      className={`text-center cursor-pointer py-2 text-lg font-bold ${showPricing === "experience" &&
+                      className={`text-center cursor-pointer py-2 text-lg font-bold ${
+                        showPricing === "experience" &&
                         "bg-[#8537ed] text-white"
-                        }`}
+                      }`}
                       onClick={() => setShowPricing("experience")}
                     >
                       Experience

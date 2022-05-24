@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import SideBar from "../../components/SideBar/SideBar";
 import SideBarMenu from "../../components/SideBar/SideBarMenu";
 import useAuth from "../../hooks/useAuth";
-
+import Head from "next/head";
 const Inbox = () => {
   const [allSupportMsg, setAllSupportMsg] = useState([]);
   console.log(allSupportMsg);
@@ -17,6 +17,9 @@ const Inbox = () => {
   const { isOpen } = useAuth();
   return (
     <section>
+      <Head>
+        <title>Inbox</title>
+      </Head>
       <main className="flex ">
         <div className={isOpen ? "w-[20%]" : "w-[5%]"}>
           <SideBar />

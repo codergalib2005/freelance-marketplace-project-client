@@ -10,6 +10,7 @@ import Header from "../../components/Shared/Header";
 import { notification } from "antd";
 import { withPrivate } from "../../hooks/PrivateRoute";
 import useAuth from "../../hooks/useAuth";
+import Head from "next/head";
 const showPageMood = {
   showPage: "MAIN_PAGE",
 };
@@ -28,7 +29,7 @@ const controlReducer = (state, action) => {
 const GigCreation = () => {
   const [state, dispatch] = useReducer(controlReducer, showPageMood);
   const [thisUser, setThisUser] = useState({});
-  console.log(thisUser)
+  console.log(thisUser);
   const {
     register,
     handleSubmit,
@@ -44,7 +45,7 @@ const GigCreation = () => {
   }, [user?.email]);
   const onSubmit = (data) => {
     data.email = user.email;
-    data.name = user.displayName
+    data.name = user.displayName;
     // data.name = thisUser.displayName;
     let gallery = new Array();
     gallery.push(data.image1);
@@ -76,6 +77,9 @@ const GigCreation = () => {
   };
   return (
     <div>
+      <Head>
+        <title>Gig Add</title>
+      </Head>
       <Header bg="bg-gray-900" />
       {loading ? (
         <div

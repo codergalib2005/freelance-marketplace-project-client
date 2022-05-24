@@ -4,31 +4,26 @@ import { message } from "antd";
 import SideBar from "../SideBar/SideBar";
 import SideBarMenu from "../SideBar/SideBarMenu";
 import { notification } from "antd";
-const TotalGig = (props) => {
-  const { gallery, gig_title, level, category, _id } = props.gig;
+import axios from "axios";
+const TotalGig = ({ gig }) => {
+  const { gallery, gig_title, level, category, _id } = gig;
   const handleClick = (id) => {
     const url = `${process.env.NEXT_PUBLIC_API_URL}/gigs/remove/top/${id}`;
-    fetch(url, {
-      method: "PUT",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.message === "Top level gig add successfully!") {
-          notification.success({
-            message: "Success",
-            description: "Gig Remove successfully from Top level!",
-            placement: "top",
-            duration: 2,
-            style: {
-              width: 300,
-              //   marginLeft: "calc(50% - 150px)",
-              //   marginTop: "calc(50vh - 100px)",
-              borderBottom: "6px solid #3a3",
-              boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
-            },
-          });
-        }
-      });
+    axios.put(url).then((data) => {
+      if (data.statusText === "OK") {
+        notification.success({
+          message: "Success",
+          description: "Gig Remove successfully from Top level!",
+          placement: "top",
+          duration: 2,
+          style: {
+            width: 300,
+            borderBottom: "6px solid #3a3",
+            boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
+          },
+        });
+      }
+    });
   };
 
   return (
@@ -39,7 +34,9 @@ const TotalGig = (props) => {
           <img src={gallery[0]} alt="" />
         </div>
         <h3 className="job text-lg mt-2">{gig_title}</h3>
-        <p className="text-[#2a3254] text-base text-center mt-4 mb-10">✅{category}</p>
+        <p className="text-[#2a3254] text-base text-center mt-4 mb-10">
+          ✅{category}
+        </p>
 
         <div className="text-center">
           <button onClick={() => handleClick(_id)} className="button">

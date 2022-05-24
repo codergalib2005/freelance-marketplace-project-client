@@ -361,74 +361,82 @@ const Profile = () => {
               <div className="shadow-md flex">
                 <div
                   style={profileSelectableCard}
-                  className={`w-4/12 flex items-center justify-center flex-col py-2 border-b-2 cursor-pointer ${tabs === "about"
-                    ? "bg-[#c3d9ec] text-[#c3d9ec] border-[#3980c0]"
-                    : "border-gray-500 bg-50"
-                    }`}
+                  className={`w-4/12 flex items-center justify-center flex-col py-2 border-b-2 cursor-pointer ${
+                    tabs === "about"
+                      ? "bg-[#c3d9ec] text-[#c3d9ec] border-[#3980c0]"
+                      : "border-gray-500 bg-50"
+                  }`}
                   onClick={() => setTabs("about")}
                 >
                   <span className="text-xl">
                     <GrUserManager />
                   </span>
                   <span
-                    className={`text-base font-medium ${tabs === "about" ? "text-[#3980c0]" : "text-gray-800"
-                      }`}
+                    className={`text-base font-medium ${
+                      tabs === "about" ? "text-[#3980c0]" : "text-gray-800"
+                    }`}
                   >
                     About
                   </span>
                 </div>
                 <div
                   style={profileSelectableCard}
-                  className={`w-4/12 flex items-center justify-center flex-col py-2 border-b-2 cursor-pointer ${tabs === "task"
-                    ? "bg-[#c3d9ec] text-[#c3d9ec] border-[#3980c0]"
-                    : "border-gray-500 bg-50"
-                    }`}
+                  className={`w-4/12 flex items-center justify-center flex-col py-2 border-b-2 cursor-pointer ${
+                    tabs === "task"
+                      ? "bg-[#c3d9ec] text-[#c3d9ec] border-[#3980c0]"
+                      : "border-gray-500 bg-50"
+                  }`}
                   onClick={() => setTabs("task")}
                 >
                   <span className="text-xl text-gray-800">
                     <GrUserManager />
                   </span>
                   <span
-                    className={`text-base font-medium ${tabs === "task" ? "text-[#3980c0]" : "text-gray-800"
-                      }`}
+                    className={`text-base font-medium ${
+                      tabs === "task" ? "text-[#3980c0]" : "text-gray-800"
+                    }`}
                   >
                     Tasks
                   </span>
                 </div>
                 <div
                   style={profileSelectableCard}
-                  className={`w-4/12 flex items-center justify-center flex-col py-2 border-b-2 cursor-pointer ${tabs === "review"
-                    ? "bg-[#c3d9ec] text-[#c3d9ec] border-[#3980c0]"
-                    : "border-gray-500 bg-50"
-                    }`}
+                  className={`w-4/12 flex items-center justify-center flex-col py-2 border-b-2 cursor-pointer ${
+                    tabs === "review"
+                      ? "bg-[#c3d9ec] text-[#c3d9ec] border-[#3980c0]"
+                      : "border-gray-500 bg-50"
+                  }`}
                   onClick={() => setTabs("review")}
                 >
                   <span className="text-xl text-gray-800">
                     <GrUserManager />
                   </span>
                   <span
-                    className={`text-base font-medium ${tabs === "review" ? "text-[#3980c0]" : "text-gray-800"
-                      }`}
+                    className={`text-base font-medium ${
+                      tabs === "review" ? "text-[#3980c0]" : "text-gray-800"
+                    }`}
                   >
                     Review
                   </span>
                 </div>
                 <div
                   style={profileSelectableCard}
-                  className={`w-4/12 flex items-center justify-center flex-col py-2 border-b-2 cursor-pointer ${tabs === "notification"
-                    ? "bg-[#c3d9ec] text-[#c3d9ec] border-[#3980c0]"
-                    : "border-gray-500 bg-50"
-                    }`}
+                  className={`w-4/12 flex items-center justify-center flex-col py-2 border-b-2 cursor-pointer ${
+                    tabs === "notification"
+                      ? "bg-[#c3d9ec] text-[#c3d9ec] border-[#3980c0]"
+                      : "border-gray-500 bg-50"
+                  }`}
                   onClick={() => setTabs("notification")}
                 >
                   <span className="text-xl text-gray-800">
                     <AiOutlineMail />
                   </span>
                   <span
-                    className={`text-base font-medium ${tabs === "notification"
-                      ? "text-[#3980c0]"
-                      : "text-gray-800"
-                      }`}
+                    className={`text-base font-medium ${
+                      tabs === "notification"
+                        ? "text-[#3980c0]"
+                        : "text-gray-800"
+                    }`}
                   >
                     Mails
                   </span>
@@ -511,7 +519,7 @@ const Profile = () => {
                       {thisUser?.name}
                     </strong>
                     <p className="block text-xs text-gray-700">
-                      {thisUser?.email} 
+                      {thisUser?.email}
                     </p>
                     {state.editor === "PROFESSION_EDIT" ? (
                       <div className="mt-2">
@@ -545,12 +553,9 @@ const Profile = () => {
                           className="text-lg pl-1 flex items-center cursor-pointer text-[#e83a3b]"
                           onClick={() => dispatch({ type: "PROFESSION_EDIT" })}
                         >
-                          <Tooltip title="Edit profession box and add your profession!">
+                          <Tooltip title="Edit your Profession!">
                             <FiEdit />
                           </Tooltip>
-                          <span className="ml-2 text-gray-800 font-medium text-md">
-                            Edit your Profession
-                          </span>
                         </span>
                       </span>
                     )}
@@ -588,12 +593,9 @@ const Profile = () => {
                             className="text-lg pl-1 flex items-center cursor-pointer text-[#e83a3b]"
                             onClick={() => dispatch({ type: "BIO_EDIT" })}
                           >
-                            <Tooltip title="Edit Bio box, add your simple introduction">
+                            <Tooltip title="Edit your bio">
                               <FiEdit />
                             </Tooltip>
-                            <span className="ml-2 text-gray-800 font-medium text-md">
-                              Edit your bio
-                            </span>
                           </span>
                         </span>
                       )}
