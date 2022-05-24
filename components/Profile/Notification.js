@@ -24,8 +24,8 @@ const Notification = () => {
     };
     getNotifictions();
   }, []);
-  const handlePreview = (data) => {}
-    // setPreview(data);
+  const handlePreview = (data) => { }
+  // setPreview(data);
   return (
     <div className="flex">
       <div>
@@ -33,9 +33,10 @@ const Notification = () => {
           <div
             key={index}
             onClick={() => setPreview(notification)}
-            className="my-4 shadow-md hover:shadow-xl p-1 transition-all duration-200 cursor-pointer"
+            style={{ boxShadow: "-2px 3px 15px rgba(0,0,0,0.1)" }}
+            className="my-2 p-1 transition-all border mx-2 rounded-md duration-200 cursor-pointer"
           >
-            <div className="grid grid-cols-5 gap-3 py-2 w-[300px]">
+            <div className="grid grid-cols-5 gap-3 p-2 w-[300px]">
               <div className="h-14 col-span-1">
                 <img
                   src={notification?.image}
@@ -63,22 +64,22 @@ const Notification = () => {
       <div>
         {preview && (
           <div className="p-2">
-            <div className="flex gap-2">
-              <button className="bg-[#ec4899] text-white shadow-sm hover:shadow-xl duration-200 transition-all py-2 px-4 rounded-full">
+            <div className="flex justify-between my-4 gap-2">
+              <button className="bg-[#2a3254] text-white shadow-sm hover:shadow-xl duration-200 transition-all py-2 px-4 rounded-[30px]">
                 Previous
               </button>
-              <button className="bg-[#ec4899] text-white shadow-sm hover:shadow-xl duration-200 transition-all py-2 px-4 rounded-full">
+              <button className="bg-[#2a3254] text-white shadow-sm hover:shadow-xl duration-200 transition-all py-2 px-4 rounded-[30px]">
                 Next
               </button>
             </div>
             <div>
-              <div className="notification-header-title  capitalize text-2xl text-gray-800">
+              <div className="notification-header-title  capitalize text-2xl text-gray-800 my-2">
                 <strong>{preview?.title}</strong>
               </div>
               <div className="notification-header-date">
                 {format(preview?.date)}
               </div>
-              <div className="">{preview?.message}</div>
+              <div className="mb-2">{preview?.message}</div>
             </div>
             <div>
               <img
