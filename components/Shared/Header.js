@@ -13,6 +13,21 @@ const Header = () => {
   const [fixedMenu, setFixedMenu] = useState(false);
   const { user, logOut } = useAuth();
   const gigs_button = "Gig's";
+  const [thisUser, setThisUser] = useState({});
+
+  // Loadded Loggined User Data
+  useEffect(() => {
+    axios
+      .get(`${process.env.NEXT_PUBLIC_API_URL}/users/email/${user?.email}`)
+      .then(
+        (response) => {
+          setThisUser(response?.data?.result);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+  }, [user?.email]);
   // Scrolling Effect here
   useEffect(() => {
     window.addEventListener("scroll", OnScrollHeader);
@@ -79,7 +94,7 @@ const Header = () => {
                   </Link>
                 </li>
               )}
-              {user?.email && (
+              {user?.email && thisUser?.admin === "admin" && (
                 <li className="text-lg font-medium text-[white] ml-5">
                   <Link href="/dashboard">
                     <a>Dashboard</a>
@@ -91,7 +106,7 @@ const Header = () => {
                   <a>Become A Seller</a>
                 </Link>
               </li>
-              {user?.email && (
+              {user?.email && thisUser?.status === "seller" && (
                 <li className="text-lg font-medium text-[white] ml-5">
                   <Link href="/gig_add">
                     <a>Create A gig</a>
@@ -188,7 +203,7 @@ const Header = () => {
                     </Link>
                   </li>
                 )}
-                {user?.email && (
+                {user?.email && thisUser?.admin === "admin" && (
                   <li className="text-lg font-medium text-[#2a3254] py-3">
                     <Link href="/dashboard">
                       <a>Dashboard</a>
@@ -200,7 +215,7 @@ const Header = () => {
                     <a>Become A Seller</a>
                   </Link>
                 </li>
-                {user?.email && (
+                {user?.email && thisUser?.status === "seller" && (
                   <li className="text-lg font-medium text-[#2a3254] py-3">
                     <Link href="/gig_add">
                       <a>Create A gig</a>

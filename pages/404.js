@@ -8,7 +8,7 @@ const NotFound = () => {
   const look = "What you are looking for may have been misplaced";
   const memory = "in long-term memory.";
   const handleBack = () => {
-    router.back();
+    router.push("/");
   };
   return (
     <div>
