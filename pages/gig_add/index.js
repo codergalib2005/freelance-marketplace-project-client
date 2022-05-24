@@ -44,7 +44,7 @@ const GigCreation = () => {
   }, [user?.email]);
   const onSubmit = (data) => {
     data.email = user.email;
-    data.name=user.displayName
+    data.name = user.displayName
     // data.name = thisUser.displayName;
     let gallery = new Array();
     gallery.push(data.image1);
@@ -149,14 +149,14 @@ const GigCreation = () => {
             </div>
           </div>
           {/*============my Gig info section==============*/}
-          <div className="w-10/12 mx-auto mt-6 ">
+          <div className="container mx-auto mt-6 ">
             <form onSubmit={handleSubmit(onSubmit)}>
               <div>
                 {/*======Overview======*/}
                 {state.showPage === "MAIN_PAGE" && (
                   <div
                     style={{
-                      boxShadow: "0px 0.5px 2px 0.5px lightgray",
+                      boxShadow: "-2px 3px 15px rgba(0,0,0,0.1)",
                     }}
                     className=" p-6 rounded-lg lato"
                   >
@@ -164,8 +164,8 @@ const GigCreation = () => {
                       <h2 className="text-center text-2xl font-semibold text-[#2A3254]">
                         Create Your Gig Today!
                       </h2>
-                      <p className="text-center mt-4 text-xs text-[#2A3254]">
-                        fill all of the nescessary forms to upload your gigs!
+                      <p className="text-center mt-4 text-xs text-red-500">
+                        Fill all of the necessary forms to upload your gigs!
                         Remember, Fill every input.{" "}
                       </p>
                     </div>
@@ -258,7 +258,7 @@ const GigCreation = () => {
                 {state.showPage === "PRICING_PAGE" && (
                   <div
                     style={{
-                      boxShadow: "0px 0.5px 2px 0.5px lightgray",
+                      boxShadow: "-2px 3px 15px rgba(0,0,0,0.1)",
                     }}
                     className=" p-6 rounded-lg lato"
                   >
@@ -457,7 +457,7 @@ const GigCreation = () => {
                 {state.showPage === "GALLERY_PAGE" && (
                   <div
                     style={{
-                      boxShadow: "0px 0.5px 2px 0.5px lightgray",
+                      boxShadow: "-2px 3px 15px rgba(0,0,0,0.1)",
                       minHeight: "100px",
                     }}
                     className="  p-6 py-8 lg:py-16 rounded-lg "
@@ -546,16 +546,16 @@ const GigCreation = () => {
                 {state.showPage === "PRICING_PAGE" && (
                   <div className="mt-8 mb-12 flex gap-4 justify-center">
                     <button
-                      onClick={() => dispatch({ type: "GALLERY_PAGE" })}
-                      className="py-3 px-20 bg-green-700 text-white font-bold text-lg rounded-md"
-                    >
-                      Next
-                    </button>
-                    <button
                       onClick={() => dispatch({ type: "MAIN_PAGE" })}
                       className="py-3 px-20 text-green-900 font-bold text-lg border  border-lime-500 rounded-md"
                     >
                       Back
+                    </button>
+                    <button
+                      onClick={() => dispatch({ type: "GALLERY_PAGE" })}
+                      className="py-3 px-20 bg-green-700 text-white font-bold text-lg rounded-md"
+                    >
+                      Next
                     </button>
                   </div>
                 )}

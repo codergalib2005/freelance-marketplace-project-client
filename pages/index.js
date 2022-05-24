@@ -19,6 +19,7 @@ import TryIt from "../components/Home/TryIt";
 import Growing from "../components/Home/Growing";
 import HeaderBottom from "../components/Shared/HeaderBottom";
 import React, { useState, useEffect } from "react";
+import MessengerCustomerChat from "react-messenger-customer-chat/lib/MessengerCustomerChat";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -75,6 +76,12 @@ export default function Home() {
       <footer>
         <Footer />
       </footer>
+      <section className="messenger">
+        <MessengerCustomerChat
+          pageId="101344009267235"
+          appId="705236444144347"
+        />
+      </section>
     </div>
   );
 }
