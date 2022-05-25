@@ -17,7 +17,7 @@
   display: block;
 }
 .header_content {
-  font-family: "Roboto", sans-serif;
+  font-family: "Poppins", sans-serif !important;
 }
 
 .img_main_slider:hover img {

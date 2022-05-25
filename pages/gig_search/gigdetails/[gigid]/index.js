@@ -124,7 +124,19 @@ const GigDetails = () => {
     getSingleGig();
   }, [id]);
 
-  console.log(sellerEmail);
+  const handleSubmitButton = () => {
+    notification.warning({
+      message: "Warning",
+      description: "Only Buyer can create review",
+      placement: "topLeft",
+      duration: 2,
+      style: {
+        width: 300,
+        borderBottom: "6px solid #3a3",
+        boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
+      },
+    });
+  };
   return (
     <div className=" bg-white min-h-screen gig_details_styles">
       <HeaderTop />
@@ -453,71 +465,79 @@ const GigDetails = () => {
                 </Link>
               </div>
               {/* Start Review */}
-              {thisUser?.status === "buyer" && (
-                <div>
-                  <Rating
-                    onChange={(e) => setRating(e.target.value)}
-                    name="half-rating"
-                    defaultValue={2.5}
-                    precision={0.5}
-                    className="text-orange-600"
-                  />
-                  <div className={`mt-10 ${styles.review_container}`}>
-                    <strong className="text-2xl font-bold text-[#2a3254] border-b-2 border-orange-200 pr-5 mt-6 pb-1 mb-2 online-block">
-                      Give a Review
-                    </strong>{" "}
-                    <br /> <br />
-                    <span className="bg-orange-400 pt-3">
-                      <Rating
-                        onChange={(e) => setRating(e.target.value)}
-                        defaultValue={2.5}
-                        precision={0.5}
-                      />{" "}
-                      <br />
-                    </span>
+
+              <div>
+                <Rating
+                  onChange={(e) => setRating(e.target.value)}
+                  name="half-rating"
+                  defaultValue={2.5}
+                  precision={0.5}
+                  className="text-orange-600"
+                />
+                <div className={`mt-10 ${styles.review_container}`}>
+                  <strong className="text-2xl font-bold text-[#2a3254] border-b-2 border-orange-200 pr-5 mt-6 pb-1 mb-2 online-block">
+                    Give a Review
+                  </strong>{" "}
+                  <br /> <br />
+                  <span className="bg-orange-400 pt-3">
+                    <Rating
+                      onChange={(e) => setRating(e.target.value)}
+                      defaultValue={2.5}
+                      precision={0.5}
+                    />{" "}
                     <br />
-                    <form
-                      onSubmit={handleSubmit(onSubmit)}
-                      className="shadow-xl p-3"
-                    >
-                      <textarea
-                        className="py-1 px-2 rounded-2 h-18 rounded-md "
-                        {...register("description")}
-                        placeholder="Your Comment"
-                        required
-                      />{" "}
-                      <br /> <br />
-                      <input
-                        className="py-1 px-2 rounded-2 border-2 rounded-md shadow-lg "
-                        {...register("profession")}
-                        placeholder="Your profession*"
-                        type="text"
-                        required
-                      />{" "}
-                      <br /> <br />
-                      <input
-                        type="file"
-                        className="hidden"
-                        {...register("buyerImage")}
-                        id="buyerImage"
-                        placeholder="Your image URL*"
-                        accept="image/jpg, image/jpeg, image/png"
-                        required
-                      />{" "}
-                      <label htmlFor="buyerImage" className="inline">
-                        <div className="bg-gray-200 text-8xl text-gray-600 min-h-[100px] rounded-lg flex items-center justify-center cursor-pointer">
-                          <FiUploadCloud />
-                        </div>
-                      </label>
-                      <br /> <br />
+                  </span>
+                  <br />
+                  <form
+                    onSubmit={handleSubmit(onSubmit)}
+                    className="shadow-xl p-3"
+                  >
+                    <textarea
+                      className="py-1 px-2 rounded-2 h-18 rounded-md "
+                      {...register("description")}
+                      placeholder="Your Comment"
+                      required
+                    />{" "}
+                    <br /> <br />
+                    <input
+                      className="py-1 px-2 rounded-2 border-2 rounded-md shadow-lg "
+                      {...register("profession")}
+                      placeholder="Your profession*"
+                      type="text"
+                      required
+                    />{" "}
+                    <br /> <br />
+                    <input
+                      type="file"
+                      className="hidden"
+                      {...register("buyerImage")}
+                      id="buyerImage"
+                      placeholder="Your image URL*"
+                      accept="image/jpg, image/jpeg, image/png"
+                      required
+                    />{" "}
+                    <label htmlFor="buyerImage" className="inline">
+                      <div className="bg-gray-200 text-8xl text-gray-600 min-h-[100px] rounded-lg flex items-center justify-center cursor-pointer">
+                        <FiUploadCloud />
+                      </div>
+                    </label>
+                    <br /> <br />
+                    {thisUser?.status === "buyer" ? (
                       <input
                         className="text-white bg-purple-500 px-4 py-2 rounded-md font-bold"
                         type="submit"
                       />
-                    </form>
-                  </div>
+                    ) : (
+                      <button
+                        className="text-white bg-purple-500 px-4 py-2 rounded-md font-bold"
+                        onClick={handleSubmitButton}
+                      >
+                        Submit
+                      </button>
+                    )}
+                  </form>
                 </div>
-              )}
+              </div>
             </div>
           </div>
         </div>

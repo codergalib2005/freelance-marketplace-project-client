@@ -22,66 +22,66 @@ const HeaderBottom = () => {
           <div>
             <ul className="flex items-center">
               <li className="mx-2 relative main_button">
-                <span className="flex items-center font-medium">
+                <span className="text-md font-bold flex items-center text-gray-600">
                   Pages
                   <span className="pl-3 text-lg">
                     <MdKeyboardArrowDown />
                   </span>
                 </span>
                 <ul className="absolute top-6 text-md left-0 w-40 bg-white shadow-lg dropdown_button">
-                  <li className="py-2 border-b border-gray-500 px-6 hover:bg-[#ec4899]">
+                  <li className="text-md font-bold py-2 border-b border-gray-500 px-6 hover:bg-[#ec4899]">
                     <Link href="/about">
-                      <a className="block">About</a>
+                      <a className="block text-gray-600">About</a>
                     </Link>
                   </li>
-                  <li className="py-2 border-b border-gray-500 px-6 hover:bg-[#ec4899]">
+                  <li className="text-md font-bold py-2 border-b border-gray-500 px-6 hover:bg-[#ec4899]">
                     <Link href="/chat">
-                      <a className="block">Chat</a>
+                      <a className="block text-gray-600">Chat</a>
                     </Link>
                   </li>
-                  <li className="py-2 border-b border-gray-500 px-6 hover:bg-[#ec4899]">
+                  <li className="text-md font-bold py-2 border-b border-gray-500 px-6 hover:bg-[#ec4899]">
                     <Link href="/invite">
-                      <a className="block">Invite</a>
+                      <a className="block text-gray-600">Invite</a>
                     </Link>
                   </li>
-                  <li className="py-2 border-b border-gray-500 px-6 hover:bg-[#ec4899]">
+                  <li className="text-md font-bold py-2 border-b border-gray-500 px-6 hover:bg-[#ec4899]">
                     <Link href="/ourTeam">
-                      <a className="block">Our Team</a>
+                      <a className="block text-gray-600">Our Team</a>
                     </Link>
                   </li>
-                  <li className="py-2 px-6 hover:bg-[#ec4899]">
+                  <li className="text-md font-bold py-2 px-6 hover:bg-[#ec4899]">
                     <Link href="/setting">
-                      <a className="block">Setting</a>
+                      <a className="block text-gray-600">Setting</a>
                     </Link>
                   </li>
                 </ul>
               </li>
               <li className="mx-2 relative main_button">
-                <span className="flex items-center font-medium">
+                <span className="text-md font-bold flex items-center">
                   Spacial
                   <span className="pl-3 text-lg">
                     <MdKeyboardArrowDown />
                   </span>
                 </span>
                 <ul className="absolute top-6 text-md left-0 w-40 bg-white shadow-lg dropdown_button">
-                  <li className="py-2 border-b border-gray-500 px-6 hover:bg-[#ec4899]">
+                  <li className="text-md font-bold py-2 border-b border-gray-500 px-6 hover:bg-[#ec4899]">
                     <Link href="/community">
-                      <a className="block">Community</a>
+                      <a className="block text-gray-600">Community</a>
                     </Link>
                   </li>
-                  <li className="py-2 border-b border-gray-500 px-6 hover:bg-[#ec4899]">
+                  <li className="text-md font-bold py-2 border-b border-gray-500 px-6 hover:bg-[#ec4899]">
                     <Link href="/jobCreate">
-                      <a className="block">Make a Job</a>
+                      <a className="block text-gray-600">Make a Job</a>
                     </Link>
                   </li>
-                  <li className="py-2 border-b border-gray-500 px-6 hover:bg-[#ec4899]">
+                  <li className="text-md font-bold py-2 border-b border-gray-500 px-6 hover:bg-[#ec4899]">
                     <Link href="/support">
-                      <a className="block">Support center</a>
+                      <a className="block text-gray-600">Support center</a>
                     </Link>
                   </li>
-                  <li className="py-2 px-6 hover:bg-[#ec4899]">
+                  <li className="text-md font-bold py-2 px-6 hover:bg-[#ec4899]">
                     <Link href="/search_job">
-                      <a className="block">Job Search</a>
+                      <a className="block text-gray-600">Job Search</a>
                     </Link>
                   </li>
                 </ul>

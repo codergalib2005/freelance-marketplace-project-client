@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-page-custom-font */
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
 import { message } from "antd";
@@ -79,6 +80,16 @@ const GigCreation = () => {
     <div>
       <Head>
         <title>Gig Add</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+          rel="stylesheet"
+        />
+        <meta
+          name="keywords"
+          content="Gig Add, freelance-marketplace, marketplace, job, job search, job create, marketplace, freelance, freelancing, marketing, website, nextjs, project, freelancer, developer, candidate"
+        />
       </Head>
       <Header bg="bg-gray-900" />
       {loading ? (
@@ -91,62 +102,65 @@ const GigCreation = () => {
       ) : (
         <div className="mt-8 feature-font text-center">
           <div className="flex gap-4 md:gap-8 py-2 text-md mt-8  pl-6 justify-center items-center">
-            <div className="flex gap-2 items-center">
+            <div className="flex gap-2 items-center justify-center flex-col">
               <div
-                className={
+                className={` h-16 w-16 border-4 text-xl  rounded-full flex justify-center items-center 
+                ${
                   state.showPage === "MAIN_PAGE"
-                    ? "bg-green-500 text-white h-5 w-5 rounded-full flex justify-center items-center"
-                    : " h-5 w-5 rounded-full flex justify-center items-center border border-gray-500"
-                }
+                    ? " text-[#ad277c] border-[#ad277c]"
+                    : "border-[#ad277c56] text-[#ad277c56]"
+                }`}
               >
-                <p className="text-xs">1</p>
+                <p className="text-xl">1</p>
               </div>
               <button
-                className={
+                className={`text-xl uppercase mt-2 block ${
                   state.showPage === "MAIN_PAGE"
-                    ? "text-green-400 font-semibold text-xs md:text-base cursor-text"
-                    : "  text-xs md:text-base cursor-text text-gray-500"
-                }
+                    ? "text-[#ad277c]"
+                    : "text-[#ad277c56]"
+                }`}
               >
                 Gig Info
               </button>
             </div>
-            <div className="flex gap-2 items-center">
+            <div className="flex gap-2 items-center justify-center flex-col">
               <div
-                className={
-                  state.showPage === "PRICING_PAGE"
-                    ? "bg-green-500 text-white h-5 w-5 rounded-full flex justify-center items-center "
-                    : " h-5 w-5 rounded-full flex justify-center items-center border border-gray-500"
-                }
+                className={` h-16 w-16 border-4 text-xl  rounded-full  flex justify-center items-center
+              ${
+                state.showPage === "PRICING_PAGE"
+                  ? " text-[#ad277c] border-[#ad277c]"
+                  : "border-[#ad277c56] text-[#ad277c56]"
+              }`}
               >
                 <p className="text-xs">2</p>
               </div>
               <button
-                className={
+                className={`text-xl uppercase mt-2 block ${
                   state.showPage === "PRICING_PAGE"
-                    ? "text-green-400 font-semibold text-xs md:text-base cursor-text"
-                    : "  text-xs md:text-base cursor-text text-gray-500"
-                }
+                    ? "text-[#ad277c]"
+                    : "text-[#ad277c56]"
+                }`}
               >
                 Gig Price
               </button>
             </div>
-            <div className="flex gap-2 items-center">
+            <div className="flex gap-2 items-center justify-center flex-col">
               <div
-                className={
-                  state.showPage === "GALLERY_PAGE"
-                    ? "bg-green-500 text-white h-5 w-5 rounded-full flex justify-center items-center"
-                    : " h-5 w-5 rounded-full flex justify-center items-center border border-gray-500"
-                }
+                className={` h-16 w-16 border-4 text-xl  rounded-full  flex justify-center items-center 
+              ${
+                state.showPage === "GALLERY_PAGE"
+                  ? " text-[#ad277c] border-[#ad277c]"
+                  : "border-[#ad277c56] text-[#ad277c56]"
+              }`}
               >
-                <p className="text-xs">3</p>
+                <p className="text-xl">3</p>
               </div>
               <button
-                className={
+                className={`text-xl uppercase mt-2 block ${
                   state.showPage === "GALLERY_PAGE"
-                    ? "text-green-400 font-semibold text-xs md:text-base cursor-text"
-                    : "  text-xs md:text-base cursor-text text-gray-500"
-                }
+                    ? "text-[#ad277c]"
+                    : "text-[#ad277c56]"
+                }`}
               >
                 Gig Imgages
               </button>
@@ -541,7 +555,7 @@ const GigCreation = () => {
                   <div className="mt-4 mb-12 text-center">
                     <button
                       onClick={() => dispatch({ type: "PRICING_PAGE" })}
-                      className="py-3 px-20 rounded-md bg-green-700 text-white font-bold text-lg"
+                      className="py-3 px-20 rounded-md bg-[#ad277c] text-white font-bold text-lg"
                     >
                       Next
                     </button>
@@ -551,13 +565,13 @@ const GigCreation = () => {
                   <div className="mt-8 mb-12 flex gap-4 justify-center">
                     <button
                       onClick={() => dispatch({ type: "MAIN_PAGE" })}
-                      className="py-3 px-20 text-green-900 font-bold text-lg border  border-lime-500 rounded-md"
+                      className="py-3 px-20 text-[#ad277c] font-bold text-lg border  border-[#ad277c] rounded-md"
                     >
                       Back
                     </button>
                     <button
                       onClick={() => dispatch({ type: "GALLERY_PAGE" })}
-                      className="py-3 px-20 bg-green-700 text-white font-bold text-lg rounded-md"
+                      className="py-3 px-20 bg-[#ad277c] text-white font-bold text-lg rounded-md"
                     >
                       Next
                     </button>
@@ -567,11 +581,11 @@ const GigCreation = () => {
                   <div className="mt-8 mb-12 flex gap-4 justify-center">
                     <button
                       onClick={() => dispatch({ type: "PRICING_PAGE" })}
-                      className="py-3 px-8 md:px-12 text-green-900 font-bold text-lg rounded-md  border  border-emerald-400 "
+                      className="py-3 px-8 md:px-12 text-[#ad277c] font-bold text-lg rounded-md  border  border-[#ad277c] "
                     >
                       Back
                     </button>
-                    <button className="bg-green-900 py-3 px-8 md:px-12 text-lg font-bold text-white rounded-md">
+                    <button className="bg-[#ad277c] py-3 px-8 md:px-12 text-lg font-bold text-white rounded-md">
                       Confirm Gig Publish
                     </button>
                   </div>

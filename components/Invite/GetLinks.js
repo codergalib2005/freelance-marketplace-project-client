@@ -1,7 +1,7 @@
 import { message } from "antd";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import {notification} from "antd";
+import { notification } from "antd";
 const GetLinks = () => {
   const [copied, setCopied] = useState(false);
 
@@ -74,7 +74,9 @@ const GetLinks = () => {
                 <button
                   className="appearance-none py-2 block w-24 text-gray-700 border rounded-l-none  rounded px-4  leading-tight focus:outline-none bg-gray-200 border-gray-500 focus:bg-gray-300 text-lg font-bold"
                   onClick={() => {
-                    navigator.clipboard.writeText("http://localhost:3000/");
+                    navigator.clipboard.writeText(
+                      "https://freelance-marketplace-project-client.vercel.app/"
+                    );
                     alert("Copied success");
                   }}
                 >

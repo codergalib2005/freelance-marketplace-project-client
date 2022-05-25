@@ -6,7 +6,7 @@
 
 @import url("http://fonts.cdnfonts.com/css/cubano");
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital@1&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600&display=swap");
 /* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap"); */
 *,
 *::after,
@@ -22,7 +22,7 @@ body {
   margin: 0;
   /* font-family: "Poppins", sans-serif !important; */
   /* font-family: "Cubano", sans-serif; */
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif !important;
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
@@ -33,17 +33,17 @@ a {
 }
 .lato {
   /* font-family: "Lato", sans-serif; */
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif !important;
 }
 * {
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif !important;
 }
 .custom-font-1 {
-  font-family: "PT Sans", sans-serif;
+  font-family: "PT Sans", sans-serif !important;
 }
 .italic_text {
-  font-family: "Hurricane", cursive;
+  font-family: "Hurricane", cursive !important;
 }
 .container {
   width: 100%;
@@ -92,11 +92,11 @@ body::-webkit-scrollbar-thumb {
   body::-webkit-scrollbar {
     width: 0px;
   }
-  
+
   body::-webkit-scrollbar-track {
     box-shadow: none;
   }
-  
+
   body::-webkit-scrollbar-thumb {
     background-color: none;
     border-left: none;
