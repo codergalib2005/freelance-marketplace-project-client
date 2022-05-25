@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-page-custom-font */
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable @next/next/no-img-element */
-import { message } from "antd";
 import axios from "axios";
 import { useRouter } from "next/router";
 import React, { useEffect, useReducer, useState } from "react";
@@ -12,6 +11,8 @@ import { notification } from "antd";
 import { withPrivate } from "../../hooks/PrivateRoute";
 import useAuth from "../../hooks/useAuth";
 import Head from "next/head";
+import { AiOutlineCloudUpload } from "react-icons/ai";
+import { BsCheckLg } from "react-icons/bs";
 const showPageMood = {
   showPage: "MAIN_PAGE",
 };
@@ -30,7 +31,28 @@ const controlReducer = (state, action) => {
 const GigCreation = () => {
   const [state, dispatch] = useReducer(controlReducer, showPageMood);
   const [thisUser, setThisUser] = useState({});
-  console.log(thisUser);
+  const [image, setImage] = useState(null);
+  const [images, setImages] = useState([]);
+
+  // IMAGE UPLOAD IN CLOUDINARY__
+  const handleImageUpload = () => {
+    if (image) {
+      const formData = new FormData();
+      formData.append("file", image[0]);
+      formData.append("upload_preset", "jsjb2bic");
+      formData.append("upload_preset", "jsjb2bic");
+      axios
+        .post("https://api.cloudinary.com/v1_1/gsbsoft/image/upload", formData)
+        .then((response) => {
+          setImage(null);
+          setImages([...images, response.data.secure_url]);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  };
+  console.log(images);
   const {
     register,
     handleSubmit,
@@ -47,34 +69,38 @@ const GigCreation = () => {
   const onSubmit = (data) => {
     data.email = user.email;
     data.name = user.displayName;
-    // data.name = thisUser.displayName;
-    let gallery = new Array();
-    gallery.push(data.image1);
-    gallery.push(data.image2);
-    gallery.push(data.image3);
-    gallery.push(data.image4);
-    data.gallery = gallery;
-    // data.name = thisUser?.name;
-    // data.email = thisUser?.email;
-    axios
-      .post(`${process.env.NEXT_PUBLIC_API_URL}/gigs`, data)
-      .then((res) => {
-        notification.success({
-          message: "Success",
-          description: "Gig Created Successfully!",
-          placement: "top",
-          duration: 2,
-          style: {
-            width: 300,
-            //   marginLeft: "calc(50% - 150px)",
-            //   marginTop: "calc(50vh - 100px)",
-            borderBottom: "6px solid #3a3",
-            boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
-          },
+    console.log(data);
+    // =====================================================
+    if (data?.gig_title && data.description) {
+      if (!(images.length >= 4)) {
+        notification.warning({
+          message: "Warning",
+          description: "Please upload at least 4 images",
         });
-        router.replace("/profile");
-      })
-      .catch((err) => console.log(err));
+        return;
+      } else {
+        data.gallery = images;
+        axios
+          .post(`${process.env.NEXT_PUBLIC_API_URL}/gigs`, data)
+          .then((res) => {
+            notification.success({
+              message: "Success",
+              description: "Gig Created Successfully!",
+              placement: "top",
+              duration: 2,
+              style: {
+                width: 300,
+                //   marginLeft: "calc(50% - 150px)",
+                //   marginTop: "calc(50vh - 100px)",
+                borderBottom: "6px solid #3a3",
+                boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
+              },
+            });
+            router.replace("/profile");
+          })
+          .catch((err) => console.log(err));
+      }
+    }
   };
   return (
     <div>
@@ -256,7 +282,7 @@ const GigCreation = () => {
                               }}
                               placeholder="Write your gig descriptions here..!"
                               className="block p-2 border w-full   border-gray-300 rounded-md focus:outline focus:outline-[#2A3254]"
-                              {...register("gig_title", {
+                              {...register("description", {
                                 required: true,
                                 maxLength: 100,
                               })}
@@ -478,70 +504,56 @@ const GigCreation = () => {
                       boxShadow: "-2px 3px 15px rgba(0,0,0,0.1)",
                       minHeight: "100px",
                     }}
-                    className="  p-6 py-8 lg:py-16 rounded-lg "
+                    className="p-6 py-8 lg:py-16 rounded-lg "
                   >
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                      <div>
-                        <strong className="text-lg text-[#2A3254] text-bold mb-3 block border ">
-                          Select image One
-                        </strong>
-                        <input
-                          className="border w-full p-2 focus:outline focus:outline-[#2A3254]"
-                          placeholder="img-url..."
-                          type="text"
-                          {...register("image1", { required: true })}
-                        />
-                        {errors.image1 && (
-                          <span className="text-red-700 block">
-                            Image one is required
-                          </span>
-                        )}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div
+                        className={`grid gap-3 ${
+                          images?.length > 0 && images?.length <= 2
+                            ? "grid-cols-2"
+                            : images?.length <= 4 && images?.length >= 3
+                            ? "grid-cols-3"
+                            : "grid-cols-4"
+                        }`}
+                      >
+                        {images?.map((image, index) => (
+                          <div
+                            key={index}
+                            className="shadow-xl border-4 border-white rounded-md overflow-hidden"
+                          >
+                            <img
+                              className="w-full"
+                              src={image}
+                              alt="Gig Images"
+                            />
+                          </div>
+                        ))}
                       </div>
                       <div>
-                        <strong className="text-lg text-[#2A3254] text-bold mb-3 block border ">
-                          Select image Two
-                        </strong>
                         <input
-                          className="border w-full p-2 focus:outline focus:outline-[#2A3254]"
-                          placeholder="img-url..."
-                          type="text"
-                          {...register("image2", { required: true })}
+                          type="file"
+                          id="imageuploadforgig"
+                          className="hidden"
+                          required
+                          onChange={(e) => {
+                            setImage(e.target.files);
+                          }}
                         />
-                        {errors.image2 && (
-                          <span className="text-red-700 block">
-                            Image two is required
+                        <label htmlFor="imageuploadforgig">
+                          <div className="text-8xl text-white bg-[#ad277c] w-full min-h-[130px] rounded-xl flex items-center justify-center">
+                            {!image ? <AiOutlineCloudUpload /> : <BsCheckLg />}
+                          </div>
+                        </label>
+                        {image ? (
+                          <span
+                            onClick={handleImageUpload}
+                            className="uppercase font-medium py-2 px-5 bg-[#ad277c] rounded-full text-white"
+                          >
+                            Upload
                           </span>
-                        )}
-                      </div>
-                      <div>
-                        <strong className="text-lg text-[#2A3254] text-bold mb-3 block border ">
-                          Select image Three
-                        </strong>
-                        <input
-                          className="border w-full p-2 focus:outline focus:outline-[#2A3254]"
-                          placeholder="img-url..."
-                          type="text"
-                          {...register("image3", { required: true })}
-                        />
-                        {errors.image3 && (
-                          <span className="text-red-700 block">
-                            Image three is required
-                          </span>
-                        )}
-                      </div>
-                      <div>
-                        <strong className="text-lg text-[#2A3254] text-bold mb-3 block border ">
-                          Select image Four
-                        </strong>
-                        <input
-                          className="border w-full p-2 focus:outline focus:outline-[#2A3254]"
-                          placeholder="img-url..."
-                          type="text"
-                          {...register("image4", { required: true })}
-                        />
-                        {errors.image4 && (
-                          <span className="text-red-700 block">
-                            Image four is required
+                        ) : (
+                          <span className="uppercase font-medium py-2 px-5 bg-[#2a3254] rounded-full text-white">
+                            Upload
                           </span>
                         )}
                       </div>
