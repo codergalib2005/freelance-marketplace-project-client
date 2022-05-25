@@ -58,44 +58,48 @@ const GigDetails = () => {
         }
       );
   }, [user?.email]);
-
+  // buyerImage
   const { register, handleSubmit, reset } = useForm();
   const onSubmit = (data) => {
-    (data.rating = rating),
-      (data.sellerEmail = gig?.email),
-      (data.buyerEmail = user?.email),
-      (data.buyerName = user?.displayName ? user?.displayName : "Buyer Name"),
-      //post
-      axios
-        .post(
-          `${process.env.NEXT_PUBLIC_API_URL}/reviews/`,
-          data,
-
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        )
-        .then((response) => {
-          if (response.statusText === "OK") {
-            setSellerEmail(sellerEmail);
-            notification.success({
-              message: "Success",
-              description: "Review Created Successfully!",
-              placement: "top",
-              duration: 2,
-              style: {
-                width: 300,
-                borderBottom: "6px solid #3a3",
-                boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
-              },
-            });
-            // something
-            reset();
-          }
-        })
-        .catch((err) => console.log(err));
+    const body = new Object();
+    body.rating = rating;
+    body.sellerEmail = gig?.email;
+    body.buyerEmail = user?.email;
+    body.buyerName = user?.displayName ? user?.displayName : "Buyer Name";
+    body.description = data?.description;
+    body.profession = data?.profession;
+    const formData = new FormData();
+    formData.append("file", data?.buyerImage[0]);
+    formData.append("upload_preset", "jsjb2bic");
+    formData.append("upload_preset", "jsjb2bic");
+    axios
+      .post("https://api.cloudinary.com/v1_1/gsbsoft/image/upload", formData)
+      .then((res) => {
+        body.buyerImage = res.data.secure_url;
+        axios
+          .post(`${process.env.NEXT_PUBLIC_API_URL}/reviews/`, body, {
+            headers: { "Content-Type": "application/json" },
+          })
+          .then((response) => {
+            if (response.statusText === "OK") {
+              console.log(response);
+              setSellerEmail([...sellerEmail, response.data]);
+              notification.success({
+                message: "Success",
+                description: "Review Created Successfully!",
+                placement: "top",
+                duration: 2,
+                style: {
+                  width: 300,
+                  borderBottom: "6px solid #3a3",
+                  boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
+                },
+              });
+              // something
+              reset();
+            }
+          });
+      });
   };
   const configJson = {
     headers: {
@@ -477,14 +481,14 @@ const GigDetails = () => {
                       className="shadow-xl p-3"
                     >
                       <textarea
-                        className="py-1 px-2 rounded-2 h-18 border border-[#2a3254] rounded-md shadow-lg"
+                        className="py-1 px-2 rounded-2 h-18 rounded-md "
                         {...register("description")}
                         placeholder="Your Comment"
                         required
                       />{" "}
                       <br /> <br />
                       <input
-                        className="py-1 px-2 rounded-2 border border-[#2a3254] rounded-md shadow-lg"
+                        className="py-1 px-2 rounded-2 border-2 rounded-md shadow-lg "
                         {...register("profession")}
                         placeholder="Your profession*"
                         type="text"
@@ -497,6 +501,7 @@ const GigDetails = () => {
                         {...register("buyerImage")}
                         id="buyerImage"
                         placeholder="Your image URL*"
+                        accept="image/jpg, image/jpeg, image/png"
                         required
                       />{" "}
                       <label htmlFor="buyerImage" className="inline">
