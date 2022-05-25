@@ -3,7 +3,7 @@ export const supportTeam = [
     id: 4,
     name: "Asadullah Hil Galib",
     img: "https://i.ibb.co/YcQTZpY/galib.png",
-    support: "Web Developement",
+    support: "Web Application Developement",
   },
   {
     id: 5,
@@ -25,9 +25,9 @@ export const supportTeam = [
   },
   {
     id: 8,
-    name: "Md Alamin Islam",
+    name: "Al Amin",
     img: "https://i.ibb.co/x3dZBfk/almin.png",
-    support: "Features implementation",
+    support: "Mern Developer",
   },
   {
     id: 9,

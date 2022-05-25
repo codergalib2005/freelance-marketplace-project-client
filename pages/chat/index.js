@@ -236,7 +236,11 @@ function ChatApp() {
               <div className="chatBoxTop ">
                 {messages.map((m, i) => (
                   <div key={i} ref={scrollRef}>
-                    <Message message={m} own={m.sender === user?.email} />
+                    <Message
+                      message={m}
+                      user={user}
+                      own={m.sender === user?.email}
+                    />
                   </div>
                 ))}
               </div>

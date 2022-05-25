@@ -4,24 +4,21 @@
 import axios from "axios";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-import Moment from "react-moment";
 import SliderBannerImage from "../../../../components/gigs/SliderBannerImage";
 import useAuth from "../../../../hooks/useAuth";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import Rating from "@mui/material/Rating";
-import { message } from "antd";
 import styles from "../../../../styles/gigid.module.css";
 import Header from "../../../../components/Shared/Header";
 import HeaderTop from "../../../../components/Shared/HeaderTop";
 import { notification } from "antd";
-// import Loader from "../../../../components/loader/loader";
 import Footer from "../../../../components/Shared/Footer";
+import { FiUploadCloud } from "react-icons/fi";
 
 const GigDetails = () => {
-  const { user, loading } = useAuth();
+  const { user } = useAuth();
   const [gig, setSingleGig] = useState({});
-  const [gigUser, setGigUser] = useState({});
   const [showPricing, setShowPricing] = useState("beginner");
   const router = useRouter();
   const [rating, setRating] = useState(0);
@@ -63,44 +60,42 @@ const GigDetails = () => {
   }, [user?.email]);
 
   const { register, handleSubmit, reset } = useForm();
-  console.log(user);
   const onSubmit = (data) => {
     (data.rating = rating),
       (data.sellerEmail = gig?.email),
       (data.buyerEmail = user?.email),
       (data.buyerName = user?.displayName ? user?.displayName : "Buyer Name"),
       //post
-      console.log(data);
-    axios
-      .post(
-        `${process.env.NEXT_PUBLIC_API_URL}/reviews/`,
-        data,
+      axios
+        .post(
+          `${process.env.NEXT_PUBLIC_API_URL}/reviews/`,
+          data,
 
-        {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        }
-      )
-      .then((response) => {
-        if (response.statusText === "OK") {
-          setSellerEmail(sellerEmail);
-          notification.success({
-            message: "Success",
-            description: "Review Created Successfully!",
-            placement: "top",
-            duration: 2,
-            style: {
-              width: 300,
-              borderBottom: "6px solid #3a3",
-              boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
+          {
+            headers: {
+              "Content-Type": "application/json",
             },
-          });
-          // something
-          reset();
-        }
-      })
-      .catch((err) => console.log(err));
+          }
+        )
+        .then((response) => {
+          if (response.statusText === "OK") {
+            setSellerEmail(sellerEmail);
+            notification.success({
+              message: "Success",
+              description: "Review Created Successfully!",
+              placement: "top",
+              duration: 2,
+              style: {
+                width: 300,
+                borderBottom: "6px solid #3a3",
+                boxShadow: "0px 1px 3px rgba(0, 0, 0, 0.4)",
+              },
+            });
+            // something
+            reset();
+          }
+        })
+        .catch((err) => console.log(err));
   };
   const configJson = {
     headers: {
@@ -477,7 +472,10 @@ const GigDetails = () => {
                       <br />
                     </span>
                     <br />
-                    <form onSubmit={handleSubmit(onSubmit)}>
+                    <form
+                      onSubmit={handleSubmit(onSubmit)}
+                      className="shadow-xl p-3"
+                    >
                       <textarea
                         className="py-1 px-2 rounded-2 h-18 border border-[#2a3254] rounded-md shadow-lg"
                         {...register("description")}
@@ -494,11 +492,18 @@ const GigDetails = () => {
                       />{" "}
                       <br /> <br />
                       <input
-                        className="py-1 px-2 rounded-2 border border-[#2a3254] rounded-md shadow-lg"
+                        type="file"
+                        className="hidden"
                         {...register("buyerImage")}
+                        id="buyerImage"
                         placeholder="Your image URL*"
                         required
                       />{" "}
+                      <label htmlFor="buyerImage" className="inline">
+                        <div className="bg-gray-200 text-8xl text-gray-600 min-h-[100px] rounded-lg flex items-center justify-center cursor-pointer">
+                          <FiUploadCloud />
+                        </div>
+                      </label>
                       <br /> <br />
                       <input
                         className="text-white bg-purple-500 px-4 py-2 rounded-md font-bold"
